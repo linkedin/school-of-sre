@@ -1,0 +1,10 @@
+site_name: school_of_sre
+docs_dir: courses
+nav:
+- Home: index.md
+- Systems Design:
+    - Intro: systems_design/intro.md
+    - Scalability: systems_design/scalability.md
+    - Availability: systems_design/availability.md
+    - Fault Tolerance: systems_design/fault-tolerance.md
+    - Conclusion: systems_design/conclusion.md
