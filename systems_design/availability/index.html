@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Availability - school_of_sre</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">school_of_sre</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Systems Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../scalability/">Scalability</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Availability</a>
+</li>
+                                    
+<li >
+    <a href="../fault-tolerance/">Fault Tolerance</a>
+</li>
+                                    
+<li >
+    <a href="../conclusion/">Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../scalability/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../fault-tolerance/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#ha-availability-common-nines">HA - Availability - Common “Nines”</a></li>
+            <li><a href="#refer">Refer</a></li>
+        <li class="main "><a href="#ha-availability-serial-components">HA - Availability Serial Components</a></li>
+            <li><a href="#refer_1">Refer</a></li>
+        <li class="main "><a href="#ha-availability-parallel-components">HA - Availability Parallel Components</a></li>
+            <li><a href="#refer_2">Refer</a></li>
+        <li class="main "><a href="#ha-core-principles">HA - Core Principles</a></li>
+            <li><a href="#refer_3">Refer</a></li>
+        <li class="main "><a href="#ha-spof">HA - SPOF</a></li>
+        <li class="main "><a href="#ha-reliable-crossover">HA - Reliable Crossover</a></li>
+        <li class="main "><a href="#sre-use-cases">SRE Use cases</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h2 id="ha-availability-common-nines">HA - Availability - Common “Nines”</h2>
+<p>Availability is generally expressed as “Nines”, common ‘Nines’  are listed below.</p>
+<table>
+<thead>
+<tr>
+<th>Availability %</th>
+<th align="center">Downtime per year</th>
+<th align="center">Downtime per month</th>
+<th align="center">Downtime per week</th>
+<th align="center">Downtime per day</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>99%(Two Nines)</td>
+<td align="center">3.65 days</td>
+<td align="center">7.31 hours</td>
+<td align="center">1.68 hours</td>
+<td align="center">14.40 minutes</td>
+</tr>
+<tr>
+<td>99.5%(Two and a half Nines)</td>
+<td align="center">1.83 days</td>
+<td align="center">3.65 hours</td>
+<td align="center">50.40 minutes</td>
+<td align="center">7.20 minutes</td>
+</tr>
+<tr>
+<td>99.9%(Three Nines)</td>
+<td align="center">8.77 hours</td>
+<td align="center">43.83 minutes</td>
+<td align="center">10.08 minutes</td>
+<td align="center">1.44 minutes</td>
+</tr>
+<tr>
+<td>99.95%(Three and a half Nines)</td>
+<td align="center">4.38 hours</td>
+<td align="center">21.92 minutes</td>
+<td align="center">5.04 minutes</td>
+<td align="center">43.20 seconds</td>
+</tr>
+<tr>
+<td>99.99%(Four Nines)</td>
+<td align="center">52.60 minutes</td>
+<td align="center">4.38 minutes</td>
+<td align="center">1.01 minutes</td>
+<td align="center">8.64 seconds</td>
+</tr>
+<tr>
+<td>99.995%(Four and a half Nines)</td>
+<td align="center">26.30 minutes</td>
+<td align="center">2.19 minutes</td>
+<td align="center">30.24 seconds</td>
+<td align="center">4.32 seconds</td>
+</tr>
+<tr>
+<td>99.999%(Five Nines)</td>
+<td align="center">5.26 minutes</td>
+<td align="center">26.30 seconds</td>
+<td align="center">6.05 seconds</td>
+<td align="center">864.0 ms</td>
+</tr>
+</tbody>
+</table>
+<h3 id="refer">Refer</h3>
+<ul>
+<li>https://en.wikipedia.org/wiki/High_availability#Percentage_calculation</li>
+</ul>
+<h2 id="ha-availability-serial-components">HA - Availability Serial Components</h2>
+<p>A System with components is operating in the series If failure of a part leads to the combination becoming inoperable.</p>
+<p>For example if LB in our architecture fails, all access to app tiers will fail. LB and app tiers are connected serially.</p>
+<p>The combined availability of the system is the product of individual components availability</p>
+<p><em>A = Ax x Ay x …..</em></p>
+<h3 id="refer_1">Refer</h3>
+<ul>
+<li>http://www.eventhelix.com/RealtimeMantra/FaultHandling/system_reliability_availability.htm</li>
+</ul>
+<h2 id="ha-availability-parallel-components">HA - Availability Parallel Components</h2>
+<p>A System with components is operating in parallel If failure of a part leads to the other part taking over the operations of the failed part.</p>
+<p>If we have more than one LB and if rest of the LBs can take over the traffic during one LB failure then LBs are operating in parallel</p>
+<p>The combined availability of the system is </p>
+<p><em>A = 1 - ( (1-Ax) x (1-Ax) x ….. )</em></p>
+<h3 id="refer_2">Refer</h3>
+<ul>
+<li>http://www.eventhelix.com/RealtimeMantra/FaultHandling/system_reliability_availability.htm</li>
+</ul>
+<h2 id="ha-core-principles">HA - Core Principles</h2>
+<p><strong>Elimination of single points of failure (SPOF)</strong> This means adding redundancy to the system so that the failure of a component does not mean failure of the entire system.</p>
+<p><strong>Reliable crossover</strong> In redundant systems, the crossover point itself tends to become a single point of failure. Reliable systems must provide for reliable crossover.</p>
+<p><strong>Detection of failures as they occur</strong> If the two principles above are observed, then a user may never see a failure </p>
+<h3 id="refer_3">Refer</h3>
+<ul>
+<li>https://en.wikipedia.org/wiki/High_availability#Principles</li>
+</ul>
+<h2 id="ha-spof">HA - SPOF</h2>
+<p><strong>WHAT:</strong> Never implement and always eliminate single points of failure.</p>
+<p><strong>WHEN TO USE:</strong> During architecture reviews and new designs.</p>
+<p><strong>HOW TO USE:</strong> Identify single instances on architectural diagrams. Strive for active/active configurations. At the very least we should have a standby to take control when active instances fail.</p>
+<p><strong>WHY:</strong> Maximize availability through multiple instances.</p>
+<p><strong>KEY TAKEAWAYS:</strong> Strive for active/active rather than active/passive solutions. Use load balancers to balance traffic across instances of a service. Use control services with active/passive instances for patterns that require singletons.</p>
+<h2 id="ha-reliable-crossover">HA - Reliable Crossover</h2>
+<p><strong>WHAT:</strong> Ensure when system components failover they do so reliably.</p>
+<p><strong>WHEN TO USE:</strong> During architecture reviews, failure modeling, and designs.</p>
+<p><strong>HOW TO USE:</strong> Identify how available a system is during the crossover and ensure it is within acceptable limits. </p>
+<p><strong>WHY:</strong> Maximize availability and ensure data handling semantics are preserved.  </p>
+<p><strong>KEY TAKEAWAYS:</strong> Strive for active/active rather than active/passive solutions, they have a lesser risk of cross over being unreliable. Use LB and right load balancing methods to ensure reliable failover. Model and build your data systems to ensure data is correctly handled when crossover happens. Generally DB systems follow active/passive semantics for writes. Masters accept writes and when master goes down, follower is promoted to master(active from being passive) to accept writes. We have to be careful here that the cutover never introduces more than one masters. This problem is called a split brain.</p>
+<h2 id="sre-use-cases">SRE Use cases</h2>
+<ol>
+<li>SRE works on deciding an acceptable SLA and make sure system is available to achieve the SLA</li>
+<li>SRE is involved in architecture design right from building the data center to make sure site is not affected by network switch, hardware, power or software failures</li>
+<li>SRE also run mock drills of failures to see how the system behaves in uncharted territory and comes up with a plan to improve availability if there are misses. 
+https://engineering.linkedin.com/blog/2017/11/resilience-engineering-at-linkedin-with-project-waterbear</li>
+</ol>
+<p>Post our understanding about HA, our architecture diagram looks something like this below
+<img alt="HA Block Diagram" src="https://user-images.githubusercontent.com/1917513/97536836-c21ec880-19e3-11eb-9e22-9baef14a70a4.jpg" /></p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
