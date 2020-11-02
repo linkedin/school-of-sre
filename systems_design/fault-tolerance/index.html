@@ -135,10 +135,10 @@
 <p>Systems should have a short circuit. Say in our content sharing system, if “Notifications” is not working, the site should gracefully handle that failure by removing the functionality instead of taking the whole site down. </p>
 <p>Swimlane is one of the commonly used fault isolation methodology. Swimlane adds a barrier to the service from other services so that failure on either of them won’t affect the other. Say we roll out a new feature ‘Advertisement’ in our content sharing app.
 We can have two architectures
-<img alt="Swimlane" src="https://user-images.githubusercontent.com/1917513/97346462-79ff8900-18b1-11eb-9fe3-5bb42e4a9630.jpg" /></p>
+<img alt="Swimlane" src="../images/swimlane-1.jpg" /></p>
 <p>If Ads are generated on the fly synchronously during each Newsfeed request, the faults in Ads feature gets propagated to Newsfeed feature. Instead if we swimlane “Generation of Ads” service and use a shared storage to populate Newsfeed App, Ads failures won’t cascade to Newsfeed and worst case if Ads don’t meet SLA , we can have Newsfeed without Ads.</p>
 <p>Let's take another example, we come up with a new model for our Content sharing App. Here we roll out enterprise content sharing App where enterprises pay for the service and the content should never be shared outside the enterprise. </p>
-<p><img alt="Swimlane-principles" src="https://user-images.githubusercontent.com/1917513/97346569-9f8c9280-18b1-11eb-942e-9274a7ac50ef.jpg" /></p>
+<p><img alt="Swimlane-principles" src="../images/swimlane-2.jpg" /></p>
 <h3 id="swimlane-principles">Swimlane Principles</h3>
 <p><strong>Principle 1:</strong> Nothing is shared (also known as “share as little as possible”). The less that is shared within a swim lane, the more fault isolative the swim lane becomes. (as shown in Enterprise usecase)</p>
 <p><strong>Principle 2:</strong> Nothing crosses a swim lane boundary. Synchronous (defined by expecting a request—not the transfer protocol) communication never crosses a swim lane boundary; if it does, the boundary is drawn incorrectly. (as shown in Ads feature)</p>

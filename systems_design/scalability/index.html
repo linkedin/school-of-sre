@@ -124,7 +124,7 @@
 <h2 id="scalability-horizontal-scaling">Scalability - Horizontal scaling</h2>
 <p>Horizontal scaling stands for  cloning of an application or service such that work can easily be distributed across instances with absolutely no bias.</p>
 <p>Lets see how our monolithic application improves with this principle</p>
-<p><img alt="Horizontal Scaling" src="https://user-images.githubusercontent.com/1917513/97341202-c1cee200-18aa-11eb-9a36-92dc2d59a095.jpg" /></p>
+<p><img alt="Horizontal Scaling" src="../images/horizontal-scaling.jpg" /></p>
 <p>Here DB is scaled separately from the application. This is to let you know each component’s scaling capabilities can be different. Usually web applications can be scaled by adding resources unless there is no state stored inside the application. But DBs can be scaled only for Reads by adding more followers but Writes have to go to only one master to make sure data is consistent. There are some DBs which support multi master writes but we are keeping them out of scope at this point. </p>
 <p>Apps should be able to differentiate between Read and Writes to choose appropriate DB servers. Load balancers can split traffic between identical servers  transparently.</p>
 <p><strong>WHAT:</strong>  Duplication of services or databases to spread transaction load.</p>
@@ -173,7 +173,7 @@ Using multiple components with load balancing instead of a single component may 
 - https://twitter.github.io/finagle/guide/Clients.html#load-balancing</p>
 <h3 id="scalability-pattern-caching-content-delivery-networks-cdn">Scalability Pattern - Caching - Content Delivery Networks (CDN)</h3>
 <p>CDNs are added closer to the client’s location. If the app has static data like images,  Javascript, CSS which don’t change very often, they can be cached. Since our example is a content sharing site, static content can be cached in CDNs with a suitable expiry.</p>
-<p><img alt="CDN block diagram" src="https://user-images.githubusercontent.com/1917513/97535126-23916800-19e1-11eb-998c-40b8efad4bbd.jpg" /></p>
+<p><img alt="CDN block diagram" src="../images/cdn.jpg" /></p>
 <p><strong>WHAT:</strong> Use CDNs (content delivery networks) to offload traffic from your site.</p>
 <p><strong>WHEN TO USE:</strong> When speed improvements and scale warrant the additional cost.</p>
 <p><strong>HOW TO USE:</strong> Most CDNs leverage DNS to serve content on your site’s behalf. Thus you may need to make minor DNS changes or additions and move content to be served from new subdomains.</p>
@@ -187,7 +187,7 @@ media-exp1.licdn.com is a domain used by Linkedin to serve static content</p>
 <h2 id="scalability-microservices">Scalability - Microservices</h2>
 <p>This pattern represents the separation of work by service or function within the application. Microservices are meant to address the issues associated with growth and complexity in the code base and data sets. The intent is to create fault isolation as well as to reduce response times.</p>
 <p>Microservices can scale transactions, data sizes, and codebase sizes. They are most effective in scaling the size and complexity of your codebase. They tend to cost a bit more than horizontal scaling because the engineering team needs to rewrite services or, at the very least, disaggregate them from the original monolithic application.</p>
-<p><img alt="Microservices block diagram" src="https://user-images.githubusercontent.com/1917513/97342890-d2805780-18ac-11eb-8f6e-7437bedfe046.jpg" /></p>
+<p><img alt="Microservices block diagram" src="../images/microservices.jpg" /></p>
 <p><strong>WHAT:</strong> Sometimes referred to as scale through services or resources, this rule focuses on scaling by splitting data sets, transactions, and engineering teams along verb (services) or noun (resources) boundaries.</p>
 <p><strong>WHEN TO USE:</strong> Very large data sets where relations between data are not necessary. Large, complex systems where scaling engineering resources requires specialization.</p>
 <p><strong>HOW TO USE:</strong>  Split up actions by using verbs, or resources by using nouns, or use a mix. Split both the services and the data along the lines defined by the verb/noun approach.</p>
@@ -201,10 +201,10 @@ media-exp1.licdn.com is a domain used by Linkedin to serve static content</p>
 <p>This pattern represents the separation of work based on attributes that are looked up or determined at the time of the transaction. Most often, these are implemented as splits by requestor, customer, or client.</p>
 <p>Very often, a lookup service or deterministic algorithm will need to be written for these types of splits.</p>
 <p>Sharding aids in scaling transaction growth, scaling instruction sets, and decreasing processing time (the last by limiting the data necessary to perform any transaction). This  is  more effective at scaling growth in customers or clients. It can aid with disaster recovery efforts, and limit the impact of incidents to only a specific segment of customers.</p>
-<p><img alt="Sharding-block-1" src="https://user-images.githubusercontent.com/1917513/97343099-16735c80-18ad-11eb-8bf5-f5a1370cd370.jpg" /></p>
+<p><img alt="Sharding-block-1" src="../images/sharding-1.jpg" /></p>
 <p>Here the auth  data is sharded based on user names so that DBs can respond faster as the amount of data DBs have to work on has drastically reduced during queries.</p>
 <p>There can be other ways to split </p>
-<p><img alt="Sharding-block-2" src="https://user-images.githubusercontent.com/1917513/97343189-3440c180-18ad-11eb-8e3c-ae1afbe62431.jpg" /></p>
+<p><img alt="Sharding-block-2" src="../images/sharding-2.jpg" /></p>
 <p>Here the whole data centre is split and replicated and clients are directed to a data centre based on their geography. This helps in improving performance as clients are directed to the closest Data centre and performance increases as we add more data centres. There are some replication and consistency overhead with this approach one needs to be aware of.  This also gives fault tolerance by rolling out test features to one site and rollback if there is an impact to that geography</p>
 <p><strong>WHAT:</strong> This is very often a split by some unique aspect of the customer such as customer ID, name, geography, and so on.</p>
 <p><strong>WHEN TO USE:</strong> Very large, similar data sets such as large and rapidly growing customer bases or when the response time for a geographically distributed customer base is important.</p>
