@@ -84,5 +84,5 @@ https://engineering.linkedin.com/blog/2017/11/resilience-engineering-at-linkedin
 
 
 Post our understanding about HA, our architecture diagram looks something like this below
-![HA Block Diagram](https://user-images.githubusercontent.com/1917513/97536836-c21ec880-19e3-11eb-9e22-9baef14a70a4.jpg)
+![HA Block Diagram](images/availability.jpg)
 

@@ -34,13 +34,13 @@ Systems should have a short circuit. Say in our content sharing system, if “No
 
 Swimlane is one of the commonly used fault isolation methodology. Swimlane adds a barrier to the service from other services so that failure on either of them won’t affect the other. Say we roll out a new feature ‘Advertisement’ in our content sharing app.
 We can have two architectures
-![Swimlane](https://user-images.githubusercontent.com/1917513/97346462-79ff8900-18b1-11eb-9fe3-5bb42e4a9630.jpg)
+![Swimlane](images/swimlane-1.jpg)
 
 If Ads are generated on the fly synchronously during each Newsfeed request, the faults in Ads feature gets propagated to Newsfeed feature. Instead if we swimlane “Generation of Ads” service and use a shared storage to populate Newsfeed App, Ads failures won’t cascade to Newsfeed and worst case if Ads don’t meet SLA , we can have Newsfeed without Ads.
 
 Let's take another example, we come up with a new model for our Content sharing App. Here we roll out enterprise content sharing App where enterprises pay for the service and the content should never be shared outside the enterprise. 
 
-![Swimlane-principles](https://user-images.githubusercontent.com/1917513/97346569-9f8c9280-18b1-11eb-942e-9274a7ac50ef.jpg)
+![Swimlane-principles](images/swimlane-2.jpg)
 
 ### Swimlane Principles
 

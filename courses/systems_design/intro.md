@@ -42,5 +42,5 @@ This course will be a starter to make one think about scalability, availability,
 
 Let’s design a simple content sharing application where users can share photos, media in our application which can be liked by their friends. Let’s start with a simple design of the application and evolve it as we learn system design concepts
 
-![First architecture diagram](https://user-images.githubusercontent.com/1917513/97340392-b8914580-18a9-11eb-864d-c39728898a37.jpg)
+![First architecture diagram](images/first-architecture.jpg)
 
