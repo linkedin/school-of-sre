@@ -2,6 +2,16 @@ site_name: school_of_sre
 docs_dir: courses
 nav:
 - Home: index.md
+- Git:
+    - Git Basics: git/git-basics.md
+    - Working With Branches: git/branches.md
+    - Github and Hooks: git/github-hooks.md
+- Python and Web:
+    - Intro: python_web/intro.md
+    - Some Python Concepts: python_web/python-concepts.md
+    - Python, Web and Flask: python_web/python-web-flask.md
+    - The URL Shortening App: python_web/url-shorten-app.md
+    - SRE Aspects of The App and Conclusion: python_web/sre-conclusion.md
 - Systems Design:
     - Intro: systems_design/intro.md
     - Scalability: systems_design/scalability.md
