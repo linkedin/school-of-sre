@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Working With Branches - school_of_sre</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">school_of_sre</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Git <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../git-basics/">Git Basics</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Working With Branches</a>
+</li>
+                                    
+<li >
+    <a href="../github-hooks/">Github and Hooks</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python and Web <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../python_web/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../python_web/python-concepts/">Some Python Concepts</a>
+</li>
+                                    
+<li >
+    <a href="../../python_web/python-web-flask/">Python, Web and Flask</a>
+</li>
+                                    
+<li >
+    <a href="../../python_web/url-shorten-app/">The URL Shortening App</a>
+</li>
+                                    
+<li >
+    <a href="../../python_web/sre-conclusion/">SRE Aspects of The App and Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Systems Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../systems_design/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/scalability/">Scalability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/availability/">Availability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/fault-tolerance/">Fault Tolerance</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/conclusion/">Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../git-basics/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../github-hooks/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#working-with-branches">Working With Branches</a></li>
+            <li><a href="#merges">Merges</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="working-with-branches">Working With Branches</h1>
+<p>Coming back to our local repo which has two commits. So far, what we have is a single line of history. Commits are chained in a single line. But sometimes you may have a need to work on two different features in parallel in the same repo. Now one option here could be making a new folder/repo with the same code and use that for another feature development. But there's a better way. Use <em>branches.</em> Since git follows tree like structure for commits, we can use branches to work on different sets of features. From a commit, two or more branches can be created and branches can also be merged.</p>
+<p>Using branches, there can exist multiple lines of histories and we can checkout to any of them and work on it. Checking out, as we discussed earlier, would simply mean replacing contents of the directory (repo) with contents snapshot at the checked out version.</p>
+<p>Let's create a branch and see how it looks like:</p>
+<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ git branch b1
+spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
+* 7f3b00e (HEAD -&gt; master, b1) adding file 2
+* df2fb7a adding file 1
+</code></pre>
+
+<p>We create a branch called <code>b1</code>. Git log tells us that b1 also points to the last commit (7f3b00e) but the <code>HEAD</code> is still pointing to master. If you remember, HEAD points to the commit/reference wherever you are checkout to. So if we checkout to <code>b1</code>, HEAD should point to that. Let's confirm:</p>
+<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ git checkout b1
+Switched to branch 'b1'
+spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
+* 7f3b00e (HEAD -&gt; b1, master) adding file 2
+* df2fb7a adding file 1
+</code></pre>
+
+<p><code>b1</code> still points to the same commit but HEAD now points to <code>b1</code>. Since we create a branch at commit <code>7f3b00e</code>, there will be two lines of histories starting this commit. Depending on which branch you are checked out on, the line of history will progress.</p>
+<p>At this moment, we are checked out on branch <code>b1</code>, so making a new commit will advance branch reference <code>b1</code> to that commit and current <code>b1</code> commit will become its parent. Let's do that.</p>
+<pre><code class="bash"># Creating a file and making a commit
+spatel1-mn1:school-of-sre spatel1$ echo &quot;I am a file in b1 branch&quot; &gt; b1.txt
+spatel1-mn1:school-of-sre spatel1$ git add b1.txt
+spatel1-mn1:school-of-sre spatel1$ git commit -m &quot;adding b1 file&quot;
+[b1 872a38f] adding b1 file
+1 file changed, 1 insertion(+)
+create mode 100644 b1.txt
+
+# The new line of history
+spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
+* 872a38f (HEAD -&gt; b1) adding b1 file
+* 7f3b00e (master) adding file 2
+* df2fb7a adding file 1
+spatel1-mn1:school-of-sre spatel1$
+</code></pre>
+
+<p>Do note that master is still pointing to the old commit it was pointing to. We can now checkout to master branch and make commits there. This will result in another line of history starting from commit 7f3b00e.</p>
+<pre><code class="bash"># checkout to master branch
+spatel1-mn1:school-of-sre spatel1$ git checkout master
+Switched to branch 'master'
+
+# Creating a new commit on master branch
+spatel1-mn1:school-of-sre spatel1$ echo &quot;new file in master branch&quot; &gt; master.txt
+spatel1-mn1:school-of-sre spatel1$ git add master.txt
+spatel1-mn1:school-of-sre spatel1$ git commit -m &quot;adding master.txt file&quot;
+[master 60dc441] adding master.txt file
+1 file changed, 1 insertion(+)
+create mode 100644 master.txt
+
+# The history line
+spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
+* 60dc441 (HEAD -&gt; master) adding master.txt file
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
+
+<p>Notice how branch b1 is not visible here since we are checkout on master. Let's try to visualize both to get the whole picture:</p>
+<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph --all
+* 60dc441 (HEAD -&gt; master) adding master.txt file
+| * 872a38f (b1) adding b1 file
+|/ 
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
+
+<p>Above tree structure should make things clear. Notice a clear branch/fork on commit 7f3b00e. This is how we create branches. Now they both are two separate lines of history on which feature development can be done independently.</p>
+<p><strong>To reiterate, internally, git is just a tree of commits. Branch names (human readable) are pointers to those commits in the tree. We use various git commands to work with the tree structure and references. Git accordingly modifies contents of our repo.</strong></p>
+<h2 id="merges">Merges</h2>
+<p>Now say the feature you were working on branch <code>b1</code> is complete. And you need to merge it on master branch, where all the final version of code goes. So first you will checkout to branch master and then you will pull the latest code from upstream (eg: GitHub). Then you need to merge your code from <code>b1</code> into master. And there could be two ways this can be done.</p>
+<p>Here is the current history:</p>
+<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph --all
+* 60dc441 (HEAD -&gt; master) adding master.txt file
+| * 872a38f (b1) adding b1 file
+|/ 
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
+
+<p><strong>Option 1: Directly merge the branch.</strong> Merging the branch b1 into master will result in a new merge commit which will merge changes from two different lines of history and create a new commit of the result.</p>
+<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ git merge b1
+Merge made by the 'recursive' strategy.
+b1.txt | 1 +
+1 file changed, 1 insertion(+)
+create mode 100644 b1.txt
+spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph --all
+*   8fc28f9 (HEAD -&gt; master) Merge branch 'b1'
+|\
+| * 872a38f (b1) adding b1 file
+* | 60dc441 adding master.txt file
+|/ 
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
+
+<p>You can see a new merge commit created (8fc28f9). You will be prompted for the commit message. If there are a lot of branches in the repo, this result will end-up with a lot of merge commits. Which looks ugly compared to a single line of history of development. So let's look at an alternative approach</p>
+<p>First let's <a href="https://git-scm.com/docs/git-reset">reset</a> our last merge and go to the previous state.</p>
+<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ git reset --hard 60dc441
+HEAD is now at 60dc441 adding master.txt file
+spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph --all
+* 60dc441 (HEAD -&gt; master) adding master.txt file
+| * 872a38f (b1) adding b1 file
+|/ 
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
+
+<p><strong>Option 2: Rebase.</strong> Now, instead of merging two branches which has a similar base (commit: 7f3b00e), let us rebase branch b1 on to current master. <strong>What this means is take branch <code>b1</code> (from commit 7f3b00e to commit 872a38f) and rebase (put them on top of) master (60dc441).</strong></p>
+<pre><code class="bash"># Switch to b1
+spatel1-mn1:school-of-sre spatel1$ git checkout b1
+Switched to branch 'b1'
+
+# Rebase (b1 which is current branch) on master
+spatel1-mn1:school-of-sre spatel1$ git rebase master
+First, rewinding head to replay your work on top of it...
+Applying: adding b1 file
+
+# The result
+spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph --all
+* 5372c8f (HEAD -&gt; b1) adding b1 file
+* 60dc441 (master) adding master.txt file
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
+
+<p>You can see <code>b1</code> which had 1 commit. That commit's parent was <code>7f3b00e</code>. But since we rebase it on master (<code>60dc441</code>). That becomes the parent now. As a side effect, you also see it has become a single line of history. Now if we were to merge <code>b1</code> into <code>master</code>, it would simply mean change <code>master</code> to point to <code>5372c8f</code> which is <code>b1</code>. Let's try it:</p>
+<pre><code class="bash"># checkout to master since we want to merge code into master
+spatel1-mn1:school-of-sre spatel1$ git checkout master
+Switched to branch 'master'
+
+# the current history, where b1 is based on master
+spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph --all
+* 5372c8f (b1) adding b1 file
+* 60dc441 (HEAD -&gt; master) adding master.txt file
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+
+
+# Performing the merge, notice the &quot;fast-forward&quot; message
+spatel1-mn1:school-of-sre spatel1$ git merge b1
+Updating 60dc441..5372c8f
+Fast-forward
+b1.txt | 1 +
+1 file changed, 1 insertion(+)
+create mode 100644 b1.txt
+
+# The Result
+spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph --all
+* 5372c8f (HEAD -&gt; master, b1) adding b1 file
+* 60dc441 adding master.txt file
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
+
+<p>Now you see both <code>b1</code> and <code>master</code> are pointing to the same commit. Your code has been merged to the master branch and it can be pushed. Also we have clean line of history! :D</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

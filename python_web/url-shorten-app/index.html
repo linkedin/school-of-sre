@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Fault Tolerance - school_of_sre</title>
+        <title>The URL Shortening App - school_of_sre</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -66,33 +66,8 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python and Web <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../python_web/intro/">Intro</a>
-</li>
-                                    
-<li >
-    <a href="../../python_web/python-concepts/">Some Python Concepts</a>
-</li>
-                                    
-<li >
-    <a href="../../python_web/python-web-flask/">Python, Web and Flask</a>
-</li>
-                                    
-<li >
-    <a href="../../python_web/url-shorten-app/">The URL Shortening App</a>
-</li>
-                                    
-<li >
-    <a href="../../python_web/sre-conclusion/">SRE Aspects of The App and Conclusion</a>
-</li>
-                                </ul>
-                            </li>
                             <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Systems Design <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python and Web <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
@@ -100,19 +75,44 @@
 </li>
                                     
 <li >
-    <a href="../scalability/">Scalability</a>
+    <a href="../python-concepts/">Some Python Concepts</a>
 </li>
                                     
 <li >
-    <a href="../availability/">Availability</a>
+    <a href="../python-web-flask/">Python, Web and Flask</a>
 </li>
                                     
 <li class="active">
-    <a href="./">Fault Tolerance</a>
+    <a href="./">The URL Shortening App</a>
 </li>
                                     
 <li >
-    <a href="../conclusion/">Conclusion</a>
+    <a href="../sre-conclusion/">SRE Aspects of The App and Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Systems Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../systems_design/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/scalability/">Scalability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/availability/">Availability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/fault-tolerance/">Fault Tolerance</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/conclusion/">Conclusion</a>
 </li>
                                 </ul>
                             </li>
@@ -125,12 +125,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../availability/">
+                                <a rel="next" href="../python-web-flask/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../conclusion/">
+                                <a rel="prev" href="../sre-conclusion/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -142,62 +142,115 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#fault-tolerance">Fault Tolerance</a></li>
-            <li><a href="#fault-tolerance-failure-metrics">Fault Tolerance - Failure Metrics</a></li>
-            <li><a href="#fault-tolerance-fault-isolation-terms">Fault Tolerance - Fault Isolation Terms</a></li>
-            <li><a href="#swimlane-principles">Swimlane Principles</a></li>
-            <li><a href="#swimlane-approaches">Swimlane Approaches</a></li>
-            <li><a href="#sre-use-cases">SRE Use cases:</a></li>
+        <li class="main active"><a href="#the-url-shortening-app">The URL Shortening App</a></li>
+            <li><a href="#design">Design</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="fault-tolerance">Fault Tolerance</h2>
-<p>Failures are not avoidable in any system and will happen all the time, hence we need to build systems that can tolerate failures or recover from them.</p>
-<ul>
-<li>In systems, failure is the norm rather than the exception.</li>
-<li>"Anything that can go wrong will go wrong” -- Murphy’s Law</li>
-<li>“Complex systems contain changing mixtures of failures latent within them” -- How Complex Systems Fail.</li>
-</ul>
-<h3 id="fault-tolerance-failure-metrics">Fault Tolerance - Failure Metrics</h3>
-<p>Common failure metrics that get measured and tracked for any system.</p>
-<p><strong>Mean time to repair (MTTR):</strong> The average time to repair and restore a failed system. </p>
-<p><strong>Mean time between failures (MTBF):</strong> The average operational time between one device failure or system breakdown and the next. </p>
-<p><strong>Mean time to failure (MTTF):</strong> The average time a device or system is expected to function before it fails. </p>
-<p><strong>Mean time to detect (MTTD):</strong> The average time between the onset of a problem and when the organization detects it. </p>
-<p><strong>Mean time to investigate (MTTI):</strong> The average time between the detection of an incident and when the organization begins to investigate its cause and solution. </p>
-<p><strong>Mean time to restore service (MTRS):</strong> The average elapsed time from the detection of an incident until the affected system or component is again available to users.</p>
-<p><strong>Mean time between system incidents (MTBSI):</strong> The average elapsed time between the detection of two consecutive incidents. MTBSI can be calculated by adding MTBF and MTRS (MTBSI = MTBF + MTRS).</p>
-<p><strong>Failure rate:</strong> Another reliability metric, which measures the frequency with which a component or system fails. It is expressed as a number of failures over a unit of time.</p>
-<h4 id="refer">Refer</h4>
-<ul>
-<li>https://www.splunk.com/en_us/data-insider/what-is-mean-time-to-repair.html</li>
-</ul>
-<h3 id="fault-tolerance-fault-isolation-terms">Fault Tolerance - Fault Isolation Terms</h3>
-<p>Systems should have a short circuit. Say in our content sharing system, if “Notifications” is not working, the site should gracefully handle that failure by removing the functionality instead of taking the whole site down. </p>
-<p>Swimlane is one of the commonly used fault isolation methodology. Swimlane adds a barrier to the service from other services so that failure on either of them won’t affect the other. Say we roll out a new feature ‘Advertisement’ in our content sharing app.
-We can have two architectures
-<img alt="Swimlane" src="../images/swimlane-1.jpg" /></p>
-<p>If Ads are generated on the fly synchronously during each Newsfeed request, the faults in Ads feature gets propagated to Newsfeed feature. Instead if we swimlane “Generation of Ads” service and use a shared storage to populate Newsfeed App, Ads failures won’t cascade to Newsfeed and worst case if Ads don’t meet SLA , we can have Newsfeed without Ads.</p>
-<p>Let's take another example, we come up with a new model for our Content sharing App. Here we roll out enterprise content sharing App where enterprises pay for the service and the content should never be shared outside the enterprise. </p>
-<p><img alt="Swimlane-principles" src="../images/swimlane-2.jpg" /></p>
-<h3 id="swimlane-principles">Swimlane Principles</h3>
-<p><strong>Principle 1:</strong> Nothing is shared (also known as “share as little as possible”). The less that is shared within a swim lane, the more fault isolative the swim lane becomes. (as shown in Enterprise usecase)</p>
-<p><strong>Principle 2:</strong> Nothing crosses a swim lane boundary. Synchronous (defined by expecting a request—not the transfer protocol) communication never crosses a swim lane boundary; if it does, the boundary is drawn incorrectly. (as shown in Ads feature)</p>
-<h3 id="swimlane-approaches">Swimlane Approaches</h3>
-<p><strong>Approach 1:</strong> Swim lane the money-maker. Never allow your cash register to be compromised by other systems. (Tier 1  vs Tier 2 in enterprise use case)</p>
-<p><strong>Approach 2:</strong> Swim lane the biggest sources of incidents. Identify the recurring causes of pain and isolate them.(if Ads feature is in code yellow, swim laning it is the best option)</p>
-<p><strong>Approach 3:</strong> Swim lane natural barriers. Customer boundaries make good swim lanes.(Public vs Enterprise customers)</p>
-<h4 id="refer_1">Refer</h4>
-<ul>
-<li>https://learning.oreilly.com/library/view/the-art-of/9780134031408/ch21.html#ch21</li>
-</ul>
-<h3 id="sre-use-cases">SRE Use cases:</h3>
+<h1 id="the-url-shortening-app">The URL Shortening App</h1>
+<p>Let's build a very simple URL shortening app using flask and try to incorporate all aspects of the development process including the reliability aspects. We will not be building the UI and we will come up with a minimal set of API that will be enough for the app to function well.</p>
+<h2 id="design">Design</h2>
+<p>We don't jump directly to coding. First thing we do is gather requirements. Come up with an approach. Have the approach/design reviewed by peers. Evolve, iterate, document the decisions and tradeoffs. And then finally implement. While we will not do the full blown design document here, we will raise certain questions here that are important to the design.</p>
+<h3 id="1-high-level-operations-and-api-endpoints">1. High Level Operations and API Endpoints</h3>
+<p>Since it's a URL shortening app, we will need an API for generating the shorten link given an original link. And an API/Endpoint which will accept the shorten link and redirect to original URL. We are not including the user aspect of the app to keep things minimal. These two API should make app functional and usable by anyone.</p>
+<h3 id="2-how-to-shorten">2. How to shorten?</h3>
+<p>Given a url, we will need to generate a shortened version of it. One approach could be using random characters for each link. Another thing that can be done is to use some sort of hashing algorithm. The benefit here is we will reuse the same hash for the same link. ie: if lot of people are shortening <code>https://www.linkedin.com</code> they all will have the same value, compared to multiple entries in DB if chosen random characters.</p>
+<p>What about hash collisions? Even in random characters approach, though there is a less probability, hash collisions can happen. And we need to be mindful of them. In that case we might want to prepend/append the string with some random value to avoid conflict.</p>
+<p>Also, choice of hash algorithm matters. We will need to analyze algorithms. Their CPU requirements and their characteristics. Choose one that suits the most.</p>
+<h3 id="3-is-url-valid">3. Is URL Valid?</h3>
+<p>Given a URL to shorten, how do we verify if the URL is valid? Do we even verify or validate? One basic check that can be done is see if the URL matches a regex of a URL. To go even further we can try opening/visiting the URL. But there are certain gotchas here.</p>
 <ol>
-<li>Work with the DC tech or cloud team to distribute infrastructure such that its immune to switch or power failures by creating fault zones within a Data Center
-https://docs.microsoft.com/en-us/azure/virtual-machines/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures</li>
-<li>Work with the partners and design interaction between services such that one service breakdown is not amplified in a cascading fashion to all upstreams</li>
-</ol></div>
+<li>We need to define success criteria. ie: HTTP 200 means it is valid.</li>
+<li>What is the URL is in private network?</li>
+<li>What if URL is temporarily down?</li>
+</ol>
+<h3 id="4-storage">4. Storage</h3>
+<p>Finally, storage. Where will we store the data that we will generate over time? There are multiple database solutions available and we will need to choose the one that suits this app the most. Relational database like MySQL would be a fair choice but <strong>be sure to checkout School of SRE's database section for deeper insights into making a more informed decision.</strong></p>
+<h3 id="5-other">5. Other</h3>
+<p>We are not accounting for users into our app and other possible features like rate limiting, customized links etc but it will eventually come up with time. Depending on the requirements, they too might need to get incorporated.</p>
+<p>The minimal working code is given below for reference but I'd encourage you to come up with your own.</p>
+<pre><code class="python">from flask import Flask, redirect, request
+
+from hashlib import md5
+
+app = Flask(&quot;url_shortener&quot;)
+
+mapping = {}
+
+@app.route(&quot;/shorten&quot;, methods=[&quot;POST&quot;])
+def shorten():
+    global mapping
+    payload = request.json
+
+    if &quot;url&quot; not in payload:
+        return &quot;Missing URL Parameter&quot;, 400
+
+    # TODO: check if URL is valid
+
+    hash_ = md5()
+    hash_.update(payload[&quot;url&quot;].encode())
+    digest = hash_.hexdigest()[:5]  # limiting to 5 chars. Less the limit more the chances of collission
+
+    if digest not in mapping:
+        mapping[digest] = payload[&quot;url&quot;]
+        return f&quot;Shortened: r/{digest}\n&quot;
+    else:
+        # TODO: check for hash collission
+        return f&quot;Already exists: r/{digest}\n&quot;
+
+
+@app.route(&quot;/r/&lt;hash_&gt;&quot;)
+def redirect_(hash_):
+    if hash_ not in mapping:
+        return &quot;URL Not Found&quot;, 404
+    return redirect(mapping[hash_])
+
+
+if __name__ == &quot;__main__&quot;:
+    app.run(debug=True)
+
+&quot;&quot;&quot;
+OUTPUT:
+
+
+===&gt; SHORTENING
+
+spatel1-mn1:tmp spatel1$ curl localhost:5000/shorten -H &quot;content-type: application/json&quot; --data '{&quot;url&quot;:&quot;https://linkedin.com&quot;}'
+Shortened: r/a62a4
+
+
+===&gt; REDIRECTING, notice the response code 302 and the location header
+
+spatel1-mn1:tmp spatel1$ curl localhost:5000/r/a62a4 -v
+* Uses proxy env variable NO_PROXY == '127.0.0.1'
+*   Trying ::1...
+* TCP_NODELAY set
+* Connection failed
+* connect to ::1 port 5000 failed: Connection refused
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 5000 (#0)
+&gt; GET /r/a62a4 HTTP/1.1
+&gt; Host: localhost:5000
+&gt; User-Agent: curl/7.64.1
+&gt; Accept: */*
+&gt;
+* HTTP 1.0, assume close after body
+&lt; HTTP/1.0 302 FOUND
+&lt; Content-Type: text/html; charset=utf-8
+&lt; Content-Length: 247
+&lt; Location: https://linkedin.com
+&lt; Server: Werkzeug/0.15.4 Python/3.7.7
+&lt; Date: Tue, 27 Oct 2020 09:37:12 GMT
+&lt;
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;
+&lt;title&gt;Redirecting...&lt;/title&gt;
+&lt;h1&gt;Redirecting...&lt;/h1&gt;
+* Closing connection 0
+&lt;p&gt;You should be redirected automatically to target URL: &lt;a href=&quot;https://linkedin.com&quot;&gt;https://linkedin.com&lt;/a&gt;.  If not click the link.
+&quot;&quot;&quot;
+</code></pre></div>
         </div>
 
         <footer class="col-md-12">
