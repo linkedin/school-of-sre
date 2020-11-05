@@ -6,8 +6,8 @@
     2. Unstructured data
     3. Semi-structured data
 3. Characteristics of Big Data:
-    4. Volume
-    5. Variety
-    6. Velocity
-    7. Variability
+    1. Volume
+    2. Variety
+    3. Velocity
+    4. Variability
 4. Examples of Big Data generation include stock exchanges, social media sites, jet engines, etc.
