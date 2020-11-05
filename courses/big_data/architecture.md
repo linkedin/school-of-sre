@@ -43,7 +43,7 @@
     2. Ex. HQL query: 
         1. _SELECT pet.name, comment FROM pet JOIN event ON  (pet.name = event.name);_
     3. In mysql: 
-        2. _SELECT pet.name, comment FROM pet, event WHERE  pet.name = event.name;_
+        1. _SELECT pet.name, comment FROM pet, event WHERE  pet.name = event.name;_
 2. **Pig**
     1. Uses a scripting language called Pig Latin, which is more workflow driven.  Don't need to be an expert Java programmer but need a few coding skills.  Is also an abstraction layer on top of map-reduce.
     2. Here is a quick question for you:
