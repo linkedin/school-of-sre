@@ -6,6 +6,13 @@ nav:
     - Git Basics: git/git-basics.md
     - Working With Branches: git/branches.md
     - Github and Hooks: git/github-hooks.md
+- Linux Networking:
+    - Intro: linux_networking/intro.md
+    - DNS: linux_networking/dns.md
+    - UDP: linux_networking/udp.md
+    - HTTP: linux_networking/http.md
+    - TCP: linux_networking/tcp.md
+    - Routing and Conclusion: linux_networking/ipr.md
 - Python and Web:
     - Intro: python_web/intro.md
     - Some Python Concepts: python_web/python-concepts.md
