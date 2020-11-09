@@ -24,4 +24,10 @@ nav:
     - Usage of Big Data techniques: big_data/usage.md
     - Evolution of Hadoop: big_data/evolution.md
     - Architecture of Hadoop: big_data/architecture.md
-    - Tasks and conclusion: big_data/tasks.md 
+    - Tasks and conclusion: big_data/tasks.md
+- Security:
+    - Inro: security/intro.md
+    - Fundamentals of Security: security/fundamentals.md
+    - Network Securuty: security/network_security.md
+    - Threat, Attacks & Defences: security/threats_attacks_defences.md
+    - Writing Secure code: security/writing_secure_code.md  
