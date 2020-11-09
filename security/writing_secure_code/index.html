@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Fault Tolerance - school_of_sre</title>
+        <title>Writing Secure code - school_of_sre</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -91,28 +91,28 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Systems Design <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../intro/">Intro</a>
+    <a href="../../systems_design/intro/">Intro</a>
 </li>
                                     
 <li >
-    <a href="../scalability/">Scalability</a>
+    <a href="../../systems_design/scalability/">Scalability</a>
 </li>
                                     
 <li >
-    <a href="../availability/">Availability</a>
-</li>
-                                    
-<li class="active">
-    <a href="./">Fault Tolerance</a>
+    <a href="../../systems_design/availability/">Availability</a>
 </li>
                                     
 <li >
-    <a href="../conclusion/">Conclusion</a>
+    <a href="../../systems_design/fault-tolerance/">Fault Tolerance</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/conclusion/">Conclusion</a>
 </li>
                                 </ul>
                             </li>
@@ -145,28 +145,28 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Security <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../security/intro/">Inro</a>
+    <a href="../intro/">Inro</a>
 </li>
                                     
 <li >
-    <a href="../../security/fundamentals/">Fundamentals of Security</a>
+    <a href="../fundamentals/">Fundamentals of Security</a>
 </li>
                                     
 <li >
-    <a href="../../security/network_security/">Network Securuty</a>
+    <a href="../network_security/">Network Securuty</a>
 </li>
                                     
 <li >
-    <a href="../../security/threats_attacks_defences/">Threat, Attacks & Defences</a>
+    <a href="../threats_attacks_defences/">Threat, Attacks & Defences</a>
 </li>
                                     
-<li >
-    <a href="../../security/writing_secure_code/">Writing Secure code</a>
+<li class="active">
+    <a href="./">Writing Secure code</a>
 </li>
                                 </ul>
                             </li>
@@ -179,12 +179,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../availability/">
+                                <a rel="next" href="../threats_attacks_defences/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
-                            <li >
-                                <a rel="prev" href="../conclusion/">
+                            <li class="disabled">
+                                <a rel="prev" >
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -196,62 +196,66 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#fault-tolerance">Fault Tolerance</a></li>
-            <li><a href="#fault-tolerance-failure-metrics">Fault Tolerance - Failure Metrics</a></li>
-            <li><a href="#fault-tolerance-fault-isolation-terms">Fault Tolerance - Fault Isolation Terms</a></li>
-            <li><a href="#swimlane-principles">Swimlane Principles</a></li>
-            <li><a href="#swimlane-approaches">Swimlane Approaches</a></li>
-            <li><a href="#sre-use-cases">SRE Use cases:</a></li>
+        <li class="main active"><a href="#part-iv-writing-secure-code-more">PART IV: Writing Secure Code &amp; More</a></li>
+            <li><a href="#use-frameworks-to-enforce-security-and-reliability-while-writing-code">Use frameworks to enforce security and reliability while writing code</a></li>
+            <li><a href="#common-security-vulnerabilities">Common Security Vulnerabilities</a></li>
+            <li><a href="#write-simple-code">Write Simple Code</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h2 id="fault-tolerance">Fault Tolerance</h2>
-<p>Failures are not avoidable in any system and will happen all the time, hence we need to build systems that can tolerate failures or recover from them.</p>
+<h1 id="part-iv-writing-secure-code-more">PART IV: Writing Secure Code &amp; More</h1>
+<p>The first and most important step in reducing security and reliability issues is to educate developers. However, even the best-trained engineers make mistakes, security experts can write insecure code and SREs can miss reliability issues. It’s difficult to keep the many considerations and tradeoffs involved in building secure and reliable systems in mind simultaneously, especially if you’re also responsible for producing software.</p>
+<h2 id="use-frameworks-to-enforce-security-and-reliability-while-writing-code">Use frameworks to enforce security and reliability while writing code</h2>
 <ul>
-<li>In systems, failure is the norm rather than the exception.</li>
-<li>"Anything that can go wrong will go wrong” -- Murphy’s Law</li>
-<li>“Complex systems contain changing mixtures of failures latent within them” -- How Complex Systems Fail.</li>
+<li>A better approach is to handle security and reliability in common frameworks, languages, and libraries. Ideally, libraries only expose an interface that makes writing code with common classes of security vulnerabilities impossible.</li>
+<li>Multiple applications can use each library or framework. When domain experts fix an issue, they remove it from all the applications the framework supports, allowing this engineering approach to scale better.</li>
 </ul>
-<h3 id="fault-tolerance-failure-metrics">Fault Tolerance - Failure Metrics</h3>
-<p>Common failure metrics that get measured and tracked for any system.</p>
-<p><strong>Mean time to repair (MTTR):</strong> The average time to repair and restore a failed system. </p>
-<p><strong>Mean time between failures (MTBF):</strong> The average operational time between one device failure or system breakdown and the next. </p>
-<p><strong>Mean time to failure (MTTF):</strong> The average time a device or system is expected to function before it fails. </p>
-<p><strong>Mean time to detect (MTTD):</strong> The average time between the onset of a problem and when the organization detects it. </p>
-<p><strong>Mean time to investigate (MTTI):</strong> The average time between the detection of an incident and when the organization begins to investigate its cause and solution. </p>
-<p><strong>Mean time to restore service (MTRS):</strong> The average elapsed time from the detection of an incident until the affected system or component is again available to users.</p>
-<p><strong>Mean time between system incidents (MTBSI):</strong> The average elapsed time between the detection of two consecutive incidents. MTBSI can be calculated by adding MTBF and MTRS (MTBSI = MTBF + MTRS).</p>
-<p><strong>Failure rate:</strong> Another reliability metric, which measures the frequency with which a component or system fails. It is expressed as a number of failures over a unit of time.</p>
-<h4 id="refer">Refer</h4>
+<h2 id="common-security-vulnerabilities">Common Security Vulnerabilities</h2>
 <ul>
-<li>https://www.splunk.com/en_us/data-insider/what-is-mean-time-to-repair.html</li>
+<li>In large codebases, a handful of classes account for the majority of security vulnerabilities, despite ongoing efforts to educate developers and introduce code review. OWASP and SANS publish lists of common vulnerability classes</li>
 </ul>
-<h3 id="fault-tolerance-fault-isolation-terms">Fault Tolerance - Fault Isolation Terms</h3>
-<p>Systems should have a short circuit. Say in our content sharing system, if “Notifications” is not working, the site should gracefully handle that failure by removing the functionality instead of taking the whole site down. </p>
-<p>Swimlane is one of the commonly used fault isolation methodology. Swimlane adds a barrier to the service from other services so that failure on either of them won’t affect the other. Say we roll out a new feature ‘Advertisement’ in our content sharing app.
-We can have two architectures
-<img alt="Swimlane" src="../images/swimlane-1.jpg" /></p>
-<p>If Ads are generated on the fly synchronously during each Newsfeed request, the faults in Ads feature gets propagated to Newsfeed feature. Instead if we swimlane “Generation of Ads” service and use a shared storage to populate Newsfeed App, Ads failures won’t cascade to Newsfeed and worst case if Ads don’t meet SLA , we can have Newsfeed without Ads.</p>
-<p>Let's take another example, we come up with a new model for our Content sharing App. Here we roll out enterprise content sharing App where enterprises pay for the service and the content should never be shared outside the enterprise. </p>
-<p><img alt="Swimlane-principles" src="../images/swimlane-2.jpg" /></p>
-<h3 id="swimlane-principles">Swimlane Principles</h3>
-<p><strong>Principle 1:</strong> Nothing is shared (also known as “share as little as possible”). The less that is shared within a swim lane, the more fault isolative the swim lane becomes. (as shown in Enterprise usecase)</p>
-<p><strong>Principle 2:</strong> Nothing crosses a swim lane boundary. Synchronous (defined by expecting a request—not the transfer protocol) communication never crosses a swim lane boundary; if it does, the boundary is drawn incorrectly. (as shown in Ads feature)</p>
-<h3 id="swimlane-approaches">Swimlane Approaches</h3>
-<p><strong>Approach 1:</strong> Swim lane the money-maker. Never allow your cash register to be compromised by other systems. (Tier 1  vs Tier 2 in enterprise use case)</p>
-<p><strong>Approach 2:</strong> Swim lane the biggest sources of incidents. Identify the recurring causes of pain and isolate them.(if Ads feature is in code yellow, swim laning it is the best option)</p>
-<p><strong>Approach 3:</strong> Swim lane natural barriers. Customer boundaries make good swim lanes.(Public vs Enterprise customers)</p>
-<h4 id="refer_1">Refer</h4>
+<p><img alt="image26" src="../images/image26.png" /></p>
+<h2 id="write-simple-code">Write Simple Code</h2>
+<p>Try to keep your code clean and simple.</p>
+<h3 id="avoid-multi-level-nesting">Avoid Multi Level Nesting</h3>
 <ul>
-<li>https://learning.oreilly.com/library/view/the-art-of/9780134031408/ch21.html#ch21</li>
+<li>Multilevel nesting is a common anti-pattern that can lead to simple mistakes. If the error is in the most common code path, it will likely be captured by the unit tests. However, unit tests don’t always check error handling paths in multilevel nested code. The error might result in decreased reliability (for example, if the service crashes when it mishandles an error) or a security vulnerability (like a mishandled authorization check error).</li>
 </ul>
-<h3 id="sre-use-cases">SRE Use cases:</h3>
-<ol>
-<li>Work with the DC tech or cloud team to distribute infrastructure such that its immune to switch or power failures by creating fault zones within a Data Center
-https://docs.microsoft.com/en-us/azure/virtual-machines/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures</li>
-<li>Work with the partners and design interaction between services such that one service breakdown is not amplified in a cascading fashion to all upstreams</li>
-</ol></div>
+<h3 id="eliminate-yagni-smells">Eliminate YAGNI Smells</h3>
+<ul>
+<li>Sometimes developers overengineer solutions by adding functionality that may be useful in the future, “just in case.” This goes against the YAGNI (You Aren’t Gonna Need It) principle, which recommends implementing only the code that you need. YAGNI code adds unnecessary complexity because it needs to be documented, tested, and maintained.</li>
+<li>To summarize, avoiding YAGNI code leads to improved reliability, and simpler code leads to fewer security bugs, fewer opportunities to make mistakes, and less developer time spent maintaining unused code.</li>
+</ul>
+<h3 id="repay-technical-debt">Repay Technical Debt</h3>
+<ul>
+<li>It is a common practice for developers to mark places that require further attention with TODO or FIXME annotations. In the short term, this habit can accelerate the delivery velocity for the most critical functionality, and allow a team to meet early deadlines—but it also incurs technical debt. Still, it’s not necessarily a bad practice, as long as you have a clear process (and allocate time) for repaying such debt.</li>
+</ul>
+<h3 id="refactoring">Refactoring</h3>
+<ul>
+<li>Refactoring is the most effective way to keep a codebase clean and simple. Even a healthy codebase occasionally needs to be</li>
+<li>Regardless of the reasons behind refactoring, you should always follow one golden rule: never mix refactoring and functional changes in a single commit to the code repository. Refactoring changes are typically significant and can be difficult to understand.</li>
+<li>If a commit also includes functional changes, there’s a higher risk that an author or reviewer might overlook bugs.</li>
+</ul>
+<h3 id="unit-testing">Unit Testing</h3>
+<ul>
+<li>Unit testing can increase system security and reliability by pinpointing a wide range of bugs in individual software components before a release. This technique involves breaking software components into smaller, self-contained “units” that have no external dependencies, and then testing each unit.</li>
+</ul>
+<h3 id="fuzz-testing">Fuzz Testing</h3>
+<ul>
+<li>Fuzz testing is a technique that complements the previously mentioned testing techniques. Fuzzing involves using a fuzz engine to generate a large number of candidate inputs that are then passed through a fuzz driver to the fuzz target. The fuzzer then analyzes how the system handles the input. Complex inputs handled by all kinds of software are popular targets for fuzzing - for example file parsers, compression algo, network protocol implementation and audio codec.</li>
+</ul>
+<h3 id="integration-testing">Integration Testing</h3>
+<ul>
+<li>Integration testing moves beyond individual units and abstractions, replacing fake or stubbed-out implementations of abstractions like databases or network services with real implementations. As a result, integration tests exercise more complete code paths. Because you must initialize and configure these other dependencies, integration testing may be slower and flakier than unit testing—to execute the test, this approach incorporates real-world variables like network latency as services communicate end-to-end. As you move from testing individual low-level units of code to testing how they interact when composed together, the net result is a higher degree of confidence that the system is behaving as expected.</li>
+</ul>
+<h3 id="last-but-not-the-least">Last But not the least</h3>
+<ul>
+<li>Code Reviews</li>
+<li>Rely on Automation</li>
+<li>Don’t check in Secrets</li>
+<li>Verifiable Builds</li>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
