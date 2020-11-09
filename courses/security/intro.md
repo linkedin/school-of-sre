@@ -1,7 +1,5 @@
 # Security
 
-## Fundamental classroom courseware for people getting started with SRE & developing an understanding of the need for security in day to day operations
-
 ---
 ### Target Audience
 
