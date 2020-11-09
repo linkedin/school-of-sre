@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>SRE Aspects of The App and Conclusion - school_of_sre</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">school_of_sre</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Git <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../git/git-basics/">Git Basics</a>
+</li>
+                                    
+<li >
+    <a href="../../git/branches/">Working With Branches</a>
+</li>
+                                    
+<li >
+    <a href="../../git/github-hooks/">Github and Hooks</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python and Web <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../python-concepts/">Some Python Concepts</a>
+</li>
+                                    
+<li >
+    <a href="../python-web-flask/">Python, Web and Flask</a>
+</li>
+                                    
+<li >
+    <a href="../url-shorten-app/">The URL Shortening App</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">SRE Aspects of The App and Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Systems Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../systems_design/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/scalability/">Scalability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/availability/">Availability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/fault-tolerance/">Fault Tolerance</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/conclusion/">Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Big Data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../big_data/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/overview/">Overview of Big Data</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/usage/">Usage of Big Data techniques</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/evolution/">Evolution of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/architecture/">Architecture of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/tasks/">Tasks and conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Security <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../security/intro/">Inro</a>
+</li>
+                                    
+<li >
+    <a href="../../security/fundamentals/">Fundamentals of Security</a>
+</li>
+                                    
+<li >
+    <a href="../../security/network_security/">Network Securuty</a>
+</li>
+                                    
+<li >
+    <a href="../../security/threats_attacks_defences/">Threat, Attacks & Defences</a>
+</li>
+                                    
+<li >
+    <a href="../../security/writing_secure_code/">Writing Secure code</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../url-shorten-app/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../../systems_design/intro/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#sre-parts-of-the-app-and-conclusion">SRE Parts of The App and Conclusion</a></li>
+            <li><a href="#scaling-the-app">Scaling The App</a></li>
+            <li><a href="#monitoring-strategy">Monitoring Strategy</a></li>
+            <li><a href="#sre-use-cases">SRE Use-cases</a></li>
+            <li><a href="#optional-exercises">Optional Exercises</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="sre-parts-of-the-app-and-conclusion">SRE Parts of The App and Conclusion</h1>
+<h2 id="scaling-the-app">Scaling The App</h2>
+<p>The design and development is just a part of the journey. We will need to setup continuous integration and continuous delivery pipelines sooner or later. And we have to deploy this app somewhere.</p>
+<p>Initially we can start with deploying this app on one virtual machine on any cloud provider. But this is a <code>Single point of failure</code> which is something we never allow as an SRE (or even as an engineer). So an improvement here can be having multiple instances of applications deployed behind a load balancer. This certainly prevents problems of one machine going down.</p>
+<p>Scaling here would mean adding more instances behind the load balancer. But this is scalable upto only a certain point. After that, other bottlenecks in the system will start appearing. ie: DB will become the bottleneck, or perhaps the load balancer itself. How do you know what is the bottleneck? You need to have observability into each aspects of the application architecture.</p>
+<p>Only after you have metrics, you will be able to know what is going wrong where. <strong>What gets measured, gets fixed!</strong></p>
+<p>Get deeper insights into scaling from School Of SRE's Scalability module and post going through it, apply your learnings and takeaways to this app. Think how will we make this app geographically distributed and highly available and scalable.</p>
+<h2 id="monitoring-strategy">Monitoring Strategy</h2>
+<p>Once we have our application deployed. It will be working ok. But not forever. Reliability is in the title of our job and we make systems reliable by making the design in a certain way. But things still will go down. Machines will fail. Disks will behave weirdly. Buggy code will get pushed to production. And all these possible scenarios will make the system less reliable. So what do we do? <strong>We monitor!</strong></p>
+<p>We keep an eye on the system's health and if anything is not going as expected, we want ourselves to get alerted.</p>
+<p>Now let's think in terms of the given url shortening app. We need to monitor it. And we would want to get notified in case something goes wrong. But we first need to decide what is that <em>something</em> that we want to keep an eye on.</p>
+<ol>
+<li>Since it's a web app serving HTTP requests, we want to keep an eye on HTTP Status codes and latencies</li>
+<li>Request volume again is a good candidate, if the app is receiving an unusual amount of traffic, something might be off.</li>
+<li>We also want to keep an eye on the database so depending on the database solution chosen. Query times, volumes, disk usage etc.</li>
+<li>Finally, there also needs to be some external monitoring which runs periodic tests from devices outside of your data centers. This emulates customers and ensures that from customer point of view, the system is working as expected.</li>
+</ol>
+<h2 id="sre-use-cases">SRE Use-cases</h2>
+<p>In the world of SRE, python is a widely used language. For small scripts and tooling developed for various purposes. Since tooling developed by SRE works with critical pieces of infrastructure and has great power (to bring things down), it is important to know what you are doing while using a programming language and its features. Also it is equally important to know the language and its characteristics while debugging the issues. As an SRE having a deeper understanding of python language, it has helped me a lot to debug very sneaky bugs and be generally more aware and informed while making certain design decisions.</p>
+<p>While developing tools may or may not be part of SRE job, supporting tools or services is more likely to be a daily duty. Building an application or tool is just a small part of productionization. While there is certainly that goes in the design of the application itself to make it more robust, as an SRE you are responsible for its reliability and stability once it is deployed and running. And to ensure that, you’d need to understand the application first and then come up with a strategy to monitor it properly and be prepared for various failure scenarios.</p>
+<h2 id="optional-exercises">Optional Exercises</h2>
+<ol>
+<li>Make a decorator that will cache function return values depending on input parameters.</li>
+<li>Host the URL shortening app on any cloud provider.</li>
+<li>Setup monitoring using many of the tools available like catchpoint, datadog etc.</li>
+<li>Create a minimal flask-like framework on top of TCP sockets.</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>This module, in the first part, aims to make you more aware of the things that will happen when you choose python as your programming language and what happens when you run a python program. With the knowledge of how python handles things internally as objects, lot of seemingly magic things in python will start to make more sense.</p>
+<p>The second part will first explain how a framework like flask works using the existing knowledge of protocols like TCP and HTTP. It then touches the whole lifecycle of an application development lifecycle including the SRE parts of it. While the design and areas in architecture considered will not be exhaustive, it will give a good overview of things that are also important being an SRE and why they are important.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

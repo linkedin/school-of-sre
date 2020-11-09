@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Python, Web and Flask - school_of_sre</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">school_of_sre</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Git <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../git/git-basics/">Git Basics</a>
+</li>
+                                    
+<li >
+    <a href="../../git/branches/">Working With Branches</a>
+</li>
+                                    
+<li >
+    <a href="../../git/github-hooks/">Github and Hooks</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python and Web <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../python-concepts/">Some Python Concepts</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Python, Web and Flask</a>
+</li>
+                                    
+<li >
+    <a href="../url-shorten-app/">The URL Shortening App</a>
+</li>
+                                    
+<li >
+    <a href="../sre-conclusion/">SRE Aspects of The App and Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Systems Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../systems_design/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/scalability/">Scalability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/availability/">Availability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/fault-tolerance/">Fault Tolerance</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/conclusion/">Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Big Data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../big_data/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/overview/">Overview of Big Data</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/usage/">Usage of Big Data techniques</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/evolution/">Evolution of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/architecture/">Architecture of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/tasks/">Tasks and conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Security <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../security/intro/">Inro</a>
+</li>
+                                    
+<li >
+    <a href="../../security/fundamentals/">Fundamentals of Security</a>
+</li>
+                                    
+<li >
+    <a href="../../security/network_security/">Network Securuty</a>
+</li>
+                                    
+<li >
+    <a href="../../security/threats_attacks_defences/">Threat, Attacks & Defences</a>
+</li>
+                                    
+<li >
+    <a href="../../security/writing_secure_code/">Writing Secure code</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../python-concepts/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../url-shorten-app/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#python-web-amd-flask">Python, Web amd Flask</a></li>
+            <li><a href="#sockets">Sockets</a></li>
+            <li><a href="#flask">Flask</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="python-web-amd-flask">Python, Web amd Flask</h1>
+<p>Back in the old days, websites were simple. They were simple static html contents. A webserver would be listening on a defined port and according to the HTTP request received, it would read files from disk and return them in response. But since then, complexity has evolved and websites are now dynamic. Depending on the request, multiple operations need to be performed like reading from database or calling other API and finally returning some response (HTML data, JSON content etc.)</p>
+<p>Since serving web requests is no longer a simple task like reading files from disk and return contents, we need to process each http request, perform some operations programmatically and construct a response.</p>
+<h2 id="sockets">Sockets</h2>
+<p>Though we have frameworks like flask, HTTP is still a protocol that works over TCP protocol. So let us setup a TCP server and send an HTTP request and inspect the request's payload. Note that this is not a tutorial on socket programming but what we are doing here is inspecting HTTP protocol at its ground level and look at what its contents look like. (Ref: <a href="https://realpython.com/python-sockets/">Socket Programming in Python (Guide) on RealPython</a>)</p>
+<pre><code class="python">import socket
+
+HOST = '127.0.0.1'  # Standard loopback interface address (localhost)
+PORT = 65432        # Port to listen on (non-privileged ports are &gt; 1023)
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+   s.bind((HOST, PORT))
+   s.listen()
+   conn, addr = s.accept()
+   with conn:
+       print('Connected by', addr)
+       while True:
+           data = conn.recv(1024)
+           if not data:
+               break
+           print(data)
+</code></pre>
+
+<p>Then we open <code>localhost:65432</code> in our web browser and following would be the output:</p>
+<pre><code class="bash">Connected by ('127.0.0.1', 54719)
+b'GET / HTTP/1.1\r\nHost: localhost:65432\r\nConnection: keep-alive\r\nDNT: 1\r\nUpgrade-Insecure-Requests: 1\r\nUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36 Edg/85.0.564.44\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\r\nSec-Fetch-Site: none\r\nSec-Fetch-Mode: navigate\r\nSec-Fetch-User: ?1\r\nSec-Fetch-Dest: document\r\nAccept-Encoding: gzip, deflate, br\r\nAccept-Language: en-US,en;q=0.9\r\n\r\n'
+</code></pre>
+
+<p>Examine closely and the content will look like the HTTP protocol's format. ie:</p>
+<pre><code>HTTP_METHOD URI_PATH HTTP_VERSION
+HEADERS_SEPARATED_BY_SEPARATOR
+</code></pre>
+
+<p>So though it's a blob of bytes, knowing <a href="https://tools.ietf.org/html/rfc2616">http protocol specification</a>, you can parse that string (ie: split by <code>\r\n</code>) and get meaningful information out of it.</p>
+<h2 id="flask">Flask</h2>
+<p>Flask, and other such frameworks does pretty much what we just discussed in the last section (with added more sophistication). They listen on a port on a TCP socket, receive an HTTP request, parse the data according to protocol format and make it available to you in a convenient manner.</p>
+<p>ie: you can access headers in flask by <code>request.headers</code> which is made available to you by splitting above payload by <code>/r/n</code>, as defined in http protocol.</p>
+<p>Another example: we register routes in flask by <code>@app.route("/hello")</code>. What flask will do is maintain a registry internally which will map <code>/hello</code> with the function you decorated with. Now whenever a request comes with the <code>/hello</code> route (second component in the first line, split by space), flask calls the registered function and returns whatever the function returned.</p>
+<p>Same with all other web frameworks in other languages too. They all work on similar principles. What they basically do is understand the HTTP protocol, parses the HTTP request data and gives us programmers a nice interface to work with HTTP requests.</p>
+<p>Not so much of magic, innit?</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

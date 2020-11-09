@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Usage of Big Data techniques - school_of_sre</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">school_of_sre</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Git <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../git/git-basics/">Git Basics</a>
+</li>
+                                    
+<li >
+    <a href="../../git/branches/">Working With Branches</a>
+</li>
+                                    
+<li >
+    <a href="../../git/github-hooks/">Github and Hooks</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python and Web <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../python_web/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../python_web/python-concepts/">Some Python Concepts</a>
+</li>
+                                    
+<li >
+    <a href="../../python_web/python-web-flask/">Python, Web and Flask</a>
+</li>
+                                    
+<li >
+    <a href="../../python_web/url-shorten-app/">The URL Shortening App</a>
+</li>
+                                    
+<li >
+    <a href="../../python_web/sre-conclusion/">SRE Aspects of The App and Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Systems Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../systems_design/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/scalability/">Scalability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/availability/">Availability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/fault-tolerance/">Fault Tolerance</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/conclusion/">Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Big Data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../overview/">Overview of Big Data</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Usage of Big Data techniques</a>
+</li>
+                                    
+<li >
+    <a href="../evolution/">Evolution of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../architecture/">Architecture of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../tasks/">Tasks and conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Security <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../security/intro/">Inro</a>
+</li>
+                                    
+<li >
+    <a href="../../security/fundamentals/">Fundamentals of Security</a>
+</li>
+                                    
+<li >
+    <a href="../../security/network_security/">Network Securuty</a>
+</li>
+                                    
+<li >
+    <a href="../../security/threats_attacks_defences/">Threat, Attacks & Defences</a>
+</li>
+                                    
+<li >
+    <a href="../../security/writing_secure_code/">Writing Secure code</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../overview/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../evolution/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#usage-of-big-data-techniques">Usage of Big Data techniques</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="usage-of-big-data-techniques">Usage of Big Data techniques</h1>
+<ol>
+<li>Take the example of the traffic lights problem.<ol>
+<li>There are more than 300,000 traffic lights in the US as of 2018.</li>
+<li>Let us assume that we placed a device on each of them to collect metrics and send it to a central metrics collection system.</li>
+<li>If each of the IOT devices sends 10 events per minute, we have 300000x10x60x24 = 432x10^7 events per day.</li>
+<li>How would you go about processing that and telling me how many of the signals were “green” at 10:45 am on a particular day?</li>
+</ol>
+</li>
+<li>Consider the next example on Unified Payments Interface (UPI) transactions:<ol>
+<li>We had about 1.15 billion UPI transactions in the month of October, 2019 in India.</li>
+<li>If we try to extrapolate this data to about a year and try to find out some common payments that were happening through a particular UPI ID, how do you suggest we go about that?</li>
+</ol>
+</li>
+</ol></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

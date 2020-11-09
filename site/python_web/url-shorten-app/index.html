@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>The URL Shortening App - school_of_sre</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">school_of_sre</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Git <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../git/git-basics/">Git Basics</a>
+</li>
+                                    
+<li >
+    <a href="../../git/branches/">Working With Branches</a>
+</li>
+                                    
+<li >
+    <a href="../../git/github-hooks/">Github and Hooks</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python and Web <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../python-concepts/">Some Python Concepts</a>
+</li>
+                                    
+<li >
+    <a href="../python-web-flask/">Python, Web and Flask</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">The URL Shortening App</a>
+</li>
+                                    
+<li >
+    <a href="../sre-conclusion/">SRE Aspects of The App and Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Systems Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../systems_design/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/scalability/">Scalability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/availability/">Availability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/fault-tolerance/">Fault Tolerance</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/conclusion/">Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Big Data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../big_data/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/overview/">Overview of Big Data</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/usage/">Usage of Big Data techniques</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/evolution/">Evolution of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/architecture/">Architecture of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/tasks/">Tasks and conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Security <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../security/intro/">Inro</a>
+</li>
+                                    
+<li >
+    <a href="../../security/fundamentals/">Fundamentals of Security</a>
+</li>
+                                    
+<li >
+    <a href="../../security/network_security/">Network Securuty</a>
+</li>
+                                    
+<li >
+    <a href="../../security/threats_attacks_defences/">Threat, Attacks & Defences</a>
+</li>
+                                    
+<li >
+    <a href="../../security/writing_secure_code/">Writing Secure code</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../python-web-flask/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../sre-conclusion/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#the-url-shortening-app">The URL Shortening App</a></li>
+            <li><a href="#design">Design</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="the-url-shortening-app">The URL Shortening App</h1>
+<p>Let's build a very simple URL shortening app using flask and try to incorporate all aspects of the development process including the reliability aspects. We will not be building the UI and we will come up with a minimal set of API that will be enough for the app to function well.</p>
+<h2 id="design">Design</h2>
+<p>We don't jump directly to coding. First thing we do is gather requirements. Come up with an approach. Have the approach/design reviewed by peers. Evolve, iterate, document the decisions and tradeoffs. And then finally implement. While we will not do the full blown design document here, we will raise certain questions here that are important to the design.</p>
+<h3 id="1-high-level-operations-and-api-endpoints">1. High Level Operations and API Endpoints</h3>
+<p>Since it's a URL shortening app, we will need an API for generating the shorten link given an original link. And an API/Endpoint which will accept the shorten link and redirect to original URL. We are not including the user aspect of the app to keep things minimal. These two API should make app functional and usable by anyone.</p>
+<h3 id="2-how-to-shorten">2. How to shorten?</h3>
+<p>Given a url, we will need to generate a shortened version of it. One approach could be using random characters for each link. Another thing that can be done is to use some sort of hashing algorithm. The benefit here is we will reuse the same hash for the same link. ie: if lot of people are shortening <code>https://www.linkedin.com</code> they all will have the same value, compared to multiple entries in DB if chosen random characters.</p>
+<p>What about hash collisions? Even in random characters approach, though there is a less probability, hash collisions can happen. And we need to be mindful of them. In that case we might want to prepend/append the string with some random value to avoid conflict.</p>
+<p>Also, choice of hash algorithm matters. We will need to analyze algorithms. Their CPU requirements and their characteristics. Choose one that suits the most.</p>
+<h3 id="3-is-url-valid">3. Is URL Valid?</h3>
+<p>Given a URL to shorten, how do we verify if the URL is valid? Do we even verify or validate? One basic check that can be done is see if the URL matches a regex of a URL. To go even further we can try opening/visiting the URL. But there are certain gotchas here.</p>
+<ol>
+<li>We need to define success criteria. ie: HTTP 200 means it is valid.</li>
+<li>What is the URL is in private network?</li>
+<li>What if URL is temporarily down?</li>
+</ol>
+<h3 id="4-storage">4. Storage</h3>
+<p>Finally, storage. Where will we store the data that we will generate over time? There are multiple database solutions available and we will need to choose the one that suits this app the most. Relational database like MySQL would be a fair choice but <strong>be sure to checkout School of SRE's database section for deeper insights into making a more informed decision.</strong></p>
+<h3 id="5-other">5. Other</h3>
+<p>We are not accounting for users into our app and other possible features like rate limiting, customized links etc but it will eventually come up with time. Depending on the requirements, they too might need to get incorporated.</p>
+<p>The minimal working code is given below for reference but I'd encourage you to come up with your own.</p>
+<pre><code class="python">from flask import Flask, redirect, request
+
+from hashlib import md5
+
+app = Flask(&quot;url_shortener&quot;)
+
+mapping = {}
+
+@app.route(&quot;/shorten&quot;, methods=[&quot;POST&quot;])
+def shorten():
+    global mapping
+    payload = request.json
+
+    if &quot;url&quot; not in payload:
+        return &quot;Missing URL Parameter&quot;, 400
+
+    # TODO: check if URL is valid
+
+    hash_ = md5()
+    hash_.update(payload[&quot;url&quot;].encode())
+    digest = hash_.hexdigest()[:5]  # limiting to 5 chars. Less the limit more the chances of collission
+
+    if digest not in mapping:
+        mapping[digest] = payload[&quot;url&quot;]
+        return f&quot;Shortened: r/{digest}\n&quot;
+    else:
+        # TODO: check for hash collission
+        return f&quot;Already exists: r/{digest}\n&quot;
+
+
+@app.route(&quot;/r/&lt;hash_&gt;&quot;)
+def redirect_(hash_):
+    if hash_ not in mapping:
+        return &quot;URL Not Found&quot;, 404
+    return redirect(mapping[hash_])
+
+
+if __name__ == &quot;__main__&quot;:
+    app.run(debug=True)
+
+&quot;&quot;&quot;
+OUTPUT:
+
+
+===&gt; SHORTENING
+
+spatel1-mn1:tmp spatel1$ curl localhost:5000/shorten -H &quot;content-type: application/json&quot; --data '{&quot;url&quot;:&quot;https://linkedin.com&quot;}'
+Shortened: r/a62a4
+
+
+===&gt; REDIRECTING, notice the response code 302 and the location header
+
+spatel1-mn1:tmp spatel1$ curl localhost:5000/r/a62a4 -v
+* Uses proxy env variable NO_PROXY == '127.0.0.1'
+*   Trying ::1...
+* TCP_NODELAY set
+* Connection failed
+* connect to ::1 port 5000 failed: Connection refused
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 5000 (#0)
+&gt; GET /r/a62a4 HTTP/1.1
+&gt; Host: localhost:5000
+&gt; User-Agent: curl/7.64.1
+&gt; Accept: */*
+&gt;
+* HTTP 1.0, assume close after body
+&lt; HTTP/1.0 302 FOUND
+&lt; Content-Type: text/html; charset=utf-8
+&lt; Content-Length: 247
+&lt; Location: https://linkedin.com
+&lt; Server: Werkzeug/0.15.4 Python/3.7.7
+&lt; Date: Tue, 27 Oct 2020 09:37:12 GMT
+&lt;
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;
+&lt;title&gt;Redirecting...&lt;/title&gt;
+&lt;h1&gt;Redirecting...&lt;/h1&gt;
+* Closing connection 0
+&lt;p&gt;You should be redirected automatically to target URL: &lt;a href=&quot;https://linkedin.com&quot;&gt;https://linkedin.com&lt;/a&gt;.  If not click the link.
+&quot;&quot;&quot;
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Some Python Concepts - school_of_sre</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">school_of_sre</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Git <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../git/git-basics/">Git Basics</a>
+</li>
+                                    
+<li >
+    <a href="../../git/branches/">Working With Branches</a>
+</li>
+                                    
+<li >
+    <a href="../../git/github-hooks/">Github and Hooks</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python and Web <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../intro/">Intro</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Some Python Concepts</a>
+</li>
+                                    
+<li >
+    <a href="../python-web-flask/">Python, Web and Flask</a>
+</li>
+                                    
+<li >
+    <a href="../url-shorten-app/">The URL Shortening App</a>
+</li>
+                                    
+<li >
+    <a href="../sre-conclusion/">SRE Aspects of The App and Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Systems Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../systems_design/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/scalability/">Scalability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/availability/">Availability</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/fault-tolerance/">Fault Tolerance</a>
+</li>
+                                    
+<li >
+    <a href="../../systems_design/conclusion/">Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Big Data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../big_data/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/overview/">Overview of Big Data</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/usage/">Usage of Big Data techniques</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/evolution/">Evolution of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/architecture/">Architecture of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/tasks/">Tasks and conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Security <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../security/intro/">Inro</a>
+</li>
+                                    
+<li >
+    <a href="../../security/fundamentals/">Fundamentals of Security</a>
+</li>
+                                    
+<li >
+    <a href="../../security/network_security/">Network Securuty</a>
+</li>
+                                    
+<li >
+    <a href="../../security/threats_attacks_defences/">Threat, Attacks & Defences</a>
+</li>
+                                    
+<li >
+    <a href="../../security/writing_secure_code/">Writing Secure code</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../intro/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../python-web-flask/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#some-python-concepts">Some Python Concepts</a></li>
+            <li><a href="#python-functions">Python Functions</a></li>
+            <li><a href="#decorators">Decorators</a></li>
+            <li><a href="#some-gotchas">Some Gotchas</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="some-python-concepts">Some Python Concepts</h1>
+<p>Though you are expected to know python and its syntax at basic level, let us discuss some fundamental concepts that will help you understand the python language better.</p>
+<p><strong>Everything in Python is an object.</strong></p>
+<p>That includes the functions, lists, dicts, classes, modules, a running function (instance of function definition), everything. In the CPython, it would mean there is an underlying struct variable for each object.</p>
+<p>In python's current execution context, all the variables are stored in a dict. It'd be a string to object mapping. If you have a function and a float variable defined in the current context, here is how it is handled internally.</p>
+<pre><code class="python">&gt;&gt;&gt; float_number=42.0
+&gt;&gt;&gt; def foo_func():
+...     pass
+...
+
+# NOTICE HOW VARIABLE NAMES ARE STRINGS, stored in a dict
+&gt;&gt;&gt; locals()
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'float_number': 42.0, 'foo_func': &lt;function foo_func at 0x1055847a0&gt;}
+</code></pre>
+
+<h2 id="python-functions">Python Functions</h2>
+<p>Since functions too are objects, we can see what all attributes a function contains as following</p>
+<pre><code class="python">&gt;&gt;&gt; def hello(name):
+...     print(f&quot;Hello, {name}!&quot;)
+...
+&gt;&gt;&gt; dir(hello)
+['__annotations__', '__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__',
+'__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__get__', '__getattribute__', '__globals__', '__gt__',
+'__hash__', '__init__', '__init_subclass__', '__kwdefaults__', '__le__', '__lt__', '__module__', '__name__',
+'__ne__', '__new__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__',
+'__subclasshook__']
+</code></pre>
+
+<p>While there are a lot of them, let's look at some interesting ones</p>
+<h4 id="globals"><strong>globals</strong></h4>
+<p>This attribute, as the name suggests, has references of global variables. If you ever need to know what all global variables are in the scope of this function, this will tell you. See how the function start seeing the new variable in globals</p>
+<pre><code class="python">&gt;&gt;&gt; hello.__globals__
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'hello': &lt;function hello at 0x7fe4e82554c0&gt;}
+
+# adding new global variable
+&gt;&gt;&gt; GLOBAL=&quot;g_val&quot;
+&gt;&gt;&gt; hello.__globals__
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'hello': &lt;function hello at 0x7fe4e82554c0&gt;, 'GLOBAL': 'g_val'}
+</code></pre>
+
+<h3 id="code"><strong>code</strong></h3>
+<p>This is an interesting one! As everything in python is an object, this includes the bytecode too. The compiled python bytecode is a python code object. Which is accessible via <code>__code__</code> attribute here. A function has an associated code object which carries some interesting information.</p>
+<pre><code class="python"># the file in which function is defined
+# stdin here since this is run in an interpreter
+&gt;&gt;&gt; hello.__code__.co_filename
+'&lt;stdin&gt;'
+
+# number of arguments the function takes
+&gt;&gt;&gt; hello.__code__.co_argcount
+1
+
+# local variable names
+&gt;&gt;&gt; hello.__code__.co_varnames
+('name',)
+
+# the function code's compiled bytecode
+&gt;&gt;&gt; hello.__code__.co_code
+b't\x00d\x01|\x00\x9b\x00d\x02\x9d\x03\x83\x01\x01\x00d\x00S\x00'
+</code></pre>
+
+<p>There are more code attributes which you can enlist by <code>&gt;&gt;&gt; dir(hello.__code__)</code></p>
+<h2 id="decorators">Decorators</h2>
+<p>Related to functions, python has another feature called decorators. Let's see how that works, keeping  <code>everything is an object</code> in mind.</p>
+<p>Here is a sample decorator:</p>
+<pre><code class="python">&gt;&gt;&gt; def deco(func):
+...     def inner():
+...             print(&quot;before&quot;)
+...             func()
+...             print(&quot;after&quot;)
+...     return inner
+...
+&gt;&gt;&gt; @deco
+... def hello_world():
+...     print(&quot;hello world&quot;)
+...
+&gt;&gt;&gt;
+&gt;&gt;&gt; hello_world()
+before
+hello world
+after
+</code></pre>
+
+<p>Here <code>@deco</code> syntax is used to decorate the <code>hello_world</code> function. It is essentially same as doing</p>
+<pre><code class="python">&gt;&gt;&gt; def hello_world():
+...     print(&quot;hello world&quot;)
+...
+&gt;&gt;&gt; hello_world = deco(hello_world)
+</code></pre>
+
+<p>What goes inside the <code>deco</code> function might seem complex. Let's try to uncover it.</p>
+<ol>
+<li>Function <code>hello_world</code> is created</li>
+<li>It is passed to <code>deco</code> function</li>
+<li><code>deco</code> create a new function<ol>
+<li>This new function is calls <code>hello_world</code> function</li>
+<li>And does a couple other things</li>
+</ol>
+</li>
+<li><code>deco</code> returns the newly created function</li>
+<li><code>hello_world</code> is replaced with above function</li>
+</ol>
+<p>Let's visualize it for better understanding</p>
+<pre><code>       BEFORE                   function_object (ID: 100)
+
+       &quot;hello_world&quot;            +--------------------+
+               +                |print(&quot;hello_world&quot;)|
+               |                |                    |
+               +--------------&gt; |                    |
+                                |                    |
+                                +--------------------+
+
+
+       WHAT DECORATOR DOES
+
+       creates a new function (ID: 101)
+       +---------------------------------+
+       |input arg: function with id: 100 |
+       |                                 |
+       |print(&quot;before&quot;)                  |
+       |call function object with id 100 |
+       |print(&quot;after&quot;)                   |
+       |                                 |
+       +---------------------------^-----+
+                                   |
+                                   |
+       AFTER                       |
+                                   |
+                                   |
+       &quot;hello_world&quot; +-------------+
+</code></pre>
+
+<p>Note how the <code>hello_world</code> name points to a new function object but that new function object knows the reference (ID) of the original function.</p>
+<h2 id="some-gotchas">Some Gotchas</h2>
+<ul>
+<li>While it is very quick to build prototypes in python and there are tons of libraries available, as the codebase complexity increases, type errors become more common and will get hard to deal with. (There are solutions to that problem like type annotations in python. Checkout <a href="http://mypy-lang.org/">mypy</a>.)</li>
+<li>Because python is dynamically typed language, that means all types are determined at runtime. And that makes python run very slow compared to other statically typed languages.</li>
+<li>Python has something called <a href="https://www.dabeaz.com/python/UnderstandingGIL.pdf">GIL</a> (global interpreter lock) which is a limiting factor for utilizing multiple CPI cores for parallel computation.</li>
+<li>Some weird things that python does: https://github.com/satwikkansal/wtfpython</li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

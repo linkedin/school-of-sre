@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Scalability - school_of_sre</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">school_of_sre</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Git <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../git/git-basics/">Git Basics</a>
+</li>
+                                    
+<li >
+    <a href="../../git/branches/">Working With Branches</a>
+</li>
+                                    
+<li >
+    <a href="../../git/github-hooks/">Github and Hooks</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python and Web <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../python_web/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../python_web/python-concepts/">Some Python Concepts</a>
+</li>
+                                    
+<li >
+    <a href="../../python_web/python-web-flask/">Python, Web and Flask</a>
+</li>
+                                    
+<li >
+    <a href="../../python_web/url-shorten-app/">The URL Shortening App</a>
+</li>
+                                    
+<li >
+    <a href="../../python_web/sre-conclusion/">SRE Aspects of The App and Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Systems Design <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../intro/">Intro</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Scalability</a>
+</li>
+                                    
+<li >
+    <a href="../availability/">Availability</a>
+</li>
+                                    
+<li >
+    <a href="../fault-tolerance/">Fault Tolerance</a>
+</li>
+                                    
+<li >
+    <a href="../conclusion/">Conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Big Data <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../big_data/intro/">Intro</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/overview/">Overview of Big Data</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/usage/">Usage of Big Data techniques</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/evolution/">Evolution of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/architecture/">Architecture of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/tasks/">Tasks and conclusion</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Security <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../security/intro/">Inro</a>
+</li>
+                                    
+<li >
+    <a href="../../security/fundamentals/">Fundamentals of Security</a>
+</li>
+                                    
+<li >
+    <a href="../../security/network_security/">Network Securuty</a>
+</li>
+                                    
+<li >
+    <a href="../../security/threats_attacks_defences/">Threat, Attacks & Defences</a>
+</li>
+                                    
+<li >
+    <a href="../../security/writing_secure_code/">Writing Secure code</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../intro/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../availability/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#scalability">Scalability</a></li>
+            <li><a href="#refer">Refer</a></li>
+            <li><a href="#scalability-akf-scale-cube">Scalability - AKF Scale Cube</a></li>
+            <li><a href="#scalability-horizontal-scaling">Scalability - Horizontal scaling</a></li>
+            <li><a href="#scalability-microservices">Scalability - Microservices</a></li>
+            <li><a href="#scalability-sharding">Scalability - Sharding</a></li>
+            <li><a href="#sre-use-cases">SRE Use cases</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="scalability">Scalability</h1>
+<p>What does scalability mean for a system/service? A system is composed of services/components, each service/component scalability needs to be tackled separately, and the scalability of the system as a whole.</p>
+<p>A service is said to be scalable if, as resources are added to the system, it results in increased performance in a manner proportional to resources added</p>
+<p>An always-on service is said to be scalable if adding resources to facilitate redundancy does not result in a loss of performance</p>
+<h2 id="refer">Refer</h2>
+<ul>
+<li><a href="https://www.allthingsdistributed.com/2006/03/a_word_on_scalability.html">https://www.allthingsdistributed.com/2006/03/a_word_on_scalability.html</a></li>
+</ul>
+<h2 id="scalability-akf-scale-cube">Scalability - AKF Scale Cube</h2>
+<p>The <a href="https://akfpartners.com/growth-blog/scale-cube">Scale Cube</a> is a model for segmenting services, defining microservices, and scaling products. It also creates a common language for teams to discuss scale related options in designing solutions. Following section talks about certain scaling patterns based on our inferences from AKF cube</p>
+<h2 id="scalability-horizontal-scaling">Scalability - Horizontal scaling</h2>
+<p>Horizontal scaling stands for  cloning of an application or service such that work can easily be distributed across instances with absolutely no bias.</p>
+<p>Lets see how our monolithic application improves with this principle</p>
+<p><img alt="Horizontal Scaling" src="../images/horizontal-scaling.jpg" /></p>
+<p>Here DB is scaled separately from the application. This is to let you know each component’s scaling capabilities can be different. Usually web applications can be scaled by adding resources unless there is no state stored inside the application. But DBs can be scaled only for Reads by adding more followers but Writes have to go to only one master to make sure data is consistent. There are some DBs which support multi master writes but we are keeping them out of scope at this point. </p>
+<p>Apps should be able to differentiate between Read and Writes to choose appropriate DB servers. Load balancers can split traffic between identical servers  transparently.</p>
+<p><strong>WHAT:</strong>  Duplication of services or databases to spread transaction load.</p>
+<p><strong>WHEN TO USE:</strong>  Databases with a very high read-to-write ratio (5:1 or greater—the higher the better). Because only read replicas of DBs can be scaled, not the Master. </p>
+<p><strong>HOW TO USE:</strong> Simply clone services and implement a load balancer. For databases, ensure that the accessing code understands the difference between a read and a write.</p>
+<p><strong>WHY:</strong> Allows for fast scale of transactions at the cost of duplicated data and functionality.</p>
+<p><strong>KEY TAKEAWAYS:</strong> This is fast to implement, is low cost from a developer effort perspective, and can scale transaction volumes nicely. However, they tend to be high cost from the perspective of the operational cost of data. Cost here means if we have 3 followers and 1 Master DB, the same database will be stored as 4 copies in the 4 servers. Hence added storage cost</p>
+<h3 id="refer_1">Refer</h3>
+<ul>
+<li><a href="https://learning.oreilly.com/library/view/the-art-of/9780134031408/ch23.html">https://learning.oreilly.com/library/view/the-art-of/9780134031408/ch23.html</a> </li>
+</ul>
+<h3 id="scalability-pattern-load-balancing">Scalability Pattern - Load Balancing</h3>
+<p>Improves the distribution of workloads across multiple computing resources, such as computers, a computer cluster, network links, central processing units, or disk drives. Commonly used technique is load balancing traffic across identical server clusters. Similar philosophy is used to load balance traffic across network links by <a href="https://en.wikipedia.org/wiki/Equal-cost_multi-path_routing">ECMP</a>, disk drives by <a href="https://en.wikipedia.org/wiki/RAID">RAID</a> etc</p>
+<p>Aims to optimize resource use, maximize throughput, minimize response time, and avoid overload of any single resource.
+Using multiple components with load balancing instead of a single component may increase reliability and availability through redundancy. In our updated architecture diagram we have 4 servers to handle app traffic instead of a single server</p>
+<p>The device or system that performs load balancing is called a load balancer, abbreviated as LB.</p>
+<h4 id="refer_2">Refer</h4>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Load_balancing_(computing)">https://en.wikipedia.org/wiki/Load_balancing_(computing)</a></li>
+<li><a href="https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236">https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236</a></li>
+<li><a href="https://learning.oreilly.com/library/view/load-balancing-in/9781492038009/">https://learning.oreilly.com/library/view/load-balancing-in/9781492038009/</a></li>
+<li><a href="https://learning.oreilly.com/library/view/practical-load-balancing/9781430236801/">https://learning.oreilly.com/library/view/practical-load-balancing/9781430236801/</a></li>
+<li><a href="http://shop.oreilly.com/product/9780596000509.do">http://shop.oreilly.com/product/9780596000509.do</a></li>
+</ul>
+<h3 id="scalability-pattern-lb-tasks">Scalability Pattern - LB Tasks</h3>
+<p>What does an LB do?</p>
+<h4 id="service-discovery">Service discovery:</h4>
+<p>What backends are available in the system? In our architecture, 4 servers are available to serve App traffic. LB acts as a single endpoint that clients can use  transparently to reach one of the 4 servers.</p>
+<h4 id="health-checking">Health checking:</h4>
+<p>What backends are currently healthy and available to accept requests? If one out of the 4 App servers turns bad, LB should automatically short circuit the path so that clients don’t sense any application downtime</p>
+<h4 id="load-balancing">Load balancing:</h4>
+<p>What algorithm should be used to balance individual requests across the healthy backends? There are many algorithms to distribute traffic across one of the four servers. Based on observations/experience, SRE can pick the algorithm that suits their pattern</p>
+<h3 id="scalability-pattern-lb-methods">Scalability Pattern - LB Methods</h3>
+<p>Common Load Balancing Methods</p>
+<h4 id="least-connection-method">Least Connection Method</h4>
+<p>directs traffic to the server with the fewest active connections. Most useful when there are a large number of persistent connections in the traffic unevenly distributed between the servers. Works if clients maintain long lived connections</p>
+<h4 id="least-response-time-method">Least Response Time Method</h4>
+<p>directs traffic to the server with the fewest active connections and the lowest average response time. Here response time is used to provide feedback of server’s health</p>
+<h4 id="round-robin-method">Round Robin Method</h4>
+<p>rotates servers by directing traffic to the first available server and then moves that server to the bottom of the queue. Most useful when servers are of equal specification and there are not many persistent connections.</p>
+<h4 id="ip-hash">IP Hash</h4>
+<p>the IP address of the client determines which server receives the request. This can sometimes cause skewness in distribution but is useful if apps store some state locally and need some stickiness</p>
+<p>More advanced client/server-side example techniques 
+- https://docs.nginx.com/nginx/admin-guide/load-balancer/
+- http://cbonte.github.io/haproxy-dconv/2.2/intro.html#3.3.5
+- https://twitter.github.io/finagle/guide/Clients.html#load-balancing</p>
+<h3 id="scalability-pattern-caching-content-delivery-networks-cdn">Scalability Pattern - Caching - Content Delivery Networks (CDN)</h3>
+<p>CDNs are added closer to the client’s location. If the app has static data like images,  Javascript, CSS which don’t change very often, they can be cached. Since our example is a content sharing site, static content can be cached in CDNs with a suitable expiry.</p>
+<p><img alt="CDN block diagram" src="../images/cdn.jpg" /></p>
+<p><strong>WHAT:</strong> Use CDNs (content delivery networks) to offload traffic from your site.</p>
+<p><strong>WHEN TO USE:</strong> When speed improvements and scale warrant the additional cost.</p>
+<p><strong>HOW TO USE:</strong> Most CDNs leverage DNS to serve content on your site’s behalf. Thus you may need to make minor DNS changes or additions and move content to be served from new subdomains.</p>
+<p>Eg
+media-exp1.licdn.com is a domain used by Linkedin to serve static content</p>
+<p>Here a CNAME points the domain to the DNS of CDN provider</p>
+<p>dig media-exp1.licdn.com +short</p>
+<p>2-01-2c3e-005c.cdx.cedexis.net.</p>
+<p><strong>WHY:</strong> CDNs help offload traffic spikes and are often economical ways to scale parts of a site’s traffic. They also often substantially improve page download times.</p>
+<p><strong>KEY TAKEAWAYS:</strong> CDNs are a fast and simple way to offset the spikiness of traffic as well as traffic growth in general. Make sure you perform a cost-benefit analysis and monitor the CDN usage. If CDNs have a lot of cache misses, then we don’t gain much from CDN and are still serving requests using our compute resources. </p>
+<h2 id="scalability-microservices">Scalability - Microservices</h2>
+<p>This pattern represents the separation of work by service or function within the application. Microservices are meant to address the issues associated with growth and complexity in the code base and data sets. The intent is to create fault isolation as well as to reduce response times.</p>
+<p>Microservices can scale transactions, data sizes, and codebase sizes. They are most effective in scaling the size and complexity of your codebase. They tend to cost a bit more than horizontal scaling because the engineering team needs to rewrite services or, at the very least, disaggregate them from the original monolithic application.</p>
+<p><img alt="Microservices block diagram" src="../images/microservices.jpg" /></p>
+<p><strong>WHAT:</strong> Sometimes referred to as scale through services or resources, this rule focuses on scaling by splitting data sets, transactions, and engineering teams along verb (services) or noun (resources) boundaries.</p>
+<p><strong>WHEN TO USE:</strong> Very large data sets where relations between data are not necessary. Large, complex systems where scaling engineering resources requires specialization.</p>
+<p><strong>HOW TO USE:</strong>  Split up actions by using verbs, or resources by using nouns, or use a mix. Split both the services and the data along the lines defined by the verb/noun approach.</p>
+<p><strong>WHY:</strong> Allows for efficient scaling of not only transactions but also very large data sets associated with those transactions. It also allows for the efficient scaling of teams.</p>
+<p><strong>KEY TAKEAWAYS:</strong> Microservices allow for efficient scaling of transactions, large data sets, and can help with fault isolation.  It  helps reduce the communication overhead of teams. The codebase becomes less complex as disjoint features are decoupled and spun as new services  thereby letting each service scale independently specific to its requirement.</p>
+<h3 id="refer_3">Refer</h3>
+<ul>
+<li>https://learning.oreilly.com/library/view/the-art-of/9780134031408/ch23.html </li>
+</ul>
+<h2 id="scalability-sharding">Scalability - Sharding</h2>
+<p>This pattern represents the separation of work based on attributes that are looked up or determined at the time of the transaction. Most often, these are implemented as splits by requestor, customer, or client.</p>
+<p>Very often, a lookup service or deterministic algorithm will need to be written for these types of splits.</p>
+<p>Sharding aids in scaling transaction growth, scaling instruction sets, and decreasing processing time (the last by limiting the data necessary to perform any transaction). This  is  more effective at scaling growth in customers or clients. It can aid with disaster recovery efforts, and limit the impact of incidents to only a specific segment of customers.</p>
+<p><img alt="Sharding-block-1" src="../images/sharding-1.jpg" /></p>
+<p>Here the auth  data is sharded based on user names so that DBs can respond faster as the amount of data DBs have to work on has drastically reduced during queries.</p>
+<p>There can be other ways to split </p>
+<p><img alt="Sharding-block-2" src="../images/sharding-2.jpg" /></p>
+<p>Here the whole data centre is split and replicated and clients are directed to a data centre based on their geography. This helps in improving performance as clients are directed to the closest Data centre and performance increases as we add more data centres. There are some replication and consistency overhead with this approach one needs to be aware of.  This also gives fault tolerance by rolling out test features to one site and rollback if there is an impact to that geography</p>
+<p><strong>WHAT:</strong> This is very often a split by some unique aspect of the customer such as customer ID, name, geography, and so on.</p>
+<p><strong>WHEN TO USE:</strong> Very large, similar data sets such as large and rapidly growing customer bases or when the response time for a geographically distributed customer base is important.</p>
+<p><strong>HOW TO USE:</strong> Identify something you know about the customer, such as customer ID, last name, geography, or device, and split or partition both data and services based on that attribute.</p>
+<p><strong>WHY:</strong> Rapid customer growth exceeds other forms of data growth, or you have the need to perform fault isolation between certain customer groups as you scale.</p>
+<p><strong>KEY TAKEAWAYS:</strong> Shards are effective at helping you to scale customer bases but can also be applied to other very large data sets that can’t be pulled apart using the microservices methodology.</p>
+<h3 id="refer_4">Refer</h3>
+<ul>
+<li>https://learning.oreilly.com/library/view/the-art-of/9780134031408/ch23.html</li>
+</ul>
+<h2 id="sre-use-cases">SRE Use cases</h2>
+<ol>
+<li>SREs in coordination with the network team work on how to map users traffic to a particular site. 
+https://engineering.linkedin.com/blog/2017/05/trafficshift--load-testing-at-scale</li>
+<li>SREs work closely with the Dev team to split monoliths to multiple microservices that are easy to run and manage</li>
+<li>SREs work on improving Load Balancers' reliability, service discovery and performance</li>
+<li>SREs work closely to split Data into shards and manage data integrity and consistency. 
+https://engineering.linkedin.com/espresso/introducing-espresso-linkedins-hot-new-distributed-document-store</li>
+<li>SREs work to set up, configure and improve CDN cache hit rate.</li>
+</ol></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
