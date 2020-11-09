@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Architecture of Hadoop - school_of_sre</title>
+        <title>DNS - school_of_sre</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -66,32 +66,32 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux Networking <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../linux_networking/intro/">Intro</a>
+    <a href="../intro/">Intro</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">DNS</a>
 </li>
                                     
 <li >
-    <a href="../../linux_networking/dns/">DNS</a>
+    <a href="../udp/">UDP</a>
 </li>
                                     
 <li >
-    <a href="../../linux_networking/udp/">UDP</a>
+    <a href="../http/">HTTP</a>
 </li>
                                     
 <li >
-    <a href="../../linux_networking/http/">HTTP</a>
+    <a href="../tcp/">TCP</a>
 </li>
                                     
 <li >
-    <a href="../../linux_networking/tcp/">TCP</a>
-</li>
-                                    
-<li >
-    <a href="../../linux_networking/ipr/">Routing and Conclusion</a>
+    <a href="../ipr/">Routing and Conclusion</a>
 </li>
                                 </ul>
                             </li>
@@ -145,32 +145,32 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Big Data <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../intro/">Intro</a>
+    <a href="../../big_data/intro/">Intro</a>
 </li>
                                     
 <li >
-    <a href="../overview/">Overview of Big Data</a>
+    <a href="../../big_data/overview/">Overview of Big Data</a>
 </li>
                                     
 <li >
-    <a href="../usage/">Usage of Big Data techniques</a>
+    <a href="../../big_data/usage/">Usage of Big Data techniques</a>
 </li>
                                     
 <li >
-    <a href="../evolution/">Evolution of Hadoop</a>
-</li>
-                                    
-<li class="active">
-    <a href="./">Architecture of Hadoop</a>
+    <a href="../../big_data/evolution/">Evolution of Hadoop</a>
 </li>
                                     
 <li >
-    <a href="../tasks/">Tasks and conclusion</a>
+    <a href="../../big_data/architecture/">Architecture of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/tasks/">Tasks and conclusion</a>
 </li>
                                 </ul>
                             </li>
@@ -208,12 +208,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../evolution/">
+                                <a rel="next" href="../intro/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../tasks/">
+                                <a rel="prev" href="../udp/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -225,99 +225,122 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#architecture-of-hadoop">Architecture of Hadoop</a></li>
-        <li class="main "><a href="#mapreduce-framework">MapReduce framework</a></li>
-        <li class="main "><a href="#other-tooling-around-hadoop">Other tooling around hadoop</a></li>
-        <li class="main "><a href="#data-serialisation-and-storage">Data Serialisation and storage</a></li>
+        <li class="main active"><a href="#dns">DNS</a></li>
+            <li><a href="#applications-in-sre-role">Applications in SRE role</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="architecture-of-hadoop">Architecture of Hadoop</h1>
-<ol>
-<li>
-<p><strong>HDFS</strong></p>
-<ol>
-<li>The Hadoop Distributed File System (HDFS) is a distributed file system designed to run on commodity hardware. It has many similarities with existing distributed file systems. However, the differences from other distributed file systems are significant. </li>
-<li>HDFS is highly fault-tolerant and is designed to be deployed on low-cost hardware. HDFS provides high throughput access to application data and is suitable for applications that have large data sets. </li>
-<li>HDFS is part of the Apache Hadoop Core project.</li>
-</ol>
-<p><img alt="HDFS Architecture" src="../images/hdfs_architecture.png" /></p>
-<pre><code>1. NameNode: is the arbitrator and central repository of file namespace in the cluster. The NameNode executes the operations such as opening, closing, and renaming files and directories.
-2. DataNode: manages the storage attached to the node on which it runs. It is responsible for serving all the read and write requests. It performs operations on instructions on NameNode such as creation, deletion, and replications of blocks.
-3. Client: Responsible for getting the required metadata from the namenode and then communicating with the datanodes for reads and writes.
+<h1 id="dns">DNS</h1>
+<p>Domain Names are the simple human-readable names for websites. The Internet understands only IP addresses, but since memorizing incoherent numbers is not practical, domain names are used instead. These domain names are translated into IP addresses by the DNS infrastructure. When somebody tries to open www.linkedin.com in the browser, the browser tries to convert www.linkedin.com to an IP Address. This process is called DNS resolution. A simple pseudocode depicting this process looks this</p>
+<pre><code class="python">ip, err = getIPAddress(domainName)
+if err:
+  print(“unknown Host Exception while trying to resolve:%s”.format(domainName))
 </code></pre>
-</li>
-<li>
-<p><strong>YARN</strong></p>
-<ol>
-<li>YARN stands for “Yet Another Resource Negotiator“. It was introduced in Hadoop 2.0 to remove the bottleneck on Job Tracker which was present in Hadoop 1.0. YARN was described as a “Redesigned Resource Manager” at the time of its launching, but it has now evolved to be known as a large-scale distributed operating system used for Big Data processing.</li>
-<li>The main components of YARN architecture include:</li>
-</ol>
-<p><img alt="YARN Architecture" src="../images/yarn_architecture.gif" /></p>
-<pre><code>1. Client: It submits map-reduce jobs to the resource manager.
-2. Resource Manager: It is the master daemon of YARN and is responsible for resource assignment and management among all the applications. Whenever it receives a processing request, it forwards it to the corresponding node manager and allocates resources for the completion of the request accordingly. It has two major components:
-3. Scheduler: It performs scheduling based on the allocated application and available resources. It is a pure scheduler, which means that it does not perform other tasks such as monitoring or tracking and does not guarantee a restart if a task fails. The YARN scheduler supports plugins such as Capacity Scheduler and Fair Scheduler to partition the cluster resources.
-4. Application manager: It is responsible for accepting the application and negotiating the first container from the resource manager. It also restarts the Application Manager container if a task fails.
-5. Node Manager: It takes care of individual nodes on the Hadoop cluster and manages application and workflow and that particular node. Its primary job is to keep-up with the Node Manager. It monitors resource usage, performs log management and also kills a container based on directions from the resource manager. It is also responsible for creating the container process and starting it on the request of the Application master.
-6. Application Master: An application is a single job submitted to a framework. The application manager is responsible for negotiating resources with the resource manager, tracking the status and monitoring progress of a single application. The application master requests the container from the node manager by sending a Container Launch Context(CLC) which includes everything an application needs to run. Once the application is started, it sends the health report to the resource manager from time-to-time.
-7. Container: It is a collection of physical resources such as RAM, CPU cores and disk on a single node. The containers are invoked by Container Launch Context(CLC) which is a record that contains information such as environment variables, security tokens, dependencies etc.
+
+<p>Now let’s try to understand what happens inside the getIPAddress function. The browser would have a DNS cache of its own where it checks if there is a mapping for the domainName to an IP Address already available, in which case the browser uses that IP address. If no such mapping exists, the browser calls gethostbyname syscall to ask the operating system to find the IP address for the given domainName</p>
+<pre><code class="python">def getIPAddress(domainName):
+    resp, fail = lookupCache(domainName)
+    If not fail:
+       return resp
+    else:
+       resp, err = gethostbyname(domainName)
+       if err:
+         return null, err
+       else:
+          return resp
 </code></pre>
-</li>
-</ol>
-<h1 id="mapreduce-framework">MapReduce framework</h1>
-<p><img alt="MapReduce Framework" src="../images/map_reduce.jpg" /></p>
-<pre><code>1. The term MapReduce represents two separate and distinct tasks Hadoop programs perform-Map Job and Reduce Job. Map jobs take data sets as input and process them to produce key value pairs. Reduce job takes the output of the Map job i.e. the key value pairs and aggregates them to produce desired results. 
-2. Hadoop MapReduce (Hadoop Map/Reduce) is a software framework for distributed processing of large data sets on computing clusters. Mapreduce helps to  split the input data set into a number of parts and run a program on all data parts parallel at once.
-3. Please find the below Word count example demonstrating the usage of MapReduce framework:
+
+<p>Now lets understand what operating system kernel does when the gethostbyname function is called. The Linux operating system looks at the file <a href="https://man7.org/linux/man-pages/man5/nsswitch.conf.5.html">/etc/nsswitch.conf</a> file which usually has a line</p>
+<pre><code class="bash">hosts:      files dns
 </code></pre>
-<p><img alt="Word Count Example" src="../images/mapreduce_example.jpg" /></p>
-<h1 id="other-tooling-around-hadoop">Other tooling around hadoop</h1>
-<ol>
-<li><strong>Hive</strong><ol>
-<li>Uses a language called HQL which is very SQL like.  Gives non-programmers the ability to query and analyze data in Hadoop.  Is basically an abstraction layer on top of map-reduce.</li>
-<li>Ex. HQL query: <ol>
-<li><em>SELECT pet.name, comment FROM pet JOIN event ON  (pet.name = event.name);</em></li>
-</ol>
-</li>
-<li>In mysql: <ol>
-<li><em>SELECT pet.name, comment FROM pet, event WHERE  pet.name = event.name;</em></li>
-</ol>
-</li>
-</ol>
-</li>
-<li>
-<p><strong>Pig</strong></p>
-<ol>
-<li>Uses a scripting language called Pig Latin, which is more workflow driven.  Don't need to be an expert Java programmer but need a few coding skills.  Is also an abstraction layer on top of map-reduce.</li>
-<li>Here is a quick question for you:
-What is the output of running the pig queries in the right column against the data present in the left column in the below image?</li>
-</ol>
-<p><img alt="Pig Example" src="../images/pig_example.png" /></p>
-<p>Output:
-<code>mysql
-7,Komal,Nayak,24,9848022334,trivendram
-8,Bharathi,Nambiayar,24,9848022333,Chennai
-5,Trupthi,Mohanthy,23,9848022336,Bhuwaneshwar
-6,Archana,Mishra,23,9848022335,Chennai</code>
-3. <strong>Spark</strong>
-1. Spark provides primitives for in-memory cluster computing that allows user programs to load data into a cluster’s memory and query it repeatedly, making it well suited to machine learning algorithms.
-4. <strong>Presto</strong>
-1. Presto is a high performance, distributed SQL query engine for Big Data. 
-2. Its architecture allows users to query a variety of data sources such as Hadoop, AWS S3, Alluxio, MySQL, Cassandra, Kafka, and MongoDB.
-3. Example presto query:
-    <code>mysql
-    use studentDB;
-    show tables;
-    SELECT roll_no, name FROM studentDB.studentDetails where section=’A’ limit 5;</code></p>
-</li>
-</ol>
-<h1 id="data-serialisation-and-storage">Data Serialisation and storage</h1>
-<ol>
-<li>In order to transport the data over the network or to store on some persistent storage, we use the process of translating data structures or objects state into binary or textual form. We call this process serialization..</li>
-<li>Avro data is stored in a container file (a .avro file) and its schema (the .avsc file) is stored with the data file.</li>
-<li>Apache Hive provides support to store a table as Avro and can also query data in this serialisation format.</li>
-</ol></div>
+
+<p>This line means the OS has to look up first in file (/etc/hosts) and then use DNS protocol to do the resolution if there is no match in /etc/hosts. </p>
+<p>The file /etc/hosts is of format</p>
+<p>IPAddress FQDN [FQDN].*</p>
+<pre><code class="bash">127.0.0.1 localhost.localdomain localhost
+::1 localhost.localdomain localhost
+</code></pre>
+
+<p>If a match exists for a domain in this file then that IP address is returned by the OS. Lets add a line to this file</p>
+<pre><code class="bash">127.0.0.1 test.linkedin.com
+</code></pre>
+
+<p>And then do ping test.linkedin.com</p>
+<pre><code class="bash">ping test.linkedin.com -n
+</code></pre>
+
+<pre><code class="bash">PING test.linkedin.com (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.047 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.036 ms
+64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.037 ms
+
+</code></pre>
+
+<p>As mentioned earlier, if no match exists in /etc/hosts, the OS tries to do a DNS resolution using the DNS protocol. The linux system makes a DNS request to the first IP in /etc/resolv.conf. If there is no response, requests are sent to subsequent servers in resolv.conf. These servers in resolv.conf are called DNS resolvers. The DNS resolvers are populated by <a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">DHCP</a> or statically configured by an administrator. 
+<a href="https://linux.die.net/man/1/dig">Dig</a> is a userspace DNS system which creates and sends requests to DNS resolvers and prints the response it receives to the console.</p>
+<pre><code class="bash">#run this command in one shell to capture all DNS requests
+sudo tcpdump -s 0 -A -i any port 53
+#make a dig request from another shell
+dig linkedin.com
+</code></pre>
+
+<pre><code class="bash">13:19:54.432507 IP 172.19.209.122.56497 &gt; 172.23.195.101.53: 527+ [1au] A? linkedin.com. (41)
+....E..E....@.n....z...e...5.1.:... .........linkedin.com.......)........
+13:19:54.485131 IP 172.23.195.101.53 &gt; 172.19.209.122.56497: 527 1/0/1 A 108.174.10.10 (57)
+....E..U..@.|.  ....e...z.5...A...............linkedin.com..............3..l.
+
+..)........
+</code></pre>
+
+<p>The packet capture shows a request is made to 172.23.195.101:53 (this is the resolver in /etc/resolv.conf) for linkedin.com and a response is received from 172.23.195.101 with the IP address of linkedin.com 108.174.10.10</p>
+<p>Now let's try to understand how DNS resolver tries to find the IP address of linkedin.com. DNS resolver first looks at its cache. Since many devices in the network can query for the domain name linkedin.com, the name resolution result may already exist in the cache. If there is a cache miss, it starts the DNS resolution process. The DNS server breaks “linkedin.com” to “.”, “com.” and “linkedin.com.” and starts DNS resolution from “.”. The “.” is called root domain and those IPs are known to the DNS resolver software. DNS resolver queries the root domain Nameservers to find the right nameservers which could respond regarding details for "com.". The address of the authoritative nameserver of “com.” is returned. Now the DNS resolution service contacts the authoritative nameserver for “com.” to fetch the authoritative nameserver for “linkedin.com”. Once an authoritative nameserver of “linkedin.com” is known, the resolver contacts Linkedin’s nameserver to provide the IP address of “linkedin.com”. This whole process can be visualized by running </p>
+<pre><code class="bash">dig +trace linkedin.com
+</code></pre>
+
+<pre><code class="bash">linkedin.com.       3600    IN  A   108.174.10.10
+</code></pre>
+
+<p>This DNS response has 5 fields where the first field is the request and the last field is the response. The second field is the Time to Live which says how long the DNS response is valid in seconds. In this case this mapping of linkedin.com is valid for 1 hour. This is how the resolvers and application(browser) maintain their cache. Any request for linkedin.com beyond 1 hour will be treated as a cache miss as the mapping has expired its TTL and the whole process has to be redone.
+The 4th field says the type of DNS response/request. Some of the various DNS query types are
+A, AAAA, NS, TXT, PTR, MX and CNAME. 
+- A record returns IPV4 address of the domain name 
+- AAAA record returns the IPV6 address of the domain Name
+- NS record returns the authoritative nameserver for the domain name
+- CNAME records are aliases to the domain names. Some domains point to other domain names and resolving the latter domain name gives an IP which is used as an IP for the former domain name as well. Example www.linkedin.com’s IP address is the same as 2-01-2c3e-005a.cdx.cedexis.net. 
+- For the brevity we are not discussing other DNS record types, the RFC of each of these records are available <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">here</a>.</p>
+<pre><code class="bash">dig A linkedin.com +short
+108.174.10.10
+
+
+dig AAAA linkedin.com +short
+2620:109:c002::6cae:a0a
+
+
+dig NS linkedin.com +short
+dns3.p09.nsone.net.
+dns4.p09.nsone.net.
+dns2.p09.nsone.net.
+ns4.p43.dynect.net.
+ns1.p43.dynect.net.
+ns2.p43.dynect.net.
+ns3.p43.dynect.net.
+dns1.p09.nsone.net.
+
+dig www.linkedin.com CNAME +short
+2-01-2c3e-005a.cdx.cedexis.net.
+</code></pre>
+
+<p>Armed with these fundamentals of DNS lets see usecases where DNS is used by SREs.</p>
+<h2 id="applications-in-sre-role">Applications in SRE role</h2>
+<p>This section covers some of the common solutions SRE can derive from DNS
+1. Every company has to have its internal DNS infrastructure for intranet sites and internal services like databases and other internal applications like wiki. So there has to be a DNS infrastructure maintained for those domain names by the infrastructure team. This DNS infrastructure has to be optimized and scaled so that it doesn’t become a single point of failure. Failure of the internal DNS infrastructure can cause API calls of microservices to fail and other cascading effects.
+2. DNS can also be used for discovering services. For example the hostname serviceb.internal.example.com could list instances which run service b internally in example.com company. Cloud providers provide options to enable DNS discovery(<a href="https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/service-discovery.html#dns-based-service-discovery">example</a>)
+3. DNS is used by cloud provides and CDN providers to scale their services. In Azure/AWS, Load Balancers are given a CNAME instead of IPAddress. They update the IPAddress of the Loadbalancers as they scale by changing the IP Address of alias domain names. This is one of the reasons why A records of such alias domains are short lived like 1 minute.
+4. DNS can also be used to make clients get IP addresses closer to their location so that their HTTP calls can be responded faster if the company has a presence geographically distributed. 
+5. SRE also has to understand since there is no verification in DNS infrastructure, these responses can be spoofed. This is safeguarded by other protocols like HTTPS(dealt later). DNSSEC protects from forged or manipulated DNS responses.
+6. Stale DNS cache can be a problem. Some <a href="https://stackoverflow.com/questions/1256556/how-to-make-java-honor-the-dns-caching-timeout">apps</a> might still be using expired DNS records for their api calls. This is something SRE has to be wary of when doing maintenance.
+7. DNS Loadbalancing and service discovery also has to understand TTL and the servers can be removed from the pool only after waiting till TTL post the changes are made to DNS records. If this is not done, a certain portion of the traffic will fail as the server is removed before the TTL.</p></div>
         </div>
 
         <footer class="col-md-12">

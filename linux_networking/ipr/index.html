@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Architecture of Hadoop - school_of_sre</title>
+        <title>Routing and Conclusion - school_of_sre</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -66,32 +66,32 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux Networking <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../linux_networking/intro/">Intro</a>
+    <a href="../intro/">Intro</a>
 </li>
                                     
 <li >
-    <a href="../../linux_networking/dns/">DNS</a>
+    <a href="../dns/">DNS</a>
 </li>
                                     
 <li >
-    <a href="../../linux_networking/udp/">UDP</a>
+    <a href="../udp/">UDP</a>
 </li>
                                     
 <li >
-    <a href="../../linux_networking/http/">HTTP</a>
+    <a href="../http/">HTTP</a>
 </li>
                                     
 <li >
-    <a href="../../linux_networking/tcp/">TCP</a>
+    <a href="../tcp/">TCP</a>
 </li>
                                     
-<li >
-    <a href="../../linux_networking/ipr/">Routing and Conclusion</a>
+<li class="active">
+    <a href="./">Routing and Conclusion</a>
 </li>
                                 </ul>
                             </li>
@@ -145,32 +145,32 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Big Data <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../intro/">Intro</a>
+    <a href="../../big_data/intro/">Intro</a>
 </li>
                                     
 <li >
-    <a href="../overview/">Overview of Big Data</a>
+    <a href="../../big_data/overview/">Overview of Big Data</a>
 </li>
                                     
 <li >
-    <a href="../usage/">Usage of Big Data techniques</a>
+    <a href="../../big_data/usage/">Usage of Big Data techniques</a>
 </li>
                                     
 <li >
-    <a href="../evolution/">Evolution of Hadoop</a>
-</li>
-                                    
-<li class="active">
-    <a href="./">Architecture of Hadoop</a>
+    <a href="../../big_data/evolution/">Evolution of Hadoop</a>
 </li>
                                     
 <li >
-    <a href="../tasks/">Tasks and conclusion</a>
+    <a href="../../big_data/architecture/">Architecture of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/tasks/">Tasks and conclusion</a>
 </li>
                                 </ul>
                             </li>
@@ -208,12 +208,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../evolution/">
+                                <a rel="next" href="../tcp/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../tasks/">
+                                <a rel="prev" href="../../python_web/intro/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -225,98 +225,47 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#architecture-of-hadoop">Architecture of Hadoop</a></li>
-        <li class="main "><a href="#mapreduce-framework">MapReduce framework</a></li>
-        <li class="main "><a href="#other-tooling-around-hadoop">Other tooling around hadoop</a></li>
-        <li class="main "><a href="#data-serialisation-and-storage">Data Serialisation and storage</a></li>
+        <li class="main active"><a href="#ip-routing-and-data-link-layer">IP Routing and Data Link Layer</a></li>
+            <li><a href="#applications-in-sre-role">Applications in SRE role</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+        <li class="main "><a href="#post-training-exercises">Post Training Exercises</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="architecture-of-hadoop">Architecture of Hadoop</h1>
-<ol>
-<li>
-<p><strong>HDFS</strong></p>
-<ol>
-<li>The Hadoop Distributed File System (HDFS) is a distributed file system designed to run on commodity hardware. It has many similarities with existing distributed file systems. However, the differences from other distributed file systems are significant. </li>
-<li>HDFS is highly fault-tolerant and is designed to be deployed on low-cost hardware. HDFS provides high throughput access to application data and is suitable for applications that have large data sets. </li>
-<li>HDFS is part of the Apache Hadoop Core project.</li>
-</ol>
-<p><img alt="HDFS Architecture" src="../images/hdfs_architecture.png" /></p>
-<pre><code>1. NameNode: is the arbitrator and central repository of file namespace in the cluster. The NameNode executes the operations such as opening, closing, and renaming files and directories.
-2. DataNode: manages the storage attached to the node on which it runs. It is responsible for serving all the read and write requests. It performs operations on instructions on NameNode such as creation, deletion, and replications of blocks.
-3. Client: Responsible for getting the required metadata from the namenode and then communicating with the datanodes for reads and writes.
+<h1 id="ip-routing-and-data-link-layer">IP Routing and Data Link Layer</h1>
+<p>We will dig how packets that leave the client reach the server and vice versa. When the packet reaches the IP layer, the transport layer populates source port, destination port. IP/Network layer populates destination IP(discovered from DNS) and then looks up the route to the destination IP on the routing table. </p>
+<pre><code class="bash">#Linux route -n command gives the default routing table
+route -n
 </code></pre>
-</li>
-<li>
-<p><strong>YARN</strong></p>
-<ol>
-<li>YARN stands for “Yet Another Resource Negotiator“. It was introduced in Hadoop 2.0 to remove the bottleneck on Job Tracker which was present in Hadoop 1.0. YARN was described as a “Redesigned Resource Manager” at the time of its launching, but it has now evolved to be known as a large-scale distributed operating system used for Big Data processing.</li>
-<li>The main components of YARN architecture include:</li>
-</ol>
-<p><img alt="YARN Architecture" src="../images/yarn_architecture.gif" /></p>
-<pre><code>1. Client: It submits map-reduce jobs to the resource manager.
-2. Resource Manager: It is the master daemon of YARN and is responsible for resource assignment and management among all the applications. Whenever it receives a processing request, it forwards it to the corresponding node manager and allocates resources for the completion of the request accordingly. It has two major components:
-3. Scheduler: It performs scheduling based on the allocated application and available resources. It is a pure scheduler, which means that it does not perform other tasks such as monitoring or tracking and does not guarantee a restart if a task fails. The YARN scheduler supports plugins such as Capacity Scheduler and Fair Scheduler to partition the cluster resources.
-4. Application manager: It is responsible for accepting the application and negotiating the first container from the resource manager. It also restarts the Application Manager container if a task fails.
-5. Node Manager: It takes care of individual nodes on the Hadoop cluster and manages application and workflow and that particular node. Its primary job is to keep-up with the Node Manager. It monitors resource usage, performs log management and also kills a container based on directions from the resource manager. It is also responsible for creating the container process and starting it on the request of the Application master.
-6. Application Master: An application is a single job submitted to a framework. The application manager is responsible for negotiating resources with the resource manager, tracking the status and monitoring progress of a single application. The application master requests the container from the node manager by sending a Container Launch Context(CLC) which includes everything an application needs to run. Once the application is started, it sends the health report to the resource manager from time-to-time.
-7. Container: It is a collection of physical resources such as RAM, CPU cores and disk on a single node. The containers are invoked by Container Launch Context(CLC) which is a record that contains information such as environment variables, security tokens, dependencies etc.
+
+<pre><code class="bash">Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         172.17.0.1      0.0.0.0         UG    0      0        0 eth0
+172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 eth0
 </code></pre>
-</li>
-</ol>
-<h1 id="mapreduce-framework">MapReduce framework</h1>
-<p><img alt="MapReduce Framework" src="../images/map_reduce.jpg" /></p>
-<pre><code>1. The term MapReduce represents two separate and distinct tasks Hadoop programs perform-Map Job and Reduce Job. Map jobs take data sets as input and process them to produce key value pairs. Reduce job takes the output of the Map job i.e. the key value pairs and aggregates them to produce desired results. 
-2. Hadoop MapReduce (Hadoop Map/Reduce) is a software framework for distributed processing of large data sets on computing clusters. Mapreduce helps to  split the input data set into a number of parts and run a program on all data parts parallel at once.
-3. Please find the below Word count example demonstrating the usage of MapReduce framework:
-</code></pre>
-<p><img alt="Word Count Example" src="../images/mapreduce_example.jpg" /></p>
-<h1 id="other-tooling-around-hadoop">Other tooling around hadoop</h1>
+
+<p>Here the destination IP is bitwise AND’d with the Genmask and if the answer is the destination part of the table then that gateway and interface is picked for routing. Here linkedin.com’s IP 108.174.10.10 is AND’d with 255.255.255.0 and the answer we get is 108.174.10.0 which doesn’t match with any destination in the routing table. Then Linux does an AND of destination IP with 0.0.0.0 and we get 0.0.0.0. This answer matches the default row</p>
+<p>Routing table is processed in the order of more octets of 1 set in genmask and genmask 0.0.0.0 is the default route if nothing matches. 
+At the end of this operation Linux figured out that the packet has to be sent to next hop 172.17.0.1 via eth0. The source IP of the packet will be set as the IP of interface eth0. 
+Now to send the packet to 172.17.0.1 linux has to figure out the MAC address of 172.17.0.1. MAC address is figured by looking at the internal arp cache which stores translation between IP address and MAC address. If there is a cache miss, Linux broadcasts ARP request within the internal network asking who has 172.17.0.1. The owner of the IP sends an ARP response which is cached by the kernel and the kernel sends the packet to the gateway by setting Source mac address as mac address of eth0 and destination mac address of 172.17.0.1 which we got just now. Similar routing lookup process is followed in each hop till the packet reaches the actual server. Transport layer and layers above it come to play only at end servers. During intermediate hops only till the IP/Network layer is involved.</p>
+<p><img alt="Screengrab for above explanation" src="../images/arp.gif" /></p>
+<p>One weird gateway we saw in the routing table is 0.0.0.0. This gateway means no Layer3(Network layer) hop is needed to send the packet. Both source and destination are in the same network. Kernel has to figure out the mac of the destination and populate source and destination mac appropriately and send the packet out so that it reaches the destination without any Layer3 hop in the middle</p>
+<p>As we followed in other modules, lets complete this session with SRE usecases</p>
+<h2 id="applications-in-sre-role">Applications in SRE role</h2>
 <ol>
-<li><strong>Hive</strong><ol>
-<li>Uses a language called HQL which is very SQL like.  Gives non-programmers the ability to query and analyze data in Hadoop.  Is basically an abstraction layer on top of map-reduce.</li>
-<li>Ex. HQL query: <ol>
-<li><em>SELECT pet.name, comment FROM pet JOIN event ON  (pet.name = event.name);</em></li>
+<li>Generally the routing table is populated by DHCP and playing around is not a good practice. There can be reasons where one has to play around the routing table but take that path only when it's absolutely necessary</li>
+<li>Understanding error messages better like, “No route to host” error can mean mac address of the destination host is not found and it can mean the destination host is down </li>
+<li>On rare cases looking at the ARP table can help us understand if there is a IP conflict where same IP is assigned to two hosts by mistake and this is causing unexpected behavior</li>
 </ol>
-</li>
-<li>In mysql: <ol>
-<li><em>SELECT pet.name, comment FROM pet, event WHERE  pet.name = event.name;</em></li>
-</ol>
-</li>
-</ol>
-</li>
-<li>
-<p><strong>Pig</strong></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>With this we have traversed through the TCP/IP stack completely. We hope there will be a different perspective when one opens any website in the browser post the course. </p>
+<p>During the course we have also dissected what are common tasks in this pipeline which falls under the ambit of SRE.</p>
+<h1 id="post-training-exercises">Post Training Exercises</h1>
 <ol>
-<li>Uses a scripting language called Pig Latin, which is more workflow driven.  Don't need to be an expert Java programmer but need a few coding skills.  Is also an abstraction layer on top of map-reduce.</li>
-<li>Here is a quick question for you:
-What is the output of running the pig queries in the right column against the data present in the left column in the below image?</li>
-</ol>
-<p><img alt="Pig Example" src="../images/pig_example.png" /></p>
-<p>Output:
-<code>mysql
-7,Komal,Nayak,24,9848022334,trivendram
-8,Bharathi,Nambiayar,24,9848022333,Chennai
-5,Trupthi,Mohanthy,23,9848022336,Bhuwaneshwar
-6,Archana,Mishra,23,9848022335,Chennai</code>
-3. <strong>Spark</strong>
-1. Spark provides primitives for in-memory cluster computing that allows user programs to load data into a cluster’s memory and query it repeatedly, making it well suited to machine learning algorithms.
-4. <strong>Presto</strong>
-1. Presto is a high performance, distributed SQL query engine for Big Data. 
-2. Its architecture allows users to query a variety of data sources such as Hadoop, AWS S3, Alluxio, MySQL, Cassandra, Kafka, and MongoDB.
-3. Example presto query:
-    <code>mysql
-    use studentDB;
-    show tables;
-    SELECT roll_no, name FROM studentDB.studentDetails where section=’A’ limit 5;</code></p>
-</li>
-</ol>
-<h1 id="data-serialisation-and-storage">Data Serialisation and storage</h1>
-<ol>
-<li>In order to transport the data over the network or to store on some persistent storage, we use the process of translating data structures or objects state into binary or textual form. We call this process serialization..</li>
-<li>Avro data is stored in a container file (a .avro file) and its schema (the .avsc file) is stored with the data file.</li>
-<li>Apache Hive provides support to store a table as Avro and can also query data in this serialisation format.</li>
+<li>Setup own DNS resolver in the dev environment which acts as an authoritative DNS server for example.com and forwarder for other domains. Update resolv.conf to use the new DNS resolver running in localhost</li>
+<li>Set up a site dummy.example.com in localhost and run a webserver with a self signed certificate. Update the trusted CAs or pass self signed CA’s public key as a parameter so that curl https://dummy.example.com -v works properly without self signed cert warning</li>
+<li>Update the routing table to use another host(container/VM) in the same network as a gateway for 8.8.8.8/32 and run ping 8.8.8.8. Do the packet capture on the new gateway to see L3 hop is working as expected(might need to disable icmp_redirect)</li>
 </ol></div>
         </div>
 

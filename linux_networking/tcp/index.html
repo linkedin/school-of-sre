@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Architecture of Hadoop - school_of_sre</title>
+        <title>TCP - school_of_sre</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -66,32 +66,32 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux Networking <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../../linux_networking/intro/">Intro</a>
+    <a href="../intro/">Intro</a>
 </li>
                                     
 <li >
-    <a href="../../linux_networking/dns/">DNS</a>
+    <a href="../dns/">DNS</a>
 </li>
                                     
 <li >
-    <a href="../../linux_networking/udp/">UDP</a>
+    <a href="../udp/">UDP</a>
 </li>
                                     
 <li >
-    <a href="../../linux_networking/http/">HTTP</a>
+    <a href="../http/">HTTP</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">TCP</a>
 </li>
                                     
 <li >
-    <a href="../../linux_networking/tcp/">TCP</a>
-</li>
-                                    
-<li >
-    <a href="../../linux_networking/ipr/">Routing and Conclusion</a>
+    <a href="../ipr/">Routing and Conclusion</a>
 </li>
                                 </ul>
                             </li>
@@ -145,32 +145,32 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Big Data <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../intro/">Intro</a>
+    <a href="../../big_data/intro/">Intro</a>
 </li>
                                     
 <li >
-    <a href="../overview/">Overview of Big Data</a>
+    <a href="../../big_data/overview/">Overview of Big Data</a>
 </li>
                                     
 <li >
-    <a href="../usage/">Usage of Big Data techniques</a>
+    <a href="../../big_data/usage/">Usage of Big Data techniques</a>
 </li>
                                     
 <li >
-    <a href="../evolution/">Evolution of Hadoop</a>
-</li>
-                                    
-<li class="active">
-    <a href="./">Architecture of Hadoop</a>
+    <a href="../../big_data/evolution/">Evolution of Hadoop</a>
 </li>
                                     
 <li >
-    <a href="../tasks/">Tasks and conclusion</a>
+    <a href="../../big_data/architecture/">Architecture of Hadoop</a>
+</li>
+                                    
+<li >
+    <a href="../../big_data/tasks/">Tasks and conclusion</a>
 </li>
                                 </ul>
                             </li>
@@ -208,12 +208,12 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../evolution/">
+                                <a rel="next" href="../http/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li >
-                                <a rel="prev" href="../tasks/">
+                                <a rel="prev" href="../ipr/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -225,98 +225,36 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#architecture-of-hadoop">Architecture of Hadoop</a></li>
-        <li class="main "><a href="#mapreduce-framework">MapReduce framework</a></li>
-        <li class="main "><a href="#other-tooling-around-hadoop">Other tooling around hadoop</a></li>
-        <li class="main "><a href="#data-serialisation-and-storage">Data Serialisation and storage</a></li>
+        <li class="main active"><a href="#tcp">TCP</a></li>
+            <li><a href="#applications-in-sre-role">Applications in SRE role</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="architecture-of-hadoop">Architecture of Hadoop</h1>
-<ol>
-<li>
-<p><strong>HDFS</strong></p>
-<ol>
-<li>The Hadoop Distributed File System (HDFS) is a distributed file system designed to run on commodity hardware. It has many similarities with existing distributed file systems. However, the differences from other distributed file systems are significant. </li>
-<li>HDFS is highly fault-tolerant and is designed to be deployed on low-cost hardware. HDFS provides high throughput access to application data and is suitable for applications that have large data sets. </li>
-<li>HDFS is part of the Apache Hadoop Core project.</li>
-</ol>
-<p><img alt="HDFS Architecture" src="../images/hdfs_architecture.png" /></p>
-<pre><code>1. NameNode: is the arbitrator and central repository of file namespace in the cluster. The NameNode executes the operations such as opening, closing, and renaming files and directories.
-2. DataNode: manages the storage attached to the node on which it runs. It is responsible for serving all the read and write requests. It performs operations on instructions on NameNode such as creation, deletion, and replications of blocks.
-3. Client: Responsible for getting the required metadata from the namenode and then communicating with the datanodes for reads and writes.
+<h1 id="tcp">TCP</h1>
+<p>TCP is a transport layer protocol like UDP but it guarantees reliability, flow control and congestion control.
+TCP guarantees reliable delivery by using sequence numbers. A TCP connection is established by a three way handshake. In our case, the client sends a SYN packet along with the starting sequence number it plans to use, the server acknowledges the SYN packet and sends a SYN with its sequence number. Once the client acknowledges the syn packet, the connection is established. Each data transferred from here on is considered delivered reliably once acknowledgement for that sequence is received by the concerned party</p>
+<p><img alt="3-way handshake" src="../images/established.png" /></p>
+<pre><code class="bash">#To understand handshake run packet capture on one bash session
+tcpdump -S -i any port 80
+#Run curl on one bash session
+curl www.linkedin.com
 </code></pre>
-</li>
-<li>
-<p><strong>YARN</strong></p>
+
+<p><img alt="tcpdump-3way" src="../images/pcap.png" /></p>
+<p>Here client sends a syn flag shown by [S] flag with a sequence number 1522264672. The server acknowledges receipt of SYN with an ack [.] flag and a Syn flag for its sequence number[S]. The server uses the sequence number 1063230400 and acknowledges the client it’s expecting sequence number 1522264673 (client sequence+1). Client sends a zero length acknowledgement packet to the server(server sequence+1) and connection stands established. This is called three way handshake. The client sends a 76 bytes length packet after this and increments its sequence number by 76. Server sends a 170 byte response and closes the connection. This was the difference we were talking about between HTTP/1.1 and HTTP/1.0. In HTTP/1.1 this same connection can be reused which reduces overhead of 3 way handshake for each HTTP request. If a packet is missed between client and server, server won’t send an ack to the client and client would retry sending the packet till the ACK is received. This guarantees reliability.
+The flow control is established by the win size field in each segment. The win size says available TCP buffer length in the kernel which can be used to buffer received segments. A size 0 means the receiver has a lot of lag to catch from its socket buffer and the sender has to pause sending packets so that receiver can cope up. This flow control protects from slow receiver and fast sender problem</p>
+<p>TCP also does congestion control which determines how many segments can be in transit without an ack. Linux provides us the ability to configure algorithms for congestion control which we are not covering here.</p>
+<p>While closing a connection, client/server calls a close syscall. Let's assume client do that. Client’s kernel will send a FIN packet to the server. Server’s kernel can’t close the connection till the close syscall is called by the server application. Once server app calls close, server also sends a FIN packet and client enters into time wait state for 2*MSS(120s) so that this socket can’t be reused for that time period to prevent any TCP state corruptions due to stray stale packets. </p>
+<p><img alt="Connection tearing" src="../images/closed.png" /></p>
+<p>Armed with our TCP and HTTP knowledge lets see how this is used by SREs in their role</p>
+<h2 id="applications-in-sre-role">Applications in SRE role</h2>
 <ol>
-<li>YARN stands for “Yet Another Resource Negotiator“. It was introduced in Hadoop 2.0 to remove the bottleneck on Job Tracker which was present in Hadoop 1.0. YARN was described as a “Redesigned Resource Manager” at the time of its launching, but it has now evolved to be known as a large-scale distributed operating system used for Big Data processing.</li>
-<li>The main components of YARN architecture include:</li>
-</ol>
-<p><img alt="YARN Architecture" src="../images/yarn_architecture.gif" /></p>
-<pre><code>1. Client: It submits map-reduce jobs to the resource manager.
-2. Resource Manager: It is the master daemon of YARN and is responsible for resource assignment and management among all the applications. Whenever it receives a processing request, it forwards it to the corresponding node manager and allocates resources for the completion of the request accordingly. It has two major components:
-3. Scheduler: It performs scheduling based on the allocated application and available resources. It is a pure scheduler, which means that it does not perform other tasks such as monitoring or tracking and does not guarantee a restart if a task fails. The YARN scheduler supports plugins such as Capacity Scheduler and Fair Scheduler to partition the cluster resources.
-4. Application manager: It is responsible for accepting the application and negotiating the first container from the resource manager. It also restarts the Application Manager container if a task fails.
-5. Node Manager: It takes care of individual nodes on the Hadoop cluster and manages application and workflow and that particular node. Its primary job is to keep-up with the Node Manager. It monitors resource usage, performs log management and also kills a container based on directions from the resource manager. It is also responsible for creating the container process and starting it on the request of the Application master.
-6. Application Master: An application is a single job submitted to a framework. The application manager is responsible for negotiating resources with the resource manager, tracking the status and monitoring progress of a single application. The application master requests the container from the node manager by sending a Container Launch Context(CLC) which includes everything an application needs to run. Once the application is started, it sends the health report to the resource manager from time-to-time.
-7. Container: It is a collection of physical resources such as RAM, CPU cores and disk on a single node. The containers are invoked by Container Launch Context(CLC) which is a record that contains information such as environment variables, security tokens, dependencies etc.
-</code></pre>
-</li>
-</ol>
-<h1 id="mapreduce-framework">MapReduce framework</h1>
-<p><img alt="MapReduce Framework" src="../images/map_reduce.jpg" /></p>
-<pre><code>1. The term MapReduce represents two separate and distinct tasks Hadoop programs perform-Map Job and Reduce Job. Map jobs take data sets as input and process them to produce key value pairs. Reduce job takes the output of the Map job i.e. the key value pairs and aggregates them to produce desired results. 
-2. Hadoop MapReduce (Hadoop Map/Reduce) is a software framework for distributed processing of large data sets on computing clusters. Mapreduce helps to  split the input data set into a number of parts and run a program on all data parts parallel at once.
-3. Please find the below Word count example demonstrating the usage of MapReduce framework:
-</code></pre>
-<p><img alt="Word Count Example" src="../images/mapreduce_example.jpg" /></p>
-<h1 id="other-tooling-around-hadoop">Other tooling around hadoop</h1>
-<ol>
-<li><strong>Hive</strong><ol>
-<li>Uses a language called HQL which is very SQL like.  Gives non-programmers the ability to query and analyze data in Hadoop.  Is basically an abstraction layer on top of map-reduce.</li>
-<li>Ex. HQL query: <ol>
-<li><em>SELECT pet.name, comment FROM pet JOIN event ON  (pet.name = event.name);</em></li>
-</ol>
-</li>
-<li>In mysql: <ol>
-<li><em>SELECT pet.name, comment FROM pet, event WHERE  pet.name = event.name;</em></li>
-</ol>
-</li>
-</ol>
-</li>
-<li>
-<p><strong>Pig</strong></p>
-<ol>
-<li>Uses a scripting language called Pig Latin, which is more workflow driven.  Don't need to be an expert Java programmer but need a few coding skills.  Is also an abstraction layer on top of map-reduce.</li>
-<li>Here is a quick question for you:
-What is the output of running the pig queries in the right column against the data present in the left column in the below image?</li>
-</ol>
-<p><img alt="Pig Example" src="../images/pig_example.png" /></p>
-<p>Output:
-<code>mysql
-7,Komal,Nayak,24,9848022334,trivendram
-8,Bharathi,Nambiayar,24,9848022333,Chennai
-5,Trupthi,Mohanthy,23,9848022336,Bhuwaneshwar
-6,Archana,Mishra,23,9848022335,Chennai</code>
-3. <strong>Spark</strong>
-1. Spark provides primitives for in-memory cluster computing that allows user programs to load data into a cluster’s memory and query it repeatedly, making it well suited to machine learning algorithms.
-4. <strong>Presto</strong>
-1. Presto is a high performance, distributed SQL query engine for Big Data. 
-2. Its architecture allows users to query a variety of data sources such as Hadoop, AWS S3, Alluxio, MySQL, Cassandra, Kafka, and MongoDB.
-3. Example presto query:
-    <code>mysql
-    use studentDB;
-    show tables;
-    SELECT roll_no, name FROM studentDB.studentDetails where section=’A’ limit 5;</code></p>
-</li>
-</ol>
-<h1 id="data-serialisation-and-storage">Data Serialisation and storage</h1>
-<ol>
-<li>In order to transport the data over the network or to store on some persistent storage, we use the process of translating data structures or objects state into binary or textual form. We call this process serialization..</li>
-<li>Avro data is stored in a container file (a .avro file) and its schema (the .avsc file) is stored with the data file.</li>
-<li>Apache Hive provides support to store a table as Avro and can also query data in this serialisation format.</li>
+<li>Scaling HTTP performance using load balancers need consistent knowledge about both TCP and HTTP. There are <a href="https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236?gi=428394dbdcc3">different kinds of load balancing</a> like L4, L7 load balancing, Direct Server Return etc. HTTPs offloading can be done on Load balancer or directly on servers based on the performance and compliance needs.</li>
+<li>Tweaking sysctl variables for rmem and wmem like we did for UDP can improve throughput of sender and receiver.</li>
+<li>Sysctl variable tcp_max_syn_backlog and socket variable somax_conn determines how many connections for which the kernel can complete 3 way handshake before app calling accept syscall. This is much useful in single threaded applications. Once the backlog is full, new connections stay in SYN_RCVD state (when you run netstat) till the application calls accept syscall</li>
+<li>Apps can run out of file descriptors if there are too many short lived connections. Digging through <a href="http://lxr.linux.no/linux+v3.2.8/Documentation/networking/ip-sysctl.txt#L464">tcp_reuse and tcp_recycle</a> can help reduce time spent in the time wait state(it has its own risk). Making apps reuse a pool of connections instead of creating ad hoc connection can also help</li>
+<li>Understanding performance bottlenecks by seeing metrics and classifying whether its a problem in App or network side. Example too many sockets in Close_wait state is a problem on application whereas retransmissions can be a problem more on network or on OS stack than the application itself. Understanding the fundamentals can help us narrow down where the bottleneck is</li>
 </ol></div>
         </div>
 
