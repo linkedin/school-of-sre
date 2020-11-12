@@ -44,7 +44,6 @@ the typical time to live (TTL) for cached entries is a couple of hours, thereby 
   - Blackhole routes are best defence against many common viral attacks where the traffic is dropped from infected machines to/from command & control masters.
   - Infamous BGP Injection attack on Youtube
 
-  ![image24](images/image24.png)
 - EX: In 2008, Pakistan decided to block YouTube by creating a BGP route that led into a black hole. Instead this routing information got transmitted to a hong kong ISP and from there accidentally got propagated to the rest of the world meaning millions were routed through to this black hole and therefore unable to access YouTube.
 - Potentially, the greatest risk to BGP occurs in a denial of service attack in which a router is flooded with more packets than it can handle. Network overload and router resource exhaustion happen when the network begins carrying an excessive number of BGP messages, overloading the router control processors, memory, routing table and reducing the bandwidth available for data traffic.
 - Refer : <https://medium.com/bugbountywriteup/bgp-the-weak-link-in-the-internet-what-is-bgp-and-how-do-hackers-exploit-it-d899a68ba5bb>
@@ -101,7 +100,16 @@ BGP Security
 - A successful exploit will allow attackers to access, modify, or delete information in the database.
 - It permits attackers to steal sensitive information stored within the backend databases of affected websites, which may include such things as user credentials, email addresses, personal information, and credit card numbers
 
-  ![image25](images/image25.png)
+```
+SELECT USERNAME,PASSWORD from USERS where USERNAME='<username>' AND PASSWORD='<password>';
+
+Here the username & password is the input provided by the user. Suppose an attacker gives the input as " OR '1'='1'" in both fields. Therefore the SQL query will look like:
+
+SELECT USERNAME,PASSWORD from USERS where USERNAME='' OR '1'='1' AND PASSOWRD='' OR '1'='1';
+
+This query results in a true statement & user gets logged in. This example depicst the bost basic type of SQL injection
+```
+
 
 ### SQL Injection Attack Defenses
 

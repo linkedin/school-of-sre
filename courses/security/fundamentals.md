@@ -42,7 +42,18 @@
   - Fail securely
     - Applications regularly fail to process transactions for many reasons. How they fail can determine if an application is secure or not.
 
-    ![image2](images/image2.png)
+    ```
+
+    is_admin =  true;
+    try {
+        code_which_may_faile();
+         is_admin = is_user_assigned_role("Adminstrator");
+    }
+    catch (Exception err) {
+    log.error(err.toString());
+    }
+
+    ```
     - If either codeWhichMayFail() or isUserInRole fails or throws an exception, the user is an admin by default. This is obviously a security risk.
 
   - Don’t trust services
@@ -102,11 +113,19 @@
 
 - Ciphers are the cornerstone of cryptography. A cipher is a set of algorithms that performs encryption or decryption on a message. An encryption algorithm (E) takes a secret key (k) and a message (m), and produces a ciphertext (c). Similarly, a Decryption algorithm (D) takes a secret key (K) and the previous resulting Ciphertext (C). They are represented as follows:
 
-    ![image3](images/image3.png)
+```
+
+E(k,m) = c
+D(k,c) = m
+
+```
 
 - This also means that in order for it to be a cipher, it must satisfy the consistency equation as follows, making it possible to decrypt.
 
-    ![image4](images/image4.png)
+```
+
+D(k,E(k,m)) = m
+```
 
 Stream Ciphers:
 
@@ -286,7 +305,7 @@ Certificate chain
 - What the OpenSSL command line doesn’t show here is the trust store that contains the list of CA certificates trusted by the system OpenSSL runs on.
 - The public certificate of GlobalSign Authority must be present in the system’s trust store to close the verification chain. This is called a chain of trust, and figure below summarizes its behavior at a high level.
 
-    ![image12](images/image12.png)
+    ![image122](images/image122.png)
 
 - High-level view of the concept of chain of trust applied to verifying the authenticity of a website. The Root CA in the Firefox trust store provides the initial trust to verify the entire chain and trust the end-entity certificate.
 
@@ -304,8 +323,6 @@ At the end of the handshake, both parties possess a secret session key used to e
 - There are 3 versions of TLS , TLS 1.0, 1.1 & 1.2
 - TLS 1.0 was released in 1999, making it a nearly two-decade-old protocol. It has been known to be vulnerable to attacks—such as BEAST and POODLE—for years, in addition to supporting weak cryptography, which doesn’t keep modern-day connections sufficiently secure.
 - TLS 1.1 is the forgotten “middle child.” It also has bad cryptography like its younger sibling. In most software it was leapfrogged by TLS 1.2 and it’s rare to see TLS 1.1 used.
-
-    ![image13](images/image13.png)
 
 ### “Perfect” Forward Secrecy
 

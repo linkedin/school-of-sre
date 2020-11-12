@@ -142,7 +142,10 @@ Let us see how we keep a check on the perimeter i.e the edges, the first layer o
 - Nmap is often used to determine alive hosts in a network, open ports on those hosts, services running on those open ports, and version identification of that service on that port.
 - More at http://scanme.nmap.org/
 
-   ![image16](images/image16.png)
+```
+nmap [scan type] [options] [target specification]
+```
+
 
 Nmap uses 6 different port states:
 
@@ -413,8 +416,17 @@ TCP Flags
   ![image20](images/image20.png)
 
   - Abuse of the normal operation or settings of these flags can be used by attackers to launch DoS attacks. This causes network servers or web servers to crash or hang.
-  ![image21](images/image21.png)
-  - The attacker's ultimate goal is to write special programs or pieces of code that are able to construct these illegal combinations resulting in an efficient DoS attack.
+
+```
+| SYN  | FIN  | PSH   | RST  | Validity|  
+|------|------|-------|------|---------|
+| 1    |1     |0      |0     |Illegal Combination
+| 1    |1     |1      |0     |Illegal Combination
+| 1    |1     |0      |1     |Illegal Combination
+| 1    |1     |1      |1     |Illegal Combination
+```
+
+- The attacker's ultimate goal is to write special programs or pieces of code that are able to construct these illegal combinations resulting in an efficient DoS attack.
 
 SYN FLOOD
 
