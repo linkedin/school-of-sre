@@ -290,7 +290,16 @@
 <ul>
 <li>Applications regularly fail to process transactions for many reasons. How they fail can determine if an application is secure or not.</li>
 </ul>
-<p><img alt="image2" src="../images/image2.png" />
+<p>```</p>
+<p>is_admin =  true;
+try {
+    code_which_may_faile();
+     is_admin = is_user_assigned_role("Adminstrator");
+}
+catch (Exception err) {
+log.error(err.toString());
+}</p>
+<p>```
 - If either codeWhichMayFail() or isUserInRole fails or throws an exception, the user is an admin by default. This is obviously a security risk.</p>
 </li>
 <li>
@@ -360,15 +369,21 @@
 </ul>
 <h3 id="ciphers">Ciphers</h3>
 <ul>
-<li>
-<p>Ciphers are the cornerstone of cryptography. A cipher is a set of algorithms that performs encryption or decryption on a message. An encryption algorithm (E) takes a secret key (k) and a message (m), and produces a ciphertext (c). Similarly, a Decryption algorithm (D) takes a secret key (K) and the previous resulting Ciphertext (C). They are represented as follows:</p>
-<p><img alt="image3" src="../images/image3.png" /></p>
-</li>
-<li>
-<p>This also means that in order for it to be a cipher, it must satisfy the consistency equation as follows, making it possible to decrypt.</p>
-<p><img alt="image4" src="../images/image4.png" /></p>
-</li>
+<li>Ciphers are the cornerstone of cryptography. A cipher is a set of algorithms that performs encryption or decryption on a message. An encryption algorithm (E) takes a secret key (k) and a message (m), and produces a ciphertext (c). Similarly, a Decryption algorithm (D) takes a secret key (K) and the previous resulting Ciphertext (C). They are represented as follows:</li>
 </ul>
+<pre><code>
+E(k,m) = c
+D(k,c) = m
+
+</code></pre>
+
+<ul>
+<li>This also means that in order for it to be a cipher, it must satisfy the consistency equation as follows, making it possible to decrypt.</li>
+</ul>
+<pre><code>
+D(k,E(k,m)) = m
+</code></pre>
+
 <p>Stream Ciphers:</p>
 <ul>
 <li>The message is broken into characters or bits and enciphered with a key or keystream(should be random and generated independently of the message stream) that is as long as the plaintext bitstream.</li>
@@ -564,7 +579,7 @@ Certificate chain
 <li>What the OpenSSL command line doesn’t show here is the trust store that contains the list of CA certificates trusted by the system OpenSSL runs on.</li>
 <li>
 <p>The public certificate of GlobalSign Authority must be present in the system’s trust store to close the verification chain. This is called a chain of trust, and figure below summarizes its behavior at a high level.</p>
-<p><img alt="image12" src="../images/image12.png" /></p>
+<p><img alt="image122" src="../images/image122.png" /></p>
 </li>
 <li>
 <p>High-level view of the concept of chain of trust applied to verifying the authenticity of a website. The Root CA in the Firefox trust store provides the initial trust to verify the entire chain and trust the end-entity certificate.</p>
@@ -582,10 +597,7 @@ Certificate chain
 <ul>
 <li>There are 3 versions of TLS , TLS 1.0, 1.1 &amp; 1.2</li>
 <li>TLS 1.0 was released in 1999, making it a nearly two-decade-old protocol. It has been known to be vulnerable to attacks—such as BEAST and POODLE—for years, in addition to supporting weak cryptography, which doesn’t keep modern-day connections sufficiently secure.</li>
-<li>
-<p>TLS 1.1 is the forgotten “middle child.” It also has bad cryptography like its younger sibling. In most software it was leapfrogged by TLS 1.2 and it’s rare to see TLS 1.1 used.</p>
-<p><img alt="image13" src="../images/image13.png" /></p>
-</li>
+<li>TLS 1.1 is the forgotten “middle child.” It also has bad cryptography like its younger sibling. In most software it was leapfrogged by TLS 1.2 and it’s rare to see TLS 1.1 used.</li>
 </ul>
 <h3 id="perfect-forward-secrecy">“Perfect” Forward Secrecy</h3>
 <ul>

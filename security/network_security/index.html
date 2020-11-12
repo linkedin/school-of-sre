@@ -387,7 +387,9 @@ Correspondence between layers of the TCP/IP architecture and the OSI model. Also
 <li>Nmap is often used to determine alive hosts in a network, open ports on those hosts, services running on those open ports, and version identification of that service on that port.</li>
 <li>More at http://scanme.nmap.org/</li>
 </ul>
-<p><img alt="image16" src="../images/image16.png" /></p>
+<pre><code>nmap [scan type] [options] [target specification]
+</code></pre>
+
 <p>Nmap uses 6 different port states:</p>
 <ul>
 <li><strong>Open</strong> — An open port is one that is actively accepting TCP, UDP or SCTP connections. Open ports are what interests us the most because they are the ones that are vulnerable to attacks. Open ports also show the available services on a network.</li>
@@ -743,9 +745,18 @@ IDS sensors can be software and hardware based used to collect and analyze the n
   <img alt="image20" src="../images/image20.png" /></p>
 </li>
 <li>
-<p>Abuse of the normal operation or settings of these flags can be used by attackers to launch DoS attacks. This causes network servers or web servers to crash or hang.
-  <img alt="image21" src="../images/image21.png" /></p>
+<p>Abuse of the normal operation or settings of these flags can be used by attackers to launch DoS attacks. This causes network servers or web servers to crash or hang.</p>
 </li>
+</ul>
+<pre><code>| SYN  | FIN  | PSH   | RST  | Validity|  
+|------|------|-------|------|---------|
+| 1    |1     |0      |0     |Illegal Combination
+| 1    |1     |1      |0     |Illegal Combination
+| 1    |1     |0      |1     |Illegal Combination
+| 1    |1     |1      |1     |Illegal Combination
+</code></pre>
+
+<ul>
 <li>The attacker's ultimate goal is to write special programs or pieces of code that are able to construct these illegal combinations resulting in an efficient DoS attack.</li>
 </ul>
 <p>SYN FLOOD</p>
