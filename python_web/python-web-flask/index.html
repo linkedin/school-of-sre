@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Python, Web and Flask - school_of_sre</title>
+        <title>Python, Web and Flask - SchoolOfSRE</title>
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -39,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="../..">school_of_sre</a>
+                    <a class="navbar-brand" href="../..">SchoolOfSRE</a>
                 </div>
 
                 <!-- Expanded navigation -->
@@ -50,49 +50,56 @@
                                 <a href="../..">Home</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Git <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fundamentals Series <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
+  <li class="dropdown-submenu">
+    <a href="#">Git</a>
+    <ul class="dropdown-menu">
+            
 <li >
     <a href="../../git/git-basics/">Git Basics</a>
 </li>
-                                    
+            
 <li >
     <a href="../../git/branches/">Working With Branches</a>
 </li>
-                                    
+            
 <li >
     <a href="../../git/github-hooks/">Github and Hooks</a>
 </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Linux Networking <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
+    </ul>
+  </li>
                                     
+  <li class="dropdown-submenu">
+    <a href="#">Linux Networking</a>
+    <ul class="dropdown-menu">
+            
 <li >
     <a href="../../linux_networking/intro/">Introduction</a>
 </li>
-                                    
+            
 <li >
     <a href="../../linux_networking/dns/">DNS</a>
 </li>
-                                    
+            
 <li >
     <a href="../../linux_networking/udp/">UDP</a>
 </li>
-                                    
+            
 <li >
     <a href="../../linux_networking/http/">HTTP</a>
 </li>
-                                    
+            
 <li >
     <a href="../../linux_networking/tcp/">TCP</a>
 </li>
-                                    
+            
 <li >
     <a href="../../linux_networking/ipr/">Routing and Conclusion</a>
 </li>
+    </ul>
+  </li>
                                 </ul>
                             </li>
                             <li class="dropdown active">
@@ -146,32 +153,38 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Big Data <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
+  <li class="dropdown-submenu">
+    <a href="#">Big Data</a>
+    <ul class="dropdown-menu">
+            
 <li >
     <a href="../../big_data/intro/">Introduction</a>
 </li>
-                                    
+            
 <li >
     <a href="../../big_data/overview/">Overview of Big Data</a>
 </li>
-                                    
+            
 <li >
     <a href="../../big_data/usage/">Usage of Big Data techniques</a>
 </li>
-                                    
+            
 <li >
     <a href="../../big_data/evolution/">Evolution of Hadoop</a>
 </li>
-                                    
+            
 <li >
     <a href="../../big_data/architecture/">Architecture of Hadoop</a>
 </li>
-                                    
+            
 <li >
     <a href="../../big_data/tasks/">Tasks and conclusion</a>
 </li>
+    </ul>
+  </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -187,7 +200,7 @@
 </li>
                                     
 <li >
-    <a href="../../security/network_security/">Network Securuty</a>
+    <a href="../../security/network_security/">Network Security</a>
 </li>
                                     
 <li >
@@ -220,14 +233,14 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#python-web-amd-flask">Python, Web amd Flask</a></li>
+        <li class="main active"><a href="#python-web-and-flask">Python, Web and Flask</a></li>
             <li><a href="#sockets">Sockets</a></li>
             <li><a href="#flask">Flask</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="python-web-amd-flask">Python, Web amd Flask</h1>
+<h1 id="python-web-and-flask">Python, Web and Flask</h1>
 <p>Back in the old days, websites were simple. They were simple static html contents. A webserver would be listening on a defined port and according to the HTTP request received, it would read files from disk and return them in response. But since then, complexity has evolved and websites are now dynamic. Depending on the request, multiple operations need to be performed like reading from database or calling other API and finally returning some response (HTML data, JSON content etc.)</p>
 <p>Since serving web requests is no longer a simple task like reading files from disk and return contents, we need to process each http request, perform some operations programmatically and construct a response.</p>
 <h2 id="sockets">Sockets</h2>
