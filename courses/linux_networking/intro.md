@@ -1,6 +1,6 @@
 # Linux Networking Fundamentals
 
-## Pre - Reads
+## Prerequisites
 
 This course requires high-level knowledge of commonly used jargon in TCP/IP stack like  DNS, TCP, UDP and HTTP. Basic familiarity with Linux jargon is sufficient to start this course. This course also expects basic exposure to Linux command-line tools. The course will require you to install certain utilities and run them as a part of the course exercises.
 
@@ -18,3 +18,9 @@ This course spends time on the fundamentals. We are not covering concepts like H
 
 The course covers the question “What happens when you open linkedin.com in your browser?” The course follows the flow of TCP/IP stack.More specifically, the course covers topics of Application layer protocols DNS and HTTP, transport layer protocols UDP and TCP, networking layer protocol IP and Data Link Layer protocol 
 
+## Table of Contents
+1. [DNS](https://linkedin.github.io/school-of-sre/linux_networking/dns/)
+2. [UDP](https://linkedin.github.io/school-of-sre/linux_networking/udp/)
+3. [HTTP](https://linkedin.github.io/school-of-sre/linux_networking/http/)
+4. [TCP](https://linkedin.github.io/school-of-sre/linux_networking/tcp/)
+5. [IP Routing](https://linkedin.github.io/school-of-sre/linux_networking/ipr/)

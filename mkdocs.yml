@@ -1,18 +1,20 @@
-site_name: school_of_sre
+site_name: SchoolOfSRE
 docs_dir: courses
+plugins: []
 nav:
 - Home: index.md
-- Git:
-    - Git Basics: git/git-basics.md
-    - Working With Branches: git/branches.md
-    - Github and Hooks: git/github-hooks.md
-- Linux Networking:
-    - Introduction: linux_networking/intro.md
-    - DNS: linux_networking/dns.md
-    - UDP: linux_networking/udp.md
-    - HTTP: linux_networking/http.md
-    - TCP: linux_networking/tcp.md
-    - Routing and Conclusion: linux_networking/ipr.md
+- Fundamentals Series:
+    - Git:
+        - Git Basics: git/git-basics.md
+        - Working With Branches: git/branches.md
+        - Github and Hooks: git/github-hooks.md
+    - Linux Networking:
+        - Introduction: linux_networking/intro.md
+        - DNS: linux_networking/dns.md
+        - UDP: linux_networking/udp.md
+        - HTTP: linux_networking/http.md
+        - TCP: linux_networking/tcp.md
+        - Routing and Conclusion: linux_networking/ipr.md
 - Python and Web:
     - Introduction: python_web/intro.md
     - Some Python Concepts: python_web/python-concepts.md
@@ -25,16 +27,17 @@ nav:
     - Availability: systems_design/availability.md
     - Fault Tolerance: systems_design/fault-tolerance.md
     - Conclusion: systems_design/conclusion.md
-- Big Data:
-    - Introduction: big_data/intro.md
-    - Overview of Big Data: big_data/overview.md
-    - Usage of Big Data techniques: big_data/usage.md
-    - Evolution of Hadoop: big_data/evolution.md
-    - Architecture of Hadoop: big_data/architecture.md
-    - Tasks and conclusion: big_data/tasks.md
+- Data:
+    - Big Data:
+        - Introduction: big_data/intro.md
+        - Overview of Big Data: big_data/overview.md
+        - Usage of Big Data techniques: big_data/usage.md
+        - Evolution of Hadoop: big_data/evolution.md
+        - Architecture of Hadoop: big_data/architecture.md
+        - Tasks and conclusion: big_data/tasks.md
 - Security:
     - Introduction: security/intro.md
     - Fundamentals of Security: security/fundamentals.md
-    - Network Securuty: security/network_security.md
+    - Network Security: security/network_security.md
     - Threat, Attacks & Defences: security/threats_attacks_defences.md
     - Writing Secure code: security/writing_secure_code.md  

@@ -1,4 +1,4 @@
-# Python, Web amd Flask
+# Python, Web and Flask
 
 Back in the old days, websites were simple. They were simple static html contents. A webserver would be listening on a defined port and according to the HTTP request received, it would read files from disk and return them in response. But since then, complexity has evolved and websites are now dynamic. Depending on the request, multiple operations need to be performed like reading from database or calling other API and finally returning some response (HTML data, JSON content etc.)
 
