@@ -1,4 +1,4 @@
-## HA - Availability - Common “Nines”
+# HA - Availability - Common “Nines”
 Availability is generally expressed as “Nines”, common ‘Nines’  are listed below.
 
 | Availability %                  | Downtime per year |  Downtime per month | Downtime per week | Downtime per day |
