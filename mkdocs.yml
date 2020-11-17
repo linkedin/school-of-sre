@@ -49,3 +49,4 @@ nav:
     - Network Security: security/network_security.md
     - Threat, Attacks & Defences: security/threats_attacks_defences.md
     - Writing Secure code: security/writing_secure_code.md  
+- Contribute: contributing.md
