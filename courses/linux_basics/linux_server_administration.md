@@ -12,7 +12,7 @@ commands on your own.
 
 - We will be running all the commands on Red Hat Enterprise Linux (RHEL) 8 system.
 
-  ![](/images/linux/admin/image19.png)
+  ![](images/linux/admin/image19.png)
 
 - We will run most of the commands used in this module in the above docker container.
 
@@ -41,12 +41,12 @@ id command can be used to find the uid and gid associated with an user.
 It also lists down the groups to which the user belongs to.
 
 The uid and gid associated with the root user is 0.
-![](/images/linux/admin/image30.png)
+![](images/linux/admin/image30.png)
 
 A good way to find out the current user in linux is to use the whoami
 command.
 
-![](/images/linux/admin/image35.png)
+![](images/linux/admin/image35.png)
 
 **"root" user or superuser is the most privileged user with**
 **unrestricted access to all the resources on the system. It has UID 0**
@@ -58,11 +58,11 @@ command.
 | /etc/shadow  | Stores the password associated with the users |
 | /etc/group   | Stores information about different groups on the system |
 
-![](/images/linux/admin/image23.png)
+![](images/linux/admin/image23.png)
 
-![](/images/linux/admin/image21.png)
+![](images/linux/admin/image21.png)
 
-![](/images/linux/admin/image9.png)
+![](images/linux/admin/image9.png)
 
 If you want to understand each filed discussed in the above outputs, you can go
 through below links:
@@ -94,13 +94,13 @@ has been created by tailing the /etc/passwd file. The uid and gid are
 is /home/shivam and the login shell assigned is /bin/bash. Do note that
 the user home directory and login shell can be modified later on.
 
-![](/images/linux/admin/image41.png)
+![](images/linux/admin/image41.png)
 
 If we do not specify any value for attributes like home directory or
 login shell, default values will be assigned to the user. We can also
 override these default values when creating a new user.
 
-![](/images/linux/admin/image54.png)
+![](images/linux/admin/image54.png)
 
 ### passwd
 
@@ -112,11 +112,11 @@ In the above examples, we have not assigned any password for users
 \"!!\" in an account entry in shadow means the account of an user has
 been created, but not yet given a password.
 
-![](/images/linux/admin/image13.png)
+![](images/linux/admin/image13.png)
 
 Let's now try to create a password for user "shivam".
 
-![](/images/linux/admin/image55.png)
+![](images/linux/admin/image55.png)
 
 Do remember the password as we will be later using examples
 where it will be useful.
@@ -125,7 +125,7 @@ Also, let's change the password for the root user now. When we switch
 from a normal user to root user, it will request you for a password.
 Also, when you login using root user, the password will be asked.
 
-![](/images/linux/admin/image39.png)
+![](images/linux/admin/image39.png)
 
 ### usermod
 
@@ -134,7 +134,7 @@ home directory or the shell.
 
 Let's try to modify the login shell of user "amit" to "/bin/bash".
 
-![](/images/linux/admin/image17.png)
+![](images/linux/admin/image17.png)
 
 In a similar way, you can also modify many other attributes for a user.
 Try 'usermod -h' for a list of attributes you can modify.
@@ -147,7 +147,7 @@ user, all the information related to that user will be removed.
 Let's try to delete the user "amit". After deleting the user, you will
 not find the entry for that user in "/etc/passwd" or "/etc/shadow" file.
 
-![](/images/linux/admin/image34.png)
+![](images/linux/admin/image34.png)
 
 ## Important commands for managing groups
 
@@ -160,11 +160,11 @@ Commands for managing groups are quite similar to the commands used for managing
 | groupdel \<group_name\>  | Deletes a group |
 | gpasswd \<group_name\>   | Modifies password for group |
 
-![](/images/linux/admin/image52.png)
+![](images/linux/admin/image52.png)
 
 We will now try to add user "shivam" to the group we have created above.
 
-![](/images/linux/admin/image33.png)
+![](images/linux/admin/image33.png)
 
 ## Becoming a Superuser in Linux
 
@@ -175,11 +175,11 @@ described in the above section.**
 The su command can be used to switch users in linux. Let's now try to
 switch to user "shivam".
 
-![](/images/linux/admin/image37.png)
+![](images/linux/admin/image37.png)
 
 Let's now try to open the "/etc/shadow" file.
 
-![](/images/linux/admin/image29.png)
+![](images/linux/admin/image29.png)
 
 The operating system didn't allow the user "shivam" to read the content
 of the "/etc/shadow" file. This is an important file in linux which
@@ -201,7 +201,7 @@ need to be a part of the sudo group.
 Let's first switch to the root user using su command. Do note that using
 the below command will need you to enter the password for the root user.
 
-![](/images/linux/admin/image44.png)
+![](images/linux/admin/image44.png)
 
 In case, you forgot to set a password for the root user, type "exit" and
 you will be back as the root user. Now, set up a password using the
@@ -211,7 +211,7 @@ passwd command.
 sudo**. In redhat operating systems, this file is not present by
 default. We will need to install sudo.
 
-![](/images/linux/admin/image3.png)
+![](images/linux/admin/image3.png)
 
 We will discuss the yum command in detail in later sections.
 
@@ -220,23 +220,23 @@ information. This file stores the rules that users must follow when
 running the sudo command. For example, root is allowed to run any
 commands from anywhere.
 
-![](/images/linux/admin/image8.png)
+![](images/linux/admin/image8.png)
 
 One easy way of providing root access to users is to add them to a group
 which has permissions to run all the commands. "wheel" is a group in
 redhat linux with such privileges.
 
-![](/images/linux/admin/image25.png)
+![](images/linux/admin/image25.png)
 
 Let's add the user "shivam" to this group so that it also has sudo
 privileges.
 
-![](/images/linux/admin/image48.png)
+![](images/linux/admin/image48.png)
 
 Let's now switch back to user "shivam" and try to access the
 "/etc/shadow" file.
 
-![](/images/linux/admin/image56.png)
+![](images/linux/admin/image56.png)
 
 We need to use sudo before running the command since it can only be
 accessed with the sudo privileges. We have already given sudo privileges
@@ -253,15 +253,15 @@ allowed to access the files and resources of another user.
 To see the permissions of a file, we can use the ls command. Let's look
 at the permissions of /etc/passwd file.
 
-![](/images/linux/admin/image40.png)
+![](images/linux/admin/image40.png)
 
 Let's go over some of the important fields in the output that are
 related to file permissions.
 
-![](/images/linux/admin/image31.jpg)
+![](images/linux/admin/image31.jpg)
 
 
-![](/images/linux/admin/image57.png)
+![](images/linux/admin/image57.png)
 
 ### Chmod command in linux
 
@@ -285,13 +285,13 @@ allowed and 0 representing False or not allowed.
 
 We will now create a new file and check the permission of the file.
 
-![](/images/linux/admin/image15.png)
+![](images/linux/admin/image15.png)
 
 The group owner doesn't have the permission to write to this file. Let's
 give the group owner or root the permission to write to it using chmod
 command.
 
-![](/images/linux/admin/image26.png)
+![](images/linux/admin/image26.png)
 
 Chmod command can be also used to change the permissions of a directory
 in the similar way.
@@ -303,14 +303,14 @@ directories in linux.
 
 Command syntax: chown \<new_owner\> \<file_name\>
 
-![](/images/linux/admin/image6.png)
+![](images/linux/admin/image6.png)
 
 **In case, we do not have sudo privileges, we need to use sudo
 command**. Let's switch to user 'shivam' and try changing the owner. We
 have also changed the owner of the file to root before running the below
 command.
 
-![](/images/linux/admin/image12.png)
+![](images/linux/admin/image12.png)
 
 Chown command can also be used to change the owner of a directory in the
 similar way.
@@ -321,7 +321,7 @@ The chgrp command can be used to change the group ownership of files or
 directories in linux. The syntax is very similar to that of chown
 command.
 
-![](/images/linux/admin/image27.png)
+![](images/linux/admin/image27.png)
 
 Chgrp command can also be used to change the owner of a directory in the
 similar way.
@@ -354,19 +354,19 @@ Steps for setting up a passwordless authentication with a remote host:
 
     Install openssh package which contains all the commands related to ssh.
 
-    ![](/images/linux/admin/image49.png)
+    ![](images/linux/admin/image49.png)
 
     Generate a key pair using the ssh-keygen command. One can choose the
     default values for all prompts.
 
-    ![](/images/linux/admin/image47.png)
+    ![](images/linux/admin/image47.png)
 
     After running the ssh-keygen command successfully, we should see two
     keys present in the \~/.ssh directory. Id_rsa is the private key and
     id_rsa.pub is the public key. Do note that the private key can only be
     read and modified by you.
 
-    ![](/images/linux/admin/image7.png)
+    ![](images/linux/admin/image7.png)
 
 2. Transferring the public key to the remote host
 
@@ -374,23 +374,23 @@ Steps for setting up a passwordless authentication with a remote host:
     We will look at one of the most common ways of doing it using the
     ssh-id-copy command.
 
-    ![](/images/linux/admin/image11.png)
+    ![](images/linux/admin/image11.png)
 
     Install the openssh-clients package to use ssh-id-copy command.
 
-    ![](/images/linux/admin/image46.png)
+    ![](images/linux/admin/image46.png)
 
     Use the ssh-id-copy command to copy your public key to the remote host.
 
-    ![](/images/linux/admin/image50.png)
+    ![](images/linux/admin/image50.png)
 
     Now, ssh into the remote host using the password authentication.
 
-    ![](/images/linux/admin/image51.png)
+    ![](images/linux/admin/image51.png)
 
     Our public key should be there in \~/.ssh/authorized_keys now.
 
-    ![](/images/linux/admin/image4.png)
+    ![](images/linux/admin/image4.png)
 
     \~/.ssh/authorized_key contains a list of public keys. The users
     associated with these public keys have the ssh access into the remote
@@ -401,13 +401,13 @@ Steps for setting up a passwordless authentication with a remote host:
 
 General syntax: ssh \<user\>@\<hostname/hostip\> \<command\>
 
-![](/images/linux/admin/image14.png)
+![](images/linux/admin/image14.png)
 
 ### How to transfer files from one host to another host ?
 
 General syntax: scp \<source\> \<destination\>
 
-![](/images/linux/admin/image32.png)
+![](images/linux/admin/image32.png)
 
 ## Package Management
 
@@ -435,17 +435,17 @@ the successor to YUM which is now used in Fedora for installing and
 managing packages. DNF may replace YUM in the future on all RPM based
 linux distributions.
 
-![](/images/linux/admin/image20.png)
+![](images/linux/admin/image20.png)
 
 We did find an exact match for the keyword httpd when we searched using
 yum search command. Let's now install the httpd package.
 
-![](/images/linux/admin/image28.png)
+![](images/linux/admin/image28.png)
 
 After httpd is installed, we will use the yum remove command to remove
 httpd package.
 
-![](/images/linux/admin/image43.png)
+![](images/linux/admin/image43.png)
 
 ## Process Management
 
@@ -457,7 +457,7 @@ used to monitor the processes on linux systems.
 The ps command is used to know the information of a process or list of
 processes.
 
-![](/images/linux/admin/image24.png)
+![](images/linux/admin/image24.png)
 
 If you get an error "ps command not found" while running ps command, do
 install **procps** package.
@@ -468,17 +468,17 @@ processes on the system by using the below command.
 Reference:
 [https://unix.stackexchange.com/questions/106847/what-does-aux-mean-in-ps-aux](https://unix.stackexchange.com/questions/106847/what-does-aux-mean-in-ps-aux)
 
-![](/images/linux/admin/image42.png)
+![](images/linux/admin/image42.png)
 
 We can use an additional argument with ps command to list the
 information about the process with a specific process ID.
 
-![](/images/linux/admin/image2.png)
+![](images/linux/admin/image2.png)
 
 We can use grep in combination with ps command to list only specific
 processes.
 
-![](/images/linux/admin/image1.png)
+![](images/linux/admin/image1.png)
 
 ### top
 
@@ -486,7 +486,7 @@ The top command is used to show information about linux processes
 running on the system in real time. It also shows a summary of the
 system information.
 
-![](/images/linux/admin/image53.png)
+![](images/linux/admin/image53.png)
 
 For each process, top lists down the process ID, owner, priority, state,
 cpu utilization, memory utilization and much more information. It also
@@ -504,19 +504,19 @@ The free command is used to display the memory usage of the system. The
 command displays the total free and used space available in the RAM
 along with space occupied by the caches/buffers.
 
-![](/images/linux/admin/image22.png)
+![](images/linux/admin/image22.png)
 
 free command by default shows the memory usage in kilobytes. We can use
 an additional argument to get the data in human-readable format.
 
-![](/images/linux/admin/image5.png)
+![](images/linux/admin/image5.png)
 
 ### vmstat
 
 The vmstat command can be used to display the memory usage along with
 additional information about io and cpu usage.
 
-![](/images/linux/admin/image38.png)
+![](images/linux/admin/image38.png)
 
 ## Checking Disk Space in Linux
 
@@ -528,19 +528,19 @@ used to view disk space on linux.
 The df command is used to display the free and available space for each
 mounted file system.
 
-![](/images/linux/admin/image36.png)
+![](images/linux/admin/image36.png)
 
 ### du (disk usage)
 
 The du command is used to display disk usage of files and directories on
 the system.
 
-![](/images/linux/admin/image10.png)
+![](images/linux/admin/image10.png)
 
 The below command can be used to display the top 5 largest directories
 in the root directory.
 
-![](/images/linux/admin/image18.png)
+![](images/linux/admin/image18.png)
 
 ## Daemons
 
@@ -562,7 +562,7 @@ The below examples shows the unit configuration files available at
 We are more interested in the configuration file that ends with service
 as these are service units.
 
-![](/images/linux/admin/image16.png)
+![](images/linux/admin/image16.png)
 
 ### Managing System Services
 
@@ -584,7 +584,7 @@ which can be very useful for viewing system logs and applications logs
 in linux. These logs can be very useful when you are troubleshooting on
 the system.
 
-![](/images/linux/admin/image58.png)
+![](images/linux/admin/image58.png)
 
 ## Applications in SRE Role
 

@@ -110,7 +110,7 @@ system by a package manager.
 
 ## Linux Architecture
 
-![](/images/linux/commands/image25.png)
+![](images/linux/commands/image25.png)
 
 - The Linux kernel is monolithic in nature.
 
