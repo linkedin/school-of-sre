@@ -25,12 +25,6 @@ nav:
     - Python, Web and Flask: python_web/python-web-flask.md
     - The URL Shortening App: python_web/url-shorten-app.md
     - SRE Aspects of The App and Conclusion: python_web/sre-conclusion.md
-- Systems Design:
-    - Introduction: systems_design/intro.md
-    - Scalability: systems_design/scalability.md
-    - Availability: systems_design/availability.md
-    - Fault Tolerance: systems_design/fault-tolerance.md
-    - Conclusion: systems_design/conclusion.md
 - Data:
     - Big Data:
         - Introduction: big_data/intro.md
@@ -39,6 +33,12 @@ nav:
         - Evolution of Hadoop: big_data/evolution.md
         - Architecture of Hadoop: big_data/architecture.md
         - Tasks and conclusion: big_data/tasks.md
+- Systems Design:
+    - Introduction: systems_design/intro.md
+    - Scalability: systems_design/scalability.md
+    - Availability: systems_design/availability.md
+    - Fault Tolerance: systems_design/fault-tolerance.md
+    - Conclusion: systems_design/conclusion.md
 - Security:
     - Introduction: security/intro.md
     - Fundamentals of Security: security/fundamentals.md

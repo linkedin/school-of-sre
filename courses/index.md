@@ -10,8 +10,8 @@ In this course we are focusing on building strong foundational skills. The cours
 
 - Linux basics
 - [Git](https://linkedin.github.io/school-of-sre/git/git-basics/)  
-- [Linux networking](https://linkedin.github.io/school-of-sre/linux_networking/intro/)
-- [Python](https://linkedin.github.io/school-of-sre/python_web/intro/)
+- [Linux Networking](https://linkedin.github.io/school-of-sre/linux_networking/intro/)
+- [Python and Web](https://linkedin.github.io/school-of-sre/python_web/intro/)
 - Relational databases (MySQL)
 - NoSQL concepts 
 - [Big Data](https://linkedin.github.io/school-of-sre/big_data/intro/)
