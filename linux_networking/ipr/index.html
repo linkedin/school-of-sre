@@ -14,7 +14,7 @@
     
     
       
-        <title>Routing and Conclusion - SchoolOfSRE</title>
+        <title>Routing - SchoolOfSRE</title>
       
     
     
@@ -86,7 +86,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Routing and Conclusion
+              Routing
             
           </span>
         </div>
@@ -376,12 +376,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Routing and Conclusion
+        Routing
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Routing and Conclusion
+      Routing
     </a>
     
       
@@ -404,17 +404,22 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conclusion/" class="md-nav__link">
+      Conclusion
+    </a>
   </li>
 
         
@@ -847,13 +852,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -890,15 +888,6 @@ Now to send the packet to 172.17.0.1 linux has to figure out the MAC address of 
 <li>Understanding error messages better like, “No route to host” error can mean mac address of the destination host is not found and it can mean the destination host is down </li>
 <li>On rare cases looking at the ARP table can help us understand if there is a IP conflict where same IP is assigned to two hosts by mistake and this is causing unexpected behavior</li>
 </ol>
-<h2 id="conclusion">Conclusion</h2>
-<p>With this we have traversed through the TCP/IP stack completely. We hope there will be a different perspective when one opens any website in the browser post the course. </p>
-<p>During the course we have also dissected what are common tasks in this pipeline which falls under the ambit of SRE.</p>
-<h1 id="post-training-exercises">Post Training Exercises</h1>
-<ol>
-<li>Setup own DNS resolver in the dev environment which acts as an authoritative DNS server for example.com and forwarder for other domains. Update resolv.conf to use the new DNS resolver running in localhost</li>
-<li>Set up a site dummy.example.com in localhost and run a webserver with a self signed certificate. Update the trusted CAs or pass self signed CA’s public key as a parameter so that curl https://dummy.example.com -v works properly without self signed cert warning</li>
-<li>Update the routing table to use another host(container/VM) in the same network as a gateway for 8.8.8.8/32 and run ping 8.8.8.8. Do the packet capture on the new gateway to see L3 hop is working as expected(might need to disable icmp_redirect)</li>
-</ol>
                 
               
               
@@ -932,13 +921,13 @@ Now to send the packet to 172.17.0.1 linux has to figure out the MAC address of 
           </a>
         
         
-          <a href="../../python_web/intro/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../conclusion/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Introduction
+                Conclusion
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
