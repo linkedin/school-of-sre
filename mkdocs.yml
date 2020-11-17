@@ -22,7 +22,8 @@ nav:
         - UDP: linux_networking/udp.md
         - HTTP: linux_networking/http.md
         - TCP: linux_networking/tcp.md
-        - Routing and Conclusion: linux_networking/ipr.md
+        - Routing: linux_networking/ipr.md
+        - Conclusion: linux_networking/conclusion.md
 - Python and Web:
     - Introduction: python_web/intro.md
     - Some Python Concepts: python_web/python-concepts.md
