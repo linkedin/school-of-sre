@@ -14,7 +14,7 @@
     
     
       
-        <title>Command Line Basics - SchoolOfSRE</title>
+        <title>Commandline Basics - SchoolOfSRE</title>
       
     
     
@@ -86,7 +86,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Command Line Basics
+              Commandline Basics
             
           </span>
         </div>
@@ -139,10 +139,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     <label class="md-nav__link" for="nav-2">
       Fundamentals Series
       <span class="md-nav__icon md-icon"></span>
@@ -159,16 +161,295 @@
           
           
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    <label class="md-nav__link" for="nav-2-1">
+      Linux Basics
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux Basics" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        Linux Basics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Commandline Basics
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Commandline Basics
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-command" class="md-nav__link">
+    What is a command ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-system-organization" class="md-nav__link">
+    File System Organization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-for-navigating-the-file-system" class="md-nav__link">
+    Commands for Navigating the File System
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands for Navigating the File System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pwd-print-working-directory" class="md-nav__link">
+    pwd (print working directory)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cd-change-directory" class="md-nav__link">
+    cd (change directory)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ls-list-files-and-directories" class="md-nav__link">
+    ls (list files and directories)**
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-for-manipulating-files" class="md-nav__link">
+    Commands for Manipulating Files
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands for Manipulating Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#touch-create-new-file" class="md-nav__link">
+    touch (create new file)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdir-create-new-directories" class="md-nav__link">
+    mkdir (create new directories)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rm-delete-files-and-directories" class="md-nav__link">
+    rm (delete files and directories)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cp-copy-files-and-directories" class="md-nav__link">
+    cp (copy files and directories)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-for-viewing-files" class="md-nav__link">
+    Commands for Viewing Files
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands for Viewing Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cat" class="md-nav__link">
+    cat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#head" class="md-nav__link">
+    head
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tail" class="md-nav__link">
+    tail
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#echo-command-in-linux" class="md-nav__link">
+    Echo Command in Linux
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text-processing-commands" class="md-nav__link">
+    Text Processing Commands
+  </a>
+  
+    <nav class="md-nav" aria-label="Text Processing Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grep" class="md-nav__link">
+    grep
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sed" class="md-nav__link">
+    sed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    sort
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io-redirection" class="md-nav__link">
+    I/O Redirection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications-in-sre-role" class="md-nav__link">
+    Applications in SRE Role
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-courses-and-tutorials" class="md-nav__link">
+    Useful courses and tutorials
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../linux_server_administration/" class="md-nav__link">
+      Server Administration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
 
   <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
-    <label class="md-nav__link" for="nav-2-1">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+    <label class="md-nav__link" for="nav-2-2">
       Git
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Git" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-1">
+      <label class="md-nav__title" for="nav-2-2">
         <span class="md-nav__icon md-icon"></span>
         Git
       </label>
@@ -223,13 +504,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
-    <label class="md-nav__link" for="nav-2-2">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" >
+    <label class="md-nav__link" for="nav-2-3">
       Linux Networking
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Linux Networking" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-2">
+      <label class="md-nav__title" for="nav-2-3">
         <span class="md-nav__icon md-icon"></span>
         Linux Networking
       </label>
@@ -1280,6 +1561,41 @@ prints the unique numbers from the input.</p>
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../intro/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Introduction
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../linux_server_administration/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Server Administration
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
