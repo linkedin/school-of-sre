@@ -24,7 +24,7 @@ nav:
     - Some Python Concepts: python_web/python-concepts.md
     - Python, Web and Flask: python_web/python-web-flask.md
     - The URL Shortening App: python_web/url-shorten-app.md
-    - SRE Aspects of The App and Conclusion: python_web/sre-conclusion.md
+    - Conclusion: python_web/sre-conclusion.md
 - Data:
     - Big Data:
         - Introduction: big_data/intro.md

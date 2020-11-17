@@ -1,4 +1,4 @@
-# SRE Parts of The App and Conclusion
+# Conclusion
 
 ## Scaling The App
 
