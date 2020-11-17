@@ -1,0 +1,1315 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.5">
+    
+    
+      
+        <title>Command Line Basics - SchoolOfSRE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.21aed14c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.196e0c26.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#command-line-basics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="SchoolOfSRE" class="md-header-nav__button md-logo" aria-label="SchoolOfSRE">
+      
+  <img src="../../img/sos.png" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            SchoolOfSRE
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Command Line Basics
+            
+          </span>
+        </div>
+      
+    </div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SchoolOfSRE" class="md-nav__button md-logo" aria-label="SchoolOfSRE">
+      
+  <img src="../../img/sos.png" alt="logo">
+
+    </a>
+    SchoolOfSRE
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+    <label class="md-nav__link" for="nav-2">
+      Fundamentals Series
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Fundamentals Series" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Fundamentals Series
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+    <label class="md-nav__link" for="nav-2-1">
+      Git
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Git" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        Git
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/git-basics/" class="md-nav__link">
+      Git Basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/branches/" class="md-nav__link">
+      Working With Branches
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/github-hooks/" class="md-nav__link">
+      Github and Hooks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+    <label class="md-nav__link" for="nav-2-2">
+      Linux Networking
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux Networking" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        Linux Networking
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux_networking/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux_networking/dns/" class="md-nav__link">
+      DNS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux_networking/udp/" class="md-nav__link">
+      UDP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux_networking/http/" class="md-nav__link">
+      HTTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux_networking/tcp/" class="md-nav__link">
+      TCP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux_networking/ipr/" class="md-nav__link">
+      Routing and Conclusion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+    <label class="md-nav__link" for="nav-3">
+      Python and Web
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Python and Web" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Python and Web
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/python-concepts/" class="md-nav__link">
+      Some Python Concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/python-web-flask/" class="md-nav__link">
+      Python, Web and Flask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/url-shorten-app/" class="md-nav__link">
+      The URL Shortening App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/sre-conclusion/" class="md-nav__link">
+      Conclusion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+    <label class="md-nav__link" for="nav-4">
+      Data
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Data" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" >
+    <label class="md-nav__link" for="nav-4-1">
+      Big Data
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Big Data" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon"></span>
+        Big Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/overview/" class="md-nav__link">
+      Overview of Big Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/usage/" class="md-nav__link">
+      Usage of Big Data techniques
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/evolution/" class="md-nav__link">
+      Evolution of Hadoop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/architecture/" class="md-nav__link">
+      Architecture of Hadoop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/tasks/" class="md-nav__link">
+      Tasks and conclusion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    <label class="md-nav__link" for="nav-5">
+      Systems Design
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Systems Design" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Systems Design
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/scalability/" class="md-nav__link">
+      Scalability
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/availability/" class="md-nav__link">
+      Availability
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/fault-tolerance/" class="md-nav__link">
+      Fault Tolerance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/conclusion/" class="md-nav__link">
+      Conclusion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+    <label class="md-nav__link" for="nav-6">
+      Security
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Security" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Security
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/fundamentals/" class="md-nav__link">
+      Fundamentals of Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/network_security/" class="md-nav__link">
+      Network Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/threats_attacks_defences/" class="md-nav__link">
+      Threat, Attacks & Defences
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/writing_secure_code/" class="md-nav__link">
+      Writing Secure code
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-command" class="md-nav__link">
+    What is a command ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-system-organization" class="md-nav__link">
+    File System Organization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-for-navigating-the-file-system" class="md-nav__link">
+    Commands for Navigating the File System
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands for Navigating the File System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pwd-print-working-directory" class="md-nav__link">
+    pwd (print working directory)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cd-change-directory" class="md-nav__link">
+    cd (change directory)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ls-list-files-and-directories" class="md-nav__link">
+    ls (list files and directories)**
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-for-manipulating-files" class="md-nav__link">
+    Commands for Manipulating Files
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands for Manipulating Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#touch-create-new-file" class="md-nav__link">
+    touch (create new file)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mkdir-create-new-directories" class="md-nav__link">
+    mkdir (create new directories)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rm-delete-files-and-directories" class="md-nav__link">
+    rm (delete files and directories)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cp-copy-files-and-directories" class="md-nav__link">
+    cp (copy files and directories)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-for-viewing-files" class="md-nav__link">
+    Commands for Viewing Files
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands for Viewing Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cat" class="md-nav__link">
+    cat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#head" class="md-nav__link">
+    head
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tail" class="md-nav__link">
+    tail
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#echo-command-in-linux" class="md-nav__link">
+    Echo Command in Linux
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text-processing-commands" class="md-nav__link">
+    Text Processing Commands
+  </a>
+  
+    <nav class="md-nav" aria-label="Text Processing Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grep" class="md-nav__link">
+    grep
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sed" class="md-nav__link">
+    sed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    sort
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io-redirection" class="md-nav__link">
+    I/O Redirection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#applications-in-sre-role" class="md-nav__link">
+    Applications in SRE Role
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-courses-and-tutorials" class="md-nav__link">
+    Useful courses and tutorials
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="command-line-basics">Command Line Basics</h1>
+<h2 id="what-is-a-command">What is a command ?</h2>
+<p>A command is a program that tells the operating system to perform
+specific work. Programs are stored as files in linux. Therefore, a
+command is also a file which is stored somewhere on the disk.</p>
+<p>Commands may also take additional arguments as input from the user.
+These arguments are called command line arguments. Knowing how to use
+the commands is important and there are many ways to get help in Linux,
+especially for commands. Almost every command will have some form of
+documentation, most commands will have a command-line argument -h or
+--help that will display a reasonable amount of documentation. But the
+most popular documentation system in Linux is called man pages - short
+for manual pages.</p>
+<p>Using --help to show the documentation for ls command.</p>
+<p><img alt="" src="/images/linux/commands/image19.png" /></p>
+<h2 id="file-system-organization">File System Organization</h2>
+<p>The linux file system has a hierarchical (or tree-like) structure with
+its highest level directory called root ( denoted by / ). Directories
+present inside the root directory stores file related to the system.
+These directories in turn can either store system files or application
+files or user related files.</p>
+<p><img alt="" src="/images/linux/commands/image17.png" /></p>
+<p>bin   | The executable program of most commonly used commands reside in bin directory<br />
+  sbin  | This directory contains programs used for system administration.
+  home  | This directory contains user related files and directories.
+  lib   | This directory contains all the library files
+  etc   | This directory contains all the system configuration files
+  proc  | This directory contains files related to the running processes on the system
+  dev   | This directory contains files related to devices on the system
+  mnt   | This directory contains files related to mounted devices on the system
+  tmp   | This directory is used to store temporary files on the system
+  usr   |  This directory is used to store application programs on the system</p>
+<h2 id="commands-for-navigating-the-file-system">Commands for Navigating the File System</h2>
+<p>There are three basic commands which are used frequently to navigate the
+file system:</p>
+<ul>
+<li>
+<p>ls</p>
+</li>
+<li>
+<p>pwd</p>
+</li>
+<li>
+<p>cd</p>
+</li>
+</ul>
+<p>We will now try to understand what each command does and how to use
+these commands. You should also practice the given examples on the
+online bash shell.</p>
+<h3 id="pwd-print-working-directory">pwd (print working directory)</h3>
+<p>At any given moment of time, we will be standing in a certain directory.
+To get the name of the directory in which we are standing, we can use
+the pwd command in linux.</p>
+<p><img alt="" src="/images/linux/commands/image2.png" /></p>
+<p>We will now use the cd command to move to a different directory and then
+print the working directory.</p>
+<p><img alt="" src="/images/linux/commands/image20.png" /></p>
+<h3 id="cd-change-directory">cd (change directory)</h3>
+<p>The cd command can be used to change the working directory. Using the
+command, you can move from one directory to another.</p>
+<p>In the below example, we are initially in the root directory. we have
+then used the cd command to change the directory.</p>
+<p><img alt="" src="/images/linux/commands/image3.png" /></p>
+<h3 id="ls-list-files-and-directories">ls (list files and directories)**</h3>
+<p>The ls command is used to list the contents of a directory. It will list
+down all the files and folders present in the given directory.</p>
+<p>If we just type ls in the shell, it will list all the files and
+directories present in the current directory.</p>
+<p><img alt="" src="/images/linux/commands/image7.png" /></p>
+<p>We can also provide the directory name as argument to ls command. It
+will then list all the files and directories inside the given directory.</p>
+<p><img alt="" src="/images/linux/commands/image4.png" /></p>
+<h2 id="commands-for-manipulating-files">Commands for Manipulating Files</h2>
+<p>There are four basic commands which are used frequently to manipulate
+files:</p>
+<ul>
+<li>
+<p>touch</p>
+</li>
+<li>
+<p>mkdir</p>
+</li>
+<li>
+<p>cp</p>
+</li>
+<li>
+<p>mv</p>
+</li>
+<li>
+<p>rm</p>
+</li>
+</ul>
+<p>We will now try to understand what each command does and how to use
+these commands. You should also practice the given examples on the
+online bash shell.</p>
+<h3 id="touch-create-new-file">touch (create new file)</h3>
+<p>The touch command can be used to create an empty new file.
+This command is very useful for many other purposes but we will discuss
+the simplest use case of creating a new file.</p>
+<p>General syntax of using touch command</p>
+<pre><code>touch &lt;file_name&gt;
+</code></pre>
+<p><img alt="" src="/images/linux/commands/image9.png" /></p>
+<h3 id="mkdir-create-new-directories">mkdir (create new directories)</h3>
+<p>The mkdir command is used to create directories.You can use ls command
+to verify that the new directory is created.</p>
+<p>General syntax of using mkdir command</p>
+<pre><code>mkdir &lt;directory_name&gt;
+</code></pre>
+<p><img alt="" src="/images/linux/commands/image11.png" /></p>
+<h3 id="rm-delete-files-and-directories">rm (delete files and directories)</h3>
+<p>The rm command can be used to delete files and directories. It is very
+important to note that this command permanently deletes the files and
+directories. It's almost impossible to recover these files and
+directories once you have executed rm command on them successfully. Do
+run this command with care.</p>
+<p>General syntax of using rm command:</p>
+<pre><code>rm &lt;file_name&gt;
+</code></pre>
+<p>Let's try to understand the rm command with an example. We will try to
+delete the file and directory we created using touch and mkdir command
+respectively.</p>
+<p><img alt="" src="/images/linux/commands/image18.png" /></p>
+<h3 id="cp-copy-files-and-directories">cp (copy files and directories)</h3>
+<p>The cp command is used to copy files and directories from one location
+to another. Do note that the cp command doesn't do any change to the
+original files or directories. The original files or directories and
+their copy both co-exist after running cp command successfully.</p>
+<p>General syntax of using cp command:</p>
+<pre><code>cp &lt;source_path&gt; &lt;destination_path&gt;
+</code></pre>
+<p>We are currently in the '/home/runner' directory. We will use the mkdir
+command to create a new directory named "test_directory". We will now
+try to copy the "_test_runner.py" file to the directory we created just
+now.</p>
+<p><img alt="" src="/images/linux/commands/image23.png" /></p>
+<p>Do note that nothing happened to the original "_test_runner.py" file.
+It's still there in the current directory. A new copy of it got created
+inside the "test_directory".</p>
+<p><img alt="" src="/images/linux/commands/image14.png" /></p>
+<p>We can also use the cp command to copy the whole directory from one
+location to another. Let's try to understand this with an example.</p>
+<p><img alt="" src="/images/linux/commands/image12.png" /></p>
+<p>We again used the mkdir command to create a new directory called
+"another_directory". We then used the cp command along with an
+additional argument '-r' to copy the "test_directory".</p>
+<p><strong>mv (move files and directories)</strong></p>
+<p>The mv command can either be used to move files or directories from one
+location to another or it can be used to rename files or directories. Do
+note that moving files and copying them are very different. When you
+move the files or directories, the original copy is lost.</p>
+<p>General syntax of using mv command:</p>
+<pre><code>mv &lt;source_path&gt; &lt;destination_path&gt;
+</code></pre>
+<p>In this example, we will use the mv command to move the
+"_test_runner.py" file to "test_directory". In this case, this file
+already exists in "test_directory". The mv command will just replace it.
+<strong>Do note that the original file doesn't exist in the current directory
+after mv command ran successfully.</strong></p>
+<p><img alt="" src="/images/linux/commands/image26.png" /></p>
+<p>We can also use the mv command to move a directory from one location to
+another. In this case, we do not need to use the '-r' flag that we did
+while using the cp command. Do note that the original directory will not
+exist if we use mv command.</p>
+<p>One of the important uses of the mv command is to rename files and
+directories. Let's see how we can use this command for renaming.</p>
+<p>We have first changed our location to "test_directory". We then use the
+mv command to rename the ""_test_runner.py" file to "test.py".</p>
+<p><img alt="" src="/images/linux/commands/image29.png" /></p>
+<h2 id="commands-for-viewing-files">Commands for Viewing Files</h2>
+<p>There are three basic commands which are used frequently to view the
+files:</p>
+<ul>
+<li>
+<p>cat</p>
+</li>
+<li>
+<p>head</p>
+</li>
+<li>
+<p>tail</p>
+</li>
+</ul>
+<p>We will now try to understand what each command does and how to use
+these commands. You should also practice the given examples on the
+online bash shell.</p>
+<p>We will create a new file called "numbers.txt" and insert numbers from 1
+to 100 in this file. Each number will be in a separate line.</p>
+<p><img alt="" src="/images/linux/commands/image21.png" /></p>
+<p>Do not worry about the above command now. It's an advanced command which
+is used to generate numbers. We have then used a redirection operator to
+push these numbers to the file. We will be discussing I/O redirection in the
+later sections.</p>
+<h3 id="cat">cat</h3>
+<p>The most simplest use of cat command is to print the contents of the file on
+your output screen. This command is very useful and can be used for many
+other purposes. We will study about other use cases later.</p>
+<p><img alt="" src="/images/linux/commands/image1.png" /></p>
+<p>You can try to run the above command and you will see numbers being
+printed from 1 to 100 on your screen. You will need to scroll up to view
+all the numbers.</p>
+<h3 id="head">head</h3>
+<p>The head command displays the first 10 lines of the file by default. We
+can include additional arguments to display as many lines as we want
+from the top.</p>
+<p>In this example, we are only able to see the first 10 lines from the
+file when we use the head command.</p>
+<p><img alt="" src="/images/linux/commands/image15.png" /></p>
+<p>By default, head command will only display the first 10 lines. If we
+want to specify the number of lines we want to see from start, use the
+'-n' argument to provide the input.</p>
+<p><img alt="" src="/images/linux/commands/image16.png" /></p>
+<h3 id="tail">tail</h3>
+<p>The tail command displays the last 10 lines of the file by default. We
+can include additional arguments to display as many lines as we want
+from the end of the file.</p>
+<p><img alt="" src="/images/linux/commands/image22.png" /></p>
+<p>By default, the tail command will only display the last 10 lines. If we
+want to specify the number of lines we want to see from the end, use '-n'
+argument to provide the input.</p>
+<p><img alt="" src="/images/linux/commands/image10.png" /></p>
+<p>In this example, we are only able to see the last 5 lines from the file
+when we use the tail command with explicit -n option.</p>
+<h2 id="echo-command-in-linux">Echo Command in Linux</h2>
+<p>The echo command is one of the simplest commands that is used in the
+shell. This command is equivalent to what we have <print> in other
+programming languages.</p>
+<p>The echo command prints the given input string on the screen.</p>
+<p><img alt="" src="/images/linux/commands/image24.png" /></p>
+<h2 id="text-processing-commands">Text Processing Commands</h2>
+<p>In the previous section, we learned how to view the content of a file.
+In many cases, we will be interested in performing the below operations:</p>
+<ul>
+<li>
+<p>Print only the lines which contain a particular word(s)</p>
+</li>
+<li>
+<p>Replace a particular word with another word in a file</p>
+</li>
+<li>
+<p>Sort the lines in a particular order</p>
+</li>
+</ul>
+<p>There are three basic commands which are used frequently to process
+texts:</p>
+<ul>
+<li>
+<p>grep</p>
+</li>
+<li>
+<p>sed</p>
+</li>
+<li>
+<p>sort</p>
+</li>
+</ul>
+<p>We will now try to understand what each command does and how to use
+these commands. You should also practice the given examples on the
+online bash shell.</p>
+<p>We will create a new file called "numbers.txt" and insert numbers from 1
+to 10 in this file. Each number will be in a separate line.</p>
+<p><img alt="" src="/images/linux/commands/image8.png" /></p>
+<h3 id="grep">grep</h3>
+<p>The grep command in its simplest form can be used to search particular
+words in a text file. It will display all the lines in a file that
+contains a particular input. The word we want to search is provided as
+an input to the grep command.</p>
+<p>General syntax of using grep command:</p>
+<pre><code>grep &lt;word_to_search&gt; &lt;file_name&gt;
+</code></pre>
+<p>In this example, we are trying to search for a string "1" in this file.
+The grep command outputs the lines where it found this string.</p>
+<p><img alt="" src="/images/linux/commands/image5.png" /></p>
+<h3 id="sed">sed</h3>
+<p>The sed command in its simplest form can be used to replace a text in a
+file.</p>
+<p>General syntax of using the sed command for replacement:</p>
+<pre><code>sed 's/&lt;text_to_replace&gt;/&lt;replacement_text&gt;/' &lt;file_name&gt;
+</code></pre>
+<p>Let's try to replace each occurrence of "1" in the file with "3" using
+sed command.</p>
+<p><img alt="" src="/images/linux/commands/image31.png" /></p>
+<p>The content of the file will not change in the above
+example. To do so, we have to use an extra argument '-i' so that the
+changes are reflected back in the file.</p>
+<h3 id="sort">sort</h3>
+<p>The sort command can be used to sort the input provided to it as an
+argument. By default, it will sort in increasing order.</p>
+<p>Let's first see the content of the file before trying to sort it.</p>
+<p><img alt="" src="/images/linux/commands/image27.png" /></p>
+<p>Now, we will try to sort the file using the sort command. The sort
+command sorts the content in lexicographical order.</p>
+<p><img alt="" src="/images/linux/commands/image32.png" /></p>
+<p>The content of the file will not change in the above
+example.</p>
+<h2 id="io-redirection">I/O Redirection</h2>
+<p>Each open file gets assigned a file descriptor. A file descriptor is an
+unique identifier for open files in the system. There are always three
+default files open, stdin (the keyboard), stdout (the screen), and
+stderr (error messages output to the screen). These files can be
+redirected.</p>
+<p>Everything is a file in linux -
+<a href="https://unix.stackexchange.com/questions/225537/everything-is-a-file">https://unix.stackexchange.com/questions/225537/everything-is-a-file</a></p>
+<p>Till now, we have displayed all the output on the screen which is the
+standard output. We can use some special operators to redirect the
+output of the command to files or even to the input of other commands.
+I/O redirection is a very powerful feature.</p>
+<p>In the below example, we have used the '&gt;' operator to redirect the
+output of ls command to output.txt file.</p>
+<p><img alt="" src="/images/linux/commands/image30.png" /></p>
+<p>In the below example, we have redirected the output from echo command to
+a file.</p>
+<p><img alt="" src="/images/linux/commands/image13.png" /></p>
+<p>We can also redirect the output of a command as an input to another
+command. This is possible with the help of pipes.</p>
+<p>In the below example, we have passed the output of cat command as an
+input to grep command using pipe(|) operator.</p>
+<p><img alt="" src="/images/linux/commands/image6.png" /></p>
+<p>In the below example, we have passed the output of sort command as an
+input to uniq command using pipe(|) operator. The uniq command only
+prints the unique numbers from the input.</p>
+<p><img alt="" src="/images/linux/commands/image28.png" /></p>
+<p>I/O redirection -
+<a href="https://tldp.org/LDP/abs/html/io-redirection.html">https://tldp.org/LDP/abs/html/io-redirection.html</a></p>
+<h2 id="applications-in-sre-role">Applications in SRE Role</h2>
+<ul>
+<li>
+<p>As a SRE, you will be required to perform some general tasks on these linux servers. You will also be using the command line when you are troubleshooting issues.</p>
+</li>
+<li>
+<p>Moving from one location to another in the filesystem will require the help of ls, pwd and cd commands</p>
+</li>
+<li>
+<p>You may need to search some specific information in the log files. Grep command would be very useful here. I/O redirection will become handy if you want to store the output in a file or pass it as an input to another command.</p>
+</li>
+<li>
+<p>Tail command is very useful to view the latest data in the log file.</p>
+</li>
+</ul>
+<h2 id="useful-courses-and-tutorials">Useful courses and tutorials</h2>
+<ul>
+<li>
+<p><a href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2020/course/">Edx linuxcourse</a> -
+   This video course can be very helpful in developing the basics of linux command line. This course is provided
+   in both free and paidmodes by edX. If you take the free course, you will not be able to access the assignments.</p>
+</li>
+<li>
+<p><a href="https://linuxcommand.org/lc3_learning_the_shell.php">https://linuxcommand.org/lc3_learning_the_shell.php</a></p>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.7e0ee788.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
