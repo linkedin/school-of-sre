@@ -18,7 +18,7 @@ for manual pages.
 
 Using \--help to show the documentation for ls command.
 
-![](/images/linux/commands/image19.png)
+![](images/linux/commands/image19.png)
 
 ## File System Organization
 
@@ -28,7 +28,7 @@ present inside the root directory stores file related to the system.
 These directories in turn can either store system files or application
 files or user related files.
 
-![](/images/linux/commands/image17.png)
+![](images/linux/commands/image17.png)
   
   bin   | The executable program of most commonly used commands reside in bin directory  
   sbin  | This directory contains programs used for system administration.
@@ -62,12 +62,12 @@ At any given moment of time, we will be standing in a certain directory.
 To get the name of the directory in which we are standing, we can use
 the pwd command in linux.
 
-![](/images/linux/commands/image2.png)
+![](images/linux/commands/image2.png)
 
 We will now use the cd command to move to a different directory and then
 print the working directory.
 
-![](/images/linux/commands/image20.png)
+![](images/linux/commands/image20.png)
 
 ### cd (change directory)
 
@@ -77,7 +77,7 @@ command, you can move from one directory to another.
 In the below example, we are initially in the root directory. we have
 then used the cd command to change the directory.
 
-![](/images/linux/commands/image3.png)
+![](images/linux/commands/image3.png)
 
 ### ls (list files and directories)**
 
@@ -87,12 +87,12 @@ down all the files and folders present in the given directory.
 If we just type ls in the shell, it will list all the files and
 directories present in the current directory.
 
-![](/images/linux/commands/image7.png)
+![](images/linux/commands/image7.png)
 
 We can also provide the directory name as argument to ls command. It
 will then list all the files and directories inside the given directory.
 
-![](/images/linux/commands/image4.png)
+![](images/linux/commands/image4.png)
 
 ## Commands for Manipulating Files
 
@@ -125,7 +125,7 @@ General syntax of using touch command
 touch <file_name>
 ```
 
-![](/images/linux/commands/image9.png)
+![](images/linux/commands/image9.png)
 
 ### mkdir (create new directories)
 
@@ -138,7 +138,7 @@ General syntax of using mkdir command
 mkdir <directory_name>
 ```
 
-![](/images/linux/commands/image11.png)
+![](images/linux/commands/image11.png)
 
 ### rm (delete files and directories)
 
@@ -158,7 +158,7 @@ Let's try to understand the rm command with an example. We will try to
 delete the file and directory we created using touch and mkdir command
 respectively.
 
-![](/images/linux/commands/image18.png)
+![](images/linux/commands/image18.png)
 
 ### cp (copy files and directories)
 
@@ -178,18 +178,18 @@ command to create a new directory named "test_directory". We will now
 try to copy the "\_test_runner.py" file to the directory we created just
 now.
 
-![](/images/linux/commands/image23.png)
+![](images/linux/commands/image23.png)
 
 Do note that nothing happened to the original "\_test_runner.py" file.
 It's still there in the current directory. A new copy of it got created
 inside the "test_directory".
 
-![](/images/linux/commands/image14.png)
+![](images/linux/commands/image14.png)
 
 We can also use the cp command to copy the whole directory from one
 location to another. Let's try to understand this with an example.
 
-![](/images/linux/commands/image12.png)
+![](images/linux/commands/image12.png)
 
 We again used the mkdir command to create a new directory called
 "another_directory". We then used the cp command along with an
@@ -214,7 +214,7 @@ already exists in "test_directory". The mv command will just replace it.
 **Do note that the original file doesn't exist in the current directory
 after mv command ran successfully.**
 
-![](/images/linux/commands/image26.png)
+![](images/linux/commands/image26.png)
 
 We can also use the mv command to move a directory from one location to
 another. In this case, we do not need to use the '-r' flag that we did
@@ -227,7 +227,7 @@ directories. Let's see how we can use this command for renaming.
 We have first changed our location to "test_directory". We then use the
 mv command to rename the ""\_test_runner.py" file to "test.py".
 
-![](/images/linux/commands/image29.png)
+![](images/linux/commands/image29.png)
 
 ## Commands for Viewing Files
 
@@ -247,7 +247,7 @@ online bash shell.
 We will create a new file called "numbers.txt" and insert numbers from 1
 to 100 in this file. Each number will be in a separate line.
 
-![](/images/linux/commands/image21.png)
+![](images/linux/commands/image21.png)
 
 Do not worry about the above command now. It's an advanced command which
 is used to generate numbers. We have then used a redirection operator to
@@ -261,7 +261,7 @@ The most simplest use of cat command is to print the contents of the file on
 your output screen. This command is very useful and can be used for many
 other purposes. We will study about other use cases later.
 
-![](/images/linux/commands/image1.png)
+![](images/linux/commands/image1.png)
 
 You can try to run the above command and you will see numbers being
 printed from 1 to 100 on your screen. You will need to scroll up to view
@@ -276,13 +276,13 @@ from the top.
 In this example, we are only able to see the first 10 lines from the
 file when we use the head command.
 
-![](/images/linux/commands/image15.png)
+![](images/linux/commands/image15.png)
 
 By default, head command will only display the first 10 lines. If we
 want to specify the number of lines we want to see from start, use the
 '-n' argument to provide the input.
 
-![](/images/linux/commands/image16.png)
+![](images/linux/commands/image16.png)
 
 ### tail
 
@@ -290,13 +290,13 @@ The tail command displays the last 10 lines of the file by default. We
 can include additional arguments to display as many lines as we want
 from the end of the file.
 
-![](/images/linux/commands/image22.png)
+![](images/linux/commands/image22.png)
 
 By default, the tail command will only display the last 10 lines. If we
 want to specify the number of lines we want to see from the end, use '-n'
 argument to provide the input.
 
-![](/images/linux/commands/image10.png)
+![](images/linux/commands/image10.png)
 
 In this example, we are only able to see the last 5 lines from the file
 when we use the tail command with explicit -n option.
@@ -310,7 +310,7 @@ programming languages.
 
 The echo command prints the given input string on the screen.
 
-![](/images/linux/commands/image24.png)
+![](images/linux/commands/image24.png)
 
 ## Text Processing Commands
 
@@ -339,7 +339,7 @@ online bash shell.
 We will create a new file called "numbers.txt" and insert numbers from 1
 to 10 in this file. Each number will be in a separate line.
 
-![](/images/linux/commands/image8.png)
+![](images/linux/commands/image8.png)
 
 ### grep
 
@@ -357,7 +357,7 @@ grep <word_to_search> <file_name>
 In this example, we are trying to search for a string "1" in this file.
 The grep command outputs the lines where it found this string.
 
-![](/images/linux/commands/image5.png)
+![](images/linux/commands/image5.png)
 
 ### sed
 
@@ -373,7 +373,7 @@ sed 's/<text_to_replace>/<replacement_text>/' <file_name>
 Let's try to replace each occurrence of "1" in the file with "3" using
 sed command.
 
-![](/images/linux/commands/image31.png)
+![](images/linux/commands/image31.png)
 
 The content of the file will not change in the above
 example. To do so, we have to use an extra argument '-i' so that the
@@ -386,12 +386,12 @@ argument. By default, it will sort in increasing order.
 
 Let's first see the content of the file before trying to sort it.
 
-![](/images/linux/commands/image27.png)
+![](images/linux/commands/image27.png)
 
 Now, we will try to sort the file using the sort command. The sort
 command sorts the content in lexicographical order.
 
-![](/images/linux/commands/image32.png)
+![](images/linux/commands/image32.png)
 
 The content of the file will not change in the above
 example.
@@ -415,12 +415,12 @@ I/O redirection is a very powerful feature.
 In the below example, we have used the '>' operator to redirect the
 output of ls command to output.txt file.
 
-![](/images/linux/commands/image30.png)
+![](images/linux/commands/image30.png)
 
 In the below example, we have redirected the output from echo command to
 a file.
 
-![](/images/linux/commands/image13.png)
+![](images/linux/commands/image13.png)
 
 We can also redirect the output of a command as an input to another
 command. This is possible with the help of pipes.
@@ -428,13 +428,13 @@ command. This is possible with the help of pipes.
 In the below example, we have passed the output of cat command as an
 input to grep command using pipe(\|) operator.
 
-![](/images/linux/commands/image6.png)
+![](images/linux/commands/image6.png)
 
 In the below example, we have passed the output of sort command as an
 input to uniq command using pipe(\|) operator. The uniq command only
 prints the unique numbers from the input.
 
-![](/images/linux/commands/image28.png)
+![](images/linux/commands/image28.png)
 
 I/O redirection -
 [https://tldp.org/LDP/abs/html/io-redirection.html](https://tldp.org/LDP/abs/html/io-redirection.html)
