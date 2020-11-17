@@ -1223,14 +1223,14 @@ documentation, most commands will have a command-line argument -h or
 most popular documentation system in Linux is called man pages - short
 for manual pages.</p>
 <p>Using --help to show the documentation for ls command.</p>
-<p><img alt="" src="/images/linux/commands/image19.png" /></p>
+<p><img alt="" src="images/linux/commands/image19.png" /></p>
 <h2 id="file-system-organization">File System Organization</h2>
 <p>The linux file system has a hierarchical (or tree-like) structure with
 its highest level directory called root ( denoted by / ). Directories
 present inside the root directory stores file related to the system.
 These directories in turn can either store system files or application
 files or user related files.</p>
-<p><img alt="" src="/images/linux/commands/image17.png" /></p>
+<p><img alt="" src="images/linux/commands/image17.png" /></p>
 <p>bin   | The executable program of most commonly used commands reside in bin directory<br />
   sbin  | This directory contains programs used for system administration.
   home  | This directory contains user related files and directories.
@@ -1262,25 +1262,25 @@ online bash shell.</p>
 <p>At any given moment of time, we will be standing in a certain directory.
 To get the name of the directory in which we are standing, we can use
 the pwd command in linux.</p>
-<p><img alt="" src="/images/linux/commands/image2.png" /></p>
+<p><img alt="" src="images/linux/commands/image2.png" /></p>
 <p>We will now use the cd command to move to a different directory and then
 print the working directory.</p>
-<p><img alt="" src="/images/linux/commands/image20.png" /></p>
+<p><img alt="" src="images/linux/commands/image20.png" /></p>
 <h3 id="cd-change-directory">cd (change directory)</h3>
 <p>The cd command can be used to change the working directory. Using the
 command, you can move from one directory to another.</p>
 <p>In the below example, we are initially in the root directory. we have
 then used the cd command to change the directory.</p>
-<p><img alt="" src="/images/linux/commands/image3.png" /></p>
+<p><img alt="" src="images/linux/commands/image3.png" /></p>
 <h3 id="ls-list-files-and-directories">ls (list files and directories)**</h3>
 <p>The ls command is used to list the contents of a directory. It will list
 down all the files and folders present in the given directory.</p>
 <p>If we just type ls in the shell, it will list all the files and
 directories present in the current directory.</p>
-<p><img alt="" src="/images/linux/commands/image7.png" /></p>
+<p><img alt="" src="images/linux/commands/image7.png" /></p>
 <p>We can also provide the directory name as argument to ls command. It
 will then list all the files and directories inside the given directory.</p>
-<p><img alt="" src="/images/linux/commands/image4.png" /></p>
+<p><img alt="" src="images/linux/commands/image4.png" /></p>
 <h2 id="commands-for-manipulating-files">Commands for Manipulating Files</h2>
 <p>There are four basic commands which are used frequently to manipulate
 files:</p>
@@ -1311,14 +1311,14 @@ the simplest use case of creating a new file.</p>
 <p>General syntax of using touch command</p>
 <pre><code>touch &lt;file_name&gt;
 </code></pre>
-<p><img alt="" src="/images/linux/commands/image9.png" /></p>
+<p><img alt="" src="images/linux/commands/image9.png" /></p>
 <h3 id="mkdir-create-new-directories">mkdir (create new directories)</h3>
 <p>The mkdir command is used to create directories.You can use ls command
 to verify that the new directory is created.</p>
 <p>General syntax of using mkdir command</p>
 <pre><code>mkdir &lt;directory_name&gt;
 </code></pre>
-<p><img alt="" src="/images/linux/commands/image11.png" /></p>
+<p><img alt="" src="images/linux/commands/image11.png" /></p>
 <h3 id="rm-delete-files-and-directories">rm (delete files and directories)</h3>
 <p>The rm command can be used to delete files and directories. It is very
 important to note that this command permanently deletes the files and
@@ -1331,7 +1331,7 @@ run this command with care.</p>
 <p>Let's try to understand the rm command with an example. We will try to
 delete the file and directory we created using touch and mkdir command
 respectively.</p>
-<p><img alt="" src="/images/linux/commands/image18.png" /></p>
+<p><img alt="" src="images/linux/commands/image18.png" /></p>
 <h3 id="cp-copy-files-and-directories">cp (copy files and directories)</h3>
 <p>The cp command is used to copy files and directories from one location
 to another. Do note that the cp command doesn't do any change to the
@@ -1344,14 +1344,14 @@ their copy both co-exist after running cp command successfully.</p>
 command to create a new directory named "test_directory". We will now
 try to copy the "_test_runner.py" file to the directory we created just
 now.</p>
-<p><img alt="" src="/images/linux/commands/image23.png" /></p>
+<p><img alt="" src="images/linux/commands/image23.png" /></p>
 <p>Do note that nothing happened to the original "_test_runner.py" file.
 It's still there in the current directory. A new copy of it got created
 inside the "test_directory".</p>
-<p><img alt="" src="/images/linux/commands/image14.png" /></p>
+<p><img alt="" src="images/linux/commands/image14.png" /></p>
 <p>We can also use the cp command to copy the whole directory from one
 location to another. Let's try to understand this with an example.</p>
-<p><img alt="" src="/images/linux/commands/image12.png" /></p>
+<p><img alt="" src="images/linux/commands/image12.png" /></p>
 <p>We again used the mkdir command to create a new directory called
 "another_directory". We then used the cp command along with an
 additional argument '-r' to copy the "test_directory".</p>
@@ -1368,7 +1368,7 @@ move the files or directories, the original copy is lost.</p>
 already exists in "test_directory". The mv command will just replace it.
 <strong>Do note that the original file doesn't exist in the current directory
 after mv command ran successfully.</strong></p>
-<p><img alt="" src="/images/linux/commands/image26.png" /></p>
+<p><img alt="" src="images/linux/commands/image26.png" /></p>
 <p>We can also use the mv command to move a directory from one location to
 another. In this case, we do not need to use the '-r' flag that we did
 while using the cp command. Do note that the original directory will not
@@ -1377,7 +1377,7 @@ exist if we use mv command.</p>
 directories. Let's see how we can use this command for renaming.</p>
 <p>We have first changed our location to "test_directory". We then use the
 mv command to rename the ""_test_runner.py" file to "test.py".</p>
-<p><img alt="" src="/images/linux/commands/image29.png" /></p>
+<p><img alt="" src="images/linux/commands/image29.png" /></p>
 <h2 id="commands-for-viewing-files">Commands for Viewing Files</h2>
 <p>There are three basic commands which are used frequently to view the
 files:</p>
@@ -1397,7 +1397,7 @@ these commands. You should also practice the given examples on the
 online bash shell.</p>
 <p>We will create a new file called "numbers.txt" and insert numbers from 1
 to 100 in this file. Each number will be in a separate line.</p>
-<p><img alt="" src="/images/linux/commands/image21.png" /></p>
+<p><img alt="" src="images/linux/commands/image21.png" /></p>
 <p>Do not worry about the above command now. It's an advanced command which
 is used to generate numbers. We have then used a redirection operator to
 push these numbers to the file. We will be discussing I/O redirection in the
@@ -1406,7 +1406,7 @@ later sections.</p>
 <p>The most simplest use of cat command is to print the contents of the file on
 your output screen. This command is very useful and can be used for many
 other purposes. We will study about other use cases later.</p>
-<p><img alt="" src="/images/linux/commands/image1.png" /></p>
+<p><img alt="" src="images/linux/commands/image1.png" /></p>
 <p>You can try to run the above command and you will see numbers being
 printed from 1 to 100 on your screen. You will need to scroll up to view
 all the numbers.</p>
@@ -1416,20 +1416,20 @@ can include additional arguments to display as many lines as we want
 from the top.</p>
 <p>In this example, we are only able to see the first 10 lines from the
 file when we use the head command.</p>
-<p><img alt="" src="/images/linux/commands/image15.png" /></p>
+<p><img alt="" src="images/linux/commands/image15.png" /></p>
 <p>By default, head command will only display the first 10 lines. If we
 want to specify the number of lines we want to see from start, use the
 '-n' argument to provide the input.</p>
-<p><img alt="" src="/images/linux/commands/image16.png" /></p>
+<p><img alt="" src="images/linux/commands/image16.png" /></p>
 <h3 id="tail">tail</h3>
 <p>The tail command displays the last 10 lines of the file by default. We
 can include additional arguments to display as many lines as we want
 from the end of the file.</p>
-<p><img alt="" src="/images/linux/commands/image22.png" /></p>
+<p><img alt="" src="images/linux/commands/image22.png" /></p>
 <p>By default, the tail command will only display the last 10 lines. If we
 want to specify the number of lines we want to see from the end, use '-n'
 argument to provide the input.</p>
-<p><img alt="" src="/images/linux/commands/image10.png" /></p>
+<p><img alt="" src="images/linux/commands/image10.png" /></p>
 <p>In this example, we are only able to see the last 5 lines from the file
 when we use the tail command with explicit -n option.</p>
 <h2 id="echo-command-in-linux">Echo Command in Linux</h2>
@@ -1437,7 +1437,7 @@ when we use the tail command with explicit -n option.</p>
 shell. This command is equivalent to what we have <print> in other
 programming languages.</p>
 <p>The echo command prints the given input string on the screen.</p>
-<p><img alt="" src="/images/linux/commands/image24.png" /></p>
+<p><img alt="" src="images/linux/commands/image24.png" /></p>
 <h2 id="text-processing-commands">Text Processing Commands</h2>
 <p>In the previous section, we learned how to view the content of a file.
 In many cases, we will be interested in performing the below operations:</p>
@@ -1470,7 +1470,7 @@ these commands. You should also practice the given examples on the
 online bash shell.</p>
 <p>We will create a new file called "numbers.txt" and insert numbers from 1
 to 10 in this file. Each number will be in a separate line.</p>
-<p><img alt="" src="/images/linux/commands/image8.png" /></p>
+<p><img alt="" src="images/linux/commands/image8.png" /></p>
 <h3 id="grep">grep</h3>
 <p>The grep command in its simplest form can be used to search particular
 words in a text file. It will display all the lines in a file that
@@ -1481,7 +1481,7 @@ an input to the grep command.</p>
 </code></pre>
 <p>In this example, we are trying to search for a string "1" in this file.
 The grep command outputs the lines where it found this string.</p>
-<p><img alt="" src="/images/linux/commands/image5.png" /></p>
+<p><img alt="" src="images/linux/commands/image5.png" /></p>
 <h3 id="sed">sed</h3>
 <p>The sed command in its simplest form can be used to replace a text in a
 file.</p>
@@ -1490,7 +1490,7 @@ file.</p>
 </code></pre>
 <p>Let's try to replace each occurrence of "1" in the file with "3" using
 sed command.</p>
-<p><img alt="" src="/images/linux/commands/image31.png" /></p>
+<p><img alt="" src="images/linux/commands/image31.png" /></p>
 <p>The content of the file will not change in the above
 example. To do so, we have to use an extra argument '-i' so that the
 changes are reflected back in the file.</p>
@@ -1498,10 +1498,10 @@ changes are reflected back in the file.</p>
 <p>The sort command can be used to sort the input provided to it as an
 argument. By default, it will sort in increasing order.</p>
 <p>Let's first see the content of the file before trying to sort it.</p>
-<p><img alt="" src="/images/linux/commands/image27.png" /></p>
+<p><img alt="" src="images/linux/commands/image27.png" /></p>
 <p>Now, we will try to sort the file using the sort command. The sort
 command sorts the content in lexicographical order.</p>
-<p><img alt="" src="/images/linux/commands/image32.png" /></p>
+<p><img alt="" src="images/linux/commands/image32.png" /></p>
 <p>The content of the file will not change in the above
 example.</p>
 <h2 id="io-redirection">I/O Redirection</h2>
@@ -1518,19 +1518,19 @@ output of the command to files or even to the input of other commands.
 I/O redirection is a very powerful feature.</p>
 <p>In the below example, we have used the '&gt;' operator to redirect the
 output of ls command to output.txt file.</p>
-<p><img alt="" src="/images/linux/commands/image30.png" /></p>
+<p><img alt="" src="images/linux/commands/image30.png" /></p>
 <p>In the below example, we have redirected the output from echo command to
 a file.</p>
-<p><img alt="" src="/images/linux/commands/image13.png" /></p>
+<p><img alt="" src="images/linux/commands/image13.png" /></p>
 <p>We can also redirect the output of a command as an input to another
 command. This is possible with the help of pipes.</p>
 <p>In the below example, we have passed the output of cat command as an
 input to grep command using pipe(|) operator.</p>
-<p><img alt="" src="/images/linux/commands/image6.png" /></p>
+<p><img alt="" src="images/linux/commands/image6.png" /></p>
 <p>In the below example, we have passed the output of sort command as an
 input to uniq command using pipe(|) operator. The uniq command only
 prints the unique numbers from the input.</p>
-<p><img alt="" src="/images/linux/commands/image28.png" /></p>
+<p><img alt="" src="images/linux/commands/image28.png" /></p>
 <p>I/O redirection -
 <a href="https://tldp.org/LDP/abs/html/io-redirection.html">https://tldp.org/LDP/abs/html/io-redirection.html</a></p>
 <h2 id="applications-in-sre-role">Applications in SRE Role</h2>
