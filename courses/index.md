@@ -9,7 +9,7 @@ There is a vast amount of resources scattered throughout the web on what are the
 In this course we are focusing on building strong foundational skills. The course is  structured in a way to provide more real life examples and how learning each of the topics can play a bigger role in your day to day SRE life. Currently we are covering the following topics under the School Of SRE:
 
 - Fundamentals Series
-    - Linux basics
+    - [Linux Basics](https://linkedin.github.io/school-of-sre/linux_basics/intro/)
     - [Git](https://linkedin.github.io/school-of-sre/git/git-basics/)  
     - [Linux Networking](https://linkedin.github.io/school-of-sre/linux_networking/intro/)
 - [Python and Web](https://linkedin.github.io/school-of-sre/python_web/intro/)

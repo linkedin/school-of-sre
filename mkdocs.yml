@@ -8,6 +8,10 @@ plugins: []
 nav:
 - Home: index.md
 - Fundamentals Series:
+    - Linux Basics:
+        - Introduction: linux_basics/intro.md
+        - Command Line Basics: linux_basics/command_line_basics.md
+        - Server Administration: linux_basics/linux_server_administration.md
     - Git:
         - Git Basics: git/git-basics.md
         - Working With Branches: git/branches.md
