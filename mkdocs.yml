@@ -3,6 +3,7 @@ docs_dir: courses
 theme:
   name: material
   logo: img/sos.png
+  favicon: img/favicon.ico
 plugins: []
 nav:
 - Home: index.md
