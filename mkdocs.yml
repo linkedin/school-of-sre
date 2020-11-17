@@ -1,33 +1,53 @@
-site_name: school_of_sre
+site_name: SchoolOfSRE
 docs_dir: courses
+theme:
+  name: material
+  logo: img/sos.png
+  favicon: img/favicon.ico
+plugins: []
 nav:
 - Home: index.md
-- Git:
-    - Git Basics: git/git-basics.md
-    - Working With Branches: git/branches.md
-    - Github and Hooks: git/github-hooks.md
+- Fundamentals Series:
+    - Linux Basics:
+        - Introduction: linux_basics/intro.md
+        - Command Line Basics: linux_basics/command_line_basics.md
+        - Server Administration: linux_basics/linux_server_administration.md
+    - Git:
+        - Git Basics: git/git-basics.md
+        - Working With Branches: git/branches.md
+        - Github and Hooks: git/github-hooks.md
+    - Linux Networking:
+        - Introduction: linux_networking/intro.md
+        - DNS: linux_networking/dns.md
+        - UDP: linux_networking/udp.md
+        - HTTP: linux_networking/http.md
+        - TCP: linux_networking/tcp.md
+        - Routing: linux_networking/ipr.md
+        - Conclusion: linux_networking/conclusion.md
 - Python and Web:
-    - Intro: python_web/intro.md
+    - Introduction: python_web/intro.md
     - Some Python Concepts: python_web/python-concepts.md
     - Python, Web and Flask: python_web/python-web-flask.md
     - The URL Shortening App: python_web/url-shorten-app.md
-    - SRE Aspects of The App and Conclusion: python_web/sre-conclusion.md
+    - Conclusion: python_web/sre-conclusion.md
+- Data:
+    - Big Data:
+        - Introduction: big_data/intro.md
+        - Overview of Big Data: big_data/overview.md
+        - Usage of Big Data techniques: big_data/usage.md
+        - Evolution of Hadoop: big_data/evolution.md
+        - Architecture of Hadoop: big_data/architecture.md
+        - Tasks and conclusion: big_data/tasks.md
 - Systems Design:
-    - Intro: systems_design/intro.md
+    - Introduction: systems_design/intro.md
     - Scalability: systems_design/scalability.md
     - Availability: systems_design/availability.md
     - Fault Tolerance: systems_design/fault-tolerance.md
     - Conclusion: systems_design/conclusion.md
-- Big Data:
-    - Intro: big_data/intro.md
-    - Overview of Big Data: big_data/overview.md
-    - Usage of Big Data techniques: big_data/usage.md
-    - Evolution of Hadoop: big_data/evolution.md
-    - Architecture of Hadoop: big_data/architecture.md
-    - Tasks and conclusion: big_data/tasks.md
 - Security:
-    - Inro: security/intro.md
+    - Introduction: security/intro.md
     - Fundamentals of Security: security/fundamentals.md
-    - Network Securuty: security/network_security.md
+    - Network Security: security/network_security.md
     - Threat, Attacks & Defences: security/threats_attacks_defences.md
     - Writing Secure code: security/writing_secure_code.md  
+- Contribute: CONTRIBUTING.md

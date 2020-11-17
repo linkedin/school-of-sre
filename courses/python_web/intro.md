@@ -1,11 +1,11 @@
-# School of SRE: Python and The Web
+# Python and The Web
 
-## Pre - Reads
+## Prerequisites
 
 - Basic understanding of python language.
 - Basic familiarity with flask framework.
 
-## What to expect from this training
+## What to expect from this course
 
 This course is divided into two high level parts. In the first part, assuming familiarity with python language’s basic operations and syntax usage, we will dive a little deeper into understanding python as a language. We will compare python with other programming languages that you might already know like Java and C. We will also explore concepts of Python objects and with help of that, explore python features like decorators.
 
@@ -13,25 +13,25 @@ In the second part which will revolve around the web, and also assume familiarit
 
 And to introduce SRE flavour to the course, we will design, develop and deploy (in theory) a URL shortening application. We will emphasize parts of the whole process that are more important as an SRE of the said app/service.
 
-## What is not covered under this training
+## What is not covered under this course
 
 Extensive knowledge of python internals and advanced python.
 
-## Training Content
+## Course Content
 
 ### Lab Environment Setup
 
 Have latest version of python installed
 
-### TOC
+### Table of Contents
 
-1. The Python Language
+1. [The Python Language](https://linkedin.github.io/school-of-sre/python_web/intro/#the-python-language)
       1. Some Python Concepts
       2. Python Gotchas
-2. Python and Web
+2. [Python and Web](https://linkedin.github.io/school-of-sre/python_web/python-web-flask/)
       1. Sockets
       2. Flask
-3. The URL Shortening App
+3. [The URL Shortening App](https://linkedin.github.io/school-of-sre/python_web/url-shorten-app/)
       1. Design
       2. Scaling The App
       3. Monitoring The App
