@@ -1,5 +1,8 @@
 site_name: SchoolOfSRE
 docs_dir: courses
+theme:
+  name: material
+  logo: img/sos.png
 plugins: []
 nav:
 - Home: index.md
