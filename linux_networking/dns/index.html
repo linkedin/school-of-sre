@@ -1,253 +1,793 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.5">
+    
+    
+      
         <title>DNS - SchoolOfSRE</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.21aed14c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.196e0c26.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dns" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script> 
-    </head>
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="SchoolOfSRE" class="md-header-nav__button md-logo" aria-label="SchoolOfSRE">
+      
+  <img src="../../img/sos.png" alt="logo">
 
-    <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../..">SchoolOfSRE</a>
-                </div>
-
-                <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../..">Home</a>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fundamentals Series <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Git</a>
-    <ul class="dropdown-menu">
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            SchoolOfSRE
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
             
-<li >
-    <a href="../../git/git-basics/">Git Basics</a>
-</li>
+              DNS
             
-<li >
-    <a href="../../git/branches/">Working With Branches</a>
-</li>
-            
-<li >
-    <a href="../../git/github-hooks/">Github and Hooks</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Linux Networking</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../intro/">Introduction</a>
-</li>
-            
-<li class="active">
-    <a href="./">DNS</a>
-</li>
-            
-<li >
-    <a href="../udp/">UDP</a>
-</li>
-            
-<li >
-    <a href="../http/">HTTP</a>
-</li>
-            
-<li >
-    <a href="../tcp/">TCP</a>
-</li>
-            
-<li >
-    <a href="../ipr/">Routing and Conclusion</a>
-</li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python and Web <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../python_web/intro/">Introduction</a>
-</li>
-                                    
-<li >
-    <a href="../../python_web/python-concepts/">Some Python Concepts</a>
-</li>
-                                    
-<li >
-    <a href="../../python_web/python-web-flask/">Python, Web and Flask</a>
-</li>
-                                    
-<li >
-    <a href="../../python_web/url-shorten-app/">The URL Shortening App</a>
-</li>
-                                    
-<li >
-    <a href="../../python_web/sre-conclusion/">SRE Aspects of The App and Conclusion</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Systems Design <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../systems_design/intro/">Introduction</a>
-</li>
-                                    
-<li >
-    <a href="../../systems_design/scalability/">Scalability</a>
-</li>
-                                    
-<li >
-    <a href="../../systems_design/availability/">Availability</a>
-</li>
-                                    
-<li >
-    <a href="../../systems_design/fault-tolerance/">Fault Tolerance</a>
-</li>
-                                    
-<li >
-    <a href="../../systems_design/conclusion/">Conclusion</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Big Data</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../big_data/intro/">Introduction</a>
-</li>
-            
-<li >
-    <a href="../../big_data/overview/">Overview of Big Data</a>
-</li>
-            
-<li >
-    <a href="../../big_data/usage/">Usage of Big Data techniques</a>
-</li>
-            
-<li >
-    <a href="../../big_data/evolution/">Evolution of Hadoop</a>
-</li>
-            
-<li >
-    <a href="../../big_data/architecture/">Architecture of Hadoop</a>
-</li>
-            
-<li >
-    <a href="../../big_data/tasks/">Tasks and conclusion</a>
-</li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Security <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../security/intro/">Introduction</a>
-</li>
-                                    
-<li >
-    <a href="../../security/fundamentals/">Fundamentals of Security</a>
-</li>
-                                    
-<li >
-    <a href="../../security/network_security/">Network Security</a>
-</li>
-                                    
-<li >
-    <a href="../../security/threats_attacks_defences/">Threat, Attacks & Defences</a>
-</li>
-                                    
-<li >
-    <a href="../../security/writing_secure_code/">Writing Secure code</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                            <li >
-                                <a rel="next" href="../intro/">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../udp/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
+          </span>
         </div>
+      
+    </div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#dns">DNS</a></li>
-            <li><a href="#applications-in-sre-role">Applications in SRE role</a></li>
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SchoolOfSRE" class="md-nav__button md-logo" aria-label="SchoolOfSRE">
+      
+  <img src="../../img/sos.png" alt="logo">
+
+    </a>
+    SchoolOfSRE
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    <label class="md-nav__link" for="nav-2">
+      Fundamentals Series
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Fundamentals Series" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Fundamentals Series
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+    <label class="md-nav__link" for="nav-2-1">
+      Git
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Git" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        Git
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/git-basics/" class="md-nav__link">
+      Git Basics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/branches/" class="md-nav__link">
+      Working With Branches
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../git/github-hooks/" class="md-nav__link">
+      Github and Hooks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
+    <label class="md-nav__link" for="nav-2-2">
+      Linux Networking
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux Networking" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        Linux Networking
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        DNS
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      DNS
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#applications-in-sre-role" class="md-nav__link">
+    Applications in SRE role
+  </a>
+  
+</li>
+      
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+  
+</nav>
+    
+  </li>
 
-<h1 id="dns">DNS</h1>
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../udp/" class="md-nav__link">
+      UDP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../http/" class="md-nav__link">
+      HTTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tcp/" class="md-nav__link">
+      TCP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ipr/" class="md-nav__link">
+      Routing and Conclusion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+    <label class="md-nav__link" for="nav-3">
+      Python and Web
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Python and Web" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Python and Web
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/python-concepts/" class="md-nav__link">
+      Some Python Concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/python-web-flask/" class="md-nav__link">
+      Python, Web and Flask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/url-shorten-app/" class="md-nav__link">
+      The URL Shortening App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/sre-conclusion/" class="md-nav__link">
+      SRE Aspects of The App and Conclusion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+    <label class="md-nav__link" for="nav-4">
+      Systems Design
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Systems Design" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Systems Design
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/scalability/" class="md-nav__link">
+      Scalability
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/availability/" class="md-nav__link">
+      Availability
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/fault-tolerance/" class="md-nav__link">
+      Fault Tolerance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/conclusion/" class="md-nav__link">
+      Conclusion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    <label class="md-nav__link" for="nav-5">
+      Data
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Data" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1" >
+    <label class="md-nav__link" for="nav-5-1">
+      Big Data
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Big Data" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        <span class="md-nav__icon md-icon"></span>
+        Big Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/overview/" class="md-nav__link">
+      Overview of Big Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/usage/" class="md-nav__link">
+      Usage of Big Data techniques
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/evolution/" class="md-nav__link">
+      Evolution of Hadoop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/architecture/" class="md-nav__link">
+      Architecture of Hadoop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/tasks/" class="md-nav__link">
+      Tasks and conclusion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+    <label class="md-nav__link" for="nav-6">
+      Security
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Security" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Security
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/fundamentals/" class="md-nav__link">
+      Fundamentals of Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/network_security/" class="md-nav__link">
+      Network Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/threats_attacks_defences/" class="md-nav__link">
+      Threat, Attacks & Defences
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/writing_secure_code/" class="md-nav__link">
+      Writing Secure code
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#applications-in-sre-role" class="md-nav__link">
+    Applications in SRE role
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="dns">DNS</h1>
 <p>Domain Names are the simple human-readable names for websites. The Internet understands only IP addresses, but since memorizing incoherent numbers is not practical, domain names are used instead. These domain names are translated into IP addresses by the DNS infrastructure. When somebody tries to open www.linkedin.com in the browser, the browser tries to convert www.linkedin.com to an IP Address. This process is called DNS resolution. A simple pseudocode depicting this process looks this</p>
-<pre><code class="python">ip, err = getIPAddress(domainName)
+<pre><code class="language-python">ip, err = getIPAddress(domainName)
 if err:
   print(“unknown Host Exception while trying to resolve:%s”.format(domainName))
 </code></pre>
-
 <p>Now let’s try to understand what happens inside the getIPAddress function. The browser would have a DNS cache of its own where it checks if there is a mapping for the domainName to an IP Address already available, in which case the browser uses that IP address. If no such mapping exists, the browser calls gethostbyname syscall to ask the operating system to find the IP address for the given domainName</p>
-<pre><code class="python">def getIPAddress(domainName):
+<pre><code class="language-python">def getIPAddress(domainName):
     resp, fail = lookupCache(domainName)
     If not fail:
        return resp
@@ -258,57 +798,47 @@ if err:
        else:
           return resp
 </code></pre>
-
 <p>Now lets understand what operating system kernel does when the gethostbyname function is called. The Linux operating system looks at the file <a href="https://man7.org/linux/man-pages/man5/nsswitch.conf.5.html">/etc/nsswitch.conf</a> file which usually has a line</p>
-<pre><code class="bash">hosts:      files dns
+<pre><code class="language-bash">hosts:      files dns
 </code></pre>
-
 <p>This line means the OS has to look up first in file (/etc/hosts) and then use DNS protocol to do the resolution if there is no match in /etc/hosts. </p>
 <p>The file /etc/hosts is of format</p>
 <p>IPAddress FQDN [FQDN].*</p>
-<pre><code class="bash">127.0.0.1 localhost.localdomain localhost
+<pre><code class="language-bash">127.0.0.1 localhost.localdomain localhost
 ::1 localhost.localdomain localhost
 </code></pre>
-
 <p>If a match exists for a domain in this file then that IP address is returned by the OS. Lets add a line to this file</p>
-<pre><code class="bash">127.0.0.1 test.linkedin.com
+<pre><code class="language-bash">127.0.0.1 test.linkedin.com
 </code></pre>
-
 <p>And then do ping test.linkedin.com</p>
-<pre><code class="bash">ping test.linkedin.com -n
+<pre><code class="language-bash">ping test.linkedin.com -n
 </code></pre>
-
-<pre><code class="bash">PING test.linkedin.com (127.0.0.1) 56(84) bytes of data.
+<pre><code class="language-bash">PING test.linkedin.com (127.0.0.1) 56(84) bytes of data.
 64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.047 ms
 64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.036 ms
 64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.037 ms
 
 </code></pre>
-
 <p>As mentioned earlier, if no match exists in /etc/hosts, the OS tries to do a DNS resolution using the DNS protocol. The linux system makes a DNS request to the first IP in /etc/resolv.conf. If there is no response, requests are sent to subsequent servers in resolv.conf. These servers in resolv.conf are called DNS resolvers. The DNS resolvers are populated by <a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">DHCP</a> or statically configured by an administrator. 
 <a href="https://linux.die.net/man/1/dig">Dig</a> is a userspace DNS system which creates and sends requests to DNS resolvers and prints the response it receives to the console.</p>
-<pre><code class="bash">#run this command in one shell to capture all DNS requests
+<pre><code class="language-bash">#run this command in one shell to capture all DNS requests
 sudo tcpdump -s 0 -A -i any port 53
 #make a dig request from another shell
 dig linkedin.com
 </code></pre>
-
-<pre><code class="bash">13:19:54.432507 IP 172.19.209.122.56497 &gt; 172.23.195.101.53: 527+ [1au] A? linkedin.com. (41)
+<pre><code class="language-bash">13:19:54.432507 IP 172.19.209.122.56497 &gt; 172.23.195.101.53: 527+ [1au] A? linkedin.com. (41)
 ....E..E....@.n....z...e...5.1.:... .........linkedin.com.......)........
 13:19:54.485131 IP 172.23.195.101.53 &gt; 172.19.209.122.56497: 527 1/0/1 A 108.174.10.10 (57)
 ....E..U..@.|.  ....e...z.5...A...............linkedin.com..............3..l.
 
 ..)........
 </code></pre>
-
 <p>The packet capture shows a request is made to 172.23.195.101:53 (this is the resolver in /etc/resolv.conf) for linkedin.com and a response is received from 172.23.195.101 with the IP address of linkedin.com 108.174.10.10</p>
 <p>Now let's try to understand how DNS resolver tries to find the IP address of linkedin.com. DNS resolver first looks at its cache. Since many devices in the network can query for the domain name linkedin.com, the name resolution result may already exist in the cache. If there is a cache miss, it starts the DNS resolution process. The DNS server breaks “linkedin.com” to “.”, “com.” and “linkedin.com.” and starts DNS resolution from “.”. The “.” is called root domain and those IPs are known to the DNS resolver software. DNS resolver queries the root domain Nameservers to find the right nameservers which could respond regarding details for "com.". The address of the authoritative nameserver of “com.” is returned. Now the DNS resolution service contacts the authoritative nameserver for “com.” to fetch the authoritative nameserver for “linkedin.com”. Once an authoritative nameserver of “linkedin.com” is known, the resolver contacts Linkedin’s nameserver to provide the IP address of “linkedin.com”. This whole process can be visualized by running </p>
-<pre><code class="bash">dig +trace linkedin.com
+<pre><code class="language-bash">dig +trace linkedin.com
 </code></pre>
-
-<pre><code class="bash">linkedin.com.       3600    IN  A   108.174.10.10
+<pre><code class="language-bash">linkedin.com.       3600    IN  A   108.174.10.10
 </code></pre>
-
 <p>This DNS response has 5 fields where the first field is the request and the last field is the response. The second field is the Time to Live which says how long the DNS response is valid in seconds. In this case this mapping of linkedin.com is valid for 1 hour. This is how the resolvers and application(browser) maintain their cache. Any request for linkedin.com beyond 1 hour will be treated as a cache miss as the mapping has expired its TTL and the whole process has to be redone.
 The 4th field says the type of DNS response/request. Some of the various DNS query types are
 A, AAAA, NS, TXT, PTR, MX and CNAME. 
@@ -317,7 +847,7 @@ A, AAAA, NS, TXT, PTR, MX and CNAME.
 - NS record returns the authoritative nameserver for the domain name
 - CNAME records are aliases to the domain names. Some domains point to other domain names and resolving the latter domain name gives an IP which is used as an IP for the former domain name as well. Example www.linkedin.com’s IP address is the same as 2-01-2c3e-005a.cdx.cedexis.net. 
 - For the brevity we are not discussing other DNS record types, the RFC of each of these records are available <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">here</a>.</p>
-<pre><code class="bash">dig A linkedin.com +short
+<pre><code class="language-bash">dig A linkedin.com +short
 108.174.10.10
 
 
@@ -338,7 +868,6 @@ dns1.p09.nsone.net.
 dig www.linkedin.com CNAME +short
 2-01-2c3e-005a.cdx.cedexis.net.
 </code></pre>
-
 <p>Armed with these fundamentals of DNS lets see usecases where DNS is used by SREs.</p>
 <h2 id="applications-in-sre-role">Applications in SRE role</h2>
 <p>This section covers some of the common solutions SRE can derive from DNS
@@ -348,59 +877,86 @@ dig www.linkedin.com CNAME +short
 4. DNS can also be used to make clients get IP addresses closer to their location so that their HTTP calls can be responded faster if the company has a presence geographically distributed. 
 5. SRE also has to understand since there is no verification in DNS infrastructure, these responses can be spoofed. This is safeguarded by other protocols like HTTPS(dealt later). DNSSEC protects from forged or manipulated DNS responses.
 6. Stale DNS cache can be a problem. Some <a href="https://stackoverflow.com/questions/1256556/how-to-make-java-honor-the-dns-caching-timeout">apps</a> might still be using expired DNS records for their api calls. This is something SRE has to be wary of when doing maintenance.
-7. DNS Loadbalancing and service discovery also has to understand TTL and the servers can be removed from the pool only after waiting till TTL post the changes are made to DNS records. If this is not done, a certain portion of the traffic will fail as the server is removed before the TTL.</p></div>
-        </div>
+7. DNS Loadbalancing and service discovery also has to understand TTL and the servers can be removed from the pool only after waiting till TTL post the changes are made to DNS records. If this is not done, a certain portion of the traffic will fail as the server is removed before the TTL.</p>
+                
+              
+              
+                
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
-        </script>
-        <script src="../../js/base.js" defer></script>
 
-        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
+              
+            </article>
+          </div>
         </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../intro/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Introduction
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../udp/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                UDP
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     </div>
-</div>
-
-    </body>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.7e0ee788.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
 </html>

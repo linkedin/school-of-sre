@@ -1,249 +1,1006 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.5">
+    
+    
+      
         <title>Git Basics - SchoolOfSRE</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.21aed14c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.196e0c26.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script> 
-    </head>
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="SchoolOfSRE" class="md-header-nav__button md-logo" aria-label="SchoolOfSRE">
+      
+  <img src="../../img/sos.png" alt="logo">
 
-    <body>
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../..">SchoolOfSRE</a>
-                </div>
-
-                <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../..">Home</a>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fundamentals Series <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Git</a>
-    <ul class="dropdown-menu">
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            SchoolOfSRE
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
             
-<li class="active">
-    <a href="./">Git Basics</a>
-</li>
+              Git Basics
             
-<li >
-    <a href="../branches/">Working With Branches</a>
-</li>
-            
-<li >
-    <a href="../github-hooks/">Github and Hooks</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Linux Networking</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../linux_networking/intro/">Introduction</a>
-</li>
-            
-<li >
-    <a href="../../linux_networking/dns/">DNS</a>
-</li>
-            
-<li >
-    <a href="../../linux_networking/udp/">UDP</a>
-</li>
-            
-<li >
-    <a href="../../linux_networking/http/">HTTP</a>
-</li>
-            
-<li >
-    <a href="../../linux_networking/tcp/">TCP</a>
-</li>
-            
-<li >
-    <a href="../../linux_networking/ipr/">Routing and Conclusion</a>
-</li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python and Web <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../python_web/intro/">Introduction</a>
-</li>
-                                    
-<li >
-    <a href="../../python_web/python-concepts/">Some Python Concepts</a>
-</li>
-                                    
-<li >
-    <a href="../../python_web/python-web-flask/">Python, Web and Flask</a>
-</li>
-                                    
-<li >
-    <a href="../../python_web/url-shorten-app/">The URL Shortening App</a>
-</li>
-                                    
-<li >
-    <a href="../../python_web/sre-conclusion/">SRE Aspects of The App and Conclusion</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Systems Design <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../systems_design/intro/">Introduction</a>
-</li>
-                                    
-<li >
-    <a href="../../systems_design/scalability/">Scalability</a>
-</li>
-                                    
-<li >
-    <a href="../../systems_design/availability/">Availability</a>
-</li>
-                                    
-<li >
-    <a href="../../systems_design/fault-tolerance/">Fault Tolerance</a>
-</li>
-                                    
-<li >
-    <a href="../../systems_design/conclusion/">Conclusion</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Big Data</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../big_data/intro/">Introduction</a>
-</li>
-            
-<li >
-    <a href="../../big_data/overview/">Overview of Big Data</a>
-</li>
-            
-<li >
-    <a href="../../big_data/usage/">Usage of Big Data techniques</a>
-</li>
-            
-<li >
-    <a href="../../big_data/evolution/">Evolution of Hadoop</a>
-</li>
-            
-<li >
-    <a href="../../big_data/architecture/">Architecture of Hadoop</a>
-</li>
-            
-<li >
-    <a href="../../big_data/tasks/">Tasks and conclusion</a>
-</li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Security <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../security/intro/">Introduction</a>
-</li>
-                                    
-<li >
-    <a href="../../security/fundamentals/">Fundamentals of Security</a>
-</li>
-                                    
-<li >
-    <a href="../../security/network_security/">Network Security</a>
-</li>
-                                    
-<li >
-    <a href="../../security/threats_attacks_defences/">Threat, Attacks & Defences</a>
-</li>
-                                    
-<li >
-    <a href="../../security/writing_secure_code/">Writing Secure code</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                            <li >
-                                <a rel="next" href="../..">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../branches/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
+          </span>
         </div>
+      
+    </div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#git">Git</a></li>
-            <li><a href="#prerequisites">Prerequisites</a></li>
-            <li><a href="#what-to-expect-from-this-course">What to expect from this course</a></li>
-            <li><a href="#what-is-not-covered-under-this-course">What is not covered under this course</a></li>
-            <li><a href="#course-content">Course Content</a></li>
-            <li><a href="#git-basics">Git Basics</a></li>
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SchoolOfSRE" class="md-nav__button md-logo" aria-label="SchoolOfSRE">
+      
+  <img src="../../img/sos.png" alt="logo">
+
+    </a>
+    SchoolOfSRE
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    <label class="md-nav__link" for="nav-2">
+      Fundamentals Series
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Fundamentals Series" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Fundamentals Series
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    <label class="md-nav__link" for="nav-2-1">
+      Git
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Git" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        Git
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Git Basics
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Git Basics
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-expect-from-this-course" class="md-nav__link">
+    What to expect from this course
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-not-covered-under-this-course" class="md-nav__link">
+    What is not covered under this course
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#course-content" class="md-nav__link">
+    Course Content
+  </a>
+  
+    <nav class="md-nav" aria-label="Course Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of Contents
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-basics" class="md-nav__link">
+    Git Basics
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-git-repo" class="md-nav__link">
+    Creating a Git Repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracking-a-file" class="md-nav__link">
+    Tracking a File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-about-a-commit" class="md-nav__link">
+    More About a Commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-more-changes" class="md-nav__link">
+    Adding More Changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-commits-really-linked" class="md-nav__link">
+    Are commits really linked?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-version-control-part-of-git" class="md-nav__link">
+    The Version Control part of Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references-and-the-magic" class="md-nav__link">
+    References and The Magic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#little-adventure" class="md-nav__link">
+    Little Adventure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+  
+</nav>
+    
+  </li>
 
-<h1 id="git">Git</h1>
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../branches/" class="md-nav__link">
+      Working With Branches
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../github-hooks/" class="md-nav__link">
+      Github and Hooks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+    <label class="md-nav__link" for="nav-2-2">
+      Linux Networking
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Linux Networking" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        Linux Networking
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux_networking/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux_networking/dns/" class="md-nav__link">
+      DNS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux_networking/udp/" class="md-nav__link">
+      UDP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux_networking/http/" class="md-nav__link">
+      HTTP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux_networking/tcp/" class="md-nav__link">
+      TCP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../linux_networking/ipr/" class="md-nav__link">
+      Routing and Conclusion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+    <label class="md-nav__link" for="nav-3">
+      Python and Web
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Python and Web" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Python and Web
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/python-concepts/" class="md-nav__link">
+      Some Python Concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/python-web-flask/" class="md-nav__link">
+      Python, Web and Flask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/url-shorten-app/" class="md-nav__link">
+      The URL Shortening App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_web/sre-conclusion/" class="md-nav__link">
+      SRE Aspects of The App and Conclusion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+    <label class="md-nav__link" for="nav-4">
+      Systems Design
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Systems Design" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Systems Design
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/scalability/" class="md-nav__link">
+      Scalability
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/availability/" class="md-nav__link">
+      Availability
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/fault-tolerance/" class="md-nav__link">
+      Fault Tolerance
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../systems_design/conclusion/" class="md-nav__link">
+      Conclusion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    <label class="md-nav__link" for="nav-5">
+      Data
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Data" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1" >
+    <label class="md-nav__link" for="nav-5-1">
+      Big Data
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Big Data" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        <span class="md-nav__icon md-icon"></span>
+        Big Data
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/overview/" class="md-nav__link">
+      Overview of Big Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/usage/" class="md-nav__link">
+      Usage of Big Data techniques
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/evolution/" class="md-nav__link">
+      Evolution of Hadoop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/architecture/" class="md-nav__link">
+      Architecture of Hadoop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../big_data/tasks/" class="md-nav__link">
+      Tasks and conclusion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+    <label class="md-nav__link" for="nav-6">
+      Security
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Security" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Security
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/fundamentals/" class="md-nav__link">
+      Fundamentals of Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/network_security/" class="md-nav__link">
+      Network Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/threats_attacks_defences/" class="md-nav__link">
+      Threat, Attacks & Defences
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../security/writing_secure_code/" class="md-nav__link">
+      Writing Secure code
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-expect-from-this-course" class="md-nav__link">
+    What to expect from this course
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-not-covered-under-this-course" class="md-nav__link">
+    What is not covered under this course
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#course-content" class="md-nav__link">
+    Course Content
+  </a>
+  
+    <nav class="md-nav" aria-label="Course Content">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of Contents
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-basics" class="md-nav__link">
+    Git Basics
+  </a>
+  
+    <nav class="md-nav" aria-label="Git Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-git-repo" class="md-nav__link">
+    Creating a Git Repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracking-a-file" class="md-nav__link">
+    Tracking a File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-about-a-commit" class="md-nav__link">
+    More About a Commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-more-changes" class="md-nav__link">
+    Adding More Changes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#are-commits-really-linked" class="md-nav__link">
+    Are commits really linked?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-version-control-part-of-git" class="md-nav__link">
+    The Version Control part of Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#references-and-the-magic" class="md-nav__link">
+    References and The Magic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#little-adventure" class="md-nav__link">
+    Little Adventure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="git">Git</h1>
 <h2 id="prerequisites">Prerequisites</h2>
 <ol>
 <li>Have Git installed <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></li>
@@ -270,7 +1027,7 @@
 <p>Though you might be aware already, let's revisit why we need a version control system. As the project grows and multiple developers start working on it, an efficient method for collaboration is warranted. Git helps the team collaborate easily and also maintains history of the changes happened with the codebase.</p>
 <h3 id="creating-a-git-repo">Creating a Git Repo</h3>
 <p>Any folder can be converted into a git repository. After executing the following command, we will see a <code>.git</code> folder within the folder, which makes our folder a git repository. <strong>All the magic that git does, <code>.git</code> folder is the enabler for the same.</strong></p>
-<pre><code class="bash"># creating an empty folder and changing current dir to it
+<pre><code class="language-bash"># creating an empty folder and changing current dir to it
 spatel1-mn1:~ spatel1$ cd /tmp
 spatel1-mn1:tmp spatel1$ mkdir school-of-sre
 spatel1-mn1:tmp spatel1$ cd school-of-sre/
@@ -279,16 +1036,14 @@ spatel1-mn1:tmp spatel1$ cd school-of-sre/
 spatel1-mn1:school-of-sre spatel1$ git init
 Initialized empty Git repository in /private/tmp/school-of-sre/.git/
 </code></pre>
-
 <p>As the output says, an empty git repo has been initialized in our folder. Let's take a look at what is there.</p>
-<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ ls .git/
+<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ ls .git/
 HEAD        config      description hooks       info        objects     refs
 </code></pre>
-
 <p>There are a bunch of folders and files in the <code>.git</code> folder. As I said, all these enables git to do its magic. We will look into some of these folders and files. But for now, what we have is an empty git repository.</p>
 <h3 id="tracking-a-file">Tracking a File</h3>
 <p>Now as you might already know, let us create a new file in our repo (we will refer to the folder as <em>repo</em> now.) And see git status</p>
-<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ echo &quot;I am file 1&quot; &gt; file1.txt
+<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ echo &quot;I am file 1&quot; &gt; file1.txt
 spatel1-mn1:school-of-sre spatel1$ git status
 On branch master
 
@@ -301,9 +1056,8 @@ Untracked files:
 
 nothing added to commit but untracked files present (use &quot;git add&quot; to track)
 </code></pre>
-
 <p>The current git status says <code>No commits yet</code> and there is one untracked file. Since we just created the file, git is not tracking that file. We explicitly need to ask git to track files and folders. (also checkout <a href="https://git-scm.com/docs/gitignore">gitignore</a>) And how we do that is via <code>git add</code> command as suggested in the above output. Then we go ahead and create a  commit.</p>
-<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ git add file1.txt
+<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ git add file1.txt
 spatel1-mn1:school-of-sre spatel1$ git status
 On branch master
 
@@ -319,37 +1073,33 @@ spatel1-mn1:school-of-sre spatel1$ git commit -m &quot;adding file 1&quot;
 1 file changed, 1 insertion(+)
 create mode 100644 file1.txt
 </code></pre>
-
 <p>Notice how after adding the file, git status says <code>Changes to be commited:</code>. What it means is whatever is listed there, will be included in the next commit. Then we go ahead and create a commit, with an attached messaged via <code>-m</code>.</p>
 <h3 id="more-about-a-commit">More About a Commit</h3>
 <p>Commit is a snapshot of the repo. Whenever a commit is made, a snapshot of the current state of repo (the folder) is taken and saved. Each commit has a unique ID. (<code>df2fb7a</code> for the commit we made in the previous step). As we keep adding/changing more and more contents and keep making commits, all those snapshots are stored by git. Again, all this magic happens inside the <code>.git</code> folder. This is where all this snapshot or versions are stored. <em>In an efficient manner.</em></p>
 <h3 id="adding-more-changes">Adding More Changes</h3>
 <p>Let us create one more file and commit the change. It would look the same as the previous commit we made.</p>
-<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ echo &quot;I am file 2&quot; &gt; file2.txt
+<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ echo &quot;I am file 2&quot; &gt; file2.txt
 spatel1-mn1:school-of-sre spatel1$ git add file2.txt
 spatel1-mn1:school-of-sre spatel1$ git commit -m &quot;adding file 2&quot;
 [master 7f3b00e] adding file 2
 1 file changed, 1 insertion(+)
 create mode 100644 file2.txt
 </code></pre>
-
 <p>A new commit with ID <code>7f3b00e</code> has been created. You can issue <code>git status</code> at any time to see the state of the repository.</p>
 <pre><code>   **IMPORTANT: Note that commit IDs are long string (SHA) but we can refer to a commit by its initial few (8 or more) characters too. We will interchangeably using shorter and longer commit IDs.**
 </code></pre>
 <p>Now that we have two commits, let's visualize them:</p>
-<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
+<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 * 7f3b00e (HEAD -&gt; master) adding file 2
 * df2fb7a adding file 1
 </code></pre>
-
 <p><code>git log</code>, as the name suggests, prints the log of all the git commits. Here you see two additional arguments, <code>--oneline</code> prints the shorter version of the log, ie: the commit message only and not the person who made the commit and when. <code>--graph</code> prints it in graph format.</p>
 <p><strong>Now at this moment the commits might look like just one in each line but all commits are stored as a tree like data structure internally by git. That means there can be two or more children commits of a given commit. And not just a single line of commits. We will look more into this part when we get to the Branches section. For now this is our commit history:</strong></p>
-<pre><code class="bash">   df2fb7a ===&gt; 7f3b00e
+<pre><code class="language-bash">   df2fb7a ===&gt; 7f3b00e
 </code></pre>
-
 <h3 id="are-commits-really-linked">Are commits really linked?</h3>
 <p>As I just said, the two commits we just made are linked via tree like data structure and we saw how they are linked. But let's actually verify it. Everything in git is an object. Newly created files are stored as an object. Changes to file are stored as an objects and even commits are objects. To view contents of an object we can use the following command with the object's ID. We will take a look at content of the contents of the second commit</p>
-<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ git cat-file -p 7f3b00e
+<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ git cat-file -p 7f3b00e
 tree ebf3af44d253e5328340026e45a9fa9ae3ea1982
 parent df2fb7a61f5d40c1191e0fdeb0fc5d6e7969685a
 author Sanket Patel &lt;spatel1@linkedin.com&gt; 1603273316 -0700
@@ -357,16 +1107,14 @@ committer Sanket Patel &lt;spatel1@linkedin.com&gt; 1603273316 -0700
 
 adding file 2
 </code></pre>
-
 <p>Take a note of <code>parent</code> attribute in the above output. It points to the commit id of the first commit we made. So this proves that they are linked! Additionally you can see the second commit's message in this object. As I said all this magic is enabled by <code>.git</code> folder and the object to which we are looking at also is in that folder.</p>
-<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ ls .git/objects/7f/3b00eaa957815884198e2fdfec29361108d6a9
+<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ ls .git/objects/7f/3b00eaa957815884198e2fdfec29361108d6a9
 .git/objects/7f/3b00eaa957815884198e2fdfec29361108d6a9
 </code></pre>
-
 <p>It is stored in <code>.git/objects/</code> folder. All the files and changes to them as well are stored in this folder.</p>
 <h3 id="the-version-control-part-of-git">The Version Control part of Git</h3>
 <p>We already can see two commits (versions) in our git log. One thing a version control tool gives you is ability to browse back and forth in history. For example: some of your users are running an old version of code and they are reporting an issue. In order to debug the issue, you need access to the old code. The one in your current repo is the latest code. In this example, you are working on the second commit (7f3b00e) and someone reported an issue with the code snapshot at commit (df2fb7a). This is how you would get access to the code at any older commit</p>
-<pre><code class="bash"># Current contents, two files present
+<pre><code class="language-bash"># Current contents, two files present
 patel1-mn1:school-of-sre spatel1$ ls
 file1.txt file2.txt
 
@@ -389,12 +1137,11 @@ HEAD is now at df2fb7a adding file 1
 spatel1-mn1:school-of-sre spatel1$ ls
 file1.txt
 </code></pre>
-
 <p>So this is how we would get access to old versions/snapshots. All we need is a <em>reference</em> to that snapshot. Upon executing <code>git checkout ...</code>, what git does for you is use the <code>.git</code> folder, see what was the state of things (files and folders) at that version/reference and replace the contents of current directory with those contents. The then-existing content will no longer be present in the local dir (repo) but we can and will still get access to them because they are tracked via git commit and <code>.git</code> folder has them stored/tracked.</p>
 <h3 id="reference">Reference</h3>
 <p>I mention in the previous section that we need a <em>reference</em> to the version. By default, git repo is made of tree of commits. And each commit has a unique IDs. But the unique ID is not the only thing we can reference commits via. There are multiple ways to reference commits. For example: <code>HEAD</code> is a reference to current commit. <em>Whatever commit your repo is checked out at, <code>HEAD</code> will point to that.</em> <code>HEAD~1</code> is reference to previous commit. So while checking out previous version in section above, we could have done <code>git checkout HEAD~1</code>.</p>
 <p>Similarly, master is also a reference (to a branch). Since git uses tree like structure to store commits, there of course will be branches. And the default branch is called <code>master</code>. Master (or any branch reference) will point to the latest commit in the branch. Even though we have checked out to the previous commit in out repo, <code>master</code> still points to the latest commit. And we can get back to the latest version by checkout at <code>master</code> reference</p>
-<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ git checkout master
+<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ git checkout master
 Previous HEAD position was df2fb7a adding file 1
 Switched to branch 'master'
 
@@ -402,36 +1149,31 @@ Switched to branch 'master'
 spatel1-mn1:school-of-sre spatel1$ ls
 file1.txt file2.txt
 </code></pre>
-
 <p>Note, instead of <code>master</code> in above command, we could have used commit's ID as well.</p>
 <h3 id="references-and-the-magic">References and The Magic</h3>
 <p>Let's look at the state of things. Two commits, <code>master</code> and <code>HEAD</code> references are pointing to the latest commit</p>
-<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
+<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 * 7f3b00e (HEAD -&gt; master) adding file 2
 * df2fb7a adding file 1
 </code></pre>
-
 <p>The magic? Let's examine these files:</p>
-<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ cat .git/refs/heads/master
+<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ cat .git/refs/heads/master
 7f3b00eaa957815884198e2fdfec29361108d6a9
 </code></pre>
-
 <p>Viola! Where master is pointing to is stored in a file. <strong>Whenever git needs to know where master reference is pointing to, or if git needs to update where master points, it just needs to update the file above.</strong> So when you create a new commit, a new commit is created on top of the current commit and the master file is updated with the new commit's ID.</p>
 <p>Similary, for <code>HEAD</code> reference:</p>
-<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ cat .git/HEAD
+<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ cat .git/HEAD
 ref: refs/heads/master
 </code></pre>
-
 <p>We can see <code>HEAD</code> is pointing to a reference called <code>refs/heads/master</code>. So <code>HEAD</code> will point where ever the <code>master</code> points.</p>
 <h3 id="little-adventure">Little Adventure</h3>
 <p>We discussed how git will update the files as we execute commands. But let's try to do it ourselves, by hand, and see what happens.</p>
-<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
+<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 * 7f3b00e (HEAD -&gt; master) adding file 2
 * df2fb7a adding file 1
 </code></pre>
-
 <p>Now let's change master to point to the previous/first commit.</p>
-<pre><code class="bash">spatel1-mn1:school-of-sre spatel1$ echo df2fb7a61f5d40c1191e0fdeb0fc5d6e7969685a &gt; .git/refs/heads/master
+<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ echo df2fb7a61f5d40c1191e0fdeb0fc5d6e7969685a &gt; .git/refs/heads/master
 spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 * df2fb7a (HEAD -&gt; master) adding file 1
 
@@ -441,60 +1183,86 @@ spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 * 7f3b00e (HEAD -&gt; master) adding file 2
 * df2fb7a adding file 1
 </code></pre>
+<p>We just edited the <code>master</code> reference file and now we can see only the first commit in git log. Undoing the change to the file brings the state back to original. Not so much of magic, isn't it?</p>
+                
+              
+              
+                
 
-<p>We just edited the <code>master</code> reference file and now we can see only the first commit in git log. Undoing the change to the file brings the state back to original. Not so much of magic, isn't it?</p></div>
+
+              
+            </article>
+          </div>
         </div>
-
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
-        </script>
-        <script src="../../js/base.js" defer></script>
-
-        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../.." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </div>
             </div>
-            <div class="modal-footer">
+          </a>
+        
+        
+          <a href="../branches/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Working With Branches
+              </div>
             </div>
-        </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     </div>
-</div>
-
-    </body>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.7e0ee788.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
 </html>
