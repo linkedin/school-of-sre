@@ -34,27 +34,27 @@ course. We will also not be covering linux internals.
 The following topics has been covered in this course:
 
 - Introduction to Linux
-    - (What are Linux Operating Systems)[https://linkedin.github.io/school-of-sre/linux_basics/intro/#what-are-linux-operating-systems]
-    - (Linux Distributions)[https://linkedin.github.io/school-of-sre/linux_basics/intro/#what-are-popular-linux-distributions]
-    - (Uses of Linux Operating Systems)[https://linkedin.github.io/school-of-sre/linux_basics/intro/#uses-of-linux-operating-systems]
-    - (Linux Architecture)[https://linkedin.github.io/school-of-sre/linux_basics/intro/#linux-architecture]
-    - (GUI vs CLI)[https://linkedin.github.io/school-of-sre/linux_basics/intro/#graphical-user-interface-gui-vs-command-line-interface-cli]
-- (Command Line Basics)[https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/]
-    - (Navigating File System)[https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/#commands-for-navigating-the-file-system]
-    - (Manipulating Files)[https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/#commands-for-manipulating-files]
-    - (Viewing Files)[https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/#commands-for-viewing-files]
-    - (Text Processing Commands)[https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/#text-processing-commands]
-    - (I/O Redirection)[https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/#io-redirection]
-- (Linux system administration)[https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/]
-    - (User/Groups management)[https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#usergroup-management-in-linux]
-    - (Superuser in Linux)[https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#becoming-a-superuser-in-linux]
-    - (File Permissions)[https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#file-permissions-in-linux]
-    - (SSH Command)[https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#ssh-command]
-    - (Package Management)[https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#package-management]
-    - (Process Management)[https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#process-management]
-    - (Memory Management)[https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#memory-management]
-    - (Daemons and Systemd)[https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#daemons]
-    - (Logs)[https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#logs]
+    -  [What are Linux Operating Systems](https://linkedin.github.io/school-of-sre/linux_basics/intro/#what-are-linux-operating-systems)
+    -  [Linux Distributions](https://linkedin.github.io/school-of-sre/linux_basics/intro/#what-are-popular-linux-distributions)
+    -  [Uses of Linux Operating Systems](https://linkedin.github.io/school-of-sre/linux_basics/intro/#uses-of-linux-operating-systems)
+    -  [Linux Architecture](https://linkedin.github.io/school-of-sre/linux_basics/intro/#linux-architecture)
+    -  [GUI vs CLI](https://linkedin.github.io/school-of-sre/linux_basics/intro/#graphical-user-interface-gui-vs-command-line-interface-cli)
+-  [Command Line Basics](https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/)
+    -  [Navigating File System](https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/#commands-for-navigating-the-file-system)
+    -  [Manipulating Files](https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/#commands-for-manipulating-files)
+    -  [Viewing Files](https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/#commands-for-viewing-files)
+    -  [Text Processing Commands](https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/#text-processing-commands)
+    -  [I/O Redirection](https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/#io-redirection)
+-  [Linux system administration](https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/)
+    -  [User/Groups management](https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#usergroup-management-in-linux)
+    -  [Superuser in Linux](https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#becoming-a-superuser-in-linux)
+    -  [File Permissions](https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#file-permissions-in-linux)
+    -  [SSH Command](https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#ssh-command)
+    -  [Package Management](https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#package-management)
+    -  [Process Management](https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#process-management)
+    -  [Memory Management](https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#memory-management)
+    -  [Daemons and Systemd](https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#daemons)
+    -  [Logs](https://linkedin.github.io/school-of-sre/linux_basics/linux_server_administration/#logs)
 
 
 ## What are Linux operating systems
