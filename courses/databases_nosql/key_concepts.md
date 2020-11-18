@@ -132,8 +132,7 @@ When data is distributed across nodes, it can be modified on different nodes at 
 
 
                 
-
-**        Vector clocks illustration    **
+<p align="center">**        Vector clocks illustration    **</p>
 
 Vector clocks have the following advantages over other conflict resolution mechanism
 
@@ -173,7 +172,7 @@ When the amount of data crosses the capacity of a single node, we need to think 
 ![alt_text]( images/database_sharding.png "Sharding")
 
 
-**<span style="text-decoration:underline;"> Sharding example</span>**
+<p align="center"> **<span style="text-decoration:underline;"> Sharding example</span>** </p>
 
 
 ### Hashing
@@ -211,7 +210,7 @@ Say that our hash function h() generates a 32-bit integer. Then, to determine to
 ![alt_text]( images/consistent_hashing.png "Consistent Hashing")
 
 
-<span style="text-decoration:underline;">Consistent hashing illustration</span>
+<p align="center"> <span style="text-decoration:underline;">Consistent hashing illustration</span> </p>
 
 In consistent hashing when a server is removed or added then only the keys from that server are relocated. For example, if server S3 is removed then, all keys from server S3 will be moved to server S4 but keys stored on server S4 and S2 are not relocated. But there is one problem, when server S3 is removed then keys from S3 are not equally distributed among remaining servers S4 and S2. They are only assigned to server S4 which increases the load on server S4.
 
@@ -254,6 +253,9 @@ In a 6 node cluster, you need 4 nodes for a majority.
 
 ![alt_text](images/Quorum.png "image_tooltip")
 
+<p align="center"> <span style="text-decoration:underline;">Quorum example</span> </p>
+
+
 
 Network problems can cause communication failures among cluster nodes. One set of nodes might be able to communicate together across a functioning part of a network but not be able to communicate with a different set of nodes in another part of the network. This is known as split brain in cluster or cluster partitioning.
 
@@ -268,4 +270,5 @@ Below diagram demonstrates Quorum selection on a cluster partitioned into two se
 
 ![alt_text](images/cluster_quorum.png "image_tooltip")
 
+<p align="center"> <span style="text-decoration:underline;">Cluster Quorum example</span> </p>
 
