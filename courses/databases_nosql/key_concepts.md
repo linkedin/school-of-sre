@@ -270,5 +270,5 @@ Below diagram demonstrates Quorum selection on a cluster partitioned into two se
 
 ![alt_text](images/cluster_quorum.png "image_tooltip")
 
-<p align="center">**Cluster Quorum example**</p>
+**<p align="center">**Cluster Quorum example</p>**
 
