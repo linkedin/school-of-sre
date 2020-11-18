@@ -80,10 +80,10 @@ When the amount of data crosses the capacity of a single node, we need to think 
 
 
 
-<p id="gdcalert2" ><span style="color: red; font-weight: bold" images\database_sharding.png> </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<p id="gdcalert2" ><span style="color: red; font-weight: bold" images/database_sharding.png></span></p>
 
 
-![alt_text]( images\database_sharding.png "Sharding")
+![alt_text]( images/database_sharding.png "Sharding")
 
 
 **<span style="text-decoration:underline;"> Sharding example</span>**
@@ -120,10 +120,10 @@ Say that our hash function h() generates a 32-bit integer. Then, to determine to
 
 
 
-<p id="gdcalert3" ><span style="color: red; font-weight: bold"> images\consistent_hashing.png </span></p>
+<p id="gdcalert3" ><span style="color: red; font-weight: bold" images/consistent_hashing.png> </span></p>
 
 
-![alt_text]( images\consistent_hashing.png "Consistent Hashing")
+![alt_text]( images/consistent_hashing.png "Consistent Hashing")
 
 
 <span style="text-decoration:underline;">Consistent hashing illustration</span>
@@ -168,10 +168,10 @@ In a 6 node cluster, you need 4 nodes for a majority.
 
 
 
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<p id="gdcalert4" ><span style="color: red; font-weight: bold" images/Quorum.png > </span></p>
 
 
-![alt_text](images/image4.png "image_tooltip")
+![alt_text](images/Quorum.png "image_tooltip")
 
 
 Network problems can cause communication failures among cluster nodes. One set of nodes might be able to communicate together across a functioning part of a network but not be able to communicate with a different set of nodes in another part of the network. This is known as split brain in cluster or cluster partitioning.
@@ -184,9 +184,9 @@ Below diagram demonstrates Quorum selection on a cluster partitioned into two se
 
 
 
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<p id="gdcalert5" ><span style="color: red; font-weight: bold" images/cluster_quorum.png> </span></p>
 
 
-![alt_text](images/image5.png "image_tooltip")
+![alt_text](images/cluster_quorum.png "image_tooltip")
 
 
