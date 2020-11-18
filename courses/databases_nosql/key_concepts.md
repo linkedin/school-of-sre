@@ -34,7 +34,7 @@ When data is distributed across nodes, it can be modified on different nodes at 
 
     
 
-<p id="gdcalert1" ><span style="color: red; font-weight: bold" images/vector_clocks.png> </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<p id="gdcalert1" ><span style="color: red; font-weight: bold" images/vector_clocks.png> </span></p>
 
 
 ![alt_text](images/vector_clocks.png "Vector Clocks")
