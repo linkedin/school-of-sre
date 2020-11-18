@@ -1,4 +1,98 @@
+## Key Concepts
 
+Lets looks at some of the key concepts when we talk about NoSQL or distributed systems
+
+
+### CAP Theorem			
+
+					
+
+In a keynote titled “[Towards Robust Distributed Systems](https://sites.cs.ucsb.edu/~rich/class/cs293b-cloud/papers/Brewer_podc_keynote_2000.pdf)” at ACM’s PODC symposium in 2000 Eric Brewer came up with the so-called CAP-theorem which is widely adopted today by large web companies as well as in the NoSQL community. The CAP acronym stands for **C**onsistency, **A**vailability & **P**artition Tolerance.
+
+
+
+*   **Consistency**
+
+    It refers to how consistent a system is after an execution. A distributed system is called consistent when a write made by a source is available for all readers of that shared data. Different NoSQL systems support different levels of consistency.
+
+*   **Availability**
+
+    It refers to how a system responds to loss of functionality of different systems due to hardware and software failures. A high availability implies that a system is still available to handle operations (reads and writes) when a certain part of the system is down due to a failure or upgrade.
+
+*   **Partition Tolerance**
+
+    It is the ability of the system to continue operations in the event of a network partition. A network partition occurs when a failure causes two or more islands of networks where the systems can’t talk to each other across the islands temporarily or permanently. 
+
+
+Brewer alleges that one can at most choose two of these three characteristics in a shared-data system. The CAP-theorem states that a choice can only be made for two options out of consistency, availability and partition tolerance. A growing number of use cases in large scale applications tend to value reliability implying that availability & redundancy are more valuable than consistency. As a result these systems struggle to meet ACID properties. They attain this by loosening on the consistency requirement i.e Eventual Consistency. 					
+
+**Eventual Consistency **means that all readers will see writes, as time goes on: “In a steady state, the system will eventually return the last written value”. Clients therefore may face an inconsistent state of data as updates are in progress. For instance, in a replicated database updates may go to one node which replicates the latest version to all other nodes that contain a replica of the modified dataset so that the replica nodes eventually will have the latest version. 
+
+NoSQL systems support different levels of eventual consistency models. For example:
+
+
+
+*   Read Your Own Writes Consistency
+
+    A client will see his updates immediately after they are written. The reads can hit nodes other than the one where it was written. However he might not see updates by other clients immediately. 
+
+*   Session Consistency:
+
+    A client will see the updates to his data within a session scope. This generally indicates that reads & writes occur on the same server. Other clients using the same nodes will receive the same updates. 
+
+*   Casual Consistency
+
+    A system provides causal consistency if the following condition holds: write operations that are related by potential causality are seen by each process of the system in order. Different processes may observe concurrent writes in different orders 
+
+
+				
+
+Eventual consistency is useful if concurrent updates of the same partitions of data are unlikely and if clients do not immediately depend on reading updates issued by themselves or by other clients.
+
+Depending on what consistency model was chosen for the system (or parts of it), determines where the requests are routed, ex: replicas. 
+
+CAP alternatives illustration
+
+
+<table>
+  <tr>
+   <td>Choice
+   </td>
+   <td>Traits
+   </td>
+   <td>Examples
+   </td>
+  </tr>
+  <tr>
+   <td>Consistency + Availability
+<p>
+(Forfeit Partitions)
+   </td>
+   <td>2-phase commits
+<p>
+Cache invalidation protocols
+   </td>
+   <td>Single-site databases Cluster databases 
+<p>
+LDAP
+<p>
+xFS file system 
+   </td>
+  </tr>
+  <tr>
+   <td>Consistency + Partition tolerance
+<p>
+ (Forfeit Availability)
+   </td>
+   <td>Pessimistic locking
+<p>
+Make minority partitions unavailable
+   </td>
+   <td>Distributed databases Distributed locking Majority protocols
+   </td>
+  </tr>
+  <tr>
+   <td>Availability + Partition tolerance (Forfeit Consistency)
    </td>
    <td>expirations/leases 
 <p>
@@ -10,7 +104,6 @@ Web caching
    </td>
   </tr>
 </table>
-
 
 
 ### Versioning of Data in distributed systems
@@ -31,19 +124,15 @@ When data is distributed across nodes, it can be modified on different nodes at 
 
     A vector clock is defined as a tuple of clock values from each node. In a distributed environment, each node maintains a tuple of such clock values which represent the state of the nodes itself and its peers/replicas. A clock value may be real timestamps derived from local clock or version no.  
 
-
-    
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold" images\vector_clocks.png> </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<p id="gdcalert1" ><span style="color: red; font-weight: bold" images/vector_clocks.png> </span></p>
 
 
-![alt_text](images\vector_clocks.png "Vector Clocks")
+![alt_text](images/vector_clocks.png "Vector Clocks")
 
 
 
                 
-
-**        Vector clocks illustration    **
+<p align="center"><span style="text-decoration:underline;  font-weight:bold;">Vector clocks illustration</span></p>
 
 Vector clocks have the following advantages over other conflict resolution mechanism
 
@@ -77,16 +166,13 @@ When the amount of data crosses the capacity of a single node, we need to think 
 
     Sharing refers to dividing data in such a way that data is distributed evenly (both in terms of storage & processing power) across a cluster of nodes. It can also imply data locality, which means similar & related data is stored together to facilitate faster access. A shard in turn can be further replicated to meet load balancing or disaster recovery requirements. A single shard replica might take in all writes (single leader) or multiple replicas can take writes (multi-leader). Reads can be distributed across multiple replicas. Since data is now distributed across multiple nodes, clients should be able to consistently figure out where data is hosted. We will look at some of the common techniques below. The downside of sharding is that joins between shards is not possible. So an upstream/downstream application has to aggregate the results from multiple shards.
 
+<p id="gdcalert2" ><span style="color: red; font-weight: bold" images/database_sharding.png></span></p>
 
 
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
+![alt_text]( images/database_sharding.png "Sharding")
 
 
-**<span style="text-decoration:underline;"> Sharding example</span>**
+<p align="center"><span style="text-decoration:underline;  font-weight:bold;">Sharding example</span> </p>
 
 
 ### Hashing
@@ -118,15 +204,13 @@ Consistent hashing is a distributed hashing scheme that operates independently o
 
 Say that our hash function h() generates a 32-bit integer. Then, to determine to which server we will send a key k, we find the server s whose hash h(s) is the smallest integer that is larger than h(k). To make the process simpler, we assume the table is circular, which means that if we cannot find a server with a hash larger than h(k), we wrap around and start looking from the beginning of the array.
 
+<p id="gdcalert3" ><span style="color: red; font-weight: bold" images/consistent_hashing.png> </span></p>
 
 
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+![alt_text]( images/consistent_hashing.png "Consistent Hashing")
 
 
-![alt_text](images/image3.png "image_tooltip")
-
-
-<span style="text-decoration:underline;">Consistent hashing illustration</span>
+<p align="center"><span style="text-decoration:underline;  font-weight:bold;">Consistent hashing illustration</span></p>
 
 In consistent hashing when a server is removed or added then only the keys from that server are relocated. For example, if server S3 is removed then, all keys from server S3 will be moved to server S4 but keys stored on server S4 and S2 are not relocated. But there is one problem, when server S3 is removed then keys from S3 are not equally distributed among remaining servers S4 and S2. They are only assigned to server S4 which increases the load on server S4.
 
@@ -164,14 +248,13 @@ In a 5 node cluster, you need 3 nodes for a majority,
 
 In a 6 node cluster, you need 4 nodes for a majority. 
 
-      
+<p id="gdcalert4" ><span style="color: red; font-weight: bold" images/Quorum.png > </span></p>
 
 
+![alt_text](images/Quorum.png "image_tooltip")
 
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+<p align="center"> <span style="text-decoration:underline; font-weight:bold;">Quorum example</span> </p>
 
-
-![alt_text](images/image4.png "image_tooltip")
 
 
 Network problems can cause communication failures among cluster nodes. One set of nodes might be able to communicate together across a functioning part of a network but not be able to communicate with a different set of nodes in another part of the network. This is known as split brain in cluster or cluster partitioning.
@@ -182,11 +265,10 @@ Eg: In a 5 node cluster, consider what happens if nodes 1, 2, and 3 can communic
 
 Below diagram demonstrates Quorum selection on a cluster partitioned into two sets.
 
+<p id="gdcalert5" ><span style="color: red; font-weight: bold" images/cluster_quorum.png> </span></p>
 
 
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+![alt_text](images/cluster_quorum.png "image_tooltip")
 
-
-![alt_text](images/image5.png "image_tooltip")
-
+**<p align="center"><span style="text-decoration:underline; font-weight:bold;">Cluster Quorum example</span></p>**
 
