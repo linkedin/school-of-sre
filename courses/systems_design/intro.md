@@ -1,27 +1,30 @@
 # Systems Design
 
-## Pre - Requisites
+## Prerequisites
 
 Fundamentals of common software system components:
 - Operating Systems
 - Networking
 - Databases RDBMS/NoSQL
 
-## What to expect from this training
+## What to expect from this course
 
 Thinking about and designing for scalability, availability, and reliability of large scale software systems.
 
-## What is not covered under this training
+## What is not covered under this course
 
 Individual software components’ scalability and reliability concerns like e.g. Databases, while the same scalability principles and thinking can be applied, these individual components have their own specific nuances when scaling them and thinking about their reliability.
 
 More light will be shed on concepts rather than on setting up and configuring components like Loadbalancers to achieve scalability, availability and reliability of systems
 
-## Training Content
-- Introduction
-- Scalability
-- High Availability
-- Fault Tolerance
+## Course Content
+
+### Table of Contents
+
+- [Introduction](https://linkedin.github.io/school-of-sre/systems_design/intro/#backstory)
+- [Scalability](https://linkedin.github.io/school-of-sre/systems_design/scalability/)
+- [High Availability](https://linkedin.github.io/school-of-sre/systems_design/availability/)
+- [Fault Tolerance](https://linkedin.github.io/school-of-sre/systems_design/fault-tolerance/)
 
 
 ## Introduction
