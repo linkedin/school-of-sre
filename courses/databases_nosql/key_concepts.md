@@ -30,10 +30,7 @@ When data is distributed across nodes, it can be modified on different nodes at 
 *   **Vector Clocks**
 
     A vector clock is defined as a tuple of clock values from each node. In a distributed environment, each node maintains a tuple of such clock values which represent the state of the nodes itself and its peers/replicas. A clock value may be real timestamps derived from local clock or version no.  
-
-
     
-
 <p id="gdcalert1" ><span style="color: red; font-weight: bold" images/vector_clocks.png> </span></p>
 
 
@@ -77,9 +74,6 @@ When the amount of data crosses the capacity of a single node, we need to think 
 
     Sharing refers to dividing data in such a way that data is distributed evenly (both in terms of storage & processing power) across a cluster of nodes. It can also imply data locality, which means similar & related data is stored together to facilitate faster access. A shard in turn can be further replicated to meet load balancing or disaster recovery requirements. A single shard replica might take in all writes (single leader) or multiple replicas can take writes (multi-leader). Reads can be distributed across multiple replicas. Since data is now distributed across multiple nodes, clients should be able to consistently figure out where data is hosted. We will look at some of the common techniques below. The downside of sharding is that joins between shards is not possible. So an upstream/downstream application has to aggregate the results from multiple shards.
 
-
-
-
 <p id="gdcalert2" ><span style="color: red; font-weight: bold" images/database_sharding.png></span></p>
 
 
@@ -117,8 +111,6 @@ The downside of this simple hash is that, whenever the cluster topology changes,
 Consistent hashing is a distributed hashing scheme that operates independently of the number of servers or objects in a distributed _hash table_ by assigning them a position on an abstract circle, or _hash ring_. This allows servers and objects to scale without affecting the overall system.
 
 Say that our hash function h() generates a 32-bit integer. Then, to determine to which server we will send a key k, we find the server s whose hash h(s) is the smallest integer that is larger than h(k). To make the process simpler, we assume the table is circular, which means that if we cannot find a server with a hash larger than h(k), we wrap around and start looking from the beginning of the array.
-
-
 
 <p id="gdcalert3" ><span style="color: red; font-weight: bold" images/consistent_hashing.png> </span></p>
 
@@ -164,10 +156,6 @@ In a 5 node cluster, you need 3 nodes for a majority,
 
 In a 6 node cluster, you need 4 nodes for a majority. 
 
-      
-
-
-
 <p id="gdcalert4" ><span style="color: red; font-weight: bold" images/Quorum.png > </span></p>
 
 
@@ -181,8 +169,6 @@ Now the partition which has quorum is allowed to continue running the applicatio
 Eg: In a 5 node cluster, consider what happens if nodes 1, 2, and 3 can communicate with each other but not with nodes 4 and 5. Nodes 1, 2, and 3 constitute a majority, and they continue running as a cluster. Nodes 4 and 5, being a minority, stop running as a cluster. If node 3 loses communication with other nodes, all nodes stop running as a cluster. However, all functioning nodes will continue to listen for communication, so that when the network begins working again, the cluster can form and begin to run.
 
 Below diagram demonstrates Quorum selection on a cluster partitioned into two sets.
-
-
 
 <p id="gdcalert5" ><span style="color: red; font-weight: bold" images/cluster_quorum.png> </span></p>
 
