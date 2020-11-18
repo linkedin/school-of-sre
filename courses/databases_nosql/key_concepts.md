@@ -1,4 +1,98 @@
+## Key Concepts
 
+Lets looks at some of the key concepts when we talk about NoSQL or distributed systems
+
+
+### CAP Theorem			
+
+					
+
+In a keynote titled “[Towards Robust Distributed Systems](https://sites.cs.ucsb.edu/~rich/class/cs293b-cloud/papers/Brewer_podc_keynote_2000.pdf)” at ACM’s PODC symposium in 2000 Eric Brewer came up with the so-called CAP-theorem which is widely adopted today by large web companies as well as in the NoSQL community. The CAP acronym stands for **C**onsistency, **A**vailability & **P**artition Tolerance.
+
+
+
+*   **Consistency**
+
+    It refers to how consistent a system is after an execution. A distributed system is called consistent when a write made by a source is available for all readers of that shared data. Different NoSQL systems support different levels of consistency.
+
+*   **Availability**
+
+    It refers to how a system responds to loss of functionality of different systems due to hardware and software failures. A high availability implies that a system is still available to handle operations (reads and writes) when a certain part of the system is down due to a failure or upgrade.
+
+*   **Partition Tolerance**
+
+    It is the ability of the system to continue operations in the event of a network partition. A network partition occurs when a failure causes two or more islands of networks where the systems can’t talk to each other across the islands temporarily or permanently. 
+
+
+Brewer alleges that one can at most choose two of these three characteristics in a shared-data system. The CAP-theorem states that a choice can only be made for two options out of consistency, availability and partition tolerance. A growing number of use cases in large scale applications tend to value reliability implying that availability & redundancy are more valuable than consistency. As a result these systems struggle to meet ACID properties. They attain this by loosening on the consistency requirement i.e Eventual Consistency. 					
+
+**Eventual Consistency **means that all readers will see writes, as time goes on: “In a steady state, the system will eventually return the last written value”. Clients therefore may face an inconsistent state of data as updates are in progress. For instance, in a replicated database updates may go to one node which replicates the latest version to all other nodes that contain a replica of the modified dataset so that the replica nodes eventually will have the latest version. 
+
+NoSQL systems support different levels of eventual consistency models. For example:
+
+
+
+*   Read Your Own Writes Consistency
+
+        A client will see his updates immediately after they are written. The reads can hit nodes other than the one where it was written. However he might not see updates by other clients immediately. 
+
+*   Session Consistency:
+
+        A client will see the updates to his data within a session scope. This generally indicates that reads & writes occur on the same server. Other clients using the same nodes will receive the same updates. 
+
+*   Casual Consistency
+
+        A system provides causal consistency if the following condition holds: write operations that are related by potential causality are seen by each process of the system in order. Different processes may observe concurrent writes in different orders 
+
+
+				
+
+Eventual consistency is useful if concurrent updates of the same partitions of data are unlikely and if clients do not immediately depend on reading updates issued by themselves or by other clients.
+
+Depending on what consistency model was chosen for the system (or parts of it), determines where the requests are routed, ex: replicas. 
+
+CAP alternatives illustration
+
+
+<table>
+  <tr>
+   <td>Choice
+   </td>
+   <td>Traits
+   </td>
+   <td>Examples
+   </td>
+  </tr>
+  <tr>
+   <td>Consistency + Availability
+<p>
+(Forfeit Partitions)
+   </td>
+   <td>2-phase commits
+<p>
+Cache invalidation protocols
+   </td>
+   <td>Single-site databases Cluster databases 
+<p>
+LDAP
+<p>
+xFS file system 
+   </td>
+  </tr>
+  <tr>
+   <td>Consistency + Partition tolerance
+<p>
+ (Forfeit Availability)
+   </td>
+   <td>Pessimistic locking
+<p>
+Make minority partitions unavailable
+   </td>
+   <td>Distributed databases Distributed locking Majority protocols
+   </td>
+  </tr>
+  <tr>
+   <td>Availability + Partition tolerance (Forfeit Consistency)
    </td>
    <td>expirations/leases 
 <p>
@@ -10,7 +104,6 @@ Web caching
    </td>
   </tr>
 </table>
-
 
 
 ### Versioning of Data in distributed systems
@@ -30,7 +123,7 @@ When data is distributed across nodes, it can be modified on different nodes at 
 *   **Vector Clocks**
 
     A vector clock is defined as a tuple of clock values from each node. In a distributed environment, each node maintains a tuple of such clock values which represent the state of the nodes itself and its peers/replicas. A clock value may be real timestamps derived from local clock or version no.  
-    
+
 <p id="gdcalert1" ><span style="color: red; font-weight: bold" images/vector_clocks.png> </span></p>
 
 
