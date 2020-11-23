@@ -4,6 +4,7 @@ theme:
   name: material
   logo: img/sos.png
   favicon: img/favicon.ico
+  custom_dir: overrides
 plugins: []
 nav:
 - Home: index.md
