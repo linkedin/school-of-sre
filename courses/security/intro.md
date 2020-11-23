@@ -25,6 +25,7 @@ The courseware is not an ethical hacking workshop or a very deep dive into the f
 2. [Network Security](https://linkedin.github.io/school-of-sre/security/network_security/)
 3. [Threats, Attacks & Defence](https://linkedin.github.io/school-of-sre/security/threats_attacks_defences/)
 4. [Writing Secure Code & More](https://linkedin.github.io/school-of-sre/security/writing_secure_code/)
+5. [Conclusion](https://linkedin.github.io/school-of-sre/security/conclusion/)
 
 
 ## Post Training asks/ Further Reading
