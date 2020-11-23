@@ -12,6 +12,7 @@ nav:
         - Introduction: linux_basics/intro.md
         - Command Line Basics: linux_basics/command_line_basics.md
         - Server Administration: linux_basics/linux_server_administration.md
+        - Conclusion: linux_basics/conclusion.md
     - Git:
         - Git Basics: git/git-basics.md
         - Working With Branches: git/branches.md
@@ -33,11 +34,12 @@ nav:
 - Data:
     - Big Data:
         - Introduction: big_data/intro.md
-        - Overview of Big Data: big_data/overview.md
-        - Usage of Big Data techniques: big_data/usage.md
-        - Evolution of Hadoop: big_data/evolution.md
-        - Architecture of Hadoop: big_data/architecture.md
+        - Evolution and Architecure of Hadoop: big_data/evolution.md
         - Tasks and conclusion: big_data/tasks.md
+    - NoSQL Concepts:
+        - Introduction: databases_nosql/intro.md
+        - Key Concepts: databases_nosql/key_concepts.md
+        - References:  databases_nosql/further_reading.md
 - Systems Design:
     - Introduction: systems_design/intro.md
     - Scalability: systems_design/scalability.md
@@ -50,4 +52,5 @@ nav:
     - Network Security: security/network_security.md
     - Threat, Attacks & Defences: security/threats_attacks_defences.md
     - Writing Secure code: security/writing_secure_code.md  
+    - Conclusion: security/conclusion.md
 - Contribute: CONTRIBUTING.md
