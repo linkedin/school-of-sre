@@ -83,7 +83,7 @@ Above tree structure should make things clear. Notice a clear branch/fork on com
 
 ## Merges
 
-Now say the feature you were working on branch `b1` is complete. And you need to merge it on master branch, where all the final version of code goes. So first you will checkout to branch master and then you will pull the latest code from upstream (eg: GitHub). Then you need to merge your code from `b1` into master. And there could be two ways this can be done.
+Now say the feature you were working on branch `b1` is complete and you need to merge it on master branch, where all the final version of code goes. So first you will checkout to branch master and then you pull the latest code from upstream (eg: GitHub). Then you need to merge your code from `b1` into master. There could be two ways this can be done.
 
 Here is the current history:
 
@@ -96,7 +96,7 @@ spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph --all
 * df2fb7a adding file 1
 ```
 
-**Option 1: Directly merge the branch.** Merging the branch b1 into master will result in a new merge commit which will merge changes from two different lines of history and create a new commit of the result.
+**Option 1: Directly merge the branch.** Merging the branch b1 into master will result in a new merge commit. This will merge changes from two different lines of history and create a new commit of the result.
 
 ```bash
 spatel1-mn1:school-of-sre spatel1$ git merge b1
