@@ -686,7 +686,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../big_data/overview/" class="md-nav__link">
+    <a href="../../big_data/overview.md" class="md-nav__link">
       Overview of Big Data
     </a>
   </li>
@@ -698,7 +698,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../big_data/usage/" class="md-nav__link">
+    <a href="../../big_data/usage.md" class="md-nav__link">
       Usage of Big Data techniques
     </a>
   </li>
@@ -722,7 +722,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../big_data/architecture/" class="md-nav__link">
+    <a href="../../big_data/architecture.md" class="md-nav__link">
       Architecture of Hadoop
     </a>
   </li>
@@ -1097,7 +1097,7 @@
 </li>
 </ol>
 <h2 id="what-to-expect-from-this-course">What to expect from this course</h2>
-<p>As an engineer in the field of computer science, having knowledge of version control tools becomes almost a requirement. While there are a lot of version control tools that exist today, Git perhaps is the most used one and this course we will be working with Git. While this course does not start with Git 101 and expects basic knowledge of git as a prerequisite, it will reintroduce the git concepts known by you with details covering what is happening under the hood as you execute various git commands. So that next time you run a git command, you will be able to press enter more confidently!</p>
+<p>As an engineer in the field of computer science, having knowledge of version control tools becomes almost a requirement. While there are a lot of version control tools that exist today like SVN, Mercurial, etc, Git perhaps is the most used one and this course we will be working with Git. While this course does not start with Git 101 and expects basic knowledge of git as a prerequisite, it will reintroduce the git concepts known by you with details covering what is happening under the hood as you execute various git commands. So that next time you run a git command, you will be able to press enter more confidently!</p>
 <h2 id="what-is-not-covered-under-this-course">What is not covered under this course</h2>
 <p>Advanced usage and specifics of internal implementation details of Git.</p>
 <h2 id="course-content">Course Content</h2>
@@ -1109,7 +1109,7 @@
 <li><a href="https://linkedin.github.io/school-of-sre/git/github-hooks/#hooks">Hooks</a></li>
 </ol>
 <h2 id="git-basics">Git Basics</h2>
-<p>Though you might be aware already, let's revisit why we need a version control system. As the project grows and multiple developers start working on it, an efficient method for collaboration is warranted. Git helps the team collaborate easily and also maintains history of the changes happened with the codebase.</p>
+<p>Though you might be aware already, let's revisit why we need a version control system. As the project grows and multiple developers start working on it, an efficient method for collaboration is warranted. Git helps the team collaborate easily and also maintains the history of the changes happening with the codebase.</p>
 <h3 id="creating-a-git-repo">Creating a Git Repo</h3>
 <p>Any folder can be converted into a git repository. After executing the following command, we will see a <code>.git</code> folder within the folder, which makes our folder a git repository. <strong>All the magic that git does, <code>.git</code> folder is the enabler for the same.</strong></p>
 <pre><code class="language-bash"># creating an empty folder and changing current dir to it
@@ -1158,7 +1158,7 @@ spatel1-mn1:school-of-sre spatel1$ git commit -m &quot;adding file 1&quot;
 1 file changed, 1 insertion(+)
 create mode 100644 file1.txt
 </code></pre>
-<p>Notice how after adding the file, git status says <code>Changes to be commited:</code>. What it means is whatever is listed there, will be included in the next commit. Then we go ahead and create a commit, with an attached messaged via <code>-m</code>.</p>
+<p>Notice how after adding the file, git status says <code>Changes to be committed:</code>. What it means is whatever is listed there, will be included in the next commit. Then we go ahead and create a commit, with an attached messaged via <code>-m</code>.</p>
 <h3 id="more-about-a-commit">More About a Commit</h3>
 <p>Commit is a snapshot of the repo. Whenever a commit is made, a snapshot of the current state of repo (the folder) is taken and saved. Each commit has a unique ID. (<code>df2fb7a</code> for the commit we made in the previous step). As we keep adding/changing more and more contents and keep making commits, all those snapshots are stored by git. Again, all this magic happens inside the <code>.git</code> folder. This is where all this snapshot or versions are stored. <em>In an efficient manner.</em></p>
 <h3 id="adding-more-changes">Adding More Changes</h3>

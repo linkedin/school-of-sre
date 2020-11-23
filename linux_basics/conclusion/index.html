@@ -14,7 +14,7 @@
     
     
       
-        <title>Usage of Big Data techniques - SchoolOfSRE</title>
+        <title>Conclusion - SchoolOfSRE</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#usage-of-big-data-techniques" class="md-skip">
+        <a href="#conclusion" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +86,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Usage of Big Data techniques
+              Conclusion
             
           </span>
         </div>
@@ -181,7 +181,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../linux_basics/intro/" class="md-nav__link">
+    <a href="../intro/" class="md-nav__link">
       Introduction
     </a>
   </li>
@@ -193,7 +193,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../linux_basics/command_line_basics/" class="md-nav__link">
+    <a href="../command_line_basics/" class="md-nav__link">
       Command Line Basics
     </a>
   </li>
@@ -205,7 +205,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../linux_basics/linux_server_administration/" class="md-nav__link">
+    <a href="../linux_server_administration/" class="md-nav__link">
       Server Administration
     </a>
   </li>
@@ -480,12 +480,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
     <label class="md-nav__link" for="nav-4">
       Data
       <span class="md-nav__icon md-icon"></span>
@@ -502,12 +500,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" checked>
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" >
     <label class="md-nav__link" for="nav-4-1">
       Big Data
       <span class="md-nav__icon md-icon"></span>
@@ -526,7 +522,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../intro/" class="md-nav__link">
+    <a href="../../big_data/intro/" class="md-nav__link">
       Introduction
     </a>
   </li>
@@ -538,7 +534,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../overview/" class="md-nav__link">
+    <a href="../../big_data/overview.md" class="md-nav__link">
       Overview of Big Data
     </a>
   </li>
@@ -548,20 +544,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../big_data/usage.md" class="md-nav__link">
       Usage of Big Data techniques
     </a>
-    
   </li>
 
         
@@ -571,7 +558,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../evolution/" class="md-nav__link">
+    <a href="../../big_data/evolution/" class="md-nav__link">
       Evolution of Hadoop
     </a>
   </li>
@@ -583,7 +570,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../architecture/" class="md-nav__link">
+    <a href="../../big_data/architecture.md" class="md-nav__link">
       Architecture of Hadoop
     </a>
   </li>
@@ -595,7 +582,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tasks/" class="md-nav__link">
+    <a href="../../big_data/tasks/" class="md-nav__link">
       Tasks and conclusion
     </a>
   </li>
@@ -810,6 +797,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#applications-in-sre-role" class="md-nav__link">
+    Applications in SRE Role
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-courses-and-tutorials" class="md-nav__link">
+    Useful Courses and tutorials
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -821,21 +830,29 @@
               
                 
                 
-                <h1 id="usage-of-big-data-techniques">Usage of Big Data techniques</h1>
+                <h1 id="conclusion">Conclusion</h1>
+<p>With this we have covered the basics of linux operating systems along with basic commands
+which are used in linux. We have also covered the linux server administration commands.</p>
+<p>We hope that this course will make it easier for you to operate on the command line.</p>
+<h2 id="applications-in-sre-role">Applications in SRE Role</h2>
 <ol>
-<li>Take the example of the traffic lights problem.<ol>
-<li>There are more than 300,000 traffic lights in the US as of 2018.</li>
-<li>Let us assume that we placed a device on each of them to collect metrics and send it to a central metrics collection system.</li>
-<li>If each of the IOT devices sends 10 events per minute, we have 300000x10x60x24 = 432x10^7 events per day.</li>
-<li>How would you go about processing that and telling me how many of the signals were “green” at 10:45 am on a particular day?</li>
+<li>As a SRE, you will be required to perform some general tasks on these linux servers. You will also be using the command line when you are troubleshooting issues.</li>
+<li>Moving from one location to another in the filesystem will require the help of ls, pwd and cd commands</li>
+<li>You may need to search some specific information in the log files. Grep command would be very useful here. I/O redirection will become handy if you want to store the output in a file or pass it as an input to another command.</li>
+<li>Tail command is very useful to view the latest data in the log file.</li>
+<li>Different users will have different permissions depending on their roles. We will also not want everyone in the company to access our servers for security reasons. Users permissions can be restricted with chown, chmod and chgrp commands.</li>
+<li>SSH is one of the most frequently used commands for a SRE. Logging into servers and troubleshooting along with performing basic administration tasks will only be possible if we are able to login into the server.</li>
+<li>What if we want to run an apache server or nginx on a server ? We will first install it using the package manager. Package management commands become important here.</li>
+<li>Managing services on servers is another critical responsibility of a SRE. Systemd related commands can help in troubleshooting issues. If a service goes down, we can start it using systemctl start command. We can also stop a service in case it is not needed.</li>
+<li>Monitoring is another core responsibility of a SRE. Memory and CPU are two important system level metrics which should be monitored. Commands like top and free are quite helpful here.</li>
+<li>If a service is throwing an error, how do we find out the root cause of the error ? We will certainly need to check logs to find out the whole stack trace of the error. The log file will also tell us the number of times the error has occurred along with time when it started.</li>
 </ol>
-</li>
-<li>Consider the next example on Unified Payments Interface (UPI) transactions:<ol>
-<li>We had about 1.15 billion UPI transactions in the month of October, 2019 in India.</li>
-<li>If we try to extrapolate this data to about a year and try to find out some common payments that were happening through a particular UPI ID, how do you suggest we go about that?</li>
-</ol>
-</li>
-</ol>
+<h2 id="useful-courses-and-tutorials">Useful Courses and tutorials</h2>
+<ul>
+<li><a href="https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2020/course/">Edx basic linux commands course</a></li>
+<li><a href="https://courses.edx.org/courses/course-v1:RedHat+RH066x+2T2017/course/">Edx Red Hat Enterprise Linux Course</a></li>
+<li><a href="https://linuxcommand.org/lc3_learning_the_shell.php">https://linuxcommand.org/lc3_learning_the_shell.php</a></li>
+</ul>
                 
               
               
@@ -850,41 +867,6 @@
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../overview/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Overview of Big Data
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../evolution/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Evolution of Hadoop
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

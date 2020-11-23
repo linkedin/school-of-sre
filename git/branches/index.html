@@ -576,7 +576,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../big_data/overview/" class="md-nav__link">
+    <a href="../../big_data/overview.md" class="md-nav__link">
       Overview of Big Data
     </a>
   </li>
@@ -588,7 +588,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../big_data/usage/" class="md-nav__link">
+    <a href="../../big_data/usage.md" class="md-nav__link">
       Usage of Big Data techniques
     </a>
   </li>
@@ -612,7 +612,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../big_data/architecture/" class="md-nav__link">
+    <a href="../../big_data/architecture.md" class="md-nav__link">
       Architecture of Hadoop
     </a>
   </li>
@@ -928,7 +928,7 @@ spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 <p>Above tree structure should make things clear. Notice a clear branch/fork on commit 7f3b00e. This is how we create branches. Now they both are two separate lines of history on which feature development can be done independently.</p>
 <p><strong>To reiterate, internally, git is just a tree of commits. Branch names (human readable) are pointers to those commits in the tree. We use various git commands to work with the tree structure and references. Git accordingly modifies contents of our repo.</strong></p>
 <h2 id="merges">Merges</h2>
-<p>Now say the feature you were working on branch <code>b1</code> is complete. And you need to merge it on master branch, where all the final version of code goes. So first you will checkout to branch master and then you will pull the latest code from upstream (eg: GitHub). Then you need to merge your code from <code>b1</code> into master. And there could be two ways this can be done.</p>
+<p>Now say the feature you were working on branch <code>b1</code> is complete and you need to merge it on master branch, where all the final version of code goes. So first you will checkout to branch master and then you pull the latest code from upstream (eg: GitHub). Then you need to merge your code from <code>b1</code> into master. There could be two ways this can be done.</p>
 <p>Here is the current history:</p>
 <pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph --all
 * 60dc441 (HEAD -&gt; master) adding master.txt file
@@ -937,7 +937,7 @@ spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 * 7f3b00e adding file 2
 * df2fb7a adding file 1
 </code></pre>
-<p><strong>Option 1: Directly merge the branch.</strong> Merging the branch b1 into master will result in a new merge commit which will merge changes from two different lines of history and create a new commit of the result.</p>
+<p><strong>Option 1: Directly merge the branch.</strong> Merging the branch b1 into master will result in a new merge commit. This will merge changes from two different lines of history and create a new commit of the result.</p>
 <pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ git merge b1
 Merge made by the 'recursive' strategy.
 b1.txt | 1 +
