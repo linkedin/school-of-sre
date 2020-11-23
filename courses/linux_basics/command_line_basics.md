@@ -1,7 +1,12 @@
 # Command Line Basics
 
-## What is a command ?
+## Lab Environment Setup
 
+One can use an online bash interpreter to run all the commands that are provided as examples in this course. This will also help you in getting a hands-on experience of various linux commands.
+
+[REPL](https://repl.it/languages/bash) is one of the popular online bash interpreters for running linux commands. We will be using it for running all the commands mentioned in this course.
+
+## What is a Command
 
 A command is a program that tells the operating system to perform
 specific work. Programs are stored as files in linux. Therefore, a
@@ -438,22 +443,3 @@ prints the unique numbers from the input.
 
 I/O redirection -
 [https://tldp.org/LDP/abs/html/io-redirection.html](https://tldp.org/LDP/abs/html/io-redirection.html)
-
-## Applications in SRE Role
-
-- As a SRE, you will be required to perform some general tasks on these linux servers. You will also be using the command line when you are troubleshooting issues.
-
-- Moving from one location to another in the filesystem will require the help of ls, pwd and cd commands
-
-- You may need to search some specific information in the log files. Grep command would be very useful here. I/O redirection will become handy if you want to store the output in a file or pass it as an input to another command.
-
-- Tail command is very useful to view the latest data in the log file.
-
-## Useful courses and tutorials
-
-
-- [Edx linuxcourse](https://courses.edx.org/courses/course-v1:LinuxFoundationX+LFS101x+1T2020/course/) -
-   This video course can be very helpful in developing the basics of linux command line. This course is provided
-   in both free and paidmodes by edX. If you take the free course, you will not be able to access the assignments.
-
-- [https://linuxcommand.org/lc3_learning_the_shell.php](https://linuxcommand.org/lc3_learning_the_shell.php)

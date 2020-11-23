@@ -25,7 +25,7 @@ As a server administrator, we are mostly concerned with the linux servers which 
 Since linux supports multiple users, we need to have a method which can protect the users from each other. One user should not be able to access and modify files of other users
 
 
-## User/Group Management in Linux
+## User/Group Management
 
 - Each user in linux has an associated user ID called UID attached to him
 
@@ -35,7 +35,7 @@ Since linux supports multiple users, we need to have a method which can protect 
 
 - Each group has a group ID called GID associated with it.
 
-### id command in linux
+### id command
 
 id command can be used to find the uid and gid associated with an user.
 It also lists down the groups to which the user belongs to.
@@ -166,7 +166,7 @@ We will now try to add user "shivam" to the group we have created above.
 
 ![](images/linux/admin/image33.png)
 
-## Becoming a Superuser in Linux
+## Becoming a Superuser
 
 **Before running the below commands, do make sure that you have set up a
 password for user "shivam" and user "root" using the passwd command
@@ -243,7 +243,7 @@ accessed with the sudo privileges. We have already given sudo privileges
 to user “shivam” by adding him to the group “wheel”.
 
 
-## File Permissions in Linux
+## File Permissions
 
 On a linux operating system, each file and directory is assigned access
 permissions for the owner of the file, the members of a group of related
@@ -263,7 +263,7 @@ related to file permissions.
 
 ![](images/linux/admin/image57.png)
 
-### Chmod command in linux
+### Chmod command
 
 The chmod command is used to modify files and directories permissions in
 linux.
@@ -296,7 +296,7 @@ command.
 Chmod command can be also used to change the permissions of a directory
 in the similar way.
 
-### Chown command in linux
+### Chown command
 
 The chown command is used to change the owner of files or
 directories in linux.
@@ -315,7 +315,7 @@ command.
 Chown command can also be used to change the owner of a directory in the
 similar way.
 
-### Chgrp command in linux
+### Chgrp command
 
 The chgrp command can be used to change the group ownership of files or
 directories in linux. The syntax is very similar to that of chown
@@ -518,7 +518,7 @@ additional information about io and cpu usage.
 
 ![](images/linux/admin/image38.png)
 
-## Checking Disk Space in Linux
+## Checking Disk Space
 
 In this section, we will study about some useful commands that can be
 used to view disk space on linux.
@@ -585,38 +585,3 @@ in linux. These logs can be very useful when you are troubleshooting on
 the system.
 
 ![](images/linux/admin/image58.png)
-
-## Applications in SRE Role
-
-- Different users will have different permissions depending on their
-  roles. We will also not want everyone in the company to access our 
-  servers for security reasons. Users permissions can be restricted 
-  with chown, chmod and chgrp commands.
-
-- SSH is one of the most frequently used commands for a SRE. Logging
-  into servers and troubleshooting along with performing basic
-  administration tasks will only be possible if we are able to login
-  into the server.
-
-- What if we want to run an apache server or nginx on a server ? We
-  will first install it using the package manager. Package
-  management commands become important here.
-
-- Managing services on servers is another critical responsibility of a
-  SRE. Systemd related commands can help in troubleshooting issues.
-  If a service goes down, we can start it using systemctl start
-  command. We can also stop a service in case it is not needed.
-
-- Monitoring is another core responsibility of a SRE. Memory and CPU
-  are two important system level metrics which should be monitored.
-  Commands like top and free are quite helpful here.
-
-- If a service is throwing an error, how do we find out the root cause
-  of the error ? We will certainly need to check logs to find out
-  the whole stack trace of the error. The log file will also tell us
-  the number of times the error has occurred along with time when it
-  started.
-
-## Useful courses and tutorials
-
-- Edx Red Hat Enterprise Linux Course - [https://courses.edx.org/courses/course-v1:RedHat+RH066x+2T2017/course/](https://courses.edx.org/courses/course-v1:RedHat+RH066x+2T2017/course/)
