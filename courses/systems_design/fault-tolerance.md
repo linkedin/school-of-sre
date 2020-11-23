@@ -1,4 +1,4 @@
-## Fault Tolerance
+# Fault Tolerance
 
 Failures are not avoidable in any system and will happen all the time, hence we need to build systems that can tolerate failures or recover from them.
 

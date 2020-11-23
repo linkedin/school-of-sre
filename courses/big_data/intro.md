@@ -1,38 +1,35 @@
-# School of SRE: Big Data
+# Big Data
 
-## Pre - Reads
+## Prerequisites
 
 - Basics of Linux File systems.
 - Basic understanding of System Design.
 
-## Target Audience
-
-The concept of Big Data has been around for years; most organizations now understand that if they capture all the data that streams into their businesses, they can apply analytics and get significant value from it. 
-This training material covers the basics of Big Data(using Hadoop) for beginners, who would like to quickly get started and get their hands dirty in this domain.
-
-## What to expect from this training 
+## What to expect from this course
 
 This course covers the basics of Big Data and how it has evolved to become what it is today. We will take a look at a few realistic scenarios where Big Data would be a perfect fit. An interesting assignment on designing a Big Data system is followed by understanding the architecture of Hadoop and the tooling around it. 
 
-## What is not covered under this training
+## What is not covered under this course
 
 Writing programs to draw analytics from data.
 
-## TOC:
+## Course Content
 
-1. Overview of Big Data
-2. Usage of Big Data techniques
-3. Evolution of Hadoop
-4. Architecture of hadoop
+### Table of Contents
+
+1. [Overview of Big Data](https://linkedin.github.io/school-of-sre/big_data/intro/#overview-of-big-data)
+2. [Usage of Big Data techniques](https://linkedin.github.io/school-of-sre/big_data/intro/#usage-of-big-data-techniques)
+3. [Evolution of Hadoop](https://linkedin.github.io/school-of-sre/big_data/evolution/)
+4. [Architecture of hadoop](https://linkedin.github.io/school-of-sre/big_data/evolution/#architecture-of-hadoop)
     1. HDFS
     2. Yarn
-5. MapReduce framework
-6. Other tooling around hadoop
+5. [MapReduce framework](https://linkedin.github.io/school-of-sre/big_data/evolution/#mapreduce-framework)
+6. [Other tooling around hadoop](https://linkedin.github.io/school-of-sre/big_data/evolution/#other-tooling-around-hadoop)
     1. Hive
     2. Pig
     3. Spark
     4. Presto
-7. Data Serialisation and storage
+7. [Data Serialisation and storage](https://linkedin.github.io/school-of-sre/big_data/evolution/#data-serialisation-and-storage)
 
 
 # Overview of Big Data
@@ -50,7 +47,7 @@ Writing programs to draw analytics from data.
 4. Examples of Big Data generation include stock exchanges, social media sites, jet engines, etc.
 
 
-# Usage of Big Data techniques
+# Usage of Big Data Techniques
 
 1. Take the example of the traffic lights problem.
     1. There are more than 300,000 traffic lights in the US as of 2018.
@@ -60,3 +57,4 @@ Writing programs to draw analytics from data.
 2. Consider the next example on Unified Payments Interface (UPI) transactions:
     1. We had about 1.15 billion UPI transactions in the month of October, 2019 in India.
     12. If we try to extrapolate this data to about a year and try to find out some common payments that were happening through a particular UPI ID, how do you suggest we go about that?
+    

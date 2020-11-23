@@ -1,6 +1,6 @@
-# School Of SRE: Git
+# Git
 
-## Pre - Reads
+## Prerequisites
 
 1. Have Git installed [https://git-scm.com/downloads](https://git-scm.com/downloads)
 2. Have taken any git high level tutorial or following LinkedIn learning courses
@@ -8,26 +8,26 @@
       - [https://www.linkedin.com/learning/git-branches-merges-and-remotes/](https://www.linkedin.com/learning/git-branches-merges-and-remotes/)
       - [The Official Git Docs](https://git-scm.com/doc)
 
-## What to expect from this training
+## What to expect from this course
 
-As an engineer in the field of computer science, having knowledge of version control tools becomes almost a requirement. While there are a lot of version control tools that exist today, Git perhaps is the most used one and this course we will be working with Git. While this course does not start with Git 101 and expects basic knowledge of git as a prerequisite, it will reintroduce the git concepts known by you with details covering what is happening under the hood as you execute various git commands. So that next time you run a git command, you will be able to press enter more confidently!
+As an engineer in the field of computer science, having knowledge of version control tools becomes almost a requirement. While there are a lot of version control tools that exist today like SVN, Mercurial, etc, Git perhaps is the most used one and this course we will be working with Git. While this course does not start with Git 101 and expects basic knowledge of git as a prerequisite, it will reintroduce the git concepts known by you with details covering what is happening under the hood as you execute various git commands. So that next time you run a git command, you will be able to press enter more confidently!
 
-## What is not covered under this training
+## What is not covered under this course
 
 Advanced usage and specifics of internal implementation details of Git.
 
-## Training Content
+## Course Content
 
 ### Table of Contents
 
- 1. Git Basics
- 2. Working with Branches
- 3. Git with Github
- 4. Hooks
+ 1. [Git Basics](https://linkedin.github.io/school-of-sre/git/git-basics/#git-basics)
+ 2. [Working with Branches](https://linkedin.github.io/school-of-sre/git/branches/)
+ 3. [Git with Github](https://linkedin.github.io/school-of-sre/git/github-hooks/#git-with-github)
+ 4. [Hooks](https://linkedin.github.io/school-of-sre/git/github-hooks/#hooks)
 
 ## Git Basics
 
-Though you might be aware already, let's revisit why we need a version control system. As the project grows and multiple developers start working on it, an efficient method for collaboration is warranted. Git helps the team collaborate easily and also maintains history of the changes happened with the codebase.
+Though you might be aware already, let's revisit why we need a version control system. As the project grows and multiple developers start working on it, an efficient method for collaboration is warranted. Git helps the team collaborate easily and also maintains the history of the changes happening with the codebase.
 
 ### Creating a Git Repo
 
@@ -92,7 +92,7 @@ spatel1-mn1:school-of-sre spatel1$ git commit -m "adding file 1"
 create mode 100644 file1.txt
 ```
 
-Notice how after adding the file, git status says `Changes to be commited:`. What it means is whatever is listed there, will be included in the next commit. Then we go ahead and create a commit, with an attached messaged via `-m`.
+Notice how after adding the file, git status says `Changes to be committed:`. What it means is whatever is listed there, will be included in the next commit. Then we go ahead and create a commit, with an attached messaged via `-m`.
 
 ### More About a Commit
 
