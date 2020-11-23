@@ -44,6 +44,10 @@ nav:
     - Availability: systems_design/availability.md
     - Fault Tolerance: systems_design/fault-tolerance.md
     - Conclusion: systems_design/conclusion.md
+- Big Data:
+    - Introduction, Overview and Usage: big_data/intro.md
+    - Evolution and Architecture of Hadoop: big_data/evolution.md
+    - Tasks and conclusion: big_data/tasks.md 
 - Security:
     - Introduction: security/intro.md
     - Fundamentals of Security: security/fundamentals.md
