@@ -3,9 +3,11 @@
 ## Prerequisites
 
 Fundamentals of common software system components:
-- Operating Systems
-- Networking
-- Databases RDBMS/NoSQL
+
+- [Linux Basics](https://linkedin.github.io/school-of-sre/linux_basics/intro/)
+- [Linux Networking](https://linkedin.github.io/school-of-sre/linux_networking/intro/)
+- Databases RDBMS
+- [NoSQL Concepts](https://linkedin.github.io/school-of-sre/databases_nosql/intro/)
 
 ## What to expect from this course
 
@@ -17,9 +19,7 @@ Individual software components’ scalability and reliability concerns like e.g.
 
 More light will be shed on concepts rather than on setting up and configuring components like Loadbalancers to achieve scalability, availability and reliability of systems
 
-## Course Content
-
-### Table of Contents
+## Course Contents
 
 - [Introduction](https://linkedin.github.io/school-of-sre/systems_design/intro/#backstory)
 - [Scalability](https://linkedin.github.io/school-of-sre/systems_design/scalability/)

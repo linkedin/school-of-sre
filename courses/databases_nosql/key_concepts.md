@@ -1,4 +1,4 @@
-## Key Concepts
+# Key Concepts
 
 Lets looks at some of the key concepts when we talk about NoSQL or distributed systems
 

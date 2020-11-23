@@ -16,9 +16,7 @@ As an engineer in the field of computer science, having knowledge of version con
 
 Advanced usage and specifics of internal implementation details of Git.
 
-## Course Content
-
-### Table of Contents
+## Course Contents
 
  1. [Git Basics](https://linkedin.github.io/school-of-sre/git/git-basics/#git-basics)
  2. [Working with Branches](https://linkedin.github.io/school-of-sre/git/branches/)

@@ -60,7 +60,7 @@ Let's take another example, we come up with a new model for our Content sharing 
 - https://learning.oreilly.com/library/view/the-art-of/9780134031408/ch21.html#ch21
 
 
-### SRE Use cases:
+### Applications in SRE role
 1. Work with the DC tech or cloud team to distribute infrastructure such that its immune to switch or power failures by creating fault zones within a Data Center
 https://docs.microsoft.com/en-us/azure/virtual-machines/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures
 2. Work with the partners and design interaction between services such that one service breakdown is not amplified in a cascading fashion to all upstreams

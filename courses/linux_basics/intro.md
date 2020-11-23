@@ -27,7 +27,7 @@ In the second and third part, we will be taking examples to understand the conce
 We are not covering advanced linux commands and bash scripting in this
 course. We will also not be covering linux internals. 
 
-## Course Content
+## Course Contents
 
 The following topics has been covered in this course:
 

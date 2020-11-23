@@ -14,3 +14,12 @@ Some books that would be a great resource
 - How to Investigate Like a Rockstar <https://books2read.com/u/4jDWoZ>- Live a real crisis to master the secrets of forensic analysis, Sparc Flow, 2017
 - Real World Cryptography <https://www.manning.com/books/real-world-cryptography>- This early-access book teaches you applied cryptographic techniques to understand and apply security at every level of your systems and applications.
 - AWS Security <https://www.manning.com/books/aws-security?utm_source=github&utm_medium=organic&utm_campaign=book_shields_aws_1_31_20>- This early-access book covers commong AWS security issues and best practices for access policies, data protection, auditing, continuous monitoring, and incident response.
+
+## Post Training asks/ Further Reading
+
+- CTF Events like : <https://github.com/apsdehal/awesome-ctf>
+- Penetration Testing : <https://github.com/enaqx/awesome-pentest>
+- Threat Intelligence  : <https://github.com/hslatman/awesome-threat-intelligence>
+- Threat Detection & Hunting : <https://github.com/0x4D31/awesome-threat-detection>
+- Web Security: <https://github.com/qazbnm456/awesome-web-security>
+- Building Secure and Reliable Systems : <https://landing.google.com/sre/resources/foundationsandprinciples/srs-book/>

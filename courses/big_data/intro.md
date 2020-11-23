@@ -13,9 +13,7 @@ This course covers the basics of Big Data and how it has evolved to become what 
 
 Writing programs to draw analytics from data.
 
-## Course Content
-
-### Table of Contents
+## Course Contents
 
 1. [Overview of Big Data](https://linkedin.github.io/school-of-sre/big_data/intro/#overview-of-big-data)
 2. [Usage of Big Data techniques](https://linkedin.github.io/school-of-sre/big_data/intro/#usage-of-big-data-techniques)
