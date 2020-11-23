@@ -1,5 +1,7 @@
 # School of SRE
-![School of SRE](img/sos.png | width=100)
+
+<img src="img/sos.png" width=200 >
+
 Early 2019, we started visiting campuses to recruit the brightest minds to ensure LinkedIn and all the services that it is composed of is always available for everyone. This function at Linkedin falls in the purview of the Site Reliability Engineering team and Site Reliability Engineers ( SRE ) who are Software Engineers who specialize in reliability. SREs apply the principles of computer science and engineering to the design and development of computer systems: generally, large distributed ones.  
 
 As we continued on this journey we started getting a lot of questions from these campuses on what exactly site engineering roll entails? and, how could someone learn the skills and the disciplines involved to become a successful site engineer?   Fast forward a few months, and a few of these campus students had joined LinkedIn either as Interns or as full time engineers to become a part of the Site Engineering team, we also had a few lateral hires who joined our organization who were not from a traditional SRE background.  That's when a few of us got together and started to think about how we can on board new new graduate engineers to the site engineering team.
