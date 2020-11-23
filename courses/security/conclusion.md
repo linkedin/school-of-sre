@@ -1,6 +1,6 @@
 # Conclusion
 
-Now that you have completed this course on Security you are now aware of the possible security treats to computer systems & networks. Not only that, but you are now better able to protect your systems as well as recommend security measures to others.
+Now that you have completed this course on Security you are now aware of the possible security threats to computer systems & networks. Not only that, but you are now better able to protect your systems as well as recommend security measures to others.
 
 This course provides fundamental everyday knowledge on security domain which will also help you keep security at the top of your priority.
 
