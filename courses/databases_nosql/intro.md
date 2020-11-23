@@ -1,22 +1,17 @@
-# DATABASES - NoSQL
+# NoSQL Concepts
 
 
-## Target Audience
-
-This Module is meant to be an introduction to NoSQL Databases. We will be touching upon the key concepts and trade offs in a distributed data system.
-
-
-## What to expect from this training
+## What to expect from this course
 
 At the end of training, you will have an understanding of what a NoSQL database is, what kind of advantages or disadvantages it has over traditional RDBMS, learn about different types of NoSQL databases and understand some of the underlying concepts & trade offs w.r.t to NoSQL.
 
 
-## What is not covered under this training
+## What is not covered under this course
 
 We will not be deep diving into any specific NoSQL Database. 
 
 
-## Agenda
+## Table of Contents
 
 
 
