@@ -76,7 +76,7 @@ The combined availability of the system is
 
 **KEY TAKEAWAYS:** Strive for active/active rather than active/passive solutions, they have a lesser risk of cross over being unreliable. Use LB and right load balancing methods to ensure reliable failover. Model and build your data systems to ensure data is correctly handled when crossover happens. Generally DB systems follow active/passive semantics for writes. Masters accept writes and when master goes down, follower is promoted to master(active from being passive) to accept writes. We have to be careful here that the cutover never introduces more than one masters. This problem is called a split brain.
 
-## SRE Use cases
+## Applications in SRE role
 1. SRE works on deciding an acceptable SLA and make sure system is available to achieve the SLA
 2. SRE is involved in architecture design right from building the data center to make sure site is not affected by network switch, hardware, power or software failures
 3. SRE also run mock drills of failures to see how the system behaves in uncharted territory and comes up with a plan to improve availability if there are misses. 

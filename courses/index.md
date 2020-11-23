@@ -17,7 +17,7 @@ In this course we are focusing on building strong foundational skills. The cours
 - [Python and Web](https://linkedin.github.io/school-of-sre/python_web/intro/)
 - Data
     - Relational databases (MySQL)
-    - NoSQL concepts 
+    - [NoSQL concepts](https://linkedin.github.io/school-of-sre/databases_nosql/intro/) 
     - [Big Data](https://linkedin.github.io/school-of-sre/big_data/intro/)
 - [Systems Design](https://linkedin.github.io/school-of-sre/systems_design/intro/)
 - [Security](https://linkedin.github.io/school-of-sre/security/intro/)

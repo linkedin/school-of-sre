@@ -171,7 +171,7 @@ Here the whole data centre is split and replicated and clients are directed to a
 
 
 
-## SRE Use cases
+## Applications in SRE role
 1. SREs in coordination with the network team work on how to map users traffic to a particular site. 
 https://engineering.linkedin.com/blog/2017/05/trafficshift--load-testing-at-scale
 2. SREs work closely with the Dev team to split monoliths to multiple microservices that are easy to run and manage

@@ -11,16 +11,16 @@ At the end of training, you will have an understanding of what a NoSQL database 
 We will not be deep diving into any specific NoSQL Database. 
 
 
-## Table of Contents
+## Course Contents
 
 
 
-*   Introduction to NoSQL
-*   CAP Theorem
-*   Data versioning
-*   Partitioning
-*   Hashing
-*   Quorum
+*   [Introduction to NoSQL](https://linkedin.github.io/school-of-sre/databases_nosql/intro/#introduction)
+*   [CAP Theorem](https://linkedin.github.io/school-of-sre/databases_nosql/key_concepts/#cap-theorem)
+*   [Data versioning](https://linkedin.github.io/school-of-sre/databases_nosql/key_concepts/#versioning-of-data-in-distributed-systems)
+*   [Partitioning](https://linkedin.github.io/school-of-sre/databases_nosql/key_concepts/#partitioning)
+*   [Hashing](https://linkedin.github.io/school-of-sre/databases_nosql/key_concepts/#hashing)
+*   [Quorum](https://linkedin.github.io/school-of-sre/databases_nosql/key_concepts/#quorum)
 
 
 ## Introduction

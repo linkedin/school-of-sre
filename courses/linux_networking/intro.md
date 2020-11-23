@@ -12,13 +12,11 @@ Throughout the course, we cover how an SRE can optimize the system to improve th
 
 This course spends time on the fundamentals. We are not covering concepts like HTTP/2.0, QUIC, TCP congestion control protocols, Anycast, BGP, CDN, Tunnels and Multicast. We expect that this course will provide the relevant basics to understand such concepts
 
-## Course Content
-
-### Birds eye view of the course
+## Birds eye view of the course
 
 The course covers the question “What happens when you open linkedin.com in your browser?” The course follows the flow of TCP/IP stack.More specifically, the course covers topics of Application layer protocols DNS and HTTP, transport layer protocols UDP and TCP, networking layer protocol IP and Data Link Layer protocol 
 
-## Table of Contents
+##  Course Contents
 1. [DNS](https://linkedin.github.io/school-of-sre/linux_networking/dns/)
 2. [UDP](https://linkedin.github.io/school-of-sre/linux_networking/udp/)
 3. [HTTP](https://linkedin.github.io/school-of-sre/linux_networking/http/)

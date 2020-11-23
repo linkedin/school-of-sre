@@ -18,6 +18,7 @@ nav:
         - Git Basics: git/git-basics.md
         - Working With Branches: git/branches.md
         - Github and Hooks: git/github-hooks.md
+        - Conclusion: git/conclusion.md
     - Linux Networking:
         - Introduction: linux_networking/intro.md
         - DNS: linux_networking/dns.md
@@ -33,14 +34,14 @@ nav:
     - The URL Shortening App: python_web/url-shorten-app.md
     - Conclusion: python_web/sre-conclusion.md
 - Data:
-    - Big Data:
-        - Introduction: big_data/intro.md
-        - Evolution and Architecure of Hadoop: big_data/evolution.md
-        - Tasks and conclusion: big_data/tasks.md
     - NoSQL Concepts:
         - Introduction: databases_nosql/intro.md
         - Key Concepts: databases_nosql/key_concepts.md
-        - References:  databases_nosql/further_reading.md
+        - Conclusion:  databases_nosql/further_reading.md
+    - Big Data:
+        - Introduction: big_data/intro.md
+        - Evolution and Architecure of Hadoop: big_data/evolution.md
+        - Conclusion: big_data/tasks.md
 - Systems Design:
     - Introduction: systems_design/intro.md
     - Scalability: systems_design/scalability.md
