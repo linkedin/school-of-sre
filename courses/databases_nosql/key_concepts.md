@@ -32,15 +32,15 @@ NoSQL systems support different levels of eventual consistency models. For examp
 
 
 
-*   Read Your Own Writes Consistency
+*   **Read Your Own Writes Consistency**
 
     A client will see his updates immediately after they are written. The reads can hit nodes other than the one where it was written. However he might not see updates by other clients immediately. 
 
-*   Session Consistency:
+*   **Session Consistency**
 
     A client will see the updates to his data within a session scope. This generally indicates that reads & writes occur on the same server. Other clients using the same nodes will receive the same updates. 
 
-*   Casual Consistency
+*   **Casual Consistency**
 
     A system provides causal consistency if the following condition holds: write operations that are related by potential causality are seen by each process of the system in order. Different processes may observe concurrent writes in different orders 
 
@@ -51,7 +51,7 @@ Eventual consistency is useful if concurrent updates of the same partitions of d
 
 Depending on what consistency model was chosen for the system (or parts of it), determines where the requests are routed, ex: replicas. 
 
-CAP alternatives illustration
+**CAP alternatives illustration**
 
 
 <table>
