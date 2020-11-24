@@ -10,7 +10,7 @@
 ![The Wide Area of security](images/image1.png)
 
 - SREs should be involved in both significant design discussions and actual system changes.
-  - They have quite a big role in System design & hence are quite sometimes the first line of defense.
+  - They have quite a big role in System design & hence are quite sometimes the first line of defence.
   - SRE’s help in preventing bad design & implementations which can affect the overall security of the infrastructure.  
 - Successfully designing, implementing, and maintaining systems requires a commitment to **the full system lifecycle**. This commitment is possible only when security and reliability are central elements in the architecture of systems.
 - Core Pillars of Information Security :
@@ -26,17 +26,17 @@
 
 - Security Principles By OWASP (Open Web Application Security Project)
   - Minimize attack surface area :
-    - Every feature that is added to an application adds a certain amount of risk to the overall application. The aim for secure development is to reduce the overall risk by reducing the attack surface area.
-    - For example, a web application implements online help with a search function. The search function may be vulnerable to SQL injection attacks. If the help feature was limited to authorized users, the attack likelihood is reduced. If the help feature’s search function was gated through centralized data validation routines, the ability to perform SQL injection is dramatically reduced. However, if the help feature was re-written to eliminate the search function (through better user interface, for example), this almost eliminates the attack surface area, even if the help feature was available to the Internet at large.
+    - Every feature that is added to an application adds a certain amount of risk to the overall application. The aim of secure development is to reduce the overall risk by reducing the attack surface area.
+    - For example, a web application implements online help with a search function. The search function may be vulnerable to SQL injection attacks. If the help feature was limited to authorized users, the attack likelihood is reduced. If the help feature’s search function was gated through centralized data validation routines, the ability to perform SQL injection is dramatically reduced. However, if the help feature was re-written to eliminate the search function (through a better user interface, for example), this almost eliminates the attack surface area, even if the help feature was available to the Internet at large.
   - Establish secure defaults:
     - There are many ways to deliver an “out of the box” experience for users. However, by default, the experience should be secure, and it should be up to the user to reduce their security – if they are allowed.
-    - For example, by default, password aging and complexity should be enabled. Users might be allowed to turn these two features off to simplify their use of the application and increase their risk.
-    - Default Passwords of routers, IOT devices should be changed
+    - For example, by default, password ageing and complexity should be enabled. Users might be allowed to turn these two features off to simplify their use of the application and increase their risk.
+    - Default Passwords of routers, IoT devices should be changed
   - Principle of Least privilege
     - The principle of least privilege recommends that accounts have the least amount of privilege required to perform their business processes. This encompasses user rights, resource permissions such as CPU limits, memory, network, and file system permissions.
     - For example, if a middleware server only requires access to the network, read access to a database table, and the ability to write to a log, this describes all the permissions that should be granted. Under no circumstances should the middleware be granted administrative privileges.
   - Principle of Defense in depth
-    - The principle of defense in depth suggests that where one control would be reasonable, more controls that approach risks in different fashions are better. Controls, when used in-depth, can make severe vulnerabilities extraordinarily difficult to exploit and thus unlikely to occur.
+    - The principle of defence in depth suggests that where one control would be reasonable, more controls that approach risks in different fashions are better. Controls, when used in depth, can make severe vulnerabilities extraordinarily difficult to exploit and thus unlikely to occur.
     - With secure coding, this may take the form of tier-based validation, centralized auditing controls, and requiring users to be logged on all pages.
     - For example, a flawed administrative interface is unlikely to be vulnerable to an anonymous attack if it correctly gates access to production management networks, checks for administrative user authorization, and logs all access.
   - Fail securely
@@ -58,26 +58,26 @@
 
   - Don’t trust services
     - Many organizations utilize the processing capabilities of third-party partners, who more than likely have different security policies and posture than you. It is unlikely that you can influence or control any external third party, whether they are home users or major suppliers or partners.
-    - Therefore, the implicit trust of externally run systems is not warranted. All external systems should be treated in a similar fashion.
-    - For example, a loyalty program provider provides data that is used by Internet Banking, providing the number of reward points and a small list of potential redemption items. However, the data should be checked to ensure that it is safe to display to end-users, and that the reward points are a positive number, and not improbably large.
+    - Therefore, the implicit trust of externally run systems is not warranted. All external systems should be treated similarly.
+    - For example, a loyalty program provider provides data that is used by Internet Banking, providing the number of reward points and a small list of potential redemption items. However, the data should be checked to ensure that it is safe to display to end-users and that the reward points are a positive number, and not improbably large.
   - Separation of duties
     - The key to fraud control is the separation of duties. For example, someone who requests a computer cannot also sign for it, nor should they directly receive the computer. This prevents the user from requesting many computers and claiming they never arrived.
     - Certain roles have different levels of trust than normal users. In particular, administrators are different from normal users. In general, administrators should not be users of the application.
     - For example, an administrator should be able to turn the system on or off, set password policy but shouldn’t be able to log on to the storefront as a super privileged user, such as being able to “buy” goods on behalf of other users.
   - Avoid security by obscurity
     - Security through obscurity is a weak security control, and nearly always fails when it is the only control. This is not to say that keeping secrets is a bad idea, it simply means that the security of systems should not be reliant upon keeping details hidden.
-    - For example, the security of an application should not rely upon knowledge of the source code being kept secret. The security should rely upon many other factors, including reasonable password policies, defense in depth, business transaction limits, solid network architecture, and fraud, and audit controls.
+    - For example, the security of an application should not rely upon knowledge of the source code being kept secret. The security should rely upon many other factors, including reasonable password policies, defence in depth, business transaction limits, solid network architecture, and fraud, and audit controls.
     - A practical example is Linux. Linux’s source code is widely available, and yet when properly secured, Linux is a secure and robust operating system.
   - Keep security simple
     - Attack surface area and simplicity go hand in hand. Certain software engineering practices prefer overly complex approaches to what would otherwise be a relatively straightforward and simple design.
     - Developers should avoid the use of double negatives and complex architectures when a simpler approach would be faster and simpler.
     - For example, although it might be fashionable to have a slew of singleton entity beans running on a separate middleware server, it is more secure and faster to simply use global variables with an appropriate mutex mechanism to protect against race conditions.
   - Fix security issues correctly
-    - Once a security issue has been identified, it is important to develop a test for it and to understand the root cause of the issue. When design patterns are used, it is likely that the security issue is widespread amongst all codebases, so developing the right fix without introducing regressions is essential.
+    - Once a security issue has been identified, it is important to develop a test for it and to understand the root cause of the issue. When design patterns are used, the security issue is likely widespread amongst all codebases, so developing the right fix without introducing regressions is essential.
     - For example, a user has found that they can see another user’s balance by adjusting their cookie. The fix seems to be relatively straightforward, but as the cookie handling code is shared among all applications, a change to just one application will trickle through to all other applications. The fix must, therefore, be tested on all affected applications.
   - Reliability & Security
-    - Reliability and security are both crucial components of a truly trustworthy system,but building systems that are both reliable and secure is difficult. While the requirements for reliability and security share many common properties, they also require different design considerations. It is easy to miss the subtle interplay between reliability and security that can cause unexpected outcomes
-    - Ex: A password management application failure was triggered by a reliability problem i.e poor load-balancing and load-shedding strategies and its recovery was later complicated by multiple measures (HSM mechanism which needs to be plugged into server racks , which works as an authentication & the HSM token supposedly locked inside a case.. & the problem can be further elongated ) designed to increase the security of the system.
+    - Reliability and security are both crucial components of a truly trustworthy system, but building systems that are both reliable and secure is difficult. While the requirements for reliability and security share many common properties, they also require different design considerations. It is easy to miss the subtle interplay between reliability and security that can cause unexpected outcomes
+    - Ex: A password management application failure was triggered by a reliability problem i.e poor load-balancing and load-shedding strategies and its recovery were later complicated by multiple measures (HSM mechanism which needs to be plugged into server racks, which works as an authentication & the HSM token supposedly locked inside a case.. & the problem can be further elongated ) designed to increase the security of the system.
 
 ---
 
@@ -111,7 +111,7 @@
 
 ### Ciphers
 
-- Ciphers are the cornerstone of cryptography. A cipher is a set of algorithms that performs encryption or decryption on a message. An encryption algorithm (E) takes a secret key (k) and a message (m), and produces a ciphertext (c). Similarly, a Decryption algorithm (D) takes a secret key (K) and the previous resulting Ciphertext (C). They are represented as follows:
+- Ciphers are the cornerstone of cryptography. A cipher is a set of algorithms that performs encryption or decryption on a message. An encryption algorithm (E) takes a secret key (k) and a message (m) and produces a ciphertext (c). Similarly, a Decryption algorithm (D) takes a secret key (K) and the previous resulting Ciphertext (C). They are represented as follows:
 
 ```
 
@@ -120,7 +120,7 @@ D(k,c) = m
 
 ```
 
-- This also means that in order for it to be a cipher, it must satisfy the consistency equation as follows, making it possible to decrypt.
+- This also means that for it to be a cipher, it must satisfy the consistency equation as follows, making it possible to decrypt.
 
 ```
 
@@ -130,7 +130,7 @@ D(k,E(k,m)) = m
 Stream Ciphers:
 
 - The message is broken into characters or bits and enciphered with a key or keystream(should be random and generated independently of the message stream) that is as long as the plaintext bitstream.
-- sIf the keystream is random, this scheme would be unbreakable unless the keystream was acquired, making it unconditionally secure. The keystream must be provided to both parties in a secure way to prevent its release.
+- If the keystream is random, this scheme would be unbreakable unless the keystream was acquired, making it unconditionally secure. The keystream must be provided to both parties in a secure way to prevent its release.
 
 Block Ciphers:
 
@@ -182,15 +182,15 @@ Asymmetric Key Algorithm
 Diffie-Hellman
 
 - The protocol has two system parameters, p and g. They are both public and may be used by everybody. Parameter p is a prime number, and parameter g (usually called a generator) is an integer that is smaller than p, but with the following property: For every number n between 1 and p – 1 inclusive, there is a power k of g such that n = gk mod p.
-- Diffie Hellman algorithm is an asymmetric algorithm used to establish a shared secret for a symmetric key algorithm. Nowadays most of the people use hybrid cryptosystem i.e, combination of symmetric and asymmetric encryption. Asymmetric Encryption is used as a technique in key exchange mechanism to share secret key and after the key is shared between sender and receiver, the communication will take place using symmetric encryption. The shared secret key will be used to encrypt the communication.
+- Diffie Hellman algorithm is an asymmetric algorithm used to establish a shared secret for a symmetric key algorithm. Nowadays most of the people use hybrid cryptosystem i.e, a combination of symmetric and asymmetric encryption. Asymmetric Encryption is used as a technique in key exchange mechanism to share a secret key and after the key is shared between sender and receiver, the communication will take place using symmetric encryption. The shared secret key will be used to encrypt the communication.
 - Refer: <https://medium.com/@akhigbemmanuel/what-is-the-diffie-hellman-key-exchange-algorithm-84d60025a30d>
 
 RSA
 
 - The RSA algorithm is very flexible and has a variable key length where, if necessary, speed can be traded for the level of security of the algorithm. The RSA keys are usually 512 to 2048 bits long. RSA has withstood years of extensive cryptanalysis. Although those years neither proved nor disproved RSA's security, they attest to a confidence level in the algorithm. RSA security is based on the difficulty of factoring very large numbers. If an easy method of factoring these large numbers were discovered, the effectiveness of RSA would be destroyed.
-- Refer : <https://medium.com/curiositypapers/a-complete-explanation-of-rsa-asymmetric-encryption-742c5971e0f>
+- Refer: <https://medium.com/curiositypapers/a-complete-explanation-of-rsa-asymmetric-encryption-742c5971e0f>
 
-    **NOTE** : RSA Keys can be used for key exchange just like Deffie Hellman
+    **NOTE**: RSA Keys can be used for key exchange just like Diffie Hellman
 
 Hashing Algorithms
 
@@ -220,10 +220,10 @@ Digital Certificates
 
 - Key management is often considered the most difficult task in designing and implementing cryptographic systems. Businesses can simplify some of the deployment and management issues that are encountered with secured data communications by employing a Public Key Infrastructure (PKI). Because corporations often move security-sensitive communications across the Internet, an effective mechanism must be implemented to protect sensitive information from the threats presented on the Internet.
 
-- PKI provides a hierarchical framework for managing digital security attributes. Each PKI participant holds a digital certificate that has been issued by a CA (either public or private). The certificate contains a number of attributes that are used when parties negotiate a secure connection. These attributes must include the certificate validity period, end-host identity information, encryption keys that will be used for secure communications, and the signature of the issuing CA. Optional attributes may be included, depending on the requirements and capability of the PKI.
+- PKI provides a hierarchical framework for managing digital security attributes. Each PKI participant holds a digital certificate that has been issued by a CA (either public or private). The certificate contains several attributes that are used when parties negotiate a secure connection. These attributes must include the certificate validity period, end-host identity information, encryption keys that will be used for secure communications, and the signature of the issuing CA. Optional attributes may be included, depending on the requirements and capability of the PKI.
 - A CA can be a trusted third party, such as VeriSign or Entrust, or a private (in-house) CA that you establish within your organization.
 - The fact that the message could be decrypted using the sender's public key means that the holder of the private key created the message. This process relies on the receiver having a copy of the sender's public key and knowing with a high degree of certainty that it really does belong to the sender and not to someone pretending to be the sender.
-- To validate the CA's signature, the receiver must know the CA's public key. Normally, this is handled out-of-band or through an operation performed during installation of the certificate. For instance, most web browsers are configured with the root certificates of several CAs by default.
+- To validate the CA's signature, the receiver must know the CA's public key. Normally, this is handled out-of-band or through an operation performed during the installation of the certificate. For instance, most web browsers are configured with the root certificates of several CAs by default.
 
 CA Enrollment process
 
@@ -257,21 +257,21 @@ The major features and guarantees of the SSH protocol are:
 - Integrity of communications, guaranteeing they haven’t been altered
 - Authentication, i.e., proof of identity of senders and receivers
 - Authorization, i.e., access control to accounts
-- Forwarding or tunneling to encrypt other TCP/IP-based sessions
+- Forwarding or tunnelling to encrypt other TCP/IP-based sessions
 
 ### Kerberos
 
 - According to Greek mythology Kerberos (Cerberus) was the gigantic, three-headed dog that guards the gates of the underworld to prevent the dead from leaving.
-- So when it comes to Computer Science, Kerberos is a network authentication protocol, and is currently the default authentication technology used by Microsoft Active Directory to authenticate users to services within a local area network.
+- So when it comes to Computer Science, Kerberos is a network authentication protocol and is currently the default authentication technology used by Microsoft Active Directory to authenticate users to services within a local area network.
 
-- Kerberos uses symmetric key cryptography and requires trusted third-party authentication service to verify user identities. So they used the name of Kerberos for their computer network authentication protocol as the three heads of the Kerberos represent:
-  - a client : A user/ a service
-  - a server : Kerberos protected hosts reside
+- Kerberos uses symmetric-key cryptography and requires a trusted third-party authentication service to verify user identities. So they used the name of Kerberos for their computer network authentication protocol as the three heads of the Kerberos represent:
+  - a client: A user/ a service
+  - a server: Kerberos protected hosts reside
 
     ![image10](images/image10.png)
   - a Key Distribution Center (KDC), which acts as the trusted third-party authentication service.
 
-The KDC includes following two servers:
+The KDC includes the following two servers:
 
 - Authentication Server (AS) that performs the initial authentication and issues ticket-granting tickets (TGT) for users.
 - Ticket-Granting Server (TGS) that issues service tickets that are based on the initial ticket-granting tickets (TGT).
@@ -303,7 +303,7 @@ Certificate chain
 
 - The issuer line indicates it’s issued by Google Internet Authority G2, which also happens to be the subject of the second certificate, number 1
 - What the OpenSSL command line doesn’t show here is the trust store that contains the list of CA certificates trusted by the system OpenSSL runs on.
-- The public certificate of GlobalSign Authority must be present in the system’s trust store to close the verification chain. This is called a chain of trust, and figure below summarizes its behavior at a high level.
+- The public certificate of GlobalSign Authority must be present in the system’s trust store to close the verification chain. This is called a chain of trust, and the figure below summarizes its behaviour at a high level.
 
     ![image122](images/image122.png)
 
@@ -313,7 +313,7 @@ Certificate chain
 
 1. The client sends a HELLO message to the server with a list of protocols and algorithms it supports.
 2. The server says HELLO back and sends its chain of certificates. Based on the capabilities of the client, the server picks a cipher suite.
-3. If the cipher suite supports ephemeral key exchange, like ECDHE does(ECDHE is an algorithm known as the Elliptic Curve Diffie-Hellman Exchange), the server and the client negotiate a pre master key with the Diffie-Hellman algorithm. The pre master key is never sent over the wire.
+3. If the cipher suite supports ephemeral key exchange, like ECDHE does(ECDHE is an algorithm known as the Elliptic Curve Diffie-Hellman Exchange), the server and the client negotiate a pre-master key with the Diffie-Hellman algorithm. The pre-master key is never sent over the wire.
 4. The client and server create a session key that will be used to encrypt the data transiting through the connection.
 
 At the end of the handshake, both parties possess a secret session key used to encrypt data for the rest of the connection. This is what OpenSSL refers to as Master-Key
@@ -322,12 +322,12 @@ At the end of the handshake, both parties possess a secret session key used to e
 
 - There are 3 versions of TLS , TLS 1.0, 1.1 & 1.2
 - TLS 1.0 was released in 1999, making it a nearly two-decade-old protocol. It has been known to be vulnerable to attacks—such as BEAST and POODLE—for years, in addition to supporting weak cryptography, which doesn’t keep modern-day connections sufficiently secure.
-- TLS 1.1 is the forgotten “middle child.” It also has bad cryptography like its younger sibling. In most software it was leapfrogged by TLS 1.2 and it’s rare to see TLS 1.1 used.
+- TLS 1.1 is the forgotten “middle child.” It also has bad cryptography like its younger sibling. In most software, it was leapfrogged by TLS 1.2 and it’s rare to see TLS 1.1 used.
 
 ### “Perfect” Forward Secrecy
 
 - The term “ephemeral” in the key exchange provides an important security feature mis-named perfect forward secrecy (PFS) or just “Forward Secrecy”.
-- In a non-ephemeral key exchange, the client sends the pre-master key to the server by encrypting it with the server’s public key. The server then decrypts the pre-master key with its private key. If, at a later point in time, the private key of the server is compromised, an attacker can go back to this handshake, decrypt the pre-master key, obtain the session key, and decrypt the entire traffic. Non-ephemeral key exchanges are vulnerable to attacks that may happen in the future on recorded traffic. And because people seldom change their password, decrypting data from the past may still be valuable for an attacker.
+- In a non-ephemeral key exchange, the client sends the pre-master key to the server by encrypting it with the server’s public key. The server then decrypts the pre-master key with its private key. If at a later point in time, the private key of the server is compromised, an attacker can go back to this handshake, decrypt the pre-master key, obtain the session key, and decrypt the entire traffic. Non-ephemeral key exchanges are vulnerable to attacks that may happen in the future on recorded traffic. And because people seldom change their password, decrypting data from the past may still be valuable for an attacker.
 - An ephemeral key exchange like DHE, or its variant on elliptic curve, ECDHE, solves this problem by not transmitting the pre-master key over the wire. Instead, the pre-master key is computed by both the client and the server in isolation, using nonsensitive information exchanged publicly. Because the pre-master key can’t be decrypted later by an attacker, the session key is safe from future attacks: hence, the term perfect forward secrecy.
 - Keys are changed every X blocks along the stream. That prevents an attacker from simply sniffing the stream and applying brute force to crack the whole thing. "Forward secrecy" means that just because I can decrypt block M, does not mean that I can decrypt block Q
 - Downside:

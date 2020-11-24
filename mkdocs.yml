@@ -39,7 +39,7 @@ nav:
         - Conclusion:  databases_nosql/further_reading.md
     - Big Data:
         - Introduction: big_data/intro.md
-        - Evolution and Architecure of Hadoop: big_data/evolution.md
+        - Evolution and Architecture of Hadoop: big_data/evolution.md
         - Conclusion: big_data/tasks.md
 - Systems Design:
     - Introduction: systems_design/intro.md
