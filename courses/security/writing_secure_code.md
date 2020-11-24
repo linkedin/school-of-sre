@@ -17,7 +17,7 @@ The first and most important step in reducing security and reliability issues is
 
  Try to keep your code clean and simple.
 
-### Avoid Multi Level Nesting
+### Avoid Multi-Level Nesting
 
 - Multilevel nesting is a common anti-pattern that can lead to simple mistakes. If the error is in the most common code path, it will likely be captured by the unit tests. However, unit tests don’t always check error handling paths in multilevel nested code. The error might result in decreased reliability (for example, if the service crashes when it mishandles an error) or a security vulnerability (like a mishandled authorization check error).
 
@@ -42,7 +42,7 @@ The first and most important step in reducing security and reliability issues is
 
 ### Fuzz Testing
 
-- Fuzz testing is a technique that complements the previously mentioned testing techniques. Fuzzing involves using a fuzz engine to generate a large number of candidate inputs that are then passed through a fuzz driver to the fuzz target. The fuzzer then analyzes how the system handles the input. Complex inputs handled by all kinds of software are popular targets for fuzzing - for example file parsers, compression algo, network protocol implementation and audio codec.
+- Fuzz testing is a technique that complements the previously mentioned testing techniques. Fuzzing involves using a fuzzing engine to generate a large number of candidate inputs that are then passed through a fuzz driver to the fuzz target. The fuzzer then analyzes how the system handles the input. Complex inputs handled by all kinds of software are popular targets for fuzzing - for example, file parsers, compression algorithms, network protocol implementation and audio codec.
 
 ### Integration Testing
 
