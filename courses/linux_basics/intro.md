@@ -1,6 +1,7 @@
-# Introduction
+# Linux Basics
 
-## Prerequisites
+## Introduction
+### Prerequisites
 
 - Comfortable using any operating systems like Windows, Linux or Mac
 - Fundamental knowledge of operating systems
