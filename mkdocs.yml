@@ -4,7 +4,7 @@ theme:
   name: material
   logo: img/sos.png
   favicon: img/favicon.ico
-plugins: []
+  custom_dir: overrides
 nav:
 - Home: index.md
 - Fundamentals Series:
@@ -12,10 +12,12 @@ nav:
         - Introduction: linux_basics/intro.md
         - Command Line Basics: linux_basics/command_line_basics.md
         - Server Administration: linux_basics/linux_server_administration.md
+        - Conclusion: linux_basics/conclusion.md
     - Git:
         - Git Basics: git/git-basics.md
         - Working With Branches: git/branches.md
         - Github and Hooks: git/github-hooks.md
+        - Conclusion: git/conclusion.md
     - Linux Networking:
         - Introduction: linux_networking/intro.md
         - DNS: linux_networking/dns.md
@@ -31,13 +33,14 @@ nav:
     - The URL Shortening App: python_web/url-shorten-app.md
     - Conclusion: python_web/sre-conclusion.md
 - Data:
+    - NoSQL Concepts:
+        - Introduction: databases_nosql/intro.md
+        - Key Concepts: databases_nosql/key_concepts.md
+        - Conclusion:  databases_nosql/further_reading.md
     - Big Data:
         - Introduction: big_data/intro.md
-        - Overview of Big Data: big_data/overview.md
-        - Usage of Big Data techniques: big_data/usage.md
-        - Evolution of Hadoop: big_data/evolution.md
-        - Architecture of Hadoop: big_data/architecture.md
-        - Tasks and conclusion: big_data/tasks.md
+        - Evolution and Architecure of Hadoop: big_data/evolution.md
+        - Conclusion: big_data/tasks.md
 - Systems Design:
     - Introduction: systems_design/intro.md
     - Scalability: systems_design/scalability.md
@@ -50,4 +53,5 @@ nav:
     - Network Security: security/network_security.md
     - Threat, Attacks & Defences: security/threats_attacks_defences.md
     - Writing Secure code: security/writing_secure_code.md  
+    - Conclusion: security/conclusion.md
 - Contribute: CONTRIBUTING.md

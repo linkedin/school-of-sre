@@ -17,13 +17,11 @@ And to introduce SRE flavour to the course, we will design, develop and deploy (
 
 Extensive knowledge of python internals and advanced python.
 
-## Course Content
-
-### Lab Environment Setup
+## Lab Environment Setup
 
 Have latest version of python installed
 
-### Table of Contents
+## Course Contents
 
 1. [The Python Language](https://linkedin.github.io/school-of-sre/python_web/intro/#the-python-language)
       1. Some Python Concepts

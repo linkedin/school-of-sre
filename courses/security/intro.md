@@ -2,9 +2,9 @@
 
 ## Prerequisites
 
-1. Basics of Linux fundamentals & command line usage
+1. [Linux Basics](https://linkedin.github.io/school-of-sre/linux_basics/intro/)
 
-2. Networking Module
+2. [Linux Networking](https://linkedin.github.io/school-of-sre/linux_networking/intro/)
 
 
 ## What to expect from this course
@@ -17,21 +17,10 @@ The course covers fundamentals of information security along with touching on su
 The courseware is not an ethical hacking workshop or a very deep dive into the fundamentals of the problems. The course does not deal with hacking or breaking into systems but rather an approach on how to ensure you don’t get into those situations and also to make you aware of different ways a system can be compromised.
 
 
-## Course Content
-
-### Table of Contents
+## Course Contents
 
 1. [Fundamentals](https://linkedin.github.io/school-of-sre/security/fundamentals/)
 2. [Network Security](https://linkedin.github.io/school-of-sre/security/network_security/)
 3. [Threats, Attacks & Defence](https://linkedin.github.io/school-of-sre/security/threats_attacks_defences/)
 4. [Writing Secure Code & More](https://linkedin.github.io/school-of-sre/security/writing_secure_code/)
-
-
-## Post Training asks/ Further Reading
-
-- CTF Events like : <https://github.com/apsdehal/awesome-ctf>
-- Penetration Testing : <https://github.com/enaqx/awesome-pentest>
-- Threat Intelligence  : <https://github.com/hslatman/awesome-threat-intelligence>
-- Threat Detection & Hunting : <https://github.com/0x4D31/awesome-threat-detection>
-- Web Security: <https://github.com/qazbnm456/awesome-web-security>
-- Building Secure and Reliable Systems : <https://landing.google.com/sre/resources/foundationsandprinciples/srs-book/>
+5. [Conclusion](https://linkedin.github.io/school-of-sre/security/conclusion/)

@@ -25,7 +25,7 @@ Now let's think in terms of the given url shortening app. We need to monitor it.
 3. We also want to keep an eye on the database so depending on the database solution chosen. Query times, volumes, disk usage etc.
 4. Finally, there also needs to be some external monitoring which runs periodic tests from devices outside of your data centers. This emulates customers and ensures that from customer point of view, the system is working as expected.
 
-## SRE Use-cases
+## Applications in SRE role
 
 In the world of SRE, python is a widely used language. For small scripts and tooling developed for various purposes. Since tooling developed by SRE works with critical pieces of infrastructure and has great power (to bring things down), it is important to know what you are doing while using a programming language and its features. Also it is equally important to know the language and its characteristics while debugging the issues. As an SRE having a deeper understanding of python language, it has helped me a lot to debug very sneaky bugs and be generally more aware and informed while making certain design decisions.
 
