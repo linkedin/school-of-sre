@@ -5,6 +5,8 @@ theme:
   logo: img/sos.png
   favicon: img/favicon.ico
   custom_dir: overrides
+extra_css:
+    - stylesheets/custom.css
 nav:
 - Home: index.md
 - Fundamentals Series:
