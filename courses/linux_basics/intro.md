@@ -1,6 +1,7 @@
-# Introduction
+# Linux Basics
 
-## Prerequisites
+## Introduction
+### Prerequisites
 
 - Experience of working on any operating systems like Windows, Linux or Mac
 - Basics of operating system
