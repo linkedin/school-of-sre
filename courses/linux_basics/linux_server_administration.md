@@ -3,7 +3,7 @@
 In this course will try to cover some of the common tasks that a linux
 server administrator performs. We will first try to understand what a
 particular command does and then try to understand the commands using
-examples. Do keep in mind that it's very important to practice the linux
+examples. Do keep in mind that it's very important to practice the Linux
 commands on your own.
 
 ## Lab Environment Setup
@@ -14,20 +14,20 @@ commands on your own.
 
   ![](images/linux/admin/image19.png)
 
-- We will run most of the commands used in this module in the above docker container.
+- We will run most of the commands used in this module in the above Docker container.
 
 ## Multi-User Operating Systems
 
-An operating system is considered as multi-user if it allows multiple people/users to use a computer and not affect each other files and preferences. Linux based operating systems are multi-user in nature as it allows multiple users to access the system at the same time. A typical computer will only have one keyboard and monitor but multiple users can log in via ssh if the computer is connected to the network. We will cover more about ssh later.
+An operating system is considered as multi-user if it allows multiple people/users to use a computer and not affect each other's files and preferences. Linux based operating systems are multi-user in nature as it allows multiple users to access the system at the same time. A typical computer will only have one keyboard and monitor but multiple users can log in via SSH if the computer is connected to the network. We will cover more about SSH later.
 
-As a server administrator, we are mostly concerned with the linux servers which are physically present at a very large distance from us. We can connect to these servers with the help of remote login methods like ssh.
+As a server administrator, we are mostly concerned with the Linux servers which are physically present at a very large distance from us. We can connect to these servers with the help of remote login methods like SSH.
 
-Since linux supports multiple users, we need to have a method which can protect the users from each other. One user should not be able to access and modify files of other users
+Since Linux supports multiple users, we need to have a method which can protect the users from each other. One user should not be able to access and modify files of other users
 
 
 ## User/Group Management
 
-- Each user in linux has an associated user ID called UID attached to him
+- Each user in Linux has an associated user ID called UID attached to him
 
 - Each user also has a home directory and a login shell associated with him/her
 
@@ -37,13 +37,13 @@ Since linux supports multiple users, we need to have a method which can protect 
 
 ### id command
 
-id command can be used to find the uid and gid associated with an user.
+`id` command can be used to find the uid and gid associated with an user.
 It also lists down the groups to which the user belongs to.
 
 The uid and gid associated with the root user is 0.
 ![](images/linux/admin/image30.png)
 
-A good way to find out the current user in linux is to use the whoami
+A good way to find out the current user in Linux is to use the whoami
 command.
 
 ![](images/linux/admin/image35.png)
@@ -74,19 +74,19 @@ through below links:
 ## Important commands for managing users
 
 Some of the commands which are used frequently to manage users/groups
-on linux are following:
+on Linux are following:
 
-- useradd - Creates a new user
+- `useradd` - Creates a new user
 
-- passwd - Adds or modifies passwords for a user
+- `passwd` - Adds or modifies passwords for a user
 
-- usermod - Modifies attributes of an user
+- `usermod` - Modifies attributes of an user
 
-- userdel - Deletes an user
+- `userdel` - Deletes an user
 
 ### useradd
 
-The useradd command adds a new user in linux.
+The useradd command adds a new user in Linux.
 
 We will create a new user 'shivam'. We will also verify that the user
 has been created by tailing the /etc/passwd file. The uid and gid are
@@ -141,7 +141,7 @@ Try 'usermod -h' for a list of attributes you can modify.
 
 ### userdel
 
-The userdel command is used to remove a user on linux. Once we remove a
+The userdel command is used to remove a user on Linux. Once we remove a
 user, all the information related to that user will be removed.
 
 Let's try to delete the user "amit". After deleting the user, you will
@@ -172,7 +172,7 @@ We will now try to add user "shivam" to the group we have created above.
 password for user "shivam" and user "root" using the passwd command
 described in the above section.**
 
-The su command can be used to switch users in linux. Let's now try to
+The su command can be used to switch users in Linux. Let's now try to
 switch to user "shivam".
 
 ![](images/linux/admin/image37.png)
@@ -182,7 +182,7 @@ Let's now try to open the "/etc/shadow" file.
 ![](images/linux/admin/image29.png)
 
 The operating system didn't allow the user "shivam" to read the content
-of the "/etc/shadow" file. This is an important file in linux which
+of the "/etc/shadow" file. This is an important file in Linux which
 stores the passwords of users. This file can only be accessed by root or
 users who have the superuser privileges.
 
@@ -224,7 +224,7 @@ commands from anywhere.
 
 One easy way of providing root access to users is to add them to a group
 which has permissions to run all the commands. "wheel" is a group in
-redhat linux with such privileges.
+redhat Linux with such privileges.
 
 ![](images/linux/admin/image25.png)
 
@@ -245,7 +245,7 @@ to user “shivam” by adding him to the group “wheel”.
 
 ## File Permissions
 
-On a linux operating system, each file and directory is assigned access
+On a Linux operating system, each file and directory is assigned access
 permissions for the owner of the file, the members of a group of related
 users and everybody else. This is to make sure that one user is not
 allowed to access the files and resources of another user.
@@ -266,7 +266,7 @@ related to file permissions.
 ### Chmod command
 
 The chmod command is used to modify files and directories permissions in
-linux.
+Linux.
 
 The chmod command accepts permissions in as a numerical argument. We can
 think of permission as a series of bits with 1 representing True or
@@ -299,7 +299,7 @@ in the similar way.
 ### Chown command
 
 The chown command is used to change the owner of files or
-directories in linux.
+directories in Linux.
 
 Command syntax: chown \<new_owner\> \<file_name\>
 
@@ -318,7 +318,7 @@ similar way.
 ### Chgrp command
 
 The chgrp command can be used to change the group ownership of files or
-directories in linux. The syntax is very similar to that of chown
+directories in Linux. The syntax is very similar to that of chown
 command.
 
 ![](images/linux/admin/image27.png)
@@ -412,7 +412,7 @@ General syntax: scp \<source\> \<destination\>
 ## Package Management
 
 Package management is the process of installing and managing software on
-the system. We can install the packages which we require from the linux
+the system. We can install the packages which we require from the Linux
 package distributor. Different distributors use different packaging
 systems.
   
@@ -433,7 +433,7 @@ systems.
 [DNF](https://docs.fedoraproject.org/en-US/quick-docs/dnf/) is
 the successor to YUM which is now used in Fedora for installing and
 managing packages. DNF may replace YUM in the future on all RPM based
-linux distributions.
+Linux distributions.
 
 ![](images/linux/admin/image20.png)
 
@@ -450,7 +450,7 @@ httpd package.
 ## Process Management
 
 In this section, we will study about some useful commands that can be
-used to monitor the processes on linux systems.
+used to monitor the processes on Linux systems.
 
 ### ps (process status)
 
@@ -482,7 +482,7 @@ processes.
 
 ### top
 
-The top command is used to show information about linux processes
+The top command is used to show information about Linux processes
 running on the system in real time. It also shows a summary of the
 system information.
 
@@ -521,7 +521,7 @@ additional information about io and cpu usage.
 ## Checking Disk Space
 
 In this section, we will study about some useful commands that can be
-used to view disk space on linux.
+used to view disk space on Linux.
 
 ### df (disk free)
 
@@ -581,7 +581,7 @@ used to start/stop/restart the services managed by systemd.
 
 In this section, we will talk about some important files and directories
 which can be very useful for viewing system logs and applications logs
-in linux. These logs can be very useful when you are troubleshooting on
+in Linux. These logs can be very useful when you are troubleshooting on
 the system.
 
 ![](images/linux/admin/image58.png)
