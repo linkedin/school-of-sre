@@ -2,30 +2,30 @@
 
 ## Prerequisites
 
-- Experience of working on any operating systems like Windows, Linux or Mac
-- Basics of operating system
+- Comfortable using any operating systems like Windows, Linux or Mac
+- Fundamental knowledge of operating systems
 
 ## What to expect from this course
 
-This course is divided into three parts. In the first part, we will cover the
-fundamentals of linux operating systems. We will talk about linux architecture,
-linux distributions and uses of linux operating systems. We will also talk about
+This course is divided into three parts. In the first part, we cover the
+fundamentals of Linux operating systems. We will talk about Linux architecture,
+Linux distributions and uses of Linux operating systems. We will also talk about the
 difference between GUI and CLI.
 
-In the second part, we will study about some of the basic commands that are used
-in linux. We will focus on commands used for navigating file system, commands used
-for manipulating files, commands used for viewing files, I/O redirection etc.
+In the second part, we cover some basic commands used in Linux. 
+We will focus on commands used for navigating the file system, viewing and manipulating files,
+I/O redirection etc.
 
-In the third part, we will study about linux system administration. In this part, we
-will focus on day to day tasks performed by linux admins like managing users/groups,
-managing file permissions, monitoring system performance, log files etc.
+In the third part, we cover Linux system administration. This includes day to day tasks 
+performed by Linux admins, like managing users/groups, managing file permissions, 
+monitoring system performance, log files etc.
 
 In the second and third part, we will be taking examples to understand the concepts.
 
 ## What is not covered under this course
 
-We are not covering advanced linux commands and bash scripting in this
-course. We will also not be covering linux internals. 
+We are not covering advanced Linux commands and bash scripting in this
+course. We will also not be covering Linux internals. 
 
 ## Course Contents
 
@@ -64,16 +64,18 @@ The following topics has been covered in this course:
 
 ## What are Linux operating systems
 
-Most of us will be familiar with the windows operating system which is
-used in more than 75% of the personal computers. The windows operating systems
-are based on windows NT kernel. A kernel is the most important part of
-an operating system which performs important functions like process
+Most of us are familiar with the Windows operating system used in more than
+ 75% of the personal computers. The Windows operating systems
+are based on Windows NT kernel. 
+
+A kernel is the most important part of
+an operating system - it performs important functions like process
 management, memory management, filesystem management etc.
 
-Linux operating systems are based on the Linux kernel. A linux based
-operating system will consist of linux kernel, GUI/CLI, system libraries
+Linux operating systems are based on the Linux kernel. A Linux based
+operating system will consist of Linux kernel, GUI/CLI, system libraries
 and system utilities. The Linux kernel was independently developed and
-released by Linus Torvalds. The linux kernel is free and open-source -
+released by Linus Torvalds. The Linux kernel is free and open-source -
 [https://github.com/torvalds/linux](https://github.com/torvalds/linux)
 
 History of Linux -
@@ -81,12 +83,12 @@ History of Linux -
 
 ## What are popular Linux distributions
 
-A linux distribution(distro) is an operating system that is based on
-the linux kernel and a package management system. A package management
-system consists of tools that helps in installing, upgrading,
+A Linux distribution(distro) is an operating system based on
+the Linux kernel and a package management system. A package management
+system consists of tools that help in installing, upgrading,
 configuring and removing softwares on the operating system.
 
-Softwares are usually adopted to a distribution and are packaged in a
+Software are usually adopted to a distribution and are packaged in a
 distro specific format. These packages are available through a distro
 specific repository. Packages are installed and managed in the operating
 system by a package manager.
@@ -119,7 +121,7 @@ system by a package manager.
 
 - The Linux kernel is monolithic in nature.
 
-- System calls are used to interact with the linux kernel space.
+- System calls are used to interact with the Linux kernel space.
 
 - Kernel code can only be executed in the kernel mode. Non-kernel code is executed in the user mode.
 
@@ -127,13 +129,13 @@ system by a package manager.
 
 ## Uses of Linux Operating Systems
 
-Operating system based on linux kernel are widely used in:
+Operating system based on Linux kernel are widely used in:
 
 - Personal computers
 
 - Servers
 
-- Mobile phones - Android is based on linux operating system
+- Mobile phones - Android is based on Linux operating system
 
 - Embedded devices - watches, televisions, traffic lights etc
 
@@ -159,10 +161,10 @@ to perform a particular operation.
 
 ## Shell vs Terminal
 
-Shell is a program that takes command or a group of commands from the
+Shell is a program that takes commands from the
 users and gives them to the operating system for processing. Shell is an
-example of command line interface. Bash is one of the most popular shell
-programs available on linux servers. Other popular shell programs are
+example of a CLI(command line interface). Bash is one of the most popular shell
+programs available on Linux servers. Other popular shell programs are
 zsh, ksh and tcsh.
 
 Terminal is a program that opens a window and lets you interact with the

@@ -1,7 +1,7 @@
 # Conclusion
 
-With this we have covered the basics of linux operating systems along with basic commands
-which are used in linux. We have also covered the linux server administration commands.
+We have covered the basics of Linux operating systems and basic commands used in linux.
+We have also covered the Linux server administration commands.
 
 We hope that this course will make it easier for you to operate on the command line.
 
