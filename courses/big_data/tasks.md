@@ -1,8 +1,8 @@
 # Tasks and conclusion
 
-## Post training tasks:
+## Post-training tasks:
 
-1. Try setting up your own 3 node hadoop cluster. 
+1. Try setting up your own 3 node Hadoop cluster. 
     1. A VM based solution can be found [here](http://hortonworks.com/wp-content/uploads/2015/04/Import_on_VBox_4_07_2015.pdf)
 2. Write a simple spark/MR job of your choice and understand how to generate analytics from data.
     1. Sample dataset can be found [here](https://grouplens.org/datasets/movielens/)
