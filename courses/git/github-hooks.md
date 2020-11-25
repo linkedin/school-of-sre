@@ -22,7 +22,7 @@ applypatch-msg.sample     fsmonitor-watchman.sample pre-applypatch.sample     pr
 commit-msg.sample         post-update.sample        pre-commit.sample         pre-rebase.sample         prepare-commit-msg.sample
 ```
 
-Names are self explanatory. These hooks are useful when you want to do certain things when a certain event happens. Ie: if you want to run tests before pushing code, you would want to setup `pre-push` hooks. Let's try to create a pre commit hook.
+Names are self explanatory. These hooks are useful when you want to do certain things when a certain event happens. If you want to run tests before pushing code, you would want to setup `pre-push` hooks. Let's try to create a pre commit hook.
 
 ```bash
 spatel1-mn1:school-of-sre spatel1$ echo "echo this is from pre commit hook" > .git/hooks/pre-commit
