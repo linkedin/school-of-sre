@@ -36,6 +36,8 @@
     
     
     
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
     
       
     
@@ -554,13 +556,13 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" checked>
     <label class="md-nav__link" for="nav-4-1">
-      NoSQL Concepts
+      NoSQL
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="NoSQL Concepts" data-md-level="2">
+    <nav class="md-nav" aria-label="NoSQL" data-md-level="2">
       <label class="md-nav__title" for="nav-4-1">
         <span class="md-nav__icon md-icon"></span>
-        NoSQL Concepts
+        NoSQL
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -724,7 +726,7 @@
 
   <li class="md-nav__item">
     <a href="../../big_data/evolution/" class="md-nav__link">
-      Evolution and Architecure of Hadoop
+      Evolution and Architecture of Hadoop
     </a>
   </li>
 
@@ -1052,21 +1054,21 @@
 <p>NoSQL systems support different levels of eventual consistency models. For example:</p>
 <ul>
 <li>
-<p>Read Your Own Writes Consistency</p>
+<p><strong>Read Your Own Writes Consistency</strong></p>
 <p>A client will see his updates immediately after they are written. The reads can hit nodes other than the one where it was written. However he might not see updates by other clients immediately. </p>
 </li>
 <li>
-<p>Session Consistency:</p>
+<p><strong>Session Consistency</strong></p>
 <p>A client will see the updates to his data within a session scope. This generally indicates that reads &amp; writes occur on the same server. Other clients using the same nodes will receive the same updates. </p>
 </li>
 <li>
-<p>Casual Consistency</p>
+<p><strong>Casual Consistency</strong></p>
 <p>A system provides causal consistency if the following condition holds: write operations that are related by potential causality are seen by each process of the system in order. Different processes may observe concurrent writes in different orders </p>
 </li>
 </ul>
 <p>Eventual consistency is useful if concurrent updates of the same partitions of data are unlikely and if clients do not immediately depend on reading updates issued by themselves or by other clients.</p>
 <p>Depending on what consistency model was chosen for the system (or parts of it), determines where the requests are routed, ex: replicas. </p>
-<p>CAP alternatives illustration</p>
+<p><strong>CAP alternatives illustration</strong></p>
 <table>
   <tr>
    <td>Choice

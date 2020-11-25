@@ -36,6 +36,8 @@
     
     
     
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
     
       
     
@@ -871,13 +873,13 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" >
     <label class="md-nav__link" for="nav-4-1">
-      NoSQL Concepts
+      NoSQL
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="NoSQL Concepts" data-md-level="2">
+    <nav class="md-nav" aria-label="NoSQL" data-md-level="2">
       <label class="md-nav__title" for="nav-4-1">
         <span class="md-nav__icon md-icon"></span>
-        NoSQL Concepts
+        NoSQL
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -962,7 +964,7 @@
 
   <li class="md-nav__item">
     <a href="../../big_data/evolution/" class="md-nav__link">
-      Evolution and Architecure of Hadoop
+      Evolution and Architecture of Hadoop
     </a>
   </li>
 
@@ -1509,7 +1511,7 @@
 <p>In this course will try to cover some of the common tasks that a linux
 server administrator performs. We will first try to understand what a
 particular command does and then try to understand the commands using
-examples. Do keep in mind that it's very important to practice the linux
+examples. Do keep in mind that it's very important to practice the Linux
 commands on your own.</p>
 <h2 id="lab-environment-setup">Lab Environment Setup</h2>
 <ul>
@@ -1522,16 +1524,16 @@ commands on your own.</p>
 </ul>
 <p><img alt="" src="../images/linux/admin/image19.png" /></p>
 <ul>
-<li>We will run most of the commands used in this module in the above docker container.</li>
+<li>We will run most of the commands used in this module in the above Docker container.</li>
 </ul>
 <h2 id="multi-user-operating-systems">Multi-User Operating Systems</h2>
-<p>An operating system is considered as multi-user if it allows multiple people/users to use a computer and not affect each other files and preferences. Linux based operating systems are multi-user in nature as it allows multiple users to access the system at the same time. A typical computer will only have one keyboard and monitor but multiple users can log in via ssh if the computer is connected to the network. We will cover more about ssh later.</p>
-<p>As a server administrator, we are mostly concerned with the linux servers which are physically present at a very large distance from us. We can connect to these servers with the help of remote login methods like ssh.</p>
-<p>Since linux supports multiple users, we need to have a method which can protect the users from each other. One user should not be able to access and modify files of other users</p>
+<p>An operating system is considered as multi-user if it allows multiple people/users to use a computer and not affect each other's files and preferences. Linux based operating systems are multi-user in nature as it allows multiple users to access the system at the same time. A typical computer will only have one keyboard and monitor but multiple users can log in via SSH if the computer is connected to the network. We will cover more about SSH later.</p>
+<p>As a server administrator, we are mostly concerned with the Linux servers which are physically present at a very large distance from us. We can connect to these servers with the help of remote login methods like SSH.</p>
+<p>Since Linux supports multiple users, we need to have a method which can protect the users from each other. One user should not be able to access and modify files of other users</p>
 <h2 id="usergroup-management">User/Group Management</h2>
 <ul>
 <li>
-<p>Each user in linux has an associated user ID called UID attached to him</p>
+<p>Each user in Linux has an associated user ID called UID attached to him</p>
 </li>
 <li>
 <p>Each user also has a home directory and a login shell associated with him/her</p>
@@ -1544,11 +1546,11 @@ commands on your own.</p>
 </li>
 </ul>
 <h3 id="id-command">id command</h3>
-<p>id command can be used to find the uid and gid associated with an user.
+<p><code>id</code> command can be used to find the uid and gid associated with an user.
 It also lists down the groups to which the user belongs to.</p>
 <p>The uid and gid associated with the root user is 0.
 <img alt="" src="../images/linux/admin/image30.png" /></p>
-<p>A good way to find out the current user in linux is to use the whoami
+<p>A good way to find out the current user in Linux is to use the whoami
 command.</p>
 <p><img alt="" src="../images/linux/admin/image35.png" /></p>
 <p><strong>"root" user or superuser is the most privileged user with</strong>
@@ -1587,23 +1589,23 @@ through below links:</p>
 </ul>
 <h2 id="important-commands-for-managing-users">Important commands for managing users</h2>
 <p>Some of the commands which are used frequently to manage users/groups
-on linux are following:</p>
+on Linux are following:</p>
 <ul>
 <li>
-<p>useradd - Creates a new user</p>
+<p><code>useradd</code> - Creates a new user</p>
 </li>
 <li>
-<p>passwd - Adds or modifies passwords for a user</p>
+<p><code>passwd</code> - Adds or modifies passwords for a user</p>
 </li>
 <li>
-<p>usermod - Modifies attributes of an user</p>
+<p><code>usermod</code> - Modifies attributes of an user</p>
 </li>
 <li>
-<p>userdel - Deletes an user</p>
+<p><code>userdel</code> - Deletes an user</p>
 </li>
 </ul>
 <h3 id="useradd">useradd</h3>
-<p>The useradd command adds a new user in linux.</p>
+<p>The useradd command adds a new user in Linux.</p>
 <p>We will create a new user 'shivam'. We will also verify that the user
 has been created by tailing the /etc/passwd file. The uid and gid are
 1000 for the newly created user. The home directory assigned to the user
@@ -1637,7 +1639,7 @@ home directory or the shell.</p>
 <p>In a similar way, you can also modify many other attributes for a user.
 Try 'usermod -h' for a list of attributes you can modify.</p>
 <h3 id="userdel">userdel</h3>
-<p>The userdel command is used to remove a user on linux. Once we remove a
+<p>The userdel command is used to remove a user on Linux. Once we remove a
 user, all the information related to that user will be removed.</p>
 <p>Let's try to delete the user "amit". After deleting the user, you will
 not find the entry for that user in "/etc/passwd" or "/etc/shadow" file.</p>
@@ -1673,13 +1675,13 @@ not find the entry for that user in "/etc/passwd" or "/etc/shadow" file.</p>
 <p><strong>Before running the below commands, do make sure that you have set up a
 password for user "shivam" and user "root" using the passwd command
 described in the above section.</strong></p>
-<p>The su command can be used to switch users in linux. Let's now try to
+<p>The su command can be used to switch users in Linux. Let's now try to
 switch to user "shivam".</p>
 <p><img alt="" src="../images/linux/admin/image37.png" /></p>
 <p>Let's now try to open the "/etc/shadow" file.</p>
 <p><img alt="" src="../images/linux/admin/image29.png" /></p>
 <p>The operating system didn't allow the user "shivam" to read the content
-of the "/etc/shadow" file. This is an important file in linux which
+of the "/etc/shadow" file. This is an important file in Linux which
 stores the passwords of users. This file can only be accessed by root or
 users who have the superuser privileges.</p>
 <p><strong>The sudo command allows a</strong> <strong>user to run commands with the security
@@ -1709,7 +1711,7 @@ commands from anywhere.</p>
 <p><img alt="" src="../images/linux/admin/image8.png" /></p>
 <p>One easy way of providing root access to users is to add them to a group
 which has permissions to run all the commands. "wheel" is a group in
-redhat linux with such privileges.</p>
+redhat Linux with such privileges.</p>
 <p><img alt="" src="../images/linux/admin/image25.png" /></p>
 <p>Let's add the user "shivam" to this group so that it also has sudo
 privileges.</p>
@@ -1721,7 +1723,7 @@ privileges.</p>
 accessed with the sudo privileges. We have already given sudo privileges
 to user “shivam” by adding him to the group “wheel”.</p>
 <h2 id="file-permissions">File Permissions</h2>
-<p>On a linux operating system, each file and directory is assigned access
+<p>On a Linux operating system, each file and directory is assigned access
 permissions for the owner of the file, the members of a group of related
 users and everybody else. This is to make sure that one user is not
 allowed to access the files and resources of another user.</p>
@@ -1734,7 +1736,7 @@ related to file permissions.</p>
 <p><img alt="" src="../images/linux/admin/image57.png" /></p>
 <h3 id="chmod-command">Chmod command</h3>
 <p>The chmod command is used to modify files and directories permissions in
-linux.</p>
+Linux.</p>
 <p>The chmod command accepts permissions in as a numerical argument. We can
 think of permission as a series of bits with 1 representing True or
 allowed and 0 representing False or not allowed.</p>
@@ -1808,7 +1810,7 @@ command.</p>
 in the similar way.</p>
 <h3 id="chown-command">Chown command</h3>
 <p>The chown command is used to change the owner of files or
-directories in linux.</p>
+directories in Linux.</p>
 <p>Command syntax: chown \&lt;new_owner> \&lt;file_name></p>
 <p><img alt="" src="../images/linux/admin/image6.png" /></p>
 <p><strong>In case, we do not have sudo privileges, we need to use sudo
@@ -1820,7 +1822,7 @@ command.</p>
 similar way.</p>
 <h3 id="chgrp-command">Chgrp command</h3>
 <p>The chgrp command can be used to change the group ownership of files or
-directories in linux. The syntax is very similar to that of chown
+directories in Linux. The syntax is very similar to that of chown
 command.</p>
 <p><img alt="" src="../images/linux/admin/image27.png" /></p>
 <p>Chgrp command can also be used to change the owner of a directory in the
@@ -1881,7 +1883,7 @@ host.</p>
 <p><img alt="" src="../images/linux/admin/image32.png" /></p>
 <h2 id="package-management">Package Management</h2>
 <p>Package management is the process of installing and managing software on
-the system. We can install the packages which we require from the linux
+the system. We can install the packages which we require from the Linux
 package distributor. Different distributors use different packaging
 systems.</p>
 <table>
@@ -1932,7 +1934,7 @@ systems.</p>
 <p><a href="https://docs.fedoraproject.org/en-US/quick-docs/dnf/">DNF</a> is
 the successor to YUM which is now used in Fedora for installing and
 managing packages. DNF may replace YUM in the future on all RPM based
-linux distributions.</p>
+Linux distributions.</p>
 <p><img alt="" src="../images/linux/admin/image20.png" /></p>
 <p>We did find an exact match for the keyword httpd when we searched using
 yum search command. Let's now install the httpd package.</p>
@@ -1942,7 +1944,7 @@ httpd package.</p>
 <p><img alt="" src="../images/linux/admin/image43.png" /></p>
 <h2 id="process-management">Process Management</h2>
 <p>In this section, we will study about some useful commands that can be
-used to monitor the processes on linux systems.</p>
+used to monitor the processes on Linux systems.</p>
 <h3 id="ps-process-status">ps (process status)</h3>
 <p>The ps command is used to know the information of a process or list of
 processes.</p>
@@ -1961,7 +1963,7 @@ information about the process with a specific process ID.</p>
 processes.</p>
 <p><img alt="" src="../images/linux/admin/image1.png" /></p>
 <h3 id="top">top</h3>
-<p>The top command is used to show information about linux processes
+<p>The top command is used to show information about Linux processes
 running on the system in real time. It also shows a summary of the
 system information.</p>
 <p><img alt="" src="../images/linux/admin/image53.png" /></p>
@@ -1986,7 +1988,7 @@ additional information about io and cpu usage.</p>
 <p><img alt="" src="../images/linux/admin/image38.png" /></p>
 <h2 id="checking-disk-space">Checking Disk Space</h2>
 <p>In this section, we will study about some useful commands that can be
-used to view disk space on linux.</p>
+used to view disk space on Linux.</p>
 <h3 id="df-disk-free">df (disk free)</h3>
 <p>The df command is used to display the free and available space for each
 mounted file system.</p>
@@ -2049,7 +2051,7 @@ used to start/stop/restart the services managed by systemd.</p>
 <h2 id="logs">Logs</h2>
 <p>In this section, we will talk about some important files and directories
 which can be very useful for viewing system logs and applications logs
-in linux. These logs can be very useful when you are troubleshooting on
+in Linux. These logs can be very useful when you are troubleshooting on
 the system.</p>
 <p><img alt="" src="../images/linux/admin/image58.png" /></p>
                 

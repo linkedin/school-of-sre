@@ -36,6 +36,8 @@
     
     
     
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
     
       
     
@@ -55,6 +57,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#building-and-testing-locally" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -545,13 +552,13 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" >
     <label class="md-nav__link" for="nav-4-1">
-      NoSQL Concepts
+      NoSQL
       <span class="md-nav__icon md-icon"></span>
     </label>
-    <nav class="md-nav" aria-label="NoSQL Concepts" data-md-level="2">
+    <nav class="md-nav" aria-label="NoSQL" data-md-level="2">
       <label class="md-nav__title" for="nav-4-1">
         <span class="md-nav__icon md-icon"></span>
-        NoSQL Concepts
+        NoSQL
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -636,7 +643,7 @@
 
   <li class="md-nav__item">
     <a href="../big_data/evolution/" class="md-nav__link">
-      Evolution and Architecure of Hadoop
+      Evolution and Architecture of Hadoop
     </a>
   </li>
 
@@ -857,9 +864,36 @@
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Contribute
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
     <a href="./" class="md-nav__link md-nav__link--active">
       Contribute
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-testing-locally" class="md-nav__link">
+    Building and testing locally
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -870,6 +904,34 @@
                 </div>
               </div>
             
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#building-and-testing-locally" class="md-nav__link">
+    Building and testing locally
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           <div class="md-content">
@@ -882,6 +944,12 @@
                 <p>We realise that the initial content we created is just a starting point and our hope is that the community can help in the journey refining and extending the contents.</p>
 <p>As a contributor, you represent that the content you submit is not plagiarised. By submitting the content, you (and, if applicable, your employer) are licensing the submitted content to LinkedIn and the open source community subject to the BSD 2-Clause license.</p>
 <p>We suggest to open an issue first and seek advice for your changes before submitting a pull request.</p>
+<h3 id="building-and-testing-locally">Building and testing locally</h3>
+<p>Run the following commands to build and view the site locally before opening a PR.</p>
+<pre><code>pip install -r requirements.txt
+mkdocs build
+mkdocs serve
+</code></pre>
                 
               
               
