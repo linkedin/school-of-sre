@@ -16,9 +16,9 @@ Availability is generally expressed as “Nines”, common ‘Nines’  are list
 
 ## HA - Availability Serial Components
 
-A System with components is operating in the series If failure of a part leads to the combination becoming inoperable.
+A System with components is operating in the series If the failure of a part leads to the combination becoming inoperable.
 
-For example if LB in our architecture fails, all access to app tiers will fail. LB and app tiers are connected serially.
+For example, if LB in our architecture fails, all access to app tiers will fail. LB and app tiers are connected serially.
 
 
 The combined availability of the system is the product of individual components availability
@@ -30,11 +30,11 @@ The combined availability of the system is the product of individual components 
 
 ## HA - Availability Parallel Components
 
-A System with components is operating in parallel If failure of a part leads to the other part taking over the operations of the failed part.
+A System with components is operating in parallel If the failure of a part leads to the other part taking over the operations of the failed part.
 
-If we have more than one LB and if rest of the LBs can take over the traffic during one LB failure then LBs are operating in parallel
+If we have more than one LB and if the rest of the LBs can take over the traffic during one LB failure then LBs are operating in parallel
 
-The combined availability of the system is 
+The combined availability of the system is
 
 *A = 1 - ( (1-Ax) x (1-Ax) x ….. )*
 
@@ -74,11 +74,12 @@ The combined availability of the system is
 
 **WHY:** Maximize availability and ensure data handling semantics are preserved.  
 
-**KEY TAKEAWAYS:** Strive for active/active rather than active/passive solutions, they have a lesser risk of cross over being unreliable. Use LB and right load balancing methods to ensure reliable failover. Model and build your data systems to ensure data is correctly handled when crossover happens. Generally DB systems follow active/passive semantics for writes. Masters accept writes and when master goes down, follower is promoted to master(active from being passive) to accept writes. We have to be careful here that the cutover never introduces more than one masters. This problem is called a split brain.
+**KEY TAKEAWAYS:** Strive for active/active rather than active/passive solutions, they have a lesser risk of cross over being unreliable. Use LB and the right load balancing methods to ensure reliable failover. Model and build your data systems to ensure data is correctly handled when crossover happens. Generally, DB systems follow active/passive semantics for writes. Masters accept writes and when the master goes down, the follower is promoted to master(active from being passive) to accept writes. We have to be careful here that the cutover never introduces more than one master. This problem is called a split brain.
 
 ## Applications in SRE role
-1. SRE works on deciding an acceptable SLA and make sure system is available to achieve the SLA
-2. SRE is involved in architecture design right from building the data center to make sure site is not affected by network switch, hardware, power or software failures
+
+1. SRE works on deciding an acceptable SLA and make sure the system is available to achieve the SLA
+2. SRE is involved in architecture design right from building the data center to make sure the site is not affected by a network switch, hardware, power, or software failures
 3. SRE also run mock drills of failures to see how the system behaves in uncharted territory and comes up with a plan to improve availability if there are misses. 
 https://engineering.linkedin.com/blog/2017/11/resilience-engineering-at-linkedin-with-project-waterbear
 

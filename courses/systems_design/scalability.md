@@ -11,19 +11,19 @@ An always-on service is said to be scalable if adding resources to facilitate re
 
 ## Scalability - AKF Scale Cube
 
-The [Scale Cube](https://akfpartners.com/growth-blog/scale-cube) is a model for segmenting services, defining microservices, and scaling products. It also creates a common language for teams to discuss scale related options in designing solutions. Following section talks about certain scaling patterns based on our inferences from AKF cube
+The [Scale Cube](https://akfpartners.com/growth-blog/scale-cube) is a model for segmenting services, defining microservices, and scaling products. It also creates a common language for teams to discuss scale related options in designing solutions. The following section talks about certain scaling patterns based on our inferences from the AKF cube
 
 ## Scalability - Horizontal scaling
 
-Horizontal scaling stands for  cloning of an application or service such that work can easily be distributed across instances with absolutely no bias.
+Horizontal scaling stands for cloning of an application or service such that work can easily be distributed across instances with absolutely no bias.
 
-Lets see how our monolithic application improves with this principle
+Let's see how our monolithic application improves with this principle
 
 ![Horizontal Scaling](images/horizontal-scaling.jpg)
 
-Here DB is scaled separately from the application. This is to let you know each component’s scaling capabilities can be different. Usually web applications can be scaled by adding resources unless there is no state stored inside the application. But DBs can be scaled only for Reads by adding more followers but Writes have to go to only one master to make sure data is consistent. There are some DBs which support multi master writes but we are keeping them out of scope at this point. 
+Here DB is scaled separately from the application. This is to let you know each component’s scaling capabilities can be different. Usually, web applications can be scaled by adding resources unless there is no state stored inside the application. But DBs can be scaled only for Reads by adding more followers but Writes have to go to only one master to make sure data is consistent. There are some DBs that support multi-master writes but we are keeping them out of scope at this point. 
 
-Apps should be able to differentiate between Read and Writes to choose appropriate DB servers. Load balancers can split traffic between identical servers  transparently.
+Apps should be able to differentiate between Reads and Writes to choose appropriate DB servers. Load balancers can split traffic between identical servers transparently.
 
 **WHAT:**  Duplication of services or databases to spread transaction load.
 
@@ -31,23 +31,23 @@ Apps should be able to differentiate between Read and Writes to choose appropria
 
 **HOW TO USE:** Simply clone services and implement a load balancer. For databases, ensure that the accessing code understands the difference between a read and a write.
 
-**WHY:** Allows for fast scale of transactions at the cost of duplicated data and functionality.
+**WHY:** Allows for the fast scale of transactions at the cost of duplicated data and functionality.
 
-**KEY TAKEAWAYS:** This is fast to implement, is low cost from a developer effort perspective, and can scale transaction volumes nicely. However, they tend to be high cost from the perspective of the operational cost of data. Cost here means if we have 3 followers and 1 Master DB, the same database will be stored as 4 copies in the 4 servers. Hence added storage cost
+**KEY TAKEAWAYS:** This is fast to implement, is a low cost from a developer effort perspective, and can scale transaction volumes nicely. However, they tend to be high cost from the perspective of the operational cost of data. The cost here means if we have 3 followers and 1 Master DB, the same database will be stored as 4 copies in the 4 servers. Hence added storage cost
 
-### Refer	
+### Refer   
 - [https://learning.oreilly.com/library/view/the-art-of/9780134031408/ch23.html](https://learning.oreilly.com/library/view/the-art-of/9780134031408/ch23.html) 
 
 ### Scalability Pattern - Load Balancing
 
-Improves the distribution of workloads across multiple computing resources, such as computers, a computer cluster, network links, central processing units, or disk drives. Commonly used technique is load balancing traffic across identical server clusters. Similar philosophy is used to load balance traffic across network links by [ECMP](https://en.wikipedia.org/wiki/Equal-cost_multi-path_routing), disk drives by [RAID](https://en.wikipedia.org/wiki/RAID) etc
+Improves the distribution of workloads across multiple computing resources, such as computers, a computer cluster, network links, central processing units, or disk drives. A commonly used technique is load balancing traffic across identical server clusters. A similar philosophy is used to load balance traffic across network links by [ECMP](https://en.wikipedia.org/wiki/Equal-cost_multi-path_routing), disk drives by [RAID](https://en.wikipedia.org/wiki/RAID),etc
 
 Aims to optimize resource use, maximize throughput, minimize response time, and avoid overload of any single resource.
 Using multiple components with load balancing instead of a single component may increase reliability and availability through redundancy. In our updated architecture diagram we have 4 servers to handle app traffic instead of a single server
 
 The device or system that performs load balancing is called a load balancer, abbreviated as LB.
 
-#### Refer	
+#### Refer  
 - [https://en.wikipedia.org/wiki/Load_balancing_(computing)](https://en.wikipedia.org/wiki/Load_balancing_(computing))
 - [https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236](https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236)
 - [https://learning.oreilly.com/library/view/load-balancing-in/9781492038009/](https://learning.oreilly.com/library/view/load-balancing-in/9781492038009/)
@@ -60,7 +60,7 @@ What does an LB do?
 
 
 #### Service discovery: 
-What backends are available in the system? In our architecture, 4 servers are available to serve App traffic. LB acts as a single endpoint that clients can use  transparently to reach one of the 4 servers.
+What backends are available in the system? In our architecture, 4 servers are available to serve App traffic. LB acts as a single endpoint that clients can use transparently to reach one of the 4 servers.
 
 #### Health checking: 
 What backends are currently healthy and available to accept requests? If one out of the 4 App servers turns bad, LB should automatically short circuit the path so that clients don’t sense any application downtime
@@ -72,10 +72,10 @@ What algorithm should be used to balance individual requests across the healthy 
 Common Load Balancing Methods
 
 #### Least Connection Method 
-directs traffic to the server with the fewest active connections. Most useful when there are a large number of persistent connections in the traffic unevenly distributed between the servers. Works if clients maintain long lived connections
+directs traffic to the server with the fewest active connections. Most useful when there are a large number of persistent connections in the traffic unevenly distributed between the servers. Works if clients maintain long-lived connections
 
 #### Least Response Time Method 
-directs traffic to the server with the fewest active connections and the lowest average response time. Here response time is used to provide feedback of server’s health
+directs traffic to the server with the fewest active connections and the lowest average response time. Here response time is used to provide feedback of the server’s health
 
 #### Round Robin Method 
 rotates servers by directing traffic to the first available server and then moves that server to the bottom of the queue. Most useful when servers are of equal specification and there are not many persistent connections.
@@ -105,7 +105,7 @@ CDNs are added closer to the client’s location. If the app has static data lik
 Eg
 media-exp1.licdn.com is a domain used by Linkedin to serve static content
 
-Here a CNAME points the domain to the DNS of CDN provider
+Here a CNAME points the domain to the DNS of the CDN provider
 
 dig media-exp1.licdn.com +short
 
@@ -133,28 +133,28 @@ Microservices can scale transactions, data sizes, and codebase sizes. They are m
 
 **WHY:** Allows for efficient scaling of not only transactions but also very large data sets associated with those transactions. It also allows for the efficient scaling of teams.
 
-**KEY TAKEAWAYS:** Microservices allow for efficient scaling of transactions, large data sets, and can help with fault isolation.  It  helps reduce the communication overhead of teams. The codebase becomes less complex as disjoint features are decoupled and spun as new services  thereby letting each service scale independently specific to its requirement.
+**KEY TAKEAWAYS:** Microservices allow for efficient scaling of transactions, large data sets, and can help with fault isolation.  It helps reduce the communication overhead of teams. The codebase becomes less complex as disjoint features are decoupled and spun as new services thereby letting each service scale independently specific to its requirement.
 
-### Refer	
+### Refer   
 - https://learning.oreilly.com/library/view/the-art-of/9780134031408/ch23.html 
 
 ## Scalability - Sharding
 
-This pattern represents the separation of work based on attributes that are looked up or determined at the time of the transaction. Most often, these are implemented as splits by requestor, customer, or client.
+This pattern represents the separation of work based on attributes that are looked up to or determined at the time of the transaction. Most often, these are implemented as splits by requestor, customer, or client.
 
 Very often, a lookup service or deterministic algorithm will need to be written for these types of splits.
 
-Sharding aids in scaling transaction growth, scaling instruction sets, and decreasing processing time (the last by limiting the data necessary to perform any transaction). This  is  more effective at scaling growth in customers or clients. It can aid with disaster recovery efforts, and limit the impact of incidents to only a specific segment of customers.
+Sharding aids in scaling transaction growth, scaling instruction sets, and decreasing processing time (the last by limiting the data necessary to perform any transaction). This is more effective at scaling growth in customers or clients. It can aid with disaster recovery efforts, and limit the impact of incidents to only a specific segment of customers.
 
 ![Sharding-block-1](images/sharding-1.jpg)
 
-Here the auth  data is sharded based on user names so that DBs can respond faster as the amount of data DBs have to work on has drastically reduced during queries.
+Here the auth data is sharded based on user names so that DBs can respond faster as the amount of data DBs have to work on has drastically reduced during queries.
 
 There can be other ways to split 
 
 ![Sharding-block-2](images/sharding-2.jpg)
 
-Here the whole data centre is split and replicated and clients are directed to a data centre based on their geography. This helps in improving performance as clients are directed to the closest Data centre and performance increases as we add more data centres. There are some replication and consistency overhead with this approach one needs to be aware of.  This also gives fault tolerance by rolling out test features to one site and rollback if there is an impact to that geography
+Here the whole data center is split and replicated and clients are directed to a data center based on their geography. This helps in improving performance as clients are directed to the closest data center and performance increases as we add more data centers. There are some replication and consistency overhead with this approach one needs to be aware of.  This also gives fault tolerance by rolling out test features to one site and rollback if there is an impact to that geography
 
 **WHAT:** This is very often a split by some unique aspect of the customer such as customer ID, name, geography, and so on.
 
@@ -172,11 +172,12 @@ Here the whole data centre is split and replicated and clients are directed to a
 
 
 ## Applications in SRE role
-1. SREs in coordination with the network team work on how to map users traffic to a particular site. 
+
+1. SREs in coordination with the network team work on how to map users' traffic to a particular site.
 https://engineering.linkedin.com/blog/2017/05/trafficshift--load-testing-at-scale
 2. SREs work closely with the Dev team to split monoliths to multiple microservices that are easy to run and manage
-3. SREs work on improving Load Balancers' reliability, service discovery and performance
+3. SREs work on improving Load Balancers' reliability, service discovery, and performance
 4. SREs work closely to split Data into shards and manage data integrity and consistency. 
 https://engineering.linkedin.com/espresso/introducing-espresso-linkedins-hot-new-distributed-document-store
-5. SREs work to set up, configure and improve CDN cache hit rate.
+5. SREs work to set up, configure, and improve the CDN cache hit rate.
 
