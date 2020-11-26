@@ -94,7 +94,7 @@ Notice how after adding the file, git status says `Changes to be committed:`. Wh
 
 ### More About a Commit
 
-Commit is a snapshot of the repo. Whenever a commit is made, a snapshot of the current state of repo (the folder) is taken and saved. Each commit has a unique ID. (`df2fb7a` for the commit we made in the previous step). As we keep adding/changing more and more contents and keep making commits, all those snapshots are stored by git. Again, all this magic happens inside the `.git` folder. This is where all this snapshot or versions are stored. _In an efficient manner._
+Commit is a snapshot of the repo. Whenever a commit is made, a snapshot of the current state of repo (the folder) is taken and saved. Each commit has a unique ID. (`df2fb7a` for the commit we made in the previous step). As we keep adding/changing more and more contents and keep making commits, all those snapshots are stored by git. Again, all this magic happens inside the `.git` folder. This is where all this snapshot or versions are stored _in an efficient manner._
 
 ### Adding More Changes
 
@@ -131,7 +131,7 @@ spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 
 ### Are commits really linked?
 
-As I just said, the two commits we just made are linked via tree like data structure and we saw how they are linked. But let's actually verify it. Everything in git is an object. Newly created files are stored as an object. Changes to file are stored as an objects and even commits are objects. To view contents of an object we can use the following command with the object's ID. We will take a look at content of the contents of the second commit
+As I just said, the two commits we just made are linked via tree like data structure and we saw how they are linked. But let's actually verify it. Everything in git is an object. Newly created files are stored as an object. Changes to file are stored as an objects and even commits are objects. To view contents of an object we can use the following command with the object's ID. We will take a look at the contents of the second commit
 
 ```bash
 spatel1-mn1:school-of-sre spatel1$ git cat-file -p 7f3b00e
@@ -253,4 +253,4 @@ spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 * df2fb7a adding file 1
 ```
 
-We just edited the `master` reference file and now we can see only the first commit in git log. Undoing the change to the file brings the state back to original. Not so much of magic, isn't it?
+We just edited the `master` reference file and now we can see only the first commit in git log. Undoing the change to the file brings the state back to original. Not so much of magic, is it?

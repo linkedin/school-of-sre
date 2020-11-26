@@ -2,7 +2,7 @@
 
 Coming back to our local repo which has two commits. So far, what we have is a single line of history. Commits are chained in a single line. But sometimes you may have a need to work on two different features in parallel in the same repo. Now one option here could be making a new folder/repo with the same code and use that for another feature development. But there's a better way. Use _branches._ Since git follows tree like structure for commits, we can use branches to work on different sets of features. From a commit, two or more branches can be created and branches can also be merged.
 
-Using branches, there can exist multiple lines of histories and we can checkout to any of them and work on it. Checking out, as we discussed earlier, would simply mean replacing contents of the directory (repo) with contents snapshot at the checked out version.
+Using branches, there can exist multiple lines of histories and we can checkout to any of them and work on it. Checking out, as we discussed earlier, would simply mean replacing contents of the directory (repo) with the snapshot at the checked out version.
 
 Let's create a branch and see how it looks like:
 
@@ -66,7 +66,7 @@ spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 * df2fb7a adding file 1
 ```
 
-Notice how branch b1 is not visible here since we are checkout on master. Let's try to visualize both to get the whole picture:
+Notice how branch b1 is not visible here since we are on the master. Let's try to visualize both to get the whole picture:
 
 ```bash
 spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph --all

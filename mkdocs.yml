@@ -5,6 +5,8 @@ theme:
   logo: img/sos.png
   favicon: img/favicon.ico
   custom_dir: overrides
+extra_css:
+    - stylesheets/custom.css
 nav:
 - Home: index.md
 - Fundamentals Series:
@@ -41,13 +43,13 @@ nav:
         - Operational Concepts: databases_sql/operations.md
         - Lab: databases_sql/lab.md
         - Further Reading: databases_sql/reading.md
-    - NoSQL Concepts:
+    - NoSQL:
         - Introduction: databases_nosql/intro.md
         - Key Concepts: databases_nosql/key_concepts.md
         - Conclusion:  databases_nosql/further_reading.md
     - Big Data:
         - Introduction: big_data/intro.md
-        - Evolution and Architecure of Hadoop: big_data/evolution.md
+        - Evolution and Architecture of Hadoop: big_data/evolution.md
         - Conclusion: big_data/tasks.md
 - Systems Design:
     - Introduction: systems_design/intro.md
