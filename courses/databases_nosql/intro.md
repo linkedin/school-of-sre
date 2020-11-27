@@ -1,5 +1,7 @@
 # NoSQL Concepts
 
+## Prerequisites
+- [Relational Databases](https://linkedin.github.io/school-of-sre/databases_sql/intro/)
 
 ## What to expect from this course
 
