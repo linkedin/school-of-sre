@@ -17,7 +17,7 @@ Thinking about and designing for scalability, availability, and reliability of l
 
 Individual software components’ scalability and reliability concerns like e.g. Databases, while the same scalability principles and thinking can be applied, these individual components have their own specific nuances when scaling them and thinking about their reliability.
 
-More light will be shed on concepts rather than on setting up and configuring components like Loadbalancers to achieve scalability, availability and reliability of systems
+More light will be shed on concepts rather than on setting up and configuring components like Loadbalancers to achieve scalability, availability, and reliability of systems
 
 ## Course Contents
 
@@ -34,7 +34,7 @@ So, how do you go about learning to design a system?
 *” Like most great questions, it showed a level of naivety that was breathtaking. The only short answer I could give was, essentially, that you learned how to design a system by designing systems and finding out what works and what doesn’t work.”
 Jim Waldo, Sun Microsystems, On System Design*
 
-	
+    
 As software and hardware systems have multiple moving parts, we need to think about how those parts will grow, their failure modes, their inter-dependencies, how it will impact the users and the business.
 
 There is no one-shot method or way to learn or do system design, we only learn to design systems by designing and iterating on them.
