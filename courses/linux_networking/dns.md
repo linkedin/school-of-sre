@@ -1,5 +1,5 @@
 # DNS
-Domain Names are the simple human-readable names for websites. The Internet understands only IP addresses, but since memorizing incoherent numbers is not practical, domain names are used instead. These domain names are translated into IP addresses by the DNS infrastructure. When somebody tries to open www.linkedin.com in the browser, the browser tries to convert www.linkedin.com to an IP Address. This process is called DNS resolution. A simple pseudocode depicting this process looks this
+Domain Names are the simple human-readable names for websites. The Internet understands only IP addresses, but since memorizing incoherent numbers is not practical, domain names are used instead. These domain names are translated into IP addresses by the DNS infrastructure. When somebody tries to open [www.linkedin.com](https://www.linkedin.com) in the browser, the browser tries to convert [www.linkedin.com](https://www.linkedin.com) to an IP Address. This process is called DNS resolution. A simple pseudocode depicting this process looks this
 
 ```python
 ip, err = getIPAddress(domainName)
@@ -22,7 +22,7 @@ def getIPAddress(domainName):
           return resp
 ```
 
-Now lets understand what operating system kernel does when the gethostbyname function is called. The Linux operating system looks at the file [/etc/nsswitch.conf](https://man7.org/linux/man-pages/man5/nsswitch.conf.5.html) file which usually has a line
+Now lets understand what operating system kernel does when the [gethostbyname](https://man7.org/linux/man-pages/man3/gethostbyname.3.html) function is called. The Linux operating system looks at the file [/etc/nsswitch.conf](https://man7.org/linux/man-pages/man5/nsswitch.conf.5.html) file which usually has a line
 
 ```bash
 hosts:      files dns
@@ -61,7 +61,7 @@ PING test.linkedin.com (127.0.0.1) 56(84) bytes of data.
 ```
 
 As mentioned earlier, if no match exists in /etc/hosts, the OS tries to do a DNS resolution using the DNS protocol. The linux system makes a DNS request to the first IP in /etc/resolv.conf. If there is no response, requests are sent to subsequent servers in resolv.conf. These servers in resolv.conf are called DNS resolvers. The DNS resolvers are populated by [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) or statically configured by an administrator. 
-[Dig](https://linux.die.net/man/1/dig) is a userspace DNS system which creates and sends requests to DNS resolvers and prints the response it receives to the console.
+[Dig](https://linux.die.net/man/1/dig) is a userspace DNS system which creates and sends request to DNS resolvers and prints the response it receives to the console.
 
 ```bash
 #run this command in one shell to capture all DNS requests

@@ -36,7 +36,7 @@
 
         insert, create, drop, delete, update, commit, rollback, truncate, alter, grant, revoke
 
-    You can practise these in the [lab section](../lab.md).
+    You can practise these in the [lab section](https://linkedin.github.io/school-of-sre/databases_sql/lab/).
 
 
 

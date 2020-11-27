@@ -42,7 +42,7 @@ nav:
         - InnoDB: databases_sql/innodb.md
         - Operational Concepts: databases_sql/operations.md
         - Lab: databases_sql/lab.md
-        - Further Reading: databases_sql/reading.md
+        - Conclusion: databases_sql/conclusion.md
     - NoSQL:
         - Introduction: databases_nosql/intro.md
         - Key Concepts: databases_nosql/key_concepts.md
