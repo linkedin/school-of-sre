@@ -32,28 +32,28 @@ Common failure metrics that get measured and tracked for any system.
 ### Fault Tolerance - Fault Isolation Terms
 Systems should have a short circuit. Say in our content sharing system, if “Notifications” is not working, the site should gracefully handle that failure by removing the functionality instead of taking the whole site down. 
 
-Swimlane is one of the commonly used fault isolation methodology. Swimlane adds a barrier to the service from other services so that failure on either of them won’t affect the other. Say we roll out a new feature ‘Advertisement’ in our content sharing app.
+Swimlane is one of the commonly used fault isolation methodologies. Swimlane adds a barrier to the service from other services so that failure on either of them won’t affect the other. Say we roll out a new feature ‘Advertisement’ in our content sharing app.
 We can have two architectures
 ![Swimlane](images/swimlane-1.jpg)
 
-If Ads are generated on the fly synchronously during each Newsfeed request, the faults in Ads feature gets propagated to Newsfeed feature. Instead if we swimlane “Generation of Ads” service and use a shared storage to populate Newsfeed App, Ads failures won’t cascade to Newsfeed and worst case if Ads don’t meet SLA , we can have Newsfeed without Ads.
+If Ads are generated on the fly synchronously during each Newsfeed request, the faults in the Ads feature get propagated to the Newsfeed feature. Instead if we swimlane the “Generation of Ads” service and use a shared storage to populate Newsfeed App, Ads failures won’t cascade to Newsfeed, and worst case if Ads don’t meet SLA , we can have Newsfeed without Ads.
 
-Let's take another example, we come up with a new model for our Content sharing App. Here we roll out enterprise content sharing App where enterprises pay for the service and the content should never be shared outside the enterprise. 
+Let's take another example, we have come up with a new model for our Content sharing App. Here we roll out an enterprise content sharing App where enterprises pay for the service and the content should never be shared outside the enterprise. 
 
 ![Swimlane-principles](images/swimlane-2.jpg)
 
 ### Swimlane Principles
 
-**Principle 1:** Nothing is shared (also known as “share as little as possible”). The less that is shared within a swim lane, the more fault isolative the swim lane becomes. (as shown in Enterprise usecase)
+**Principle 1:** Nothing is shared (also known as “share as little as possible”). The less that is shared within a swim lane, the more fault isolative the swim lane becomes. (as shown in Enterprise use-case)
 
 **Principle 2:** Nothing crosses a swim lane boundary. Synchronous (defined by expecting a request—not the transfer protocol) communication never crosses a swim lane boundary; if it does, the boundary is drawn incorrectly. (as shown in Ads feature)
 
 ### Swimlane Approaches
 **Approach 1:** Swim lane the money-maker. Never allow your cash register to be compromised by other systems. (Tier 1  vs Tier 2 in enterprise use case)
 
-**Approach 2:** Swim lane the biggest sources of incidents. Identify the recurring causes of pain and isolate them.(if Ads feature is in code yellow, swim laning it is the best option)
+**Approach 2:** Swim lane the biggest sources of incidents. Identify the recurring causes of pain and isolate them. (if Ads feature is in code yellow, swim laning it is the best option)
 
-**Approach 3:** Swim lane natural barriers. Customer boundaries make good swim lanes.(Public vs Enterprise customers)
+**Approach 3:** Swim lane natural barriers. Customer boundaries make good swim lanes. (Public vs Enterprise customers)
 
 
 #### Refer
@@ -64,5 +64,3 @@ Let's take another example, we come up with a new model for our Content sharing 
 1. Work with the DC tech or cloud team to distribute infrastructure such that its immune to switch or power failures by creating fault zones within a Data Center
 https://docs.microsoft.com/en-us/azure/virtual-machines/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures
 2. Work with the partners and design interaction between services such that one service breakdown is not amplified in a cascading fashion to all upstreams
-
-
