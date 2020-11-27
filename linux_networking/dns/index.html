@@ -1059,7 +1059,7 @@
                 
                 
                 <h1 id="dns">DNS</h1>
-<p>Domain Names are the simple human-readable names for websites. The Internet understands only IP addresses, but since memorizing incoherent numbers is not practical, domain names are used instead. These domain names are translated into IP addresses by the DNS infrastructure. When somebody tries to open www.linkedin.com in the browser, the browser tries to convert www.linkedin.com to an IP Address. This process is called DNS resolution. A simple pseudocode depicting this process looks this</p>
+<p>Domain Names are the simple human-readable names for websites. The Internet understands only IP addresses, but since memorizing incoherent numbers is not practical, domain names are used instead. These domain names are translated into IP addresses by the DNS infrastructure. When somebody tries to open <a href="www.linkedin.com">www.linkedin.com</a> in the browser, the browser tries to convert <a href="www.linkedin.com">www.linkedin.com</a> to an IP Address. This process is called DNS resolution. A simple pseudocode depicting this process looks this</p>
 <pre><code class="language-python">ip, err = getIPAddress(domainName)
 if err:
   print(“unknown Host Exception while trying to resolve:%s”.format(domainName))
@@ -1076,7 +1076,7 @@ if err:
        else:
           return resp
 </code></pre>
-<p>Now lets understand what operating system kernel does when the gethostbyname function is called. The Linux operating system looks at the file <a href="https://man7.org/linux/man-pages/man5/nsswitch.conf.5.html">/etc/nsswitch.conf</a> file which usually has a line</p>
+<p>Now lets understand what operating system kernel does when the <a href="https://man7.org/linux/man-pages/man3/gethostbyname.3.html">gethostbyname</a> function is called. The Linux operating system looks at the file <a href="https://man7.org/linux/man-pages/man5/nsswitch.conf.5.html">/etc/nsswitch.conf</a> file which usually has a line</p>
 <pre><code class="language-bash">hosts:      files dns
 </code></pre>
 <p>This line means the OS has to look up first in file (/etc/hosts) and then use DNS protocol to do the resolution if there is no match in /etc/hosts. </p>
@@ -1098,7 +1098,7 @@ if err:
 
 </code></pre>
 <p>As mentioned earlier, if no match exists in /etc/hosts, the OS tries to do a DNS resolution using the DNS protocol. The linux system makes a DNS request to the first IP in /etc/resolv.conf. If there is no response, requests are sent to subsequent servers in resolv.conf. These servers in resolv.conf are called DNS resolvers. The DNS resolvers are populated by <a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">DHCP</a> or statically configured by an administrator. 
-<a href="https://linux.die.net/man/1/dig">Dig</a> is a userspace DNS system which creates and sends requests to DNS resolvers and prints the response it receives to the console.</p>
+<a href="https://linux.die.net/man/1/dig">Dig</a> is a userspace DNS system which creates and sends request to DNS resolvers and prints the response it receives to the console.</p>
 <pre><code class="language-bash">#run this command in one shell to capture all DNS requests
 sudo tcpdump -s 0 -A -i any port 53
 #make a dig request from another shell
