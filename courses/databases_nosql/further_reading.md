@@ -1,4 +1,8 @@
-# Further reading:
+# Conclusion
+
+We have covered basic concepts of NoSQL databases. There is much more to learn and do. We hope this course gives you a good start and inspires you to explore further.
+
+# Further reading
 
 NoSQL:
 
