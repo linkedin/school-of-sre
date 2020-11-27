@@ -4,6 +4,8 @@ As a contributor, you represent that the content you submit is not plagiarised. 
 
 We suggest to open an issue first and seek advice for your changes before submitting a pull request.
 
+*Repository URL*: [https://github.com/linkedin/school-of-sre](https://github.com/linkedin/school-of-sre)
+
 ### Building and testing locally
 Run the following commands to build and view the site locally before opening a PR.
 
