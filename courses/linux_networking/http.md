@@ -25,7 +25,7 @@ curl linkedin.com -v
 * Closing connection 0
 ```
 
-Here, in the first line GET is the verb, / is the path and 1.1 is the HTTP protocol version. Then there are key value pairs which give client capabilities and some details to the server. The server responds back with HTTP version, Status Code and Status message. Status codes 2xx means success, 3xx denotes redirection, 4xx denotes client side errors and 5xx server side errors.
+Here, in the first line GET is the verb, / is the path and 1.1 is the HTTP protocol version. Then there are key value pairs which give client capabilities and some details to the server. The server responds back with HTTP version, [Status Code and Status message](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). Status codes 2xx means success, 3xx denotes redirection, 4xx denotes client side errors and 5xx server side errors.
 
 We will now jump in to see the difference between HTTP/1.0 and HTTP/1.1. 
 

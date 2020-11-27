@@ -2,7 +2,8 @@
 
 ## Prerequisites
 
-This course requires high-level knowledge of commonly used jargon in TCP/IP stack like  DNS, TCP, UDP and HTTP. Basic familiarity with Linux jargon is sufficient to start this course. This course also expects basic exposure to Linux command-line tools. The course will require you to install certain utilities and run them as a part of the course exercises.
+- High-level knowledge of commonly used jargon in TCP/IP stack like  DNS, TCP, UDP and HTTP
+- [Linux Commandline Basics](https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/)
 
 ## What to expect from this course
 
@@ -10,7 +11,7 @@ Throughout the course, we cover how an SRE can optimize the system to improve th
 
 ## What is not covered under this course
 
-This course spends time on the fundamentals. We are not covering concepts like HTTP/2.0, QUIC, TCP congestion control protocols, Anycast, BGP, CDN, Tunnels and Multicast. We expect that this course will provide the relevant basics to understand such concepts
+This course spends time on the fundamentals. We are not covering concepts like [HTTP/2.0](https://en.wikipedia.org/wiki/HTTP/2), [QUIC](https://en.wikipedia.org/wiki/QUIC), [TCP congestion control protocols](https://en.wikipedia.org/wiki/TCP_congestion_control), [Anycast](https://en.wikipedia.org/wiki/Anycast), [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol), [CDN](https://en.wikipedia.org/wiki/Content_delivery_network), [Tunnels](https://en.wikipedia.org/wiki/Virtual_private_network) and [Multicast](https://en.wikipedia.org/wiki/Multicast). We expect that this course will provide the relevant basics to understand such concepts
 
 ## Birds eye view of the course
 
