@@ -594,11 +594,120 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" >
     <label class="md-nav__link" for="nav-4-1">
+      Relational Databases
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Relational Databases" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon"></span>
+        Relational Databases
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/concepts/" class="md-nav__link">
+      Key Concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/mysql/" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/innodb/" class="md-nav__link">
+      InnoDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/operations/" class="md-nav__link">
+      Operational Concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/lab/" class="md-nav__link">
+      Lab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/reading.md" class="md-nav__link">
+      Further Reading
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" >
+    <label class="md-nav__link" for="nav-4-2">
       NoSQL
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="NoSQL" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-1">
+      <label class="md-nav__title" for="nav-4-2">
         <span class="md-nav__icon md-icon"></span>
         NoSQL
       </label>
@@ -653,13 +762,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" >
-    <label class="md-nav__link" for="nav-4-2">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" >
+    <label class="md-nav__link" for="nav-4-3">
       Big Data
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Big Data" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-2">
+      <label class="md-nav__title" for="nav-4-3">
         <span class="md-nav__icon md-icon"></span>
         Big Data
       </label>
@@ -951,7 +1060,7 @@
                 
                 <h1 id="working-with-branches">Working With Branches</h1>
 <p>Coming back to our local repo which has two commits. So far, what we have is a single line of history. Commits are chained in a single line. But sometimes you may have a need to work on two different features in parallel in the same repo. Now one option here could be making a new folder/repo with the same code and use that for another feature development. But there's a better way. Use <em>branches.</em> Since git follows tree like structure for commits, we can use branches to work on different sets of features. From a commit, two or more branches can be created and branches can also be merged.</p>
-<p>Using branches, there can exist multiple lines of histories and we can checkout to any of them and work on it. Checking out, as we discussed earlier, would simply mean replacing contents of the directory (repo) with contents snapshot at the checked out version.</p>
+<p>Using branches, there can exist multiple lines of histories and we can checkout to any of them and work on it. Checking out, as we discussed earlier, would simply mean replacing contents of the directory (repo) with the snapshot at the checked out version.</p>
 <p>Let's create a branch and see how it looks like:</p>
 <pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ git branch b1
 spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
@@ -1001,7 +1110,7 @@ spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 * 7f3b00e adding file 2
 * df2fb7a adding file 1
 </code></pre>
-<p>Notice how branch b1 is not visible here since we are checkout on master. Let's try to visualize both to get the whole picture:</p>
+<p>Notice how branch b1 is not visible here since we are on the master. Let's try to visualize both to get the whole picture:</p>
 <pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph --all
 * 60dc441 (HEAD -&gt; master) adding master.txt file
 | * 872a38f (b1) adding b1 file

@@ -14,7 +14,7 @@
     
     
       
-        <title>Evolution and Architecture of Hadoop - SchoolOfSRE</title>
+        <title>MySQL - SchoolOfSRE</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#evolution-of-hadoop" class="md-skip">
+        <a href="#mysql-architecture" class="md-skip">
           Skip to content
         </a>
       
@@ -87,7 +87,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Evolution and Architecture of Hadoop
+              MySQL
             
           </span>
         </div>
@@ -549,10 +549,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" >
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" checked>
     <label class="md-nav__link" for="nav-4-1">
       Relational Databases
       <span class="md-nav__icon md-icon"></span>
@@ -571,7 +573,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../databases_sql/intro/" class="md-nav__link">
+    <a href="../intro/" class="md-nav__link">
       Introduction
     </a>
   </li>
@@ -583,7 +585,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../databases_sql/concepts/" class="md-nav__link">
+    <a href="../concepts/" class="md-nav__link">
       Key Concepts
     </a>
   </li>
@@ -593,11 +595,45 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../databases_sql/mysql/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        MySQL
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       MySQL
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mysql-architecture" class="md-nav__link">
+    MySQL architecture
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -607,7 +643,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../databases_sql/innodb/" class="md-nav__link">
+    <a href="../innodb/" class="md-nav__link">
       InnoDB
     </a>
   </li>
@@ -619,7 +655,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../databases_sql/operations/" class="md-nav__link">
+    <a href="../operations/" class="md-nav__link">
       Operational Concepts
     </a>
   </li>
@@ -631,7 +667,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../databases_sql/lab/" class="md-nav__link">
+    <a href="../lab/" class="md-nav__link">
       Lab
     </a>
   </li>
@@ -643,7 +679,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../databases_sql/reading.md" class="md-nav__link">
+    <a href="../reading.md" class="md-nav__link">
       Further Reading
     </a>
   </li>
@@ -719,12 +755,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" checked>
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" >
     <label class="md-nav__link" for="nav-4-3">
       Big Data
       <span class="md-nav__icon md-icon"></span>
@@ -743,7 +777,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../intro/" class="md-nav__link">
+    <a href="../../big_data/intro/" class="md-nav__link">
       Introduction
     </a>
   </li>
@@ -753,20 +787,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../big_data/evolution/" class="md-nav__link">
       Evolution and Architecture of Hadoop
     </a>
-    
   </li>
 
         
@@ -776,7 +801,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tasks/" class="md-nav__link">
+    <a href="../../big_data/tasks/" class="md-nav__link">
       Conclusion
     </a>
   </li>
@@ -1000,8 +1025,21 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mysql-architecture" class="md-nav__link">
+    MySQL architecture
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1014,98 +1052,37 @@
               
                 
                 
-                <h1 id="evolution-of-hadoop">Evolution of Hadoop</h1>
-<p><img alt="Evolution of hadoop" src="../images/hadoop_evolution.png" /></p>
-<h1 id="architecture-of-hadoop">Architecture of Hadoop</h1>
-<ol>
-<li>
-<p><strong>HDFS</strong></p>
-<ol>
-<li>The Hadoop Distributed File System (HDFS) is a distributed file system designed to run on commodity hardware. It has many similarities with existing distributed file systems. However, the differences from other distributed file systems are significant.</li>
-<li>HDFS is highly fault-tolerant and is designed to be deployed on low-cost hardware. HDFS provides high throughput access to application data and is suitable for applications that have large data sets.</li>
-<li>HDFS is part of the <a href="https://github.com/apache/hadoop">Apache Hadoop Core project</a>.</li>
-</ol>
-<p><img alt="HDFS Architecture" src="../images/hdfs_architecture.png" /></p>
-<ol>
-<li>NameNode: is the arbitrator and central repository of file namespace in the cluster. The NameNode executes the operations such as opening, closing, and renaming files and directories.</li>
-<li>DataNode: manages the storage attached to the node on which it runs. It is responsible for serving all the read and writes requests. It performs operations on instructions on NameNode such as creation, deletion, and replications of blocks.</li>
-<li>Client: Responsible for getting the required metadata from the namenode and then communicating with the datanodes for reads and writes. </br></br></br></li>
-</ol>
-</li>
-<li>
-<p><strong>YARN</strong></p>
-<ol>
-<li>YARN stands for “Yet Another Resource Negotiator“. It was introduced in Hadoop 2.0 to remove the bottleneck on Job Tracker which was present in Hadoop 1.0. YARN was described as a “Redesigned Resource Manager” at the time of its launching, but it has now evolved to be known as a large-scale distributed operating system used for Big Data processing.</li>
-<li>The main components of YARN architecture include:</li>
-</ol>
-<p><img alt="YARN Architecture" src="../images/yarn_architecture.gif" /></p>
-<ol>
-<li>Client: It submits map-reduce(MR) jobs to the resource manager.</li>
-<li>Resource Manager: It is the master daemon of YARN and is responsible for resource assignment and management among all the applications. Whenever it receives a processing request, it forwards it to the corresponding node manager and allocates resources for the completion of the request accordingly. It has two major components:</li>
-<li>Scheduler: It performs scheduling based on the allocated application and available resources. It is a pure scheduler, which means that it does not perform other tasks such as monitoring or tracking and does not guarantee a restart if a task fails. The YARN scheduler supports plugins such as Capacity Scheduler and Fair Scheduler to partition the cluster resources.</li>
-<li>Application manager: It is responsible for accepting the application and negotiating the first container from the resource manager. It also restarts the Application Manager container if a task fails.</li>
-<li>Node Manager: It takes care of individual nodes on the Hadoop cluster and manages application and workflow and that particular node. Its primary job is to keep up with the Node Manager. It monitors resource usage, performs log management, and also kills a container based on directions from the resource manager. It is also responsible for creating the container process and starting it at the request of the Application master.</li>
-<li>Application Master: An application is a single job submitted to a framework. The application manager is responsible for negotiating resources with the resource manager, tracking the status, and monitoring the progress of a single application. The application master requests the container from the node manager by sending a Container Launch Context(CLC) which includes everything an application needs to run. Once the application is started, it sends the health report to the resource manager from time-to-time.</li>
-<li>Container: It is a collection of physical resources such as RAM, CPU cores, and disk on a single node. The containers are invoked by Container Launch Context(CLC) which is a record that contains information such as environment variables, security tokens, dependencies, etc. </br></br></li>
-</ol>
-</li>
-</ol>
-<h1 id="mapreduce-framework">MapReduce framework</h1>
-<p><img alt="MapReduce Framework" src="../images/map_reduce.jpg" /></p>
-<ol>
-<li>The term MapReduce represents two separate and distinct tasks Hadoop programs perform-Map Job and Reduce Job. Map jobs take data sets as input and process them to produce key-value pairs. Reduce job takes the output of the Map job i.e. the key-value pairs and aggregates them to produce desired results.</li>
-<li>Hadoop MapReduce (Hadoop Map/Reduce) is a software framework for distributed processing of large data sets on computing clusters. Mapreduce helps to split the input data set into a number of parts and run a program on all data parts parallel at once.</li>
-<li>Please find the below Word count example demonstrating the usage of the MapReduce framework:</li>
-</ol>
-<p><img alt="Word Count Example" src="../images/mapreduce_example.jpg" />
-</br></br></p>
-<h1 id="other-tooling-around-hadoop">Other tooling around Hadoop</h1>
-<ol>
-<li><a href="https://hive.apache.org/"><strong>Hive</strong></a><ol>
-<li>Uses a language called HQL which is very SQL like.  Gives non-programmers the ability to query and analyze data in Hadoop.  Is basically an abstraction layer on top of map-reduce.</li>
-<li>Ex. HQL query:<ol>
-<li><em>SELECT pet.name, comment FROM pet JOIN event ON  (pet.name = event.name);</em></li>
-</ol>
-</li>
-<li>In mysql:<ol>
-<li><em>SELECT pet.name, comment FROM pet, event WHERE  pet.name = event.name;</em></li>
-</ol>
-</li>
-</ol>
-</li>
-<li>
-<p><a href="https://pig.apache.org/"><strong>Pig</strong></a></p>
-<ol>
-<li>Uses a scripting language called Pig Latin, which is more workflow driven.  Don't need to be an expert Java programmer but need a few coding skills.  Is also an abstraction layer on top of map-reduce.</li>
-<li>Here is a quick question for you:
-What is the output of running the pig queries in the right column against the data present in the left column in the below image?</li>
-</ol>
-<p><img alt="Pig Example" src="../images/pig_example.png" /></p>
-<p>Output:
-<code>mysql
-7,Komal,Nayak,24,9848022334,trivendram
-8,Bharathi,Nambiayar,24,9848022333,Chennai
-5,Trupthi,Mohanthy,23,9848022336,Bhuwaneshwar
-6,Archana,Mishra,23,9848022335,Chennai</code>
-3. <a href="https://spark.apache.org/"><strong>Spark</strong></a>
-1. Spark provides primitives for in-memory cluster computing that allows user programs to load data into a cluster’s memory and query it repeatedly, making it well suited to machine learning algorithms.
-4. <a href="https://prestodb.io/"><strong>Presto</strong></a>
-1. Presto is a high performance, distributed SQL query engine for Big Data.
-2. Its architecture allows users to query a variety of data sources such as Hadoop, AWS S3, Alluxio, MySQL, Cassandra, Kafka, and MongoDB.
-3. Example presto query:
-    <code>mysql
-    use studentDB;
-    show tables;
-    SELECT roll_no, name FROM studentDB.studentDetails where section=’A’ limit 5;</code>
-</br></p>
-</li>
-</ol>
-<h1 id="data-serialisation-and-storage">Data Serialisation and storage</h1>
-<ol>
-<li>In order to transport the data over the network or to store on some persistent storage, we use the process of translating data structures or objects state into binary or textual form. We call this process serialization..</li>
-<li>Avro data is stored in a container file (a .avro file) and its schema (the .avsc file) is stored with the data file.</li>
-<li>Apache Hive provides support to store a table as Avro and can also query data in this serialisation format.</li>
-</ol>
+                  <h1>MySQL</h1>
+                
+                <h3 id="mysql-architecture">MySQL architecture</h3>
+<p><img alt="alt_text" src="../images/mysql_architecture.png" title="MySQL architecture diagram" /></p>
+<p>MySQL architecture enables you to select the right storage engine for your needs, and abstracts away all implementation details from the end users (application engineers and <a href="https://en.wikipedia.org/wiki/Database_administrator">DBA</a>) who only need to know a consistent stable API.</p>
+<p>Application layer:</p>
+<ul>
+<li>Connection handling - each client gets its own connection which is cached for the duration of access)</li>
+<li>Authentication - server checks (username,password,host) info of client and allows/rejects connection</li>
+<li>Security: server determines whether the client has privileges to execute each query (check with <em>show privileges</em> command)</li>
+</ul>
+<p>Server layer:</p>
+<ul>
+<li>Services and utilities - backup/restore, replication, cluster etc</li>
+<li>SQL interface - clients run queries for data access and manipulation</li>
+<li>SQL parser - creates a parse tree from the query (lexical/syntactic/semantic analysis and code generation)</li>
+<li>Optimizer - optimizes queries using various algorithms and data available to it(table level stats), modifies queries, order of scanning, indexes to use etc. (check with explain command)</li>
+<li>Caches and buffers - cache stores query results, buffer pool(InnoDB) stores table and index data in <a href="https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU)">LRU</a> fashion</li>
+</ul>
+<p>Storage engine options:</p>
+<ul>
+<li>InnoDB: most widely used, transaction support, ACID compliant, supports row-level locking, crash recovery and multi-version concurrency control. Default since MySQL 5.5+.</li>
+<li>MyISAM: fast, does not support transactions, provides table-level locking, great for read-heavy workloads, mostly in web and data warehousing. Default upto MySQL 5.1.</li>
+<li>Archive: optimised for high speed inserts, compresses data as it is inserted, does not support transactions, ideal for storing and retrieving large amounts of seldom referenced historical, archived data</li>
+<li>Memory: tables in memory. Fastest engine, supports table-level locking, does not support transactions, ideal for creating temporary tables or quick lookups, data is lost after a shutdown</li>
+<li>CSV: stores data in CSV files, great for integrating into other applications that use this format</li>
+<li>… etc.</li>
+</ul>
+<p>It is possible to migrate from one storage engine to another. But this migration locks tables for all operations and is not online, as it changes the physical layout of the data. It takes a long time and is generally not recommended. Hence, choosing the right storage engine at the beginning is important.</p>
+<p>General guideline is to use InnoDB unless you have a specific need for one of the other storage engines.</p>
+<p>Running <code>mysql&gt; SHOW ENGINES;</code>shows you the supported engines on your MySQL server.</p>
                 
               
               
@@ -1124,7 +1101,7 @@ What is the output of running the pig queries in the right column against the da
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../intro/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../concepts/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1133,19 +1110,19 @@ What is the output of running the pig queries in the right column against the da
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Introduction
+                Key Concepts
               </div>
             </div>
           </a>
         
         
-          <a href="../tasks/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../innodb/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Conclusion
+                InnoDB
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

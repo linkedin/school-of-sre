@@ -691,11 +691,120 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" >
     <label class="md-nav__link" for="nav-4-1">
+      Relational Databases
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Relational Databases" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        <span class="md-nav__icon md-icon"></span>
+        Relational Databases
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/intro/" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/concepts/" class="md-nav__link">
+      Key Concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/mysql/" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/innodb/" class="md-nav__link">
+      InnoDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/operations/" class="md-nav__link">
+      Operational Concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/lab/" class="md-nav__link">
+      Lab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../databases_sql/reading.md" class="md-nav__link">
+      Further Reading
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" >
+    <label class="md-nav__link" for="nav-4-2">
       NoSQL
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="NoSQL" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-1">
+      <label class="md-nav__title" for="nav-4-2">
         <span class="md-nav__icon md-icon"></span>
         NoSQL
       </label>
@@ -750,13 +859,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" >
-    <label class="md-nav__link" for="nav-4-2">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" >
+    <label class="md-nav__link" for="nav-4-3">
       Big Data
       <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Big Data" data-md-level="2">
-      <label class="md-nav__title" for="nav-4-2">
+      <label class="md-nav__title" for="nav-4-3">
         <span class="md-nav__icon md-icon"></span>
         Big Data
       </label>
@@ -1217,7 +1326,7 @@ create mode 100644 file1.txt
 </code></pre>
 <p>Notice how after adding the file, git status says <code>Changes to be committed:</code>. What it means is whatever is listed there, will be included in the next commit. Then we go ahead and create a commit, with an attached messaged via <code>-m</code>.</p>
 <h3 id="more-about-a-commit">More About a Commit</h3>
-<p>Commit is a snapshot of the repo. Whenever a commit is made, a snapshot of the current state of repo (the folder) is taken and saved. Each commit has a unique ID. (<code>df2fb7a</code> for the commit we made in the previous step). As we keep adding/changing more and more contents and keep making commits, all those snapshots are stored by git. Again, all this magic happens inside the <code>.git</code> folder. This is where all this snapshot or versions are stored. <em>In an efficient manner.</em></p>
+<p>Commit is a snapshot of the repo. Whenever a commit is made, a snapshot of the current state of repo (the folder) is taken and saved. Each commit has a unique ID. (<code>df2fb7a</code> for the commit we made in the previous step). As we keep adding/changing more and more contents and keep making commits, all those snapshots are stored by git. Again, all this magic happens inside the <code>.git</code> folder. This is where all this snapshot or versions are stored <em>in an efficient manner.</em></p>
 <h3 id="adding-more-changes">Adding More Changes</h3>
 <p>Let us create one more file and commit the change. It would look the same as the previous commit we made.</p>
 <pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ echo &quot;I am file 2&quot; &gt; file2.txt
@@ -1240,7 +1349,7 @@ create mode 100644 file2.txt
 <pre><code class="language-bash">   df2fb7a ===&gt; 7f3b00e
 </code></pre>
 <h3 id="are-commits-really-linked">Are commits really linked?</h3>
-<p>As I just said, the two commits we just made are linked via tree like data structure and we saw how they are linked. But let's actually verify it. Everything in git is an object. Newly created files are stored as an object. Changes to file are stored as an objects and even commits are objects. To view contents of an object we can use the following command with the object's ID. We will take a look at content of the contents of the second commit</p>
+<p>As I just said, the two commits we just made are linked via tree like data structure and we saw how they are linked. But let's actually verify it. Everything in git is an object. Newly created files are stored as an object. Changes to file are stored as an objects and even commits are objects. To view contents of an object we can use the following command with the object's ID. We will take a look at the contents of the second commit</p>
 <pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ git cat-file -p 7f3b00e
 tree ebf3af44d253e5328340026e45a9fa9ae3ea1982
 parent df2fb7a61f5d40c1191e0fdeb0fc5d6e7969685a
@@ -1325,7 +1434,7 @@ spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 * 7f3b00e (HEAD -&gt; master) adding file 2
 * df2fb7a adding file 1
 </code></pre>
-<p>We just edited the <code>master</code> reference file and now we can see only the first commit in git log. Undoing the change to the file brings the state back to original. Not so much of magic, isn't it?</p>
+<p>We just edited the <code>master</code> reference file and now we can see only the first commit in git log. Undoing the change to the file brings the state back to original. Not so much of magic, is it?</p>
                 
               
               
