@@ -35,6 +35,14 @@ nav:
     - The URL Shortening App: python_web/url-shorten-app.md
     - Conclusion: python_web/sre-conclusion.md
 - Data:
+    - Relational Databases:
+        - Introduction: databases_sql/intro.md
+        - Key Concepts: databases_sql/concepts.md
+        - MySQL: databases_sql/mysql.md
+        - InnoDB: databases_sql/innodb.md
+        - Operational Concepts: databases_sql/operations.md
+        - Lab: databases_sql/lab.md
+        - Further Reading: databases_sql/reading.md
     - NoSQL:
         - Introduction: databases_nosql/intro.md
         - Key Concepts: databases_nosql/key_concepts.md
@@ -54,6 +62,6 @@ nav:
     - Fundamentals of Security: security/fundamentals.md
     - Network Security: security/network_security.md
     - Threat, Attacks & Defences: security/threats_attacks_defences.md
-    - Writing Secure code: security/writing_secure_code.md  
+    - Writing Secure code: security/writing_secure_code.md
     - Conclusion: security/conclusion.md
 - Contribute: CONTRIBUTING.md
