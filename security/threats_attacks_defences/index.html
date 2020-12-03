@@ -1604,12 +1604,12 @@ the typical time to live (TTL) for cached entries is a couple of hours, thereby 
 <li>Injecting bogus route advertising information into the BGP-distributed routing database by malicious sources, accidentally or routers can disrupt Internet backbone operations. </li>
 <li>Blackholing traffic:</li>
 <li>Blackhole route is a network route, i.e., routing table entry, that goes nowhere and packets matching the route prefix are dropped or ignored. Blackhole routes can only be detected by monitoring the lost traffic.</li>
-<li>Blackhole routes are the best defence against many common viral attacks where the traffic is dropped from infected machines to/from command &amp; control masters.</li>
+<li>Blackhole routes are the best defence against many common viral attacks where the traffic is dropped from infected machines to/from command &amp; control hosts.</li>
 <li>
 <p>Infamous BGP Injection attack on Youtube</p>
 </li>
 <li>
-<p>EX: In 2008, Pakistan decided to block YouTube by creating a BGP route that led into a black hole. Instead, this routing information got transmitted to a hong kong ISP and from there accidentally got propagated to the rest of the world meaning millions were routed through to this black hole and therefore unable to access YouTube.</p>
+<p>Ex: In 2008, Pakistan decided to block YouTube by creating a BGP route that led into a black hole. Instead, this routing information got transmitted to a hong kong ISP and from there accidentally got propagated to the rest of the world meaning millions were routed through to this black hole and therefore unable to access YouTube.</p>
 </li>
 <li>Potentially, the greatest risk to BGP occurs in a denial of service attack in which a router is flooded with more packets than it can handle. Network overload and router resource exhaustion happen when the network begins carrying an excessive number of BGP messages, overloading the router control processors, memory, routing table and reducing the bandwidth available for data traffic.</li>
 <li>Refer: <a href="https://medium.com/bugbountywriteup/bgp-the-weak-link-in-the-internet-what-is-bgp-and-how-do-hackers-exploit-it-d899a68ba5bb">https://medium.com/bugbountywriteup/bgp-the-weak-link-in-the-internet-what-is-bgp-and-how-do-hackers-exploit-it-d899a68ba5bb</a></li>
