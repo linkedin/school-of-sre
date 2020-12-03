@@ -21,19 +21,19 @@ Let's see how our monolithic application improves with this principle
 
 ![Horizontal Scaling](images/horizontal-scaling.jpg)
 
-Here DB is scaled separately from the application. This is to let you know each component’s scaling capabilities can be different. Usually, web applications can be scaled by adding resources unless there is no state stored inside the application. But DBs can be scaled only for Reads by adding more followers but Writes have to go to only one master to make sure data is consistent. There are some DBs that support multi-master writes but we are keeping them out of scope at this point. 
+Here DB is scaled separately from the application. This is to let you know each component’s scaling capabilities can be different. Usually, web applications can be scaled by adding resources unless there is no state stored inside the application. But DBs can be scaled only for Reads by adding more followers but Writes have to go to only one leader to make sure data is consistent. There are some DBs that support multi-leader writes but we are keeping them out of scope at this point.
 
 Apps should be able to differentiate between Reads and Writes to choose appropriate DB servers. Load balancers can split traffic between identical servers transparently.
 
 **WHAT:**  Duplication of services or databases to spread transaction load.
 
-**WHEN TO USE:**  Databases with a very high read-to-write ratio (5:1 or greater—the higher the better). Because only read replicas of DBs can be scaled, not the Master. 
+**WHEN TO USE:**  Databases with a very high read-to-write ratio (5:1 or greater—the higher the better). Because only read replicas of DBs can be scaled, not the Leader.
 
 **HOW TO USE:** Simply clone services and implement a load balancer. For databases, ensure that the accessing code understands the difference between a read and a write.
 
 **WHY:** Allows for the fast scale of transactions at the cost of duplicated data and functionality.
 
-**KEY TAKEAWAYS:** This is fast to implement, is a low cost from a developer effort perspective, and can scale transaction volumes nicely. However, they tend to be high cost from the perspective of the operational cost of data. The cost here means if we have 3 followers and 1 Master DB, the same database will be stored as 4 copies in the 4 servers. Hence added storage cost
+**KEY TAKEAWAYS:** This is fast to implement, is a low cost from a developer effort perspective, and can scale transaction volumes nicely. However, they tend to be high cost from the perspective of the operational cost of data. The cost here means if we have 3 followers and 1 Leader DB, the same database will be stored as 4 copies in the 4 servers. Hence added storage cost
 
 ### Refer   
 - [https://learning.oreilly.com/library/view/the-art-of/9780134031408/ch23.html](https://learning.oreilly.com/library/view/the-art-of/9780134031408/ch23.html) 

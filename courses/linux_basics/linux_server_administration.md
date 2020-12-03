@@ -27,9 +27,9 @@ Since Linux supports multiple users, we need to have a method which can protect 
 
 ## User/Group Management
 
-- Each user in Linux has an associated user ID called UID attached to him
+- Users in Linux has an associated user ID called UID attached to them.
 
-- Each user also has a home directory and a login shell associated with him/her
+- Users also has a home directory and a login shell associated with them.
 
 - A group is a collection of one or more users. A group makes it easier to share permissions among a group of users.
 
