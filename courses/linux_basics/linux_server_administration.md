@@ -27,7 +27,7 @@ Since Linux supports multiple users, we need to have a method which can protect 
 
 ## User/Group Management
 
-- Each user in Linux has an associated user ID called UID attached to him
+- Each user in Linux has an associated user ID called UID attached to him/her
 
 - Each user also has a home directory and a login shell associated with him/her
 

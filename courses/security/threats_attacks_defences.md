@@ -41,7 +41,7 @@ the typical time to live (TTL) for cached entries is a couple of hours, thereby 
 - Injecting bogus route advertising information into the BGP-distributed routing database by malicious sources, accidentally or routers can disrupt Internet backbone operations. 
 - Blackholing traffic:
   - Blackhole route is a network route, i.e., routing table entry, that goes nowhere and packets matching the route prefix are dropped or ignored. Blackhole routes can only be detected by monitoring the lost traffic.
-  - Blackhole routes are the best defence against many common viral attacks where the traffic is dropped from infected machines to/from command & control masters.
+  - Blackhole routes are the best defence against many common viral attacks where the traffic is dropped from infected machines to/from command & control hosts.
   - Infamous BGP Injection attack on Youtube
 
 - EX: In 2008, Pakistan decided to block YouTube by creating a BGP route that led into a black hole. Instead, this routing information got transmitted to a hong kong ISP and from there accidentally got propagated to the rest of the world meaning millions were routed through to this black hole and therefore unable to access YouTube.
