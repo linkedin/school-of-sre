@@ -34,11 +34,11 @@ NoSQL systems support different levels of eventual consistency models. For examp
 
 *   **Read Your Own Writes Consistency**
 
-    A client will see his updates immediately after they are written. The reads can hit nodes other than the one where it was written. However he might not see updates by other clients immediately. 
+    Clients will see their updates immediately after they are written. The reads can hit nodes other than the one where it was written. However they might not see updates by other clients immediately.
 
 *   **Session Consistency**
 
-    A client will see the updates to his data within a session scope. This generally indicates that reads & writes occur on the same server. Other clients using the same nodes will receive the same updates. 
+    Clients will see the updates to their data within a session scope. This generally indicates that reads & writes occur on the same server. Other clients using the same nodes will receive the same updates.
 
 *   **Casual Consistency**
 
