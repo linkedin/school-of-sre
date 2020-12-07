@@ -28,7 +28,7 @@ Given a URL to shorten, how do we verify if the URL is valid? Do we even verify 
 
 ### 4. Storage
 
-Finally, storage. Where will we store the data that we will generate over time? There are multiple database solutions available and we will need to choose the one that suits this app the most. Relational database like MySQL would be a fair choice but **be sure to checkout School of SRE's database section for deeper insights into making a more informed decision.**
+Finally, storage. Where will we store the data that we will generate over time? There are multiple database solutions available and we will need to choose the one that suits this app the most. Relational database like MySQL would be a fair choice but **be sure to checkout School of SRE's [SQL database section](../databases_sql/intro.md) and [NoSQL databases section](../databases_nosql/intro.md) for deeper insights into making a more informed decision.**
 
 ### 5. Other
 

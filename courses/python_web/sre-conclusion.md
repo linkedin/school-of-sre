@@ -10,7 +10,7 @@ Scaling here would mean adding more instances behind the load balancer. But this
 
 Only after you have metrics, you will be able to know what is going wrong where. **What gets measured, gets fixed!**
 
-Get deeper insights into scaling from School Of SRE's Scalability module and post going through it, apply your learnings and takeaways to this app. Think how will we make this app geographically distributed and highly available and scalable.
+Get deeper insights into scaling from School Of SRE's [Scalability module](../systems_design/scalability.md) and post going through it, apply your learnings and takeaways to this app. Think how will we make this app geographically distributed and highly available and scalable.
 
 ## Monitoring Strategy
 
