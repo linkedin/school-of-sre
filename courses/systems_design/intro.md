@@ -4,10 +4,10 @@
 
 Fundamentals of common software system components:
 
-- [Linux Basics](https://linkedin.github.io/school-of-sre/linux_basics/intro/)
-- [Linux Networking](https://linkedin.github.io/school-of-sre/linux_networking/intro/)
+- [Linux Basics](https://linkedin.github.io/school-of-de/linux_basics/intro/)
+- [Linux Networking](https://linkedin.github.io/school-of-de/linux_networking/intro/)
 - Databases RDBMS
-- [NoSQL Concepts](https://linkedin.github.io/school-of-sre/databases_nosql/intro/)
+- [NoSQL Concepts](https://linkedin.github.io/school-of-de/databases_nosql/intro/)
 
 ## What to expect from this course
 
@@ -21,10 +21,10 @@ More light will be shed on concepts rather than on setting up and configuring co
 
 ## Course Contents
 
-- [Introduction](https://linkedin.github.io/school-of-sre/systems_design/intro/#backstory)
-- [Scalability](https://linkedin.github.io/school-of-sre/systems_design/scalability/)
-- [High Availability](https://linkedin.github.io/school-of-sre/systems_design/availability/)
-- [Fault Tolerance](https://linkedin.github.io/school-of-sre/systems_design/fault-tolerance/)
+- [Introduction](https://linkedin.github.io/school-of-de/systems_design/intro/#backstory)
+- [Scalability](https://linkedin.github.io/school-of-de/systems_design/scalability/)
+- [High Availability](https://linkedin.github.io/school-of-de/systems_design/availability/)
+- [Fault Tolerance](https://linkedin.github.io/school-of-de/systems_design/fault-tolerance/)
 
 
 ## Introduction

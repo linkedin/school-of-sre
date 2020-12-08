@@ -2,9 +2,9 @@
 
 ## Prerequisites
 
-1. [Linux Basics](https://linkedin.github.io/school-of-sre/linux_basics/intro/)
+1. [Linux Basics](https://linkedin.github.io/school-of-de/linux_basics/intro/)
 
-2. [Linux Networking](https://linkedin.github.io/school-of-sre/linux_networking/intro/)
+2. [Linux Networking](https://linkedin.github.io/school-of-de/linux_networking/intro/)
 
 
 ## What to expect from this course
@@ -19,8 +19,8 @@ The courseware is not an ethical hacking workshop or a very deep dive into the f
 
 ## Course Contents
 
-1. [Fundamentals](https://linkedin.github.io/school-of-sre/security/fundamentals/)
-2. [Network Security](https://linkedin.github.io/school-of-sre/security/network_security/)
-3. [Threats, Attacks & Defence](https://linkedin.github.io/school-of-sre/security/threats_attacks_defences/)
-4. [Writing Secure Code & More](https://linkedin.github.io/school-of-sre/security/writing_secure_code/)
-5. [Conclusion](https://linkedin.github.io/school-of-sre/security/conclusion/)
+1. [Fundamentals](https://linkedin.github.io/school-of-de/security/fundamentals/)
+2. [Network Security](https://linkedin.github.io/school-of-de/security/network_security/)
+3. [Threats, Attacks & Defence](https://linkedin.github.io/school-of-de/security/threats_attacks_defences/)
+4. [Writing Secure Code & More](https://linkedin.github.io/school-of-de/security/writing_secure_code/)
+5. [Conclusion](https://linkedin.github.io/school-of-de/security/conclusion/)

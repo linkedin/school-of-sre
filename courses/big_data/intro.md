@@ -15,19 +15,19 @@ Writing programs to draw analytics from data.
 
 ## Course Contents
 
-1. [Overview of Big Data](https://linkedin.github.io/school-of-sre/big_data/intro/#overview-of-big-data)
-2. [Usage of Big Data techniques](https://linkedin.github.io/school-of-sre/big_data/intro/#usage-of-big-data-techniques)
-3. [Evolution of Hadoop](https://linkedin.github.io/school-of-sre/big_data/evolution/)
-4. [Architecture of hadoop](https://linkedin.github.io/school-of-sre/big_data/evolution/#architecture-of-hadoop)
+1. [Overview of Big Data](https://linkedin.github.io/school-of-de/big_data/intro/#overview-of-big-data)
+2. [Usage of Big Data techniques](https://linkedin.github.io/school-of-de/big_data/intro/#usage-of-big-data-techniques)
+3. [Evolution of Hadoop](https://linkedin.github.io/school-of-de/big_data/evolution/)
+4. [Architecture of hadoop](https://linkedin.github.io/school-of-de/big_data/evolution/#architecture-of-hadoop)
     1. HDFS
     2. Yarn
-5. [MapReduce framework](https://linkedin.github.io/school-of-sre/big_data/evolution/#mapreduce-framework)
-6. [Other tooling around hadoop](https://linkedin.github.io/school-of-sre/big_data/evolution/#other-tooling-around-hadoop)
+5. [MapReduce framework](https://linkedin.github.io/school-of-de/big_data/evolution/#mapreduce-framework)
+6. [Other tooling around hadoop](https://linkedin.github.io/school-of-de/big_data/evolution/#other-tooling-around-hadoop)
     1. Hive
     2. Pig
     3. Spark
     4. Presto
-7. [Data Serialisation and storage](https://linkedin.github.io/school-of-sre/big_data/evolution/#data-serialisation-and-storage)
+7. [Data Serialisation and storage](https://linkedin.github.io/school-of-de/big_data/evolution/#data-serialisation-and-storage)
 
 
 # Overview of Big Data

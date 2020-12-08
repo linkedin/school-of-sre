@@ -1,7 +1,7 @@
 # NoSQL Concepts
 
 ## Prerequisites
-- [Relational Databases](https://linkedin.github.io/school-of-sre/databases_sql/intro/)
+- [Relational Databases](https://linkedin.github.io/school-of-de/databases_sql/intro/)
 
 ## What to expect from this course
 
@@ -17,12 +17,12 @@ We will not be deep diving into any specific NoSQL Database.
 
 
 
-*   [Introduction to NoSQL](https://linkedin.github.io/school-of-sre/databases_nosql/intro/#introduction)
-*   [CAP Theorem](https://linkedin.github.io/school-of-sre/databases_nosql/key_concepts/#cap-theorem)
-*   [Data versioning](https://linkedin.github.io/school-of-sre/databases_nosql/key_concepts/#versioning-of-data-in-distributed-systems)
-*   [Partitioning](https://linkedin.github.io/school-of-sre/databases_nosql/key_concepts/#partitioning)
-*   [Hashing](https://linkedin.github.io/school-of-sre/databases_nosql/key_concepts/#hashing)
-*   [Quorum](https://linkedin.github.io/school-of-sre/databases_nosql/key_concepts/#quorum)
+*   [Introduction to NoSQL](https://linkedin.github.io/school-of-de/databases_nosql/intro/#introduction)
+*   [CAP Theorem](https://linkedin.github.io/school-of-de/databases_nosql/key_concepts/#cap-theorem)
+*   [Data versioning](https://linkedin.github.io/school-of-de/databases_nosql/key_concepts/#versioning-of-data-in-distributed-systems)
+*   [Partitioning](https://linkedin.github.io/school-of-de/databases_nosql/key_concepts/#partitioning)
+*   [Hashing](https://linkedin.github.io/school-of-de/databases_nosql/key_concepts/#hashing)
+*   [Quorum](https://linkedin.github.io/school-of-de/databases_nosql/key_concepts/#quorum)
 
 
 ## Introduction

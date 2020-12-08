@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - High-level knowledge of commonly used jargon in TCP/IP stack like  DNS, TCP, UDP and HTTP
-- [Linux Commandline Basics](https://linkedin.github.io/school-of-sre/linux_basics/command_line_basics/)
+- [Linux Commandline Basics](https://linkedin.github.io/school-of-de/linux_basics/command_line_basics/)
 
 ## What to expect from this course
 
@@ -18,8 +18,8 @@ This course spends time on the fundamentals. We are not covering concepts like [
 The course covers the question “What happens when you open linkedin.com in your browser?” The course follows the flow of TCP/IP stack.More specifically, the course covers topics of Application layer protocols DNS and HTTP, transport layer protocols UDP and TCP, networking layer protocol IP and Data Link Layer protocol 
 
 ##  Course Contents
-1. [DNS](https://linkedin.github.io/school-of-sre/linux_networking/dns/)
-2. [UDP](https://linkedin.github.io/school-of-sre/linux_networking/udp/)
-3. [HTTP](https://linkedin.github.io/school-of-sre/linux_networking/http/)
-4. [TCP](https://linkedin.github.io/school-of-sre/linux_networking/tcp/)
-5. [IP Routing](https://linkedin.github.io/school-of-sre/linux_networking/ipr/)
+1. [DNS](https://linkedin.github.io/school-of-de/linux_networking/dns/)
+2. [UDP](https://linkedin.github.io/school-of-de/linux_networking/udp/)
+3. [HTTP](https://linkedin.github.io/school-of-de/linux_networking/http/)
+4. [TCP](https://linkedin.github.io/school-of-de/linux_networking/tcp/)
+5. [IP Routing](https://linkedin.github.io/school-of-de/linux_networking/ipr/)

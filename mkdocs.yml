@@ -1,8 +1,8 @@
-site_name: SchoolOfSRE
+site_name: schoolOfDE
 docs_dir: courses
 theme:
   name: material
-  logo: img/sos.png
+  logo: img/sode.png
   favicon: img/favicon.ico
   custom_dir: overrides
 extra_css:
@@ -69,4 +69,4 @@ copyright: "Copyright 2020 LinkedIn Corporation. All Rights Reserved. Licensed u
 extra:
     social:
         - icon: fontawesome/brands/github
-          link: https://github.com/linkedin/school-of-sre
+          link: https://github.com/linkedin/school-of-de

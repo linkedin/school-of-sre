@@ -23,13 +23,13 @@ Have latest version of python installed
 
 ## Course Contents
 
-1. [The Python Language](https://linkedin.github.io/school-of-sre/python_web/intro/#the-python-language)
+1. [The Python Language](https://linkedin.github.io/school-of-de/python_web/intro/#the-python-language)
       1. Some Python Concepts
       2. Python Gotchas
-2. [Python and Web](https://linkedin.github.io/school-of-sre/python_web/python-web-flask/)
+2. [Python and Web](https://linkedin.github.io/school-of-de/python_web/python-web-flask/)
       1. Sockets
       2. Flask
-3. [The URL Shortening App](https://linkedin.github.io/school-of-sre/python_web/url-shorten-app/)
+3. [The URL Shortening App](https://linkedin.github.io/school-of-de/python_web/url-shorten-app/)
       1. Design
       2. Scaling The App
       3. Monitoring The App

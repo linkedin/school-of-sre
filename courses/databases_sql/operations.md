@@ -8,13 +8,13 @@
 
 	Watch this performance tuning [tutorial video](https://www.youtube.com/watch?v=pjRTLPeUOug).
 
-	Checkout the [lab section](https://linkedin.github.io/school-of-sre/databases_sql/lab/) for a hands-on about indexes.
+	Checkout the [lab section](https://linkedin.github.io/school-of-de/databases_sql/lab/) for a hands-on about indexes.
 
 *   [Slow query logs](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)
 
 	Used to identify slow queries (configurable threshold), enabled in config or dynamically with a query
 
-	Checkout the [lab section](https://linkedin.github.io/school-of-sre/databases_sql/lab/) about identifying slow queries.
+	Checkout the [lab section](https://linkedin.github.io/school-of-de/databases_sql/lab/) about identifying slow queries.
 
 *   User management
 

@@ -1,4 +1,4 @@
-# School of SRE
+# School of Data Engineering
 
 <img src="img/sos.png" width=200 >
 
@@ -10,17 +10,23 @@ There is a vast amount of resources scattered throughout the web on what the rol
 
 In this course, we are focusing on building strong foundational skills. The course is structured in a way to provide more real life examples and how learning each of these topics can play an important role in day to day SRE life. Currently we are covering the following topics under the School Of SRE:
 
--   Fundamentals Series
-    -   [Linux Basics](https://linkedin.github.io/school-of-sre/linux_basics/intro/)
-    -   [Git](https://linkedin.github.io/school-of-sre/git/git-basics/)
-    -   [Linux Networking](https://linkedin.github.io/school-of-sre/linux_networking/intro/)
--   [Python and Web](https://linkedin.github.io/school-of-sre/python_web/intro/)
+-   Data Engineering Foundations
+    -   [Unix Basics and Command Line](https://linkedin.github.io/school-of-de/linux_basics/intro/)
+    -   [Git](https://linkedin.github.io/school-of-de/git/git-basics/)
+    -   [Linux Networking](https://linkedin.github.io/school-of-de/linux_networking/intro/)
+    -   [SQL]
+-   Enterprise Data Systems
+    -   SoR
+    -   Data Warehouse
+    -   DataLake
+    -   
+-   [Python and Web](https://linkedin.github.io/school-of-de/python_web/intro/)
 -   Data
-    - [Relational databases(MySQL)](https://linkedin.github.io/school-of-sre/databases_sql/intro/)
-    -   [NoSQL concepts](https://linkedin.github.io/school-of-sre/databases_nosql/intro/)
-    -   [Big Data](https://linkedin.github.io/school-of-sre/big_data/intro/)
--   [Systems Design](https://linkedin.github.io/school-of-sre/systems_design/intro/)
--   [Security](https://linkedin.github.io/school-of-sre/security/intro/)
+    - [Relational databases(MySQL)](https://linkedin.github.io/school-of-de/databases_sql/intro/)
+    -   [NoSQL concepts](https://linkedin.github.io/school-of-de/databases_nosql/intro/)
+    -   [Big Data](https://linkedin.github.io/school-of-de/big_data/intro/)
+-   [Systems Design](https://linkedin.github.io/school-of-de/systems_design/intro/)
+-   [Security](https://linkedin.github.io/school-of-de/security/intro/)
 
 We believe continuous learning will help in acquiring deeper knowledge and competencies in order to expand your skill sets, every module has added references which could be a guide for further learning. Our hope is that by going through these modules we should be able to build the essential skills required for a Site Reliability Engineer.
 

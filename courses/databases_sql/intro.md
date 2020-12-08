@@ -21,9 +21,9 @@ The main purpose of database systems is to manage data. This includes storage, a
 [RDBMS Concepts](https://beginnersbook.com/2015/04/rdbms-concepts/)
 
 ### Course Contents
-- [Key Concepts](https://linkedin.github.io/school-of-sre/databases_sql/concepts/)
-- [MySQL Architecture](https://linkedin.github.io/school-of-sre/databases_sql/mysql/#mysql-architecture)
-- [InnoDB](https://linkedin.github.io/school-of-sre/databases_sql/innodb/)
-- [Operational Concepts](https://linkedin.github.io/school-of-sre/databases_sql/operations/)
-- [Lab](https://linkedin.github.io/school-of-sre/databases_sql/lab/)
-- [Further Reading](https://linkedin.github.io/school-of-sre/databases_sql/conclusion/#further-reading)
+- [Key Concepts](https://linkedin.github.io/school-of-de/databases_sql/concepts/)
+- [MySQL Architecture](https://linkedin.github.io/school-of-de/databases_sql/mysql/#mysql-architecture)
+- [InnoDB](https://linkedin.github.io/school-of-de/databases_sql/innodb/)
+- [Operational Concepts](https://linkedin.github.io/school-of-de/databases_sql/operations/)
+- [Lab](https://linkedin.github.io/school-of-de/databases_sql/lab/)
+- [Further Reading](https://linkedin.github.io/school-of-de/databases_sql/conclusion/#further-reading)
