@@ -307,6 +307,20 @@ In this example, we are only able to see the last 5 lines from the file
 when we use the tail command with explicit -n option.
 
 
+### more
+
+More command displays the contents of a file or a command output, 
+displaying one screen at a time in case the file is large (Eg: log files).
+It also allows forward navigation and limited backward navigation in the file.
+
+
+### less
+
+Less command is an improved version of more. It displays the contents of a file or a command output, one page at a time.
+It allows backward navigation as well as forward navigation in the file and also has search options. 
+You can go to the beginning and the end of a file instantly.
+
+
 ## Echo Command in Linux
 
 The echo command is one of the simplest commands that is used in the
