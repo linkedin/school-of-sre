@@ -254,6 +254,10 @@ files:
 
 - tail
 
+- more
+
+- less
+
 We will now try to understand what each command does and how to use
 these commands. You should also practice the given examples on the
 online bash shell.
