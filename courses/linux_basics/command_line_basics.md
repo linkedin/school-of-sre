@@ -110,7 +110,7 @@ will then list all the files and directories inside the given directory.
 
 ## Commands for Manipulating Files
 
-There are four basic commands which are used frequently to manipulate
+There are five basic commands which are used frequently to manipulate
 files:
 
 - touch
