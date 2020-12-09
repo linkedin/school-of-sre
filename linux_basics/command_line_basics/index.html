@@ -378,6 +378,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#more" class="md-nav__link">
+    more
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#less" class="md-nav__link">
+    less
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1337,6 +1351,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#more" class="md-nav__link">
+    more
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#less" class="md-nav__link">
+    less
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1428,16 +1456,16 @@ present inside the root directory stores file related to the system.
 These directories in turn can either store system files or application
 files or user related files.</p>
 <p><img alt="" src="../images/linux/commands/image17.png" /></p>
-<p>bin   | The executable program of most commonly used commands reside in bin directory<br />
-  sbin  | This directory contains programs used for system administration.
-  home  | This directory contains user related files and directories.
-  lib   | This directory contains all the library files
-  etc   | This directory contains all the system configuration files
-  proc  | This directory contains files related to the running processes on the system
-  dev   | This directory contains files related to devices on the system
-  mnt   | This directory contains files related to mounted devices on the system
-  tmp   | This directory is used to store temporary files on the system
-  usr   |  This directory is used to store application programs on the system</p>
+<p>bin   | The executable program of most commonly used commands reside in bin directory  </p>
+<p>sbin  | This directory contains programs used for system administration.</p>
+<p>home  | This directory contains user related files and directories.</p>
+<p>lib   | This directory contains all the library files</p>
+<p>etc   | This directory contains all the system configuration files</p>
+<p>proc  | This directory contains files related to the running processes on the system</p>
+<p>dev   | This directory contains files related to devices on the system</p>
+<p>mnt   | This directory contains files related to mounted devices on the system</p>
+<p>tmp   | This directory is used to store temporary files on the system</p>
+<p>usr   |  This directory is used to store application programs on the system</p>
 <h2 id="commands-for-navigating-the-file-system">Commands for Navigating the File System</h2>
 <p>There are three basic commands which are used frequently to navigate the
 file system:</p>
@@ -1629,6 +1657,14 @@ argument to provide the input.</p>
 <p><img alt="" src="../images/linux/commands/image10.png" /></p>
 <p>In this example, we are only able to see the last 5 lines from the file
 when we use the tail command with explicit -n option.</p>
+<h3 id="more">more</h3>
+<p>More command displays the contents of a file or a command output, 
+displaying one screen at a time in case the file is large (Eg: log files).
+It also allows forward navigation and limited backward navigation in the file.</p>
+<h3 id="less">less</h3>
+<p>Less command is an improved version of more. It displays the contents of a file or a command output, one page at a time.
+It allows backward navigation as well as forward navigation in the file and also has search options. 
+You can go to the beginning and the end of a file instantly.</p>
 <h2 id="echo-command-in-linux">Echo Command in Linux</h2>
 <p>The echo command is one of the simplest commands that is used in the
 shell. This command is equivalent to what we have <print> in other
