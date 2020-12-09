@@ -1,7 +1,7 @@
 # Relational Databases
 
 ### Prerequisites
-*   Complete [Linux course](/linux_basics/intro/)
+*   Complete [Linux course](/school-of-sre/linux_basics/intro/)
 *   Install Docker (for lab section)
 
 ### What to expect from this course
