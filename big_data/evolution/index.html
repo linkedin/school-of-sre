@@ -1085,22 +1085,26 @@ What is the output of running the pig queries in the right column against the da
 </ol>
 <p><img alt="Pig Example" src="../images/pig_example.png" /></p>
 <p>Output:
-<code>mysql
-7,Komal,Nayak,24,9848022334,trivendram
+<code>7,Komal,Nayak,24,9848022334,trivendram
 8,Bharathi,Nambiayar,24,9848022333,Chennai
 5,Trupthi,Mohanthy,23,9848022336,Bhuwaneshwar
-6,Archana,Mishra,23,9848022335,Chennai</code>
-3. <a href="https://spark.apache.org/"><strong>Spark</strong></a>
-1. Spark provides primitives for in-memory cluster computing that allows user programs to load data into a cluster’s memory and query it repeatedly, making it well suited to machine learning algorithms.
-4. <a href="https://prestodb.io/"><strong>Presto</strong></a>
-1. Presto is a high performance, distributed SQL query engine for Big Data.
-2. Its architecture allows users to query a variety of data sources such as Hadoop, AWS S3, Alluxio, MySQL, Cassandra, Kafka, and MongoDB.
-3. Example presto query:
-    <code>mysql
-    use studentDB;
-    show tables;
-    SELECT roll_no, name FROM studentDB.studentDetails where section=’A’ limit 5;</code>
-</br></p>
+6,Archana,Mishra,23,9848022335,Chennai</code></p>
+</li>
+<li>
+<p><a href="https://spark.apache.org/"><strong>Spark</strong></a></p>
+<ol>
+<li>Spark provides primitives for in-memory cluster computing that allows user programs to load data into a cluster’s memory and query it repeatedly, making it well suited to machine learning algorithms.</li>
+</ol>
+</li>
+<li><a href="https://prestodb.io/"><strong>Presto</strong></a><ol>
+<li>Presto is a high performance, distributed SQL query engine for Big Data.</li>
+<li>Its architecture allows users to query a variety of data sources such as Hadoop, AWS S3, Alluxio, MySQL, Cassandra, Kafka, and MongoDB.</li>
+<li>Example presto query:
+<code>use studentDB;
+show tables;
+SELECT roll_no, name FROM studentDB.studentDetails where section=’A’ limit 5;</code>
+</br></li>
+</ol>
 </li>
 </ol>
 <h1 id="data-serialisation-and-storage">Data Serialisation and storage</h1>
