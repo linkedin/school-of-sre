@@ -1,32 +1,9 @@
 # Linux Basics
 
-## Introduction
 ### Prerequisites
 
 - Comfortable using any operating systems like Windows, Linux or Mac
 - Fundamental knowledge of operating systems
-
-## What to expect from this course
-
-This course is divided into three parts. In the first part, we cover the
-fundamentals of Linux operating systems. We will talk about Linux architecture,
-Linux distributions and uses of Linux operating systems. We will also talk about the
-difference between GUI and CLI.
-
-In the second part, we cover some basic commands used in Linux. 
-We will focus on commands used for navigating the file system, viewing and manipulating files,
-I/O redirection etc.
-
-In the third part, we cover Linux system administration. This includes day to day tasks 
-performed by Linux admins, like managing users/groups, managing file permissions, 
-monitoring system performance, log files etc.
-
-In the second and third part, we will be taking examples to understand the concepts.
-
-## What is not covered under this course
-
-We are not covering advanced Linux commands and bash scripting in this
-course. We will also not be covering Linux internals. 
 
 ## Course Contents
 
@@ -62,6 +39,31 @@ The following topics has been covered in this course:
 -  [Conclusion](https://linkedin.github.io/school-of-sre/linux_basics/conclusion)
     -  [Applications in SRE Role](https://linkedin.github.io/school-of-sre/linux_basics/conclusion/#applications-in-sre-role)
     -  [Useful Courses and tutorials](https://linkedin.github.io/school-of-sre/linux_basics/conclusion/#useful-courses-and-tutorials)
+
+
+## Introduction
+
+## What to expect from this course
+
+This course is divided into three parts. In the first part, we cover the
+fundamentals of Linux operating systems. We will talk about Linux architecture,
+Linux distributions and uses of Linux operating systems. We will also talk about the
+difference between GUI and CLI.
+
+In the second part, we cover some basic commands used in Linux. 
+We will focus on commands used for navigating the file system, viewing and manipulating files,
+I/O redirection etc.
+
+In the third part, we cover Linux system administration. This includes day to day tasks 
+performed by Linux admins, like managing users/groups, managing file permissions, 
+monitoring system performance, log files etc.
+
+In the second and third part, we will be taking examples to understand the concepts.
+
+## What is not covered under this course
+
+We are not covering advanced Linux commands and bash scripting in this
+course. We will also not be covering Linux internals. 
 
 ## What are Linux operating systems
 
