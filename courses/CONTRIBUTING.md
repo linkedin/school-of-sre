@@ -8,7 +8,7 @@ As a contributor, you represent that the content you submit is not plagiarised. 
 Ensure that you adhere to the following guidelines:
 
 * Should be about principles and concepts that can be applied in any company or individual project. Do not focus on particular tools or tech stack(which usually change over time).
-* Adhere to the Code of Conduct.
+* Adhere to the [Code of Conduct](/school-of-sre/CODE_OF_CONDUCT/).
 * Should be relevant to the roles and responsibilities of an SRE.
 * Should be locally tested (see steps for testing) and well formatted.
 * It is good practice to open an issue first and discuss your changes before submitting a pull request. This way, you can incorporate ideas from others before you even start.
@@ -17,6 +17,8 @@ Ensure that you adhere to the following guidelines:
 Run the following commands to build and view the site locally before opening a PR.
 
 ```
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 mkdocs build
 mkdocs serve
