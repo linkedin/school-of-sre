@@ -65,6 +65,7 @@ nav:
     - Writing Secure code: security/writing_secure_code.md
     - Conclusion: security/conclusion.md
 - Contribute: CONTRIBUTING.md
+- Code of Conduct: CODE_OF_CONDUCT.md
 copyright: "Copyright 2020 LinkedIn Corporation. All Rights Reserved. Licensed under the Creative Commons Attribution 4.0 International Public License"
 extra:
     social:
