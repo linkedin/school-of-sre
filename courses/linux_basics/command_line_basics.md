@@ -245,7 +245,7 @@ mv command to rename the ""\_test_runner.py" file to "test.py".
 
 ## Commands for Viewing Files
 
-There are three basic commands which are used frequently to view the
+There are five basic commands which are used frequently to view the
 files:
 
 - cat
