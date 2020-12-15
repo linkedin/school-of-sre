@@ -3,8 +3,8 @@
 ## Introduction
 ### Prerequisites
 
-- Comfortable using any operating systems like Windows, Linux or Mac
-- Fundamental knowledge of operating systems
+- Should be comfortable in using any operating systems like Windows, Linux or Mac
+- Expected to have fundamental knowledge of operating systems
 
 ## What to expect from this course
 
