@@ -372,15 +372,15 @@ Steps for setting up a passwordless authentication with a remote host:
 
     There are multiple ways to transfer the public key to the remote server.
     We will look at one of the most common ways of doing it using the
-    ssh-id-copy command.
+    ssh-copy-id command.
 
     ![](images/linux/admin/image11.png)
 
-    Install the openssh-clients package to use ssh-id-copy command.
+    Install the openssh-clients package to use ssh-copy-id command.
 
     ![](images/linux/admin/image46.png)
 
-    Use the ssh-id-copy command to copy your public key to the remote host.
+    Use the ssh-copy-id command to copy your public key to the remote host.
 
     ![](images/linux/admin/image50.png)
 
