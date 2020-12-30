@@ -31,4 +31,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Deploy
-        run: mkdocs gh-deploy
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          mkdocs gh-deploy
