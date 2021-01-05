@@ -109,7 +109,7 @@ The passwd command is used to create or modify passwords for a user.
 In the above examples, we have not assigned any password for users
 'shivam' or 'amit' while creating them.
 
-`!!` in an account entry in shadow means the account of an user has
+"!!" in an account entry in shadow means the account of an user has
 been created, but not yet given a password.
 
 ![](images/linux/admin/image13.png)
