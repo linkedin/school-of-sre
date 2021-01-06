@@ -33,19 +33,19 @@ Any folder can be converted into a git repository. After executing the following
 
 ```bash
 # creating an empty folder and changing current dir to it
-spatel1-mn1:~ spatel1$ cd /tmp
-spatel1-mn1:tmp spatel1$ mkdir school-of-sre
-spatel1-mn1:tmp spatel1$ cd school-of-sre/
+$ cd /tmp
+$ mkdir school-of-sre
+$ cd school-of-sre/
 
 # initialize a git repo
-spatel1-mn1:school-of-sre spatel1$ git init
+$ git init
 Initialized empty Git repository in /private/tmp/school-of-sre/.git/
 ```
 
 As the output says, an empty git repo has been initialized in our folder. Let's take a look at what is there.
 
 ```bash
-spatel1-mn1:school-of-sre spatel1$ ls .git/
+$ ls .git/
 HEAD        config      description hooks       info        objects     refs
 ```
 
@@ -56,8 +56,8 @@ There are a bunch of folders and files in the `.git` folder. As I said, all thes
 Now as you might already know, let us create a new file in our repo (we will refer to the folder as _repo_ now.) And see git status
 
 ```bash
-spatel1-mn1:school-of-sre spatel1$ echo "I am file 1" > file1.txt
-spatel1-mn1:school-of-sre spatel1$ git status
+$ echo "I am file 1" > file1.txt
+$ git status
 On branch master
 
 No commits yet
@@ -73,8 +73,8 @@ nothing added to commit but untracked files present (use "git add" to track)
 The current git status says `No commits yet` and there is one untracked file. Since we just created the file, git is not tracking that file. We explicitly need to ask git to track files and folders. (also checkout [gitignore](https://git-scm.com/docs/gitignore)) And how we do that is via `git add` command as suggested in the above output. Then we go ahead and create a  commit.
 
 ```bash
-spatel1-mn1:school-of-sre spatel1$ git add file1.txt
-spatel1-mn1:school-of-sre spatel1$ git status
+$ git add file1.txt
+$ git status
 On branch master
 
 No commits yet
@@ -84,7 +84,7 @@ Changes to be committed:
 
        new file:   file1.txt
 
-spatel1-mn1:school-of-sre spatel1$ git commit -m "adding file 1"
+$ git commit -m "adding file 1"
 [master (root-commit) df2fb7a] adding file 1
 1 file changed, 1 insertion(+)
 create mode 100644 file1.txt
@@ -101,9 +101,9 @@ Commit is a snapshot of the repo. Whenever a commit is made, a snapshot of the c
 Let us create one more file and commit the change. It would look the same as the previous commit we made.
 
 ```bash
-spatel1-mn1:school-of-sre spatel1$ echo "I am file 2" > file2.txt
-spatel1-mn1:school-of-sre spatel1$ git add file2.txt
-spatel1-mn1:school-of-sre spatel1$ git commit -m "adding file 2"
+$ echo "I am file 2" > file2.txt
+$ git add file2.txt
+$ git commit -m "adding file 2"
 [master 7f3b00e] adding file 2
 1 file changed, 1 insertion(+)
 create mode 100644 file2.txt
@@ -116,7 +116,7 @@ A new commit with ID `7f3b00e` has been created. You can issue `git status` at a
 Now that we have two commits, let's visualize them:
 
 ```bash
-spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
+$ git log --oneline --graph
 * 7f3b00e (HEAD -> master) adding file 2
 * df2fb7a adding file 1
 ```
@@ -134,7 +134,7 @@ spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 As I just said, the two commits we just made are linked via tree like data structure and we saw how they are linked. But let's actually verify it. Everything in git is an object. Newly created files are stored as an object. Changes to file are stored as an objects and even commits are objects. To view contents of an object we can use the following command with the object's ID. We will take a look at the contents of the second commit
 
 ```bash
-spatel1-mn1:school-of-sre spatel1$ git cat-file -p 7f3b00e
+$ git cat-file -p 7f3b00e
 tree ebf3af44d253e5328340026e45a9fa9ae3ea1982
 parent df2fb7a61f5d40c1191e0fdeb0fc5d6e7969685a
 author Sanket Patel <spatel1@linkedin.com> 1603273316 -0700
@@ -146,7 +146,7 @@ adding file 2
 Take a note of `parent` attribute in the above output. It points to the commit id of the first commit we made. So this proves that they are linked! Additionally you can see the second commit's message in this object. As I said all this magic is enabled by `.git` folder and the object to which we are looking at also is in that folder.
 
 ```bash
-spatel1-mn1:school-of-sre spatel1$ ls .git/objects/7f/3b00eaa957815884198e2fdfec29361108d6a9
+$ ls .git/objects/7f/3b00eaa957815884198e2fdfec29361108d6a9
 .git/objects/7f/3b00eaa957815884198e2fdfec29361108d6a9
 ```
 
@@ -158,11 +158,11 @@ We already can see two commits (versions) in our git log. One thing a version co
 
 ```bash
 # Current contents, two files present
-patel1-mn1:school-of-sre spatel1$ ls
+$ ls
 file1.txt file2.txt
 
 # checking out to (an older) commit
-spatel1-mn1:school-of-sre spatel1$ git checkout df2fb7a
+$ git checkout df2fb7a
 Note: checking out 'df2fb7a'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -177,7 +177,7 @@ do so (now or later) by using -b with the checkout command again. Example:
 HEAD is now at df2fb7a adding file 1
 
 # checking contents, can verify it has old contents
-spatel1-mn1:school-of-sre spatel1$ ls
+$ ls
 file1.txt
 ```
 
@@ -190,12 +190,12 @@ I mention in the previous section that we need a _reference_ to the version. By 
 Similarly, master is also a reference (to a branch). Since git uses tree like structure to store commits, there of course will be branches. And the default branch is called `master`. Master (or any branch reference) will point to the latest commit in the branch. Even though we have checked out to the previous commit in out repo, `master` still points to the latest commit. And we can get back to the latest version by checkout at `master` reference
 
 ```bash
-spatel1-mn1:school-of-sre spatel1$ git checkout master
+$ git checkout master
 Previous HEAD position was df2fb7a adding file 1
 Switched to branch 'master'
 
 # now we will see latest code, with two files
-spatel1-mn1:school-of-sre spatel1$ ls
+$ ls
 file1.txt file2.txt
 ```
 
@@ -206,7 +206,7 @@ Note, instead of `master` in above command, we could have used commit's ID as we
 Let's look at the state of things. Two commits, `master` and `HEAD` references are pointing to the latest commit
 
 ```bash
-spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
+$ git log --oneline --graph
 * 7f3b00e (HEAD -> master) adding file 2
 * df2fb7a adding file 1
 ```
@@ -214,7 +214,7 @@ spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 The magic? Let's examine these files:
 
 ```bash
-spatel1-mn1:school-of-sre spatel1$ cat .git/refs/heads/master
+$ cat .git/refs/heads/master
 7f3b00eaa957815884198e2fdfec29361108d6a9
 ```
 
@@ -223,7 +223,7 @@ Viola! Where master is pointing to is stored in a file. **Whenever git needs to 
 Similary, for `HEAD` reference:
 
 ```bash
-spatel1-mn1:school-of-sre spatel1$ cat .git/HEAD
+$ cat .git/HEAD
 ref: refs/heads/master
 ```
 
@@ -234,7 +234,7 @@ We can see `HEAD` is pointing to a reference called `refs/heads/master`. So `HEA
 We discussed how git will update the files as we execute commands. But let's try to do it ourselves, by hand, and see what happens.
 
 ```bash
-spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
+$ git log --oneline --graph
 * 7f3b00e (HEAD -> master) adding file 2
 * df2fb7a adding file 1
 ```
@@ -242,13 +242,13 @@ spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
 Now let's change master to point to the previous/first commit.
 
 ```bash
-spatel1-mn1:school-of-sre spatel1$ echo df2fb7a61f5d40c1191e0fdeb0fc5d6e7969685a > .git/refs/heads/master
-spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
+$ echo df2fb7a61f5d40c1191e0fdeb0fc5d6e7969685a > .git/refs/heads/master
+$ git log --oneline --graph
 * df2fb7a (HEAD -> master) adding file 1
 
 # RESETTING TO ORIGINAL
-spatel1-mn1:school-of-sre spatel1$ echo 7f3b00eaa957815884198e2fdfec29361108d6a9 > .git/refs/heads/master
-spatel1-mn1:school-of-sre spatel1$ git log --oneline --graph
+$ echo 7f3b00eaa957815884198e2fdfec29361108d6a9 > .git/refs/heads/master
+$ git log --oneline --graph
 * 7f3b00e (HEAD -> master) adding file 2
 * df2fb7a adding file 1
 ```
