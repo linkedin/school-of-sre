@@ -47,14 +47,14 @@ Well, Java's compiler is more strict and sophisticated. As you might know Java i
 
 ```bash
 # Create a Hello World
-spatel1-mn1:tmp spatel1$ echo "print('hello world')" > hello_world.py
+$ echo "print('hello world')" > hello_world.py
 
 # Making sure it runs
-spatel1-mn1:tmp spatel1$ python3 hello_world.py
+$ python3 hello_world.py
 hello world
 
 # The bytecode of the given program
-spatel1-mn1:tmp spatel1$ python -m dis hello_world.py
+$ python -m dis hello_world.py
  1           0 LOAD_NAME                0 (print)
              2 LOAD_CONST               0 ('hello world')
              4 CALL_FUNCTION            1
