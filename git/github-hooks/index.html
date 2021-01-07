@@ -1181,18 +1181,18 @@
 </ul>
 <h2 id="hooks">Hooks</h2>
 <p>Git has another nice feature called hooks. Hooks are basically scripts which will be called when a certain event happens. Here is where hooks are located:</p>
-<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ ls .git/hooks/
+<pre><code class="language-bash">$ ls .git/hooks/
 applypatch-msg.sample     fsmonitor-watchman.sample pre-applypatch.sample     pre-push.sample           pre-receive.sample        update.sample
 commit-msg.sample         post-update.sample        pre-commit.sample         pre-rebase.sample         prepare-commit-msg.sample
 </code></pre>
 <p>Names are self explanatory. These hooks are useful when you want to do certain things when a certain event happens. If you want to run tests before pushing code, you would want to setup <code>pre-push</code> hooks. Let's try to create a pre commit hook.</p>
-<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ echo &quot;echo this is from pre commit hook&quot; &gt; .git/hooks/pre-commit
-spatel1-mn1:school-of-sre spatel1$ chmod +x .git/hooks/pre-commit
+<pre><code class="language-bash">$ echo &quot;echo this is from pre commit hook&quot; &gt; .git/hooks/pre-commit
+$ chmod +x .git/hooks/pre-commit
 </code></pre>
 <p>We basically create a file called <code>pre-commit</code> in hooks folder and make it executable. Now if we make a commit, we should see the message getting printed.</p>
-<pre><code class="language-bash">spatel1-mn1:school-of-sre spatel1$ echo &quot;sample file&quot; &gt; sample.txt
-spatel1-mn1:school-of-sre spatel1$ git add sample.txt
-spatel1-mn1:school-of-sre spatel1$ git commit -m &quot;adding sample file&quot;
+<pre><code class="language-bash">$ echo &quot;sample file&quot; &gt; sample.txt
+$ git add sample.txt
+$ git commit -m &quot;adding sample file&quot;
 this is from pre commit hook     # &lt;===== THE MESSAGE FROM HOOK EXECUTION
 [master 9894e05] adding sample file
 1 file changed, 1 insertion(+)

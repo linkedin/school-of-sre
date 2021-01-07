@@ -1315,13 +1315,13 @@ OUTPUT:
 
 ===&gt; SHORTENING
 
-spatel1-mn1:tmp spatel1$ curl localhost:5000/shorten -H &quot;content-type: application/json&quot; --data '{&quot;url&quot;:&quot;https://linkedin.com&quot;}'
+$ curl localhost:5000/shorten -H &quot;content-type: application/json&quot; --data '{&quot;url&quot;:&quot;https://linkedin.com&quot;}'
 Shortened: r/a62a4
 
 
 ===&gt; REDIRECTING, notice the response code 302 and the location header
 
-spatel1-mn1:tmp spatel1$ curl localhost:5000/r/a62a4 -v
+$ curl localhost:5000/r/a62a4 -v
 * Uses proxy env variable NO_PROXY == '127.0.0.1'
 *   Trying ::1...
 * TCP_NODELAY set

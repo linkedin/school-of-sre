@@ -1315,14 +1315,14 @@
 <p><strong>What is the difference then, between java and python?</strong>
 Well, Java's compiler is more strict and sophisticated. As you might know Java is a statically typed language. So the compiler is written in a way that it can verify types related errors during compile time. While python being a <em>dynamic</em> language, types are not known until a program is run. So in a way, python compiler is dumb (or, less strict). But there indeed is a compile step involved when a python program is run. You might have seen python bytecode files with <code>.pyc</code> extension. Here is how you can see bytecode for a given python program.</p>
 <pre><code class="language-bash"># Create a Hello World
-spatel1-mn1:tmp spatel1$ echo &quot;print('hello world')&quot; &gt; hello_world.py
+$ echo &quot;print('hello world')&quot; &gt; hello_world.py
 
 # Making sure it runs
-spatel1-mn1:tmp spatel1$ python3 hello_world.py
+$ python3 hello_world.py
 hello world
 
 # The bytecode of the given program
-spatel1-mn1:tmp spatel1$ python -m dis hello_world.py
+$ python -m dis hello_world.py
  1           0 LOAD_NAME                0 (print)
              2 LOAD_CONST               0 ('hello world')
              4 CALL_FUNCTION            1
