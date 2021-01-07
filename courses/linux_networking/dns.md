@@ -128,6 +128,7 @@ Armed with these fundamentals of DNS lets see usecases where DNS is used by SREs
 ## Applications in SRE role
 
 This section covers some of the common solutions SRE can derive from DNS
+
 1. Every company has to have its internal DNS infrastructure for intranet sites and internal services like databases and other internal applications like wiki. So there has to be a DNS infrastructure maintained for those domain names by the infrastructure team. This DNS infrastructure has to be optimized and scaled so that it doesn’t become a single point of failure. Failure of the internal DNS infrastructure can cause API calls of microservices to fail and other cascading effects.
 2. DNS can also be used for discovering services. For example the hostname serviceb.internal.example.com could list instances which run service b internally in example.com company. Cloud providers provide options to enable DNS discovery([example](https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/service-discovery.html#dns-based-service-discovery))
 3. DNS is used by cloud provides and CDN providers to scale their services. In Azure/AWS, Load Balancers are given a CNAME instead of IPAddress. They update the IPAddress of the Loadbalancers as they scale by changing the IP Address of alias domain names. This is one of the reasons why A records of such alias domains are short lived like 1 minute.
