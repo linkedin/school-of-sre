@@ -326,11 +326,14 @@ More command displays the contents of a file or a command output,
 displaying one screen at a time in case the file is large (Eg: log files).
 It also allows forward navigation and limited backward navigation in the file.
 
+![](images/linux/commands/image33.png)
+
+More command displays as much as can fit on the current screen and waits for user input to advance. Forward navigation can be done by pressing Enter, which advances the output by one line and Space, which advances the output by one screen.
 
 ### less
 
 Less command is an improved version of more. It displays the contents of a file or a command output, one page at a time.
-It allows backward navigation as well as forward navigation in the file and also has search options. 
+It allows backward navigation as well as forward navigation in the file and also has search options. We can use arrow keys for advancing backward or forward by one line. For moving forward by one page, press Enter and for moving backward by one page, press b on your keyboard.
 You can go to the beginning and the end of a file instantly.
 
 
