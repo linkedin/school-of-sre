@@ -1,4 +1,4 @@
-site_name: SchoolOfSRE
+site_name: School Of SRE
 docs_dir: courses
 theme:
   name: material
@@ -66,6 +66,7 @@ nav:
     - Conclusion: security/conclusion.md
 - Contribute: CONTRIBUTING.md
 - Code of Conduct: CODE_OF_CONDUCT.md
+- SRE Community: sre_community.md
 copyright: "Copyright 2020 LinkedIn Corporation. All Rights Reserved. Licensed under the Creative Commons Attribution 4.0 International Public License"
 extra:
     social:

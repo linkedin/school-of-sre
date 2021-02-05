@@ -25,6 +25,6 @@ mkdocs serve
 ```
 
 ### Opening a PR
-Follow the [https://guides.github.com/introduction/flow/](GitHub PR workflow) for your contributions.
+Follow the [GitHub PR workflow](https://guides.github.com/introduction/flow/) for your contributions.
 
 Fork this repo, create a feature branch, commit your changes and open a PR to this repo.

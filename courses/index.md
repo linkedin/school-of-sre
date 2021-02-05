@@ -26,4 +26,3 @@ We believe continuous learning will help in acquiring deeper knowledge and compe
 
 At Linkedin, we are using this curriculum for onboarding our non-traditional hires and new college grads into the SRE role. We had multiple rounds of successful onboarding experience with new employees and the course helped them be productive in a very short period of time. This motivated us to open source the content for helping other organizations in onboarding new engineers into the role and provide guidance for aspiring individuals to get into the role. We realize that the initial content we created is just a starting point and we hope that the community can help in the journey of refining and expanding the content. Checkout [the contributing guide](./CONTRIBUTING.md) to get started.
 
-Whether you are new to SRE or an expert in the field, please join the [School of SRE LinkedIn Group](https://www.linkedin.com/groups/12493545/) to interact with the community.
