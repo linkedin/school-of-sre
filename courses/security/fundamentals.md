@@ -42,7 +42,7 @@
   - Fail securely
     - Applications regularly fail to process transactions for many reasons. How they fail can determine if an application is secure or not.
 
-    ```
+    ```java
 
     is_admin =  true;
     try {
@@ -113,7 +113,7 @@
 
 - Ciphers are the cornerstone of cryptography. A cipher is a set of algorithms that performs encryption or decryption on a message. An encryption algorithm (E) takes a secret key (k) and a message (m) and produces a ciphertext (c). Similarly, a Decryption algorithm (D) takes a secret key (K) and the previous resulting Ciphertext (C). They are represented as follows:
 
-```
+```text
 
 E(k,m) = c
 D(k,c) = m
@@ -122,7 +122,7 @@ D(k,c) = m
 
 - This also means that for it to be a cipher, it must satisfy the consistency equation as follows, making it possible to decrypt.
 
-```
+```text
 
 D(k,E(k,m)) = m
 ```

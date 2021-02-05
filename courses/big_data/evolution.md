@@ -57,7 +57,7 @@
     ![Pig Example](images/pig_example.png)
 
     Output:
-    ```
+    ```text
     7,Komal,Nayak,24,9848022334,trivendram
     8,Bharathi,Nambiayar,24,9848022333,Chennai
     5,Trupthi,Mohanthy,23,9848022336,Bhuwaneshwar
@@ -70,7 +70,7 @@
     1. Presto is a high performance, distributed SQL query engine for Big Data.
     2. Its architecture allows users to query a variety of data sources such as Hadoop, AWS S3, Alluxio, MySQL, Cassandra, Kafka, and MongoDB.
     3. Example presto query:
-    ```
+    ```sql
     use studentDB;
     show tables;
     SELECT roll_no, name FROM studentDB.studentDetails where section=’A’ limit 5;

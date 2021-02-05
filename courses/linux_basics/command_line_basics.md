@@ -135,7 +135,7 @@ the simplest use case of creating a new file.
 
 General syntax of using touch command
 
-```
+```bash
 touch <file_name>
 ```
 
@@ -148,7 +148,7 @@ to verify that the new directory is created.
 
 General syntax of using mkdir command
 
-```
+```bash
 mkdir <directory_name>
 ```
 
@@ -164,7 +164,7 @@ run this command with care.
 
 General syntax of using rm command:
 
-```
+```bash
 rm <file_name>
 ```
 
@@ -183,7 +183,7 @@ their copy both co-exist after running cp command successfully.
 
 General syntax of using cp command:
 
-```
+```bash
 cp <source_path> <destination_path>
 ```
 
@@ -218,7 +218,7 @@ move the files or directories, the original copy is lost.
 
 General syntax of using mv command:
 
-```
+```bash
 mv <source_path> <destination_path>
 ```
 
@@ -385,7 +385,7 @@ an input to the grep command.
 
 General syntax of using grep command:
 
-```
+```bash
 grep <word_to_search> <file_name>
 ```
 
@@ -401,7 +401,7 @@ file.
 
 General syntax of using the sed command for replacement:
 
-```
+```bash
 sed 's/<text_to_replace>/<replacement_text>/' <file_name>
 ```
 

@@ -10,7 +10,7 @@ Create a working directory named sos or something similar, and cd into it.
 Enter the following into a file named my.cnf under a directory named custom.
 
 
-```
+```conf
 sos $ cat custom/my.cnf
 [mysqld]
 # These settings apply to MySQL server
@@ -25,7 +25,7 @@ long_query_time=0.1
 Start a container and enable slow query log with the following:
 
 
-```
+```bash
 sos $ docker run --name db -v custom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=realsecret -d mysql:8
 sos $ docker cp custom/mysqld.cnf $(docker ps -qf "name=db"):/etc/mysql/conf.d/custom.cnf
 sos $ docker restart $(docker ps -qf "name=db")
@@ -35,7 +35,7 @@ sos $ docker restart $(docker ps -qf "name=db")
 Import a sample database
 
 
-```
+```bash
 sos $ git clone git@github.com:datacharmer/test_db.git
 sos $ docker cp test_db $(docker ps -qf "name=db"):/home/test_db/
 sos $ docker exec -it $(docker ps -qf "name=db") bash
@@ -48,7 +48,7 @@ root@3ab5b18b0c7d:/etc# chown mysql:mysql /var/log/mysqlslow.log
 
 _Workshop 1: Run some sample queries_
 Run the following
-```
+```bash
 $ mysql -uroot -prealsecret mysql
 mysql>
 
@@ -92,7 +92,7 @@ mysql> select count(*) from employees where first_name = 'Sachin';
 ```
 
 _Workshop 2: Use explain and explain analyze to profile a query, identify and add indexes required for improving performance_
-```
+```bash
 # View all indexes on table 
 #(\G is to output horizontally, replace it with a ; to get table output)
 mysql> show index from employees from employees\G
@@ -178,7 +178,7 @@ mysql> explain analyze select first_name, last_name from employees where first_n
 ```
 
 _Workshop 3: Identify slow queries on a MySQL server_
-```
+```bash
 # Run the command below in two terminal tabs to open two shells into the container.
 docker exec -it $(docker ps -qf "name=db") bash
 

@@ -142,7 +142,7 @@ Let us see how we keep a check on the perimeter i.e the edges, the first layer o
 - Nmap is often used to determine alive hosts in a network, open ports on those hosts, services running on those open ports, and version identification of that service on that port.
 - More at http://scanme.nmap.org/
 
-```
+```bash
 nmap [scan type] [options] [target specification]
 ```
 
@@ -417,7 +417,7 @@ TCP Flags
 
   - Abuse of the normal operation or settings of these flags can be used by attackers to launch DoS attacks. This causes network servers or web servers to crash or hang.
 
-```
+```text
 | SYN  | FIN  | PSH   | RST  | Validity|  
 |------|------|-------|------|---------|
 | 1    |1     |0      |0     |Illegal Combination
