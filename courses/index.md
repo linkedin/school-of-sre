@@ -20,7 +20,7 @@ In this course, we are focusing on building strong foundational skills. The cour
     -   [NoSQL concepts](https://linkedin.github.io/school-of-sre/databases_nosql/intro/)
     -   [Big Data](https://linkedin.github.io/school-of-sre/big_data/intro/)
 -   [Systems Design](https://linkedin.github.io/school-of-sre/systems_design/intro/)
--   [Metrics and Monitoring](https://sumit419.github.io/school-of-sre/systems_design/intro/metrics_and_monitoring/introduction.md)
+-   [Metrics and Monitoring](https://sumit419.github.io/school-of-sre/metrics_and_monitoring/introduction.md)
 -   [Security](https://linkedin.github.io/school-of-sre/security/intro/)
 
 We believe continuous learning will help in acquiring deeper knowledge and competencies in order to expand your skill sets, every module has added references which could be a guide for further learning. Our hope is that by going through these modules we should be able to build the essential skills required for a Site Reliability Engineer.
