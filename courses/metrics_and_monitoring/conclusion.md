@@ -29,11 +29,7 @@ observability:
 -   [Mastering Distributed Tracing by Yuri
      Shkuro](https://learning.oreilly.com/library/view/mastering-distributed-tracing/9781788628464/)
 
--   Engineering blogs on
-     [LinkedIn](https://engineering.linkedin.com/blog/topic/monitoring),
-     [Grafana](https://grafana.com/blog/),
-     [Elastic.co](https://www.elastic.co/blog/),
-     [OpenTelemetry](https://medium.com/opentelemetry)
+
 
 ## References
 
@@ -48,3 +44,9 @@ observability:
 
 -   [Three PIllars with Zero
      Answers](https://medium.com/lightstephq/three-pillars-with-zero-answers-2a98b36358b8)
+
+-   Engineering blogs on
+         [LinkedIn](https://engineering.linkedin.com/blog/topic/monitoring),
+         [Grafana](https://grafana.com/blog/),
+         [Elastic.co](https://www.elastic.co/blog/),
+         [OpenTelemetry](https://medium.com/opentelemetry)
