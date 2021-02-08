@@ -52,8 +52,7 @@ on). Let's look at some of the tools that are predominantly used.
      this command is used with the `-h` command-line option, which
      displays the statistics in a human-readable format.
 
-![Memory
-   statistics on a host in human-readable form](images/image6.png) 
+![Memory statistics on a host in human-readable form](images/image6.png) 
 <p align="center"> Figure 4: Memory statistics on a host in human-readable form </p>
 
 -   `df --` The df command displays disk space usage statistics. The
