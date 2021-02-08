@@ -45,26 +45,26 @@ following topics:
 
 ## Course content
 
--   [Introduction](#introduction)
+-   [Introduction](https://linkedin.github.io/school-of-sre/metrics_and_monitoring/introduction/#introduction)
 
-    -   [Four golden signals of monitoring](#four-golden-signals-of-monitoring)
+    -   [Four golden signals of monitoring](https://linkedin.github.io/school-of-sre/metrics_and_monitoring/introduction/#four-golden-signals-of-monitoring)
 
-    -   [Why is monitoring important?](#why-is-monitoring-important)
+    -   [Why is monitoring important?](https://linkedin.github.io/school-of-sre/metrics_and_monitoring/introduction/#why-is-monitoring-important)
 
--   [Command-line tools](command-line_tools.md)
+-   [Command-line tools](https://linkedin.github.io/school-of-sre/metrics_and_monitoring/command-line_tools/)
 
--   [Third-party monitoring](third-party_monitoring.md)
+-   [Third-party monitoring](https://linkedin.github.io/school-of-sre/metrics_and_monitoring/third-party_monitoring/)
 
--   [Proactive monitoring using alerts](alerts.md)
+-   [Proactive monitoring using alerts](https://linkedin.github.io/school-of-sre/metrics_and_monitoring/alerts/)
 
--   [Best practices for monitoring](best_practices.md)
+-   [Best practices for monitoring](https://linkedin.github.io/school-of-sre/metrics_and_monitoring/best_practices/)
 
--   [Observability](observability.md)
+-   [Observability](https://linkedin.github.io/school-of-sre/metrics_and_monitoring/observability/)
 
-    -   [Logs](observability.md#logs)
-    -   [Tracing](observability.md#tracing)
+    -   [Logs](https://linkedin.github.io/school-of-sre/metrics_and_monitoring/observability/#logs)
+    -   [Tracing](https://linkedin.github.io/school-of-sre/metrics_and_monitoring/bservability/#tracing)
 
-[Conclusion](conclusion.md)
+[Conclusion](https://linkedin.github.io/school-of-sre/metrics_and_monitoring/conclusion/)
 
 
 ##
@@ -221,7 +221,8 @@ Before we discuss monitoring an application, let us look at the
 monitoring infrastructure. Following is an illustration of a basic
 monitoring system.
 
-![Illustration of a monitoring infrastructure](images/image1.jpg) <p align="center"> Figure 1: Illustration of a monitoring infrastructure </p>
+![Illustration of a monitoring infrastructure](images/image1.jpg) 
+<p align="center"> Figure 1: Illustration of a monitoring infrastructure </p>
 
 Figure 1 shows a monitoring infrastructure mechanism for aggregating
 metrics on the system, and collecting and storing the data for display.

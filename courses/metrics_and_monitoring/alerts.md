@@ -13,7 +13,8 @@ any service breakdown due to a shortage of resources. On the other hand,
 when a service goes down due to an issue, early detection and
 notification of such incidents can help you quickly fix the issue.
 
-![An alert notification received on Slack](images/image11.png) <p align="center"> Figure 8: An alert notification received on Slack </p>
+![An alert notification received on Slack](images/image11.png) 
+<p align="center"> Figure 8: An alert notification received on Slack </p>
 
 Today most of the monitoring services available provide a mechanism to
 set up alerts on one or a combination of metrics to actively monitor the

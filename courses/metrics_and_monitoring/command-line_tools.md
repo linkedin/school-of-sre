@@ -27,7 +27,8 @@ on). Let's look at some of the tools that are predominantly used.
     -   `-x` -- When displaying processes matched by other options,
          includes processes that do not have a controlling terminal.
 
- ![Results of top command](images/image12.png) <p align="center"> Figure 2: Results of top command </p>
+ ![Results of top command](images/image12.png) 
+ <p align="center"> Figure 2: Results of top command </p>
 
 -   `ss` -- The socket statistics command (ss) displays information
      about network sockets on the system. This tool is the successor of
@@ -52,8 +53,8 @@ on). Let's look at some of the tools that are predominantly used.
      displays the statistics in a human-readable format.
 
 ![Memory
-   statistics on a host in human-readable form](images/image6.png) <p align="center"> Figure 4: Memory
- statistics on a host in human-readable form </p>
+   statistics on a host in human-readable form](images/image6.png) 
+<p align="center"> Figure 4: Memory statistics on a host in human-readable form </p>
 
 -   `df --` The df command displays disk space usage statistics. The
      `-i` command-line option is also often used to display
@@ -61,7 +62,8 @@ on). Let's look at some of the tools that are predominantly used.
      statistics. The `-h` command-line option is used for displaying
      statistics in a human-readable format.
 
-![Disk usage statistics on a system in human-readable form](images/image9.png) <p align="center"> Figure 5:
+![Disk usage statistics on a system in human-readable form](images/image9.png) 
+<p align="center"> Figure 5:
  Disk usage statistics on a system in human-readable form </p>
 
 -   `sar` -- The sar utility monitors various subsystems, such as CPU
@@ -75,7 +77,8 @@ on). Let's look at some of the tools that are predominantly used.
      specifies which network interface to watch.
 
 ![Network bandwidth usage by
-  active connection on the host](images/image2.png) <p align="center"> Figure 6: Network bandwidth usage by
+  active connection on the host](images/image2.png) 
+  <p align="center"> Figure 6: Network bandwidth usage by
 active connection on the host </p>
 
 -   `tcpdump` -- The tcpdump command is a network monitoring tool that
@@ -94,5 +97,6 @@ active connection on the host </p>
     -   `port <port number>` -- Filters traffic to or from a particular
          port
 
-![tcpdump of packets on an interface](images/image10.png) <p align="center"> Figure 7: *tcpdump* of packets on *docker0*
+![tcpdump of packets on an interface](images/image10.png) 
+<p align="center"> Figure 7: *tcpdump* of packets on *docker0*
 interface on a host </p>

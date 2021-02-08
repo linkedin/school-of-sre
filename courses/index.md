@@ -16,12 +16,12 @@ In this course, we are focusing on building strong foundational skills. The cour
     -   [Linux Networking](https://sumit419.github.io/school-of-sre/linux_networking/intro/)
 -   [Python and Web](https://sumit419.github.io/school-of-sre/python_web/intro/)
 -   Data
-    - [Relational databases(MySQL)](https://sumit419.github.io/school-of-sre/databases_sql/intro/)
-    -   [NoSQL concepts](https://sumit419.github.io/school-of-sre/databases_nosql/intro/)
-    -   [Big Data](https://sumit419.github.io/school-of-sre/big_data/intro/)
--   [Systems Design](https://sumit419.github.io/school-of-sre/systems_design/intro/)
--   [Metrics and Monitoring](https://sumit419.github.io/school-of-sre/metrics_and_monitoring/introduction/)
--   [Security](https://sumit419.github.io/school-of-sre/security/intro/)
+    - [Relational databases(MySQL)](https://linkedin.github.io/school-of-sre/databases_sql/intro/)
+    -   [NoSQL concepts](https://linkedin.github.io/school-of-sre/databases_nosql/intro/)
+    -   [Big Data](https://linkedin.github.io/school-of-sre/big_data/intro/)
+-   [Systems Design](https://linkedin.github.io/school-of-sre/systems_design/intro/)
+-   [Metrics and Monitoring](https://linkedin.github.io/school-of-sre/metrics_and_monitoring/introduction/)
+-   [Security](https://linkedin.github.io/school-of-sre/security/intro/)
 
 We believe continuous learning will help in acquiring deeper knowledge and competencies in order to expand your skill sets, every module has added references which could be a guide for further learning. Our hope is that by going through these modules we should be able to build the essential skills required for a Site Reliability Engineer.
 
