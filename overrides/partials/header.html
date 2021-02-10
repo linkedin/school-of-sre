@@ -10,6 +10,10 @@
     <a href="{{ site_url }}" title="{{ config.site_name | e }}" class="md-header-nav__button md-logo" aria-label="{{ config.site_name }}">
       {% include "partials/logo.html" %}
     </a>
+    <!-- Button to open drawer -->
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      {% include ".icons/material/menu" ~ ".svg" %}
+    </label>
     <div class="md-header-nav__title" data-md-component="header-title">
       {% if config.site_name == page.title %}
         <div class="md-header-nav__ellipsis md-ellipsis">
