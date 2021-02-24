@@ -16,7 +16,7 @@ Ensure that you adhere to the following guidelines:
 ### Building and testing locally
 Run the following commands to build and view the site locally before opening a PR.
 
-```bash
+```
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt

@@ -73,7 +73,7 @@ We know compilation is involved in all 3 languages we are discussing. Just that 
 
 Those bytecodes are language specific. Python has its own set of bytecode defined (more in `dis` module) and so does java. So naturally, your operating system will not know how to run it. To run this bytecode, we have something called Virtual Machines. Ie: The JVM or the Python VM (CPython, Jython). These so called Virtual Machines are the programs which can read the bytecode and run it on a given operating system. Python has multiple VMs available. Cpython is a python VM implemented in C language, similarly Jython is a Java implementation of python VM. **At the end of the day, what they should be capable of is to understand python language syntax, be able to compile it to bytecode and be able to run that bytecode.** You can implement a python VM in any language! (And people do so, just because it can be done)
 
-```text
+```
                                                               The Operating System
 
                                                               +------------------------------------+
