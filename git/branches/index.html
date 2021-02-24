@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a3f8f96a.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
         
       
     
@@ -31,7 +31,7 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -103,7 +103,7 @@
     </div>
     
       <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
       
 <div class="md-search" data-md-component="search" role="dialog">
@@ -112,10 +112,10 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
@@ -146,7 +146,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -342,7 +342,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#merges" class="md-nav__link">
@@ -1231,7 +1231,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1245,7 +1245,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#merges" class="md-nav__link">
@@ -1262,7 +1262,7 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
@@ -1271,145 +1271,145 @@
 <p>Coming back to our local repo which has two commits. So far, what we have is a single line of history. Commits are chained in a single line. But sometimes you may have a need to work on two different features in parallel in the same repo. Now one option here could be making a new folder/repo with the same code and use that for another feature development. But there's a better way. Use <em>branches.</em> Since git follows tree like structure for commits, we can use branches to work on different sets of features. From a commit, two or more branches can be created and branches can also be merged.</p>
 <p>Using branches, there can exist multiple lines of histories and we can checkout to any of them and work on it. Checking out, as we discussed earlier, would simply mean replacing contents of the directory (repo) with the snapshot at the checked out version.</p>
 <p>Let's create a branch and see how it looks like:</p>
-<pre><code class="language-bash">$ git branch b1
+<div class="highlight"><pre><span></span><code>$ git branch b1
 $ git log --oneline --graph
-* 7f3b00e (HEAD -&gt; master, b1) adding file 2
-* df2fb7a adding file 1
-</code></pre>
+* 7f3b00e <span class="o">(</span>HEAD -&gt; master, b1<span class="o">)</span> adding file <span class="m">2</span>
+* df2fb7a adding file <span class="m">1</span>
+</code></pre></div>
 <p>We create a branch called <code>b1</code>. Git log tells us that b1 also points to the last commit (7f3b00e) but the <code>HEAD</code> is still pointing to master. If you remember, HEAD points to the commit/reference wherever you are checkout to. So if we checkout to <code>b1</code>, HEAD should point to that. Let's confirm:</p>
-<pre><code class="language-bash">$ git checkout b1
-Switched to branch 'b1'
+<div class="highlight"><pre><span></span><code>$ git checkout b1
+Switched to branch <span class="s1">&#39;b1&#39;</span>
 $ git log --oneline --graph
-* 7f3b00e (HEAD -&gt; b1, master) adding file 2
-* df2fb7a adding file 1
-</code></pre>
+* 7f3b00e <span class="o">(</span>HEAD -&gt; b1, master<span class="o">)</span> adding file <span class="m">2</span>
+* df2fb7a adding file <span class="m">1</span>
+</code></pre></div>
 <p><code>b1</code> still points to the same commit but HEAD now points to <code>b1</code>. Since we create a branch at commit <code>7f3b00e</code>, there will be two lines of histories starting this commit. Depending on which branch you are checked out on, the line of history will progress.</p>
 <p>At this moment, we are checked out on branch <code>b1</code>, so making a new commit will advance branch reference <code>b1</code> to that commit and current <code>b1</code> commit will become its parent. Let's do that.</p>
-<pre><code class="language-bash"># Creating a file and making a commit
-$ echo &quot;I am a file in b1 branch&quot; &gt; b1.txt
+<div class="highlight"><pre><span></span><code><span class="c1"># Creating a file and making a commit</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;I am a file in b1 branch&quot;</span> &gt; b1.txt
 $ git add b1.txt
-$ git commit -m &quot;adding b1 file&quot;
-[b1 872a38f] adding b1 file
-1 file changed, 1 insertion(+)
-create mode 100644 b1.txt
+$ git commit -m <span class="s2">&quot;adding b1 file&quot;</span>
+<span class="o">[</span>b1 872a38f<span class="o">]</span> adding b1 file
+<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
+create mode <span class="m">100644</span> b1.txt
 
-# The new line of history
+<span class="c1"># The new line of history</span>
 $ git log --oneline --graph
-* 872a38f (HEAD -&gt; b1) adding b1 file
-* 7f3b00e (master) adding file 2
-* df2fb7a adding file 1
+* 872a38f <span class="o">(</span>HEAD -&gt; b1<span class="o">)</span> adding b1 file
+* 7f3b00e <span class="o">(</span>master<span class="o">)</span> adding file <span class="m">2</span>
+* df2fb7a adding file <span class="m">1</span>
 $
-</code></pre>
+</code></pre></div>
 <p>Do note that master is still pointing to the old commit it was pointing to. We can now checkout to master branch and make commits there. This will result in another line of history starting from commit 7f3b00e.</p>
-<pre><code class="language-bash"># checkout to master branch
+<div class="highlight"><pre><span></span><code><span class="c1"># checkout to master branch</span>
 $ git checkout master
-Switched to branch 'master'
+Switched to branch <span class="s1">&#39;master&#39;</span>
 
-# Creating a new commit on master branch
-$ echo &quot;new file in master branch&quot; &gt; master.txt
+<span class="c1"># Creating a new commit on master branch</span>
+$ <span class="nb">echo</span> <span class="s2">&quot;new file in master branch&quot;</span> &gt; master.txt
 $ git add master.txt
-$ git commit -m &quot;adding master.txt file&quot;
-[master 60dc441] adding master.txt file
-1 file changed, 1 insertion(+)
-create mode 100644 master.txt
+$ git commit -m <span class="s2">&quot;adding master.txt file&quot;</span>
+<span class="o">[</span>master 60dc441<span class="o">]</span> adding master.txt file
+<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
+create mode <span class="m">100644</span> master.txt
 
-# The history line
+<span class="c1"># The history line</span>
 $ git log --oneline --graph
-* 60dc441 (HEAD -&gt; master) adding master.txt file
-* 7f3b00e adding file 2
-* df2fb7a adding file 1
-</code></pre>
+* 60dc441 <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding master.txt file
+* 7f3b00e adding file <span class="m">2</span>
+* df2fb7a adding file <span class="m">1</span>
+</code></pre></div>
 <p>Notice how branch b1 is not visible here since we are on the master. Let's try to visualize both to get the whole picture:</p>
-<pre><code class="language-bash">$ git log --oneline --graph --all
-* 60dc441 (HEAD -&gt; master) adding master.txt file
-| * 872a38f (b1) adding b1 file
-|/
-* 7f3b00e adding file 2
-* df2fb7a adding file 1
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ git log --oneline --graph --all
+* 60dc441 <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding master.txt file
+<span class="p">|</span> * 872a38f <span class="o">(</span>b1<span class="o">)</span> adding b1 file
+<span class="p">|</span>/
+* 7f3b00e adding file <span class="m">2</span>
+* df2fb7a adding file <span class="m">1</span>
+</code></pre></div>
 <p>Above tree structure should make things clear. Notice a clear branch/fork on commit 7f3b00e. This is how we create branches. Now they both are two separate lines of history on which feature development can be done independently.</p>
 <p><strong>To reiterate, internally, git is just a tree of commits. Branch names (human readable) are pointers to those commits in the tree. We use various git commands to work with the tree structure and references. Git accordingly modifies contents of our repo.</strong></p>
 <h2 id="merges">Merges</h2>
 <p>Now say the feature you were working on branch <code>b1</code> is complete and you need to merge it on master branch, where all the final version of code goes. So first you will checkout to branch master and then you pull the latest code from upstream (eg: GitHub). Then you need to merge your code from <code>b1</code> into master. There could be two ways this can be done.</p>
 <p>Here is the current history:</p>
-<pre><code class="language-bash">$ git log --oneline --graph --all
-* 60dc441 (HEAD -&gt; master) adding master.txt file
-| * 872a38f (b1) adding b1 file
-|/
-* 7f3b00e adding file 2
-* df2fb7a adding file 1
-</code></pre>
+<div class="highlight"><pre><span></span><code>$ git log --oneline --graph --all
+* 60dc441 <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding master.txt file
+<span class="p">|</span> * 872a38f <span class="o">(</span>b1<span class="o">)</span> adding b1 file
+<span class="p">|</span>/
+* 7f3b00e adding file <span class="m">2</span>
+* df2fb7a adding file <span class="m">1</span>
+</code></pre></div>
 <p><strong>Option 1: Directly merge the branch.</strong> Merging the branch b1 into master will result in a new merge commit. This will merge changes from two different lines of history and create a new commit of the result.</p>
-<pre><code class="language-bash">$ git merge b1
-Merge made by the 'recursive' strategy.
-b1.txt | 1 +
-1 file changed, 1 insertion(+)
-create mode 100644 b1.txt
+<div class="highlight"><pre><span></span><code>$ git merge b1
+Merge made by the <span class="s1">&#39;recursive&#39;</span> strategy.
+b1.txt <span class="p">|</span> <span class="m">1</span> +
+<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
+create mode <span class="m">100644</span> b1.txt
 $ git log --oneline --graph --all
-*   8fc28f9 (HEAD -&gt; master) Merge branch 'b1'
-|\
-| * 872a38f (b1) adding b1 file
-* | 60dc441 adding master.txt file
-|/
-* 7f3b00e adding file 2
-* df2fb7a adding file 1
-</code></pre>
+*   8fc28f9 <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> Merge branch <span class="s1">&#39;b1&#39;</span>
+<span class="p">|</span><span class="se">\</span>
+<span class="p">|</span> * 872a38f <span class="o">(</span>b1<span class="o">)</span> adding b1 file
+* <span class="p">|</span> 60dc441 adding master.txt file
+<span class="p">|</span>/
+* 7f3b00e adding file <span class="m">2</span>
+* df2fb7a adding file <span class="m">1</span>
+</code></pre></div>
 <p>You can see a new merge commit created (8fc28f9). You will be prompted for the commit message. If there are a lot of branches in the repo, this result will end-up with a lot of merge commits. Which looks ugly compared to a single line of history of development. So let's look at an alternative approach</p>
 <p>First let's <a href="https://git-scm.com/docs/git-reset">reset</a> our last merge and go to the previous state.</p>
-<pre><code class="language-bash">$ git reset --hard 60dc441
+<div class="highlight"><pre><span></span><code>$ git reset --hard 60dc441
 HEAD is now at 60dc441 adding master.txt file
 $ git log --oneline --graph --all
-* 60dc441 (HEAD -&gt; master) adding master.txt file
-| * 872a38f (b1) adding b1 file
-|/
-* 7f3b00e adding file 2
-* df2fb7a adding file 1
-</code></pre>
+* 60dc441 <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding master.txt file
+<span class="p">|</span> * 872a38f <span class="o">(</span>b1<span class="o">)</span> adding b1 file
+<span class="p">|</span>/
+* 7f3b00e adding file <span class="m">2</span>
+* df2fb7a adding file <span class="m">1</span>
+</code></pre></div>
 <p><strong>Option 2: Rebase.</strong> Now, instead of merging two branches which has a similar base (commit: 7f3b00e), let us rebase branch b1 on to current master. <strong>What this means is take branch <code>b1</code> (from commit 7f3b00e to commit 872a38f) and rebase (put them on top of) master (60dc441).</strong></p>
-<pre><code class="language-bash"># Switch to b1
+<div class="highlight"><pre><span></span><code><span class="c1"># Switch to b1</span>
 $ git checkout b1
-Switched to branch 'b1'
+Switched to branch <span class="s1">&#39;b1&#39;</span>
 
-# Rebase (b1 which is current branch) on master
+<span class="c1"># Rebase (b1 which is current branch) on master</span>
 $ git rebase master
 First, rewinding head to replay your work on top of it...
 Applying: adding b1 file
 
-# The result
+<span class="c1"># The result</span>
 $ git log --oneline --graph --all
-* 5372c8f (HEAD -&gt; b1) adding b1 file
-* 60dc441 (master) adding master.txt file
-* 7f3b00e adding file 2
-* df2fb7a adding file 1
-</code></pre>
+* 5372c8f <span class="o">(</span>HEAD -&gt; b1<span class="o">)</span> adding b1 file
+* 60dc441 <span class="o">(</span>master<span class="o">)</span> adding master.txt file
+* 7f3b00e adding file <span class="m">2</span>
+* df2fb7a adding file <span class="m">1</span>
+</code></pre></div>
 <p>You can see <code>b1</code> which had 1 commit. That commit's parent was <code>7f3b00e</code>. But since we rebase it on master (<code>60dc441</code>). That becomes the parent now. As a side effect, you also see it has become a single line of history. Now if we were to merge <code>b1</code> into <code>master</code>, it would simply mean change <code>master</code> to point to <code>5372c8f</code> which is <code>b1</code>. Let's try it:</p>
-<pre><code class="language-bash"># checkout to master since we want to merge code into master
+<div class="highlight"><pre><span></span><code><span class="c1"># checkout to master since we want to merge code into master</span>
 $ git checkout master
-Switched to branch 'master'
+Switched to branch <span class="s1">&#39;master&#39;</span>
 
-# the current history, where b1 is based on master
+<span class="c1"># the current history, where b1 is based on master</span>
 $ git log --oneline --graph --all
-* 5372c8f (b1) adding b1 file
-* 60dc441 (HEAD -&gt; master) adding master.txt file
-* 7f3b00e adding file 2
-* df2fb7a adding file 1
+* 5372c8f <span class="o">(</span>b1<span class="o">)</span> adding b1 file
+* 60dc441 <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding master.txt file
+* 7f3b00e adding file <span class="m">2</span>
+* df2fb7a adding file <span class="m">1</span>
 
 
-# Performing the merge, notice the &quot;fast-forward&quot; message
+<span class="c1"># Performing the merge, notice the &quot;fast-forward&quot; message</span>
 $ git merge b1
 Updating 60dc441..5372c8f
 Fast-forward
-b1.txt | 1 +
-1 file changed, 1 insertion(+)
-create mode 100644 b1.txt
+b1.txt <span class="p">|</span> <span class="m">1</span> +
+<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
+create mode <span class="m">100644</span> b1.txt
 
-# The Result
+<span class="c1"># The Result</span>
 $ git log --oneline --graph --all
-* 5372c8f (HEAD -&gt; master, b1) adding b1 file
+* 5372c8f <span class="o">(</span>HEAD -&gt; master, b1<span class="o">)</span> adding b1 file
 * 60dc441 adding master.txt file
-* 7f3b00e adding file 2
-* df2fb7a adding file 1
-</code></pre>
+* 7f3b00e adding file <span class="m">2</span>
+* df2fb7a adding file <span class="m">1</span>
+</code></pre></div>
 <p>Now you see both <code>b1</code> and <code>master</code> are pointing to the same commit. Your code has been merged to the master branch and it can be pushed. Also we have clean line of history! :D</p>
                 
               
@@ -1426,40 +1426,38 @@ $ git log --oneline --graph --all
         
 <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../git-basics/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../git-basics/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Git Basics
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Git Basics
-              </div>
+          </div>
+        </a>
+      
+      
+        <a href="../github-hooks/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Github and Hooks
             </div>
-          </a>
-        
-        
-          <a href="../github-hooks/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Github and Hooks
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1493,19 +1491,13 @@ $ git log --oneline --graph --all
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.217ffd95.min.js", "version": null}</script>
     
-      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
-      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="../../assets/javascripts/bundle.926459b3.min.js"></script>
       
     
   </body>

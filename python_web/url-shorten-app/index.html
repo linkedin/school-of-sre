@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../img/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.0">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a3f8f96a.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
         
       
     
@@ -31,7 +31,7 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
@@ -103,7 +103,7 @@
     </div>
     
       <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
       
 <div class="md-search" data-md-component="search" role="dialog">
@@ -112,10 +112,10 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
@@ -146,7 +146,7 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -561,7 +561,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#design" class="md-nav__link">
@@ -1270,7 +1270,7 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1284,7 +1284,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#design" class="md-nav__link">
@@ -1342,7 +1342,7 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
@@ -1369,87 +1369,87 @@
 <h3 id="5-other">5. Other</h3>
 <p>We are not accounting for users into our app and other possible features like rate limiting, customized links etc but it will eventually come up with time. Depending on the requirements, they too might need to get incorporated.</p>
 <p>The minimal working code is given below for reference but I'd encourage you to come up with your own.</p>
-<pre><code class="language-python">from flask import Flask, redirect, request
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">request</span>
 
-from hashlib import md5
+<span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">md5</span>
 
-app = Flask(&quot;url_shortener&quot;)
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="s2">&quot;url_shortener&quot;</span><span class="p">)</span>
 
-mapping = {}
+<span class="n">mapping</span> <span class="o">=</span> <span class="p">{}</span>
 
-@app.route(&quot;/shorten&quot;, methods=[&quot;POST&quot;])
-def shorten():
-    global mapping
-    payload = request.json
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/shorten&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">shorten</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">mapping</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
 
-    if &quot;url&quot; not in payload:
-        return &quot;Missing URL Parameter&quot;, 400
+    <span class="k">if</span> <span class="s2">&quot;url&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">payload</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Missing URL Parameter&quot;</span><span class="p">,</span> <span class="mi">400</span>
 
-    # TODO: check if URL is valid
+    <span class="c1"># TODO: check if URL is valid</span>
 
-    hash_ = md5()
-    hash_.update(payload[&quot;url&quot;].encode())
-    digest = hash_.hexdigest()[:5]  # limiting to 5 chars. Less the limit more the chances of collission
+    <span class="n">hash_</span> <span class="o">=</span> <span class="n">md5</span><span class="p">()</span>
+    <span class="n">hash_</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">payload</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+    <span class="n">digest</span> <span class="o">=</span> <span class="n">hash_</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># limiting to 5 chars. Less the limit more the chances of collission</span>
 
-    if digest not in mapping:
-        mapping[digest] = payload[&quot;url&quot;]
-        return f&quot;Shortened: r/{digest}\n&quot;
-    else:
-        # TODO: check for hash collission
-        return f&quot;Already exists: r/{digest}\n&quot;
-
-
-@app.route(&quot;/r/&lt;hash_&gt;&quot;)
-def redirect_(hash_):
-    if hash_ not in mapping:
-        return &quot;URL Not Found&quot;, 404
-    return redirect(mapping[hash_])
+    <span class="k">if</span> <span class="n">digest</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">:</span>
+        <span class="n">mapping</span><span class="p">[</span><span class="n">digest</span><span class="p">]</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Shortened: r/</span><span class="si">{</span><span class="n">digest</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># TODO: check for hash collission</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Already exists: r/</span><span class="si">{</span><span class="n">digest</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
 
 
-if __name__ == &quot;__main__&quot;:
-    app.run(debug=True)
-
-&quot;&quot;&quot;
-OUTPUT:
-
-
-===&gt; SHORTENING
-
-$ curl localhost:5000/shorten -H &quot;content-type: application/json&quot; --data '{&quot;url&quot;:&quot;https://linkedin.com&quot;}'
-Shortened: r/a62a4
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/r/&lt;hash_&gt;&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">redirect_</span><span class="p">(</span><span class="n">hash_</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">hash_</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;URL Not Found&quot;</span><span class="p">,</span> <span class="mi">404</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">mapping</span><span class="p">[</span><span class="n">hash_</span><span class="p">])</span>
 
 
-===&gt; REDIRECTING, notice the response code 302 and the location header
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-$ curl localhost:5000/r/a62a4 -v
-* Uses proxy env variable NO_PROXY == '127.0.0.1'
-*   Trying ::1...
-* TCP_NODELAY set
-* Connection failed
-* connect to ::1 port 5000 failed: Connection refused
-*   Trying 127.0.0.1...
-* TCP_NODELAY set
-* Connected to localhost (127.0.0.1) port 5000 (#0)
-&gt; GET /r/a62a4 HTTP/1.1
-&gt; Host: localhost:5000
-&gt; User-Agent: curl/7.64.1
-&gt; Accept: */*
-&gt;
-* HTTP 1.0, assume close after body
-&lt; HTTP/1.0 302 FOUND
-&lt; Content-Type: text/html; charset=utf-8
-&lt; Content-Length: 247
-&lt; Location: https://linkedin.com
-&lt; Server: Werkzeug/0.15.4 Python/3.7.7
-&lt; Date: Tue, 27 Oct 2020 09:37:12 GMT
-&lt;
-&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;
-&lt;title&gt;Redirecting...&lt;/title&gt;
-&lt;h1&gt;Redirecting...&lt;/h1&gt;
-* Closing connection 0
-&lt;p&gt;You should be redirected automatically to target URL: &lt;a href=&quot;https://linkedin.com&quot;&gt;https://linkedin.com&lt;/a&gt;.  If not click the link.
-&quot;&quot;&quot;
-</code></pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">OUTPUT:</span>
+
+
+<span class="sd">===&gt; SHORTENING</span>
+
+<span class="sd">$ curl localhost:5000/shorten -H &quot;content-type: application/json&quot; --data &#39;{&quot;url&quot;:&quot;https://linkedin.com&quot;}&#39;</span>
+<span class="sd">Shortened: r/a62a4</span>
+
+
+<span class="sd">===&gt; REDIRECTING, notice the response code 302 and the location header</span>
+
+<span class="sd">$ curl localhost:5000/r/a62a4 -v</span>
+<span class="sd">* Uses proxy env variable NO_PROXY == &#39;127.0.0.1&#39;</span>
+<span class="sd">*   Trying ::1...</span>
+<span class="sd">* TCP_NODELAY set</span>
+<span class="sd">* Connection failed</span>
+<span class="sd">* connect to ::1 port 5000 failed: Connection refused</span>
+<span class="sd">*   Trying 127.0.0.1...</span>
+<span class="sd">* TCP_NODELAY set</span>
+<span class="sd">* Connected to localhost (127.0.0.1) port 5000 (#0)</span>
+<span class="sd">&gt; GET /r/a62a4 HTTP/1.1</span>
+<span class="sd">&gt; Host: localhost:5000</span>
+<span class="sd">&gt; User-Agent: curl/7.64.1</span>
+<span class="sd">&gt; Accept: */*</span>
+<span class="sd">&gt;</span>
+<span class="sd">* HTTP 1.0, assume close after body</span>
+<span class="sd">&lt; HTTP/1.0 302 FOUND</span>
+<span class="sd">&lt; Content-Type: text/html; charset=utf-8</span>
+<span class="sd">&lt; Content-Length: 247</span>
+<span class="sd">&lt; Location: https://linkedin.com</span>
+<span class="sd">&lt; Server: Werkzeug/0.15.4 Python/3.7.7</span>
+<span class="sd">&lt; Date: Tue, 27 Oct 2020 09:37:12 GMT</span>
+<span class="sd">&lt;</span>
+<span class="sd">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;</span>
+<span class="sd">&lt;title&gt;Redirecting...&lt;/title&gt;</span>
+<span class="sd">&lt;h1&gt;Redirecting...&lt;/h1&gt;</span>
+<span class="sd">* Closing connection 0</span>
+<span class="sd">&lt;p&gt;You should be redirected automatically to target URL: &lt;a href=&quot;https://linkedin.com&quot;&gt;https://linkedin.com&lt;/a&gt;.  If not click the link.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
                 
               
               
@@ -1465,40 +1465,38 @@ $ curl localhost:5000/r/a62a4 -v
         
 <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../python-web-flask/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../python-web-flask/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Python, Web and Flask
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Python, Web and Flask
-              </div>
+          </div>
+        </a>
+      
+      
+        <a href="../sre-conclusion/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Conclusion
             </div>
-          </a>
-        
-        
-          <a href="../sre-conclusion/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Conclusion
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1532,19 +1530,13 @@ $ curl localhost:5000/r/a62a4 -v
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.217ffd95.min.js", "version": null}</script>
     
-      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
-      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="../../assets/javascripts/bundle.926459b3.min.js"></script>
       
     
   </body>
