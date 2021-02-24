@@ -1,4 +1,4 @@
-## SHELL SCRIPTING FUNDAMENTALS 
+# SHELL SCRIPTING FUNDAMENTALS 
 
 In this course will cover the fundamentals of shell scripting. You can use this knowledge to write bash scripts on your own to automate or schedule tasks that are often required for SRE practices.
 
