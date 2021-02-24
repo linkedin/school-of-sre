@@ -2,7 +2,7 @@
 
 In this course will cover the fundamentals of shell scripting. You can use this knowledge to write bash scripts on your own to automate or schedule tasks that are often required for SRE practices.
 
-***Lab Environment Setup***:
+### ***Lab Environment Setup***:
 
 For practicing bash scripting given in this you can either use the "Terminal" application directly if you are using Linux or MacOS. 
 *If you feel you need some brushing up on "vim" editor to be able to create/edit script files on linux, follow the [vim tutorial here](https://github.com/BINPIPE/learning-resources/blob/master/learning-notes/vim-tutorial.md).*
