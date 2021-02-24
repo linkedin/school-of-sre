@@ -100,7 +100,7 @@ BGP Security
 - A successful exploit will allow attackers to access, modify, or delete information in the database.
 - It permits attackers to steal sensitive information stored within the backend databases of affected websites, which may include such things as user credentials, email addresses, personal information, and credit card numbers
 
-```sql
+```
 SELECT USERNAME,PASSWORD from USERS where USERNAME='<username>' AND PASSWORD='<password>';
 
 Here the username & password is the input provided by the user. Suppose an attacker gives the input as " OR '1'='1'" in both fields. Therefore the SQL query will look like:

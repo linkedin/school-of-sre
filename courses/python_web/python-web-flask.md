@@ -36,7 +36,7 @@ b'GET / HTTP/1.1\r\nHost: localhost:65432\r\nConnection: keep-alive\r\nDNT: 1\r\
 
 Examine closely and the content will look like the HTTP protocol's format. ie:
 
-```text
+```
 HTTP_METHOD URI_PATH HTTP_VERSION
 HEADERS_SEPARATED_BY_SEPARATOR
 ```
