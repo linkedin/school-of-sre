@@ -80,5 +80,4 @@ Each commit must contain a succinct description of the change:
 * no dot(.) at the end
 
 ### Body
-
 Just as in the description, use the imperative, present tense: "change" not "changed" nor "changes". The body should include the motivation for the change and contrast this with previous behavior.

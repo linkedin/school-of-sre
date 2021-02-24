@@ -1,4 +1,4 @@
-site_name: SchoolOfSRE
+site_name: School Of SRE
 docs_dir: courses
 theme:
   name: material
@@ -57,6 +57,14 @@ nav:
     - Availability: systems_design/availability.md
     - Fault Tolerance: systems_design/fault-tolerance.md
     - Conclusion: systems_design/conclusion.md
+- Metrics and Monitoring:
+    - Introduction: metrics_and_monitoring/introduction.md
+    - Command-line Tools: metrics_and_monitoring/command-line_tools.md
+    - Third-party Monitoring: metrics_and_monitoring/third-party_monitoring.md
+    - Proactive Monitoring with Alerts: metrics_and_monitoring/alerts.md
+    - Best Practices for Monitoring: metrics_and_monitoring/best_practices.md
+    - Observability: metrics_and_monitoring/observability.md
+    - Conclusion: metrics_and_monitoring/conclusion.md
 - Security:
     - Introduction: security/intro.md
     - Fundamentals of Security: security/fundamentals.md
@@ -66,6 +74,7 @@ nav:
     - Conclusion: security/conclusion.md
 - Contribute: CONTRIBUTING.md
 - Code of Conduct: CODE_OF_CONDUCT.md
+- SRE Community: sre_community.md
 copyright: "Copyright 2020 LinkedIn Corporation. All Rights Reserved. Licensed under the Creative Commons Attribution 4.0 International Public License"
 extra:
     social:
