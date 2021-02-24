@@ -76,6 +76,9 @@ nav:
 - Code of Conduct: CODE_OF_CONDUCT.md
 - SRE Community: sre_community.md
 copyright: "Copyright 2020 LinkedIn Corporation. All Rights Reserved. Licensed under the Creative Commons Attribution 4.0 International Public License"
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
 extra:
     social:
         - icon: fontawesome/brands/github

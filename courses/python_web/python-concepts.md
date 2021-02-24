@@ -122,7 +122,7 @@ What goes inside the `deco` function might seem complex. Let's try to uncover it
 
 Let's visualize it for better understanding
 
-```
+```text
        BEFORE                   function_object (ID: 100)
 
        "hello_world"            +--------------------+
