@@ -6,11 +6,11 @@ We use GitHub issues to track bug reports, feature requests, and submitting pull
 
 If you find a bug:
 
-1. Use the GitHub issue search to check whether the bug has already been reported.
+1. Use the GitHub issue search to check if the issue has already been reported.
 
-1. If the issue has been fixed, try to reproduce the issue using the latest master branch of the repository.
+1. Check if the issue has been fixed. Try to reproduce it using the latest master or development branch in the repository.
 
-1. If the issue still reproduces or has not yet been reported, try to isolate the problem before opening an issue.
+2. Isolate the problem before opening an issue.
 
 ### Contributing content
 As a contributor, you represent that the content you submit is not plagiarised. By submitting the content, you (and, if applicable, your employer) are licensing the submitted content to LinkedIn and the open source community subject to the Creative Commons Attribution 4.0 International Public License.
@@ -38,7 +38,6 @@ mkdocs serve
 
 Before you submit your Pull Request (PR), consider the following guidelines:
 
-* Search this repo for an open or closed PR that relates to your submission. You don't want to duplicate effort.
 * Follow the [standard GitHub approach](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) to create the PR. Please also follow our [commit message format](#commit-message-format).
 * That's it! Thank you for your contribution!
 
