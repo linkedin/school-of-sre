@@ -1281,23 +1281,23 @@
 </ul>
 <h2 id="hooks">Hooks</h2>
 <p>Git has another nice feature called hooks. Hooks are basically scripts which will be called when a certain event happens. Here is where hooks are located:</p>
-<div class="highlight"><pre><span></span><code>$ ls .git/hooks/
+<pre><code class="language-bash">$ ls .git/hooks/
 applypatch-msg.sample     fsmonitor-watchman.sample pre-applypatch.sample     pre-push.sample           pre-receive.sample        update.sample
 commit-msg.sample         post-update.sample        pre-commit.sample         pre-rebase.sample         prepare-commit-msg.sample
-</code></pre></div>
+</code></pre>
 <p>Names are self explanatory. These hooks are useful when you want to do certain things when a certain event happens. If you want to run tests before pushing code, you would want to setup <code>pre-push</code> hooks. Let's try to create a pre commit hook.</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="s2">&quot;echo this is from pre commit hook&quot;</span> &gt; .git/hooks/pre-commit
+<pre><code class="language-bash">$ echo &quot;echo this is from pre commit hook&quot; &gt; .git/hooks/pre-commit
 $ chmod +x .git/hooks/pre-commit
-</code></pre></div>
+</code></pre>
 <p>We basically create a file called <code>pre-commit</code> in hooks folder and make it executable. Now if we make a commit, we should see the message getting printed.</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="s2">&quot;sample file&quot;</span> &gt; sample.txt
+<pre><code class="language-bash">$ echo &quot;sample file&quot; &gt; sample.txt
 $ git add sample.txt
-$ git commit -m <span class="s2">&quot;adding sample file&quot;</span>
-this is from pre commit hook     <span class="c1"># &lt;===== THE MESSAGE FROM HOOK EXECUTION</span>
-<span class="o">[</span>master 9894e05<span class="o">]</span> adding sample file
-<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
-create mode <span class="m">100644</span> sample.txt
-</code></pre></div>
+$ git commit -m &quot;adding sample file&quot;
+this is from pre commit hook     # &lt;===== THE MESSAGE FROM HOOK EXECUTION
+[master 9894e05] adding sample file
+1 file changed, 1 insertion(+)
+create mode 100644 sample.txt
+</code></pre>
                 
               
               

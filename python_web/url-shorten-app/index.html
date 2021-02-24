@@ -1369,87 +1369,87 @@
 <h3 id="5-other">5. Other</h3>
 <p>We are not accounting for users into our app and other possible features like rate limiting, customized links etc but it will eventually come up with time. Depending on the requirements, they too might need to get incorporated.</p>
 <p>The minimal working code is given below for reference but I'd encourage you to come up with your own.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">request</span>
+<pre><code class="language-python">from flask import Flask, redirect, request
 
-<span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">md5</span>
+from hashlib import md5
 
-<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="s2">&quot;url_shortener&quot;</span><span class="p">)</span>
+app = Flask(&quot;url_shortener&quot;)
 
-<span class="n">mapping</span> <span class="o">=</span> <span class="p">{}</span>
+mapping = {}
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/shorten&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
-<span class="k">def</span> <span class="nf">shorten</span><span class="p">():</span>
-    <span class="k">global</span> <span class="n">mapping</span>
-    <span class="n">payload</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span>
+@app.route(&quot;/shorten&quot;, methods=[&quot;POST&quot;])
+def shorten():
+    global mapping
+    payload = request.json
 
-    <span class="k">if</span> <span class="s2">&quot;url&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">payload</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;Missing URL Parameter&quot;</span><span class="p">,</span> <span class="mi">400</span>
+    if &quot;url&quot; not in payload:
+        return &quot;Missing URL Parameter&quot;, 400
 
-    <span class="c1"># TODO: check if URL is valid</span>
+    # TODO: check if URL is valid
 
-    <span class="n">hash_</span> <span class="o">=</span> <span class="n">md5</span><span class="p">()</span>
-    <span class="n">hash_</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">payload</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
-    <span class="n">digest</span> <span class="o">=</span> <span class="n">hash_</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># limiting to 5 chars. Less the limit more the chances of collission</span>
+    hash_ = md5()
+    hash_.update(payload[&quot;url&quot;].encode())
+    digest = hash_.hexdigest()[:5]  # limiting to 5 chars. Less the limit more the chances of collission
 
-    <span class="k">if</span> <span class="n">digest</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">:</span>
-        <span class="n">mapping</span><span class="p">[</span><span class="n">digest</span><span class="p">]</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">]</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Shortened: r/</span><span class="si">{</span><span class="n">digest</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="c1"># TODO: check for hash collission</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Already exists: r/</span><span class="si">{</span><span class="n">digest</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
-
-
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/r/&lt;hash_&gt;&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">redirect_</span><span class="p">(</span><span class="n">hash_</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">hash_</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;URL Not Found&quot;</span><span class="p">,</span> <span class="mi">404</span>
-    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">mapping</span><span class="p">[</span><span class="n">hash_</span><span class="p">])</span>
+    if digest not in mapping:
+        mapping[digest] = payload[&quot;url&quot;]
+        return f&quot;Shortened: r/{digest}\n&quot;
+    else:
+        # TODO: check for hash collission
+        return f&quot;Already exists: r/{digest}\n&quot;
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">OUTPUT:</span>
-
-
-<span class="sd">===&gt; SHORTENING</span>
-
-<span class="sd">$ curl localhost:5000/shorten -H &quot;content-type: application/json&quot; --data &#39;{&quot;url&quot;:&quot;https://linkedin.com&quot;}&#39;</span>
-<span class="sd">Shortened: r/a62a4</span>
+@app.route(&quot;/r/&lt;hash_&gt;&quot;)
+def redirect_(hash_):
+    if hash_ not in mapping:
+        return &quot;URL Not Found&quot;, 404
+    return redirect(mapping[hash_])
 
 
-<span class="sd">===&gt; REDIRECTING, notice the response code 302 and the location header</span>
+if __name__ == &quot;__main__&quot;:
+    app.run(debug=True)
 
-<span class="sd">$ curl localhost:5000/r/a62a4 -v</span>
-<span class="sd">* Uses proxy env variable NO_PROXY == &#39;127.0.0.1&#39;</span>
-<span class="sd">*   Trying ::1...</span>
-<span class="sd">* TCP_NODELAY set</span>
-<span class="sd">* Connection failed</span>
-<span class="sd">* connect to ::1 port 5000 failed: Connection refused</span>
-<span class="sd">*   Trying 127.0.0.1...</span>
-<span class="sd">* TCP_NODELAY set</span>
-<span class="sd">* Connected to localhost (127.0.0.1) port 5000 (#0)</span>
-<span class="sd">&gt; GET /r/a62a4 HTTP/1.1</span>
-<span class="sd">&gt; Host: localhost:5000</span>
-<span class="sd">&gt; User-Agent: curl/7.64.1</span>
-<span class="sd">&gt; Accept: */*</span>
-<span class="sd">&gt;</span>
-<span class="sd">* HTTP 1.0, assume close after body</span>
-<span class="sd">&lt; HTTP/1.0 302 FOUND</span>
-<span class="sd">&lt; Content-Type: text/html; charset=utf-8</span>
-<span class="sd">&lt; Content-Length: 247</span>
-<span class="sd">&lt; Location: https://linkedin.com</span>
-<span class="sd">&lt; Server: Werkzeug/0.15.4 Python/3.7.7</span>
-<span class="sd">&lt; Date: Tue, 27 Oct 2020 09:37:12 GMT</span>
-<span class="sd">&lt;</span>
-<span class="sd">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;</span>
-<span class="sd">&lt;title&gt;Redirecting...&lt;/title&gt;</span>
-<span class="sd">&lt;h1&gt;Redirecting...&lt;/h1&gt;</span>
-<span class="sd">* Closing connection 0</span>
-<span class="sd">&lt;p&gt;You should be redirected automatically to target URL: &lt;a href=&quot;https://linkedin.com&quot;&gt;https://linkedin.com&lt;/a&gt;.  If not click the link.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-</code></pre></div>
+&quot;&quot;&quot;
+OUTPUT:
+
+
+===&gt; SHORTENING
+
+$ curl localhost:5000/shorten -H &quot;content-type: application/json&quot; --data '{&quot;url&quot;:&quot;https://linkedin.com&quot;}'
+Shortened: r/a62a4
+
+
+===&gt; REDIRECTING, notice the response code 302 and the location header
+
+$ curl localhost:5000/r/a62a4 -v
+* Uses proxy env variable NO_PROXY == '127.0.0.1'
+*   Trying ::1...
+* TCP_NODELAY set
+* Connection failed
+* connect to ::1 port 5000 failed: Connection refused
+*   Trying 127.0.0.1...
+* TCP_NODELAY set
+* Connected to localhost (127.0.0.1) port 5000 (#0)
+&gt; GET /r/a62a4 HTTP/1.1
+&gt; Host: localhost:5000
+&gt; User-Agent: curl/7.64.1
+&gt; Accept: */*
+&gt;
+* HTTP 1.0, assume close after body
+&lt; HTTP/1.0 302 FOUND
+&lt; Content-Type: text/html; charset=utf-8
+&lt; Content-Length: 247
+&lt; Location: https://linkedin.com
+&lt; Server: Werkzeug/0.15.4 Python/3.7.7
+&lt; Date: Tue, 27 Oct 2020 09:37:12 GMT
+&lt;
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;
+&lt;title&gt;Redirecting...&lt;/title&gt;
+&lt;h1&gt;Redirecting...&lt;/h1&gt;
+* Closing connection 0
+&lt;p&gt;You should be redirected automatically to target URL: &lt;a href=&quot;https://linkedin.com&quot;&gt;https://linkedin.com&lt;/a&gt;.  If not click the link.
+&quot;&quot;&quot;
+</code></pre>
                 
               
               

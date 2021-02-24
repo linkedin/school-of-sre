@@ -1338,84 +1338,84 @@
 <p><strong>Everything in Python is an object.</strong></p>
 <p>That includes the functions, lists, dicts, classes, modules, a running function (instance of function definition), everything. In the CPython, it would mean there is an underlying struct variable for each object.</p>
 <p>In python's current execution context, all the variables are stored in a dict. It'd be a string to object mapping. If you have a function and a float variable defined in the current context, here is how it is handled internally.</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">float_number</span><span class="o">=</span><span class="mf">42.0</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo_func</span><span class="p">():</span>
-<span class="o">...</span>     <span class="k">pass</span>
-<span class="o">...</span>
+<pre><code class="language-python">&gt;&gt;&gt; float_number=42.0
+&gt;&gt;&gt; def foo_func():
+...     pass
+...
 
-<span class="c1"># NOTICE HOW VARIABLE NAMES ARE STRINGS, stored in a dict</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">locals</span><span class="p">()</span>
-<span class="p">{</span><span class="s1">&#39;__name__&#39;</span><span class="p">:</span> <span class="s1">&#39;__main__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;__package__&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;__loader__&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">_frozen_importlib</span><span class="o">.</span><span class="n">BuiltinImporter</span><span class="s1">&#39;&gt;, &#39;</span><span class="n">__spec__</span><span class="s1">&#39;: None, &#39;</span><span class="vm">__annotations__</span><span class="s1">&#39;: </span><span class="si">{}</span><span class="s1">, &#39;</span><span class="n">__builtins__</span><span class="s1">&#39;: &lt;module &#39;</span><span class="n">builtins</span><span class="s1">&#39; (built-in)&gt;, &#39;</span><span class="n">float_number</span><span class="s1">&#39;: 42.0, &#39;</span><span class="n">foo_func</span><span class="s1">&#39;: &lt;function foo_func at 0x1055847a0&gt;}</span>
-</code></pre></div>
+# NOTICE HOW VARIABLE NAMES ARE STRINGS, stored in a dict
+&gt;&gt;&gt; locals()
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'float_number': 42.0, 'foo_func': &lt;function foo_func at 0x1055847a0&gt;}
+</code></pre>
 <h2 id="python-functions">Python Functions</h2>
 <p>Since functions too are objects, we can see what all attributes a function contains as following</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
-<span class="o">...</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
-<span class="p">[</span><span class="s1">&#39;__annotations__&#39;</span><span class="p">,</span> <span class="s1">&#39;__call__&#39;</span><span class="p">,</span> <span class="s1">&#39;__class__&#39;</span><span class="p">,</span> <span class="s1">&#39;__closure__&#39;</span><span class="p">,</span> <span class="s1">&#39;__code__&#39;</span><span class="p">,</span> <span class="s1">&#39;__defaults__&#39;</span><span class="p">,</span> <span class="s1">&#39;__delattr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__dict__&#39;</span><span class="p">,</span>
-<span class="s1">&#39;__dir__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;__eq__&#39;</span><span class="p">,</span> <span class="s1">&#39;__format__&#39;</span><span class="p">,</span> <span class="s1">&#39;__ge__&#39;</span><span class="p">,</span> <span class="s1">&#39;__get__&#39;</span><span class="p">,</span> <span class="s1">&#39;__getattribute__&#39;</span><span class="p">,</span> <span class="s1">&#39;__globals__&#39;</span><span class="p">,</span> <span class="s1">&#39;__gt__&#39;</span><span class="p">,</span>
-<span class="s1">&#39;__hash__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init_subclass__&#39;</span><span class="p">,</span> <span class="s1">&#39;__kwdefaults__&#39;</span><span class="p">,</span> <span class="s1">&#39;__le__&#39;</span><span class="p">,</span> <span class="s1">&#39;__lt__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span>
-<span class="s1">&#39;__ne__&#39;</span><span class="p">,</span> <span class="s1">&#39;__new__&#39;</span><span class="p">,</span> <span class="s1">&#39;__qualname__&#39;</span><span class="p">,</span> <span class="s1">&#39;__reduce__&#39;</span><span class="p">,</span> <span class="s1">&#39;__reduce_ex__&#39;</span><span class="p">,</span> <span class="s1">&#39;__repr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__setattr__&#39;</span><span class="p">,</span> <span class="s1">&#39;__sizeof__&#39;</span><span class="p">,</span> <span class="s1">&#39;__str__&#39;</span><span class="p">,</span>
-<span class="s1">&#39;__subclasshook__&#39;</span><span class="p">]</span>
-</code></pre></div>
+<pre><code class="language-python">&gt;&gt;&gt; def hello(name):
+...     print(f&quot;Hello, {name}!&quot;)
+...
+&gt;&gt;&gt; dir(hello)
+['__annotations__', '__call__', '__class__', '__closure__', '__code__', '__defaults__', '__delattr__', '__dict__',
+'__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__get__', '__getattribute__', '__globals__', '__gt__',
+'__hash__', '__init__', '__init_subclass__', '__kwdefaults__', '__le__', '__lt__', '__module__', '__name__',
+'__ne__', '__new__', '__qualname__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__',
+'__subclasshook__']
+</code></pre>
 <p>While there are a lot of them, let's look at some interesting ones</p>
 <h4 id="globals"><strong>globals</strong></h4>
 <p>This attribute, as the name suggests, has references of global variables. If you ever need to know what all global variables are in the scope of this function, this will tell you. See how the function start seeing the new variable in globals</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">hello</span><span class="o">.</span><span class="vm">__globals__</span>
-<span class="p">{</span><span class="s1">&#39;__name__&#39;</span><span class="p">:</span> <span class="s1">&#39;__main__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;__package__&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;__loader__&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">_frozen_importlib</span><span class="o">.</span><span class="n">BuiltinImporter</span><span class="s1">&#39;&gt;, &#39;</span><span class="n">__spec__</span><span class="s1">&#39;: None, &#39;</span><span class="vm">__annotations__</span><span class="s1">&#39;: </span><span class="si">{}</span><span class="s1">, &#39;</span><span class="n">__builtins__</span><span class="s1">&#39;: &lt;module &#39;</span><span class="n">builtins</span><span class="s1">&#39; (built-in)&gt;, &#39;</span><span class="n">hello</span><span class="s1">&#39;: &lt;function hello at 0x7fe4e82554c0&gt;}</span>
+<pre><code class="language-python">&gt;&gt;&gt; hello.__globals__
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'hello': &lt;function hello at 0x7fe4e82554c0&gt;}
 
-<span class="c1"># adding new global variable</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">GLOBAL</span><span class="o">=</span><span class="s2">&quot;g_val&quot;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">hello</span><span class="o">.</span><span class="vm">__globals__</span>
-<span class="p">{</span><span class="s1">&#39;__name__&#39;</span><span class="p">:</span> <span class="s1">&#39;__main__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;__package__&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;__loader__&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">_frozen_importlib</span><span class="o">.</span><span class="n">BuiltinImporter</span><span class="s1">&#39;&gt;, &#39;</span><span class="n">__spec__</span><span class="s1">&#39;: None, &#39;</span><span class="vm">__annotations__</span><span class="s1">&#39;: </span><span class="si">{}</span><span class="s1">, &#39;</span><span class="n">__builtins__</span><span class="s1">&#39;: &lt;module &#39;</span><span class="n">builtins</span><span class="s1">&#39; (built-in)&gt;, &#39;</span><span class="n">hello</span><span class="s1">&#39;: &lt;function hello at 0x7fe4e82554c0&gt;, &#39;</span><span class="n">GLOBAL</span><span class="s1">&#39;: &#39;</span><span class="n">g_val</span><span class="s1">&#39;}</span>
-</code></pre></div>
+# adding new global variable
+&gt;&gt;&gt; GLOBAL=&quot;g_val&quot;
+&gt;&gt;&gt; hello.__globals__
+{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'hello': &lt;function hello at 0x7fe4e82554c0&gt;, 'GLOBAL': 'g_val'}
+</code></pre>
 <h3 id="code"><strong>code</strong></h3>
 <p>This is an interesting one! As everything in python is an object, this includes the bytecode too. The compiled python bytecode is a python code object. Which is accessible via <code>__code__</code> attribute here. A function has an associated code object which carries some interesting information.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># the file in which function is defined</span>
-<span class="c1"># stdin here since this is run in an interpreter</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">hello</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_filename</span>
-<span class="s1">&#39;&lt;stdin&gt;&#39;</span>
+<pre><code class="language-python"># the file in which function is defined
+# stdin here since this is run in an interpreter
+&gt;&gt;&gt; hello.__code__.co_filename
+'&lt;stdin&gt;'
 
-<span class="c1"># number of arguments the function takes</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">hello</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_argcount</span>
-<span class="mi">1</span>
+# number of arguments the function takes
+&gt;&gt;&gt; hello.__code__.co_argcount
+1
 
-<span class="c1"># local variable names</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">hello</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_varnames</span>
-<span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,)</span>
+# local variable names
+&gt;&gt;&gt; hello.__code__.co_varnames
+('name',)
 
-<span class="c1"># the function code&#39;s compiled bytecode</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">hello</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_code</span>
-<span class="sa">b</span><span class="s1">&#39;t</span><span class="se">\x00</span><span class="s1">d</span><span class="se">\x01</span><span class="s1">|</span><span class="se">\x00\x9b\x00</span><span class="s1">d</span><span class="se">\x02\x9d\x03\x83\x01\x01\x00</span><span class="s1">d</span><span class="se">\x00</span><span class="s1">S</span><span class="se">\x00</span><span class="s1">&#39;</span>
-</code></pre></div>
+# the function code's compiled bytecode
+&gt;&gt;&gt; hello.__code__.co_code
+b't\x00d\x01|\x00\x9b\x00d\x02\x9d\x03\x83\x01\x01\x00d\x00S\x00'
+</code></pre>
 <p>There are more code attributes which you can enlist by <code>&gt;&gt;&gt; dir(hello.__code__)</code></p>
 <h2 id="decorators">Decorators</h2>
 <p>Related to functions, python has another feature called decorators. Let's see how that works, keeping  <code>everything is an object</code> in mind.</p>
 <p>Here is a sample decorator:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">deco</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-<span class="o">...</span>     <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
-<span class="o">...</span>             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;before&quot;</span><span class="p">)</span>
-<span class="o">...</span>             <span class="n">func</span><span class="p">()</span>
-<span class="o">...</span>             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;after&quot;</span><span class="p">)</span>
-<span class="o">...</span>     <span class="k">return</span> <span class="n">inner</span>
-<span class="o">...</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nd">@deco</span>
-<span class="o">...</span> <span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
-<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
-<span class="o">...</span>
-<span class="o">&gt;&gt;&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">hello_world</span><span class="p">()</span>
-<span class="n">before</span>
-<span class="n">hello</span> <span class="n">world</span>
-<span class="n">after</span>
-</code></pre></div>
+<pre><code class="language-python">&gt;&gt;&gt; def deco(func):
+...     def inner():
+...             print(&quot;before&quot;)
+...             func()
+...             print(&quot;after&quot;)
+...     return inner
+...
+&gt;&gt;&gt; @deco
+... def hello_world():
+...     print(&quot;hello world&quot;)
+...
+&gt;&gt;&gt;
+&gt;&gt;&gt; hello_world()
+before
+hello world
+after
+</code></pre>
 <p>Here <code>@deco</code> syntax is used to decorate the <code>hello_world</code> function. It is essentially same as doing</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
-<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
-<span class="o">...</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">hello_world</span> <span class="o">=</span> <span class="n">deco</span><span class="p">(</span><span class="n">hello_world</span><span class="p">)</span>
-</code></pre></div>
+<pre><code class="language-python">&gt;&gt;&gt; def hello_world():
+...     print(&quot;hello world&quot;)
+...
+&gt;&gt;&gt; hello_world = deco(hello_world)
+</code></pre>
 <p>What goes inside the <code>deco</code> function might seem complex. Let's try to uncover it.</p>
 <ol>
 <li>Function <code>hello_world</code> is created</li>
@@ -1429,7 +1429,7 @@
 <li><code>hello_world</code> is replaced with above function</li>
 </ol>
 <p>Let's visualize it for better understanding</p>
-<div class="highlight"><pre><span></span><code>       BEFORE                   function_object (ID: 100)
+<pre><code>       BEFORE                   function_object (ID: 100)
 
        &quot;hello_world&quot;            +--------------------+
                +                |print(&quot;hello_world&quot;)|
@@ -1456,7 +1456,7 @@
                                    |
                                    |
        &quot;hello_world&quot; +-------------+
-</code></pre></div>
+</code></pre>
 <p>Note how the <code>hello_world</code> name points to a new function object but that new function object knows the reference (ID) of the original function.</p>
 <h2 id="some-gotchas">Some Gotchas</h2>
 <ul>

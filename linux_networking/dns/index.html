@@ -1269,63 +1269,64 @@
                 
                 <h1 id="dns">DNS</h1>
 <p>Domain Names are the simple human-readable names for websites. The Internet understands only IP addresses, but since memorizing incoherent numbers is not practical, domain names are used instead. These domain names are translated into IP addresses by the DNS infrastructure. When somebody tries to open <a href="https://www.linkedin.com">www.linkedin.com</a> in the browser, the browser tries to convert <a href="https://www.linkedin.com">www.linkedin.com</a> to an IP Address. This process is called DNS resolution. A simple pseudocode depicting this process looks this</p>
-<div class="highlight"><pre><span></span><code><span class="n">ip</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">getIPAddress</span><span class="p">(</span><span class="n">domainName</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">err</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="err">“</span><span class="n">unknown</span> <span class="n">Host</span> <span class="ne">Exception</span> <span class="k">while</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">resolve</span><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="err">”</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">domainName</span><span class="p">))</span>
-</code></pre></div>
+<pre><code class="language-python">ip, err = getIPAddress(domainName)
+if err:
+  print(“unknown Host Exception while trying to resolve:%s”.format(domainName))
+</code></pre>
 <p>Now let’s try to understand what happens inside the getIPAddress function. The browser would have a DNS cache of its own where it checks if there is a mapping for the domainName to an IP Address already available, in which case the browser uses that IP address. If no such mapping exists, the browser calls gethostbyname syscall to ask the operating system to find the IP address for the given domainName</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">getIPAddress</span><span class="p">(</span><span class="n">domainName</span><span class="p">):</span>
-    <span class="n">resp</span><span class="p">,</span> <span class="n">fail</span> <span class="o">=</span> <span class="n">lookupCache</span><span class="p">(</span><span class="n">domainName</span><span class="p">)</span>
-    <span class="n">If</span> <span class="ow">not</span> <span class="n">fail</span><span class="p">:</span>
-       <span class="k">return</span> <span class="n">resp</span>
-    <span class="k">else</span><span class="p">:</span>
-       <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">gethostbyname</span><span class="p">(</span><span class="n">domainName</span><span class="p">)</span>
-       <span class="k">if</span> <span class="n">err</span><span class="p">:</span>
-         <span class="k">return</span> <span class="n">null</span><span class="p">,</span> <span class="n">err</span>
-       <span class="k">else</span><span class="p">:</span>
-          <span class="k">return</span> <span class="n">resp</span>
-</code></pre></div>
+<pre><code class="language-python">def getIPAddress(domainName):
+    resp, fail = lookupCache(domainName)
+    If not fail:
+       return resp
+    else:
+       resp, err = gethostbyname(domainName)
+       if err:
+         return null, err
+       else:
+          return resp
+</code></pre>
 <p>Now lets understand what operating system kernel does when the <a href="https://man7.org/linux/man-pages/man3/gethostbyname.3.html">gethostbyname</a> function is called. The Linux operating system looks at the file <a href="https://man7.org/linux/man-pages/man5/nsswitch.conf.5.html">/etc/nsswitch.conf</a> file which usually has a line</p>
-<div class="highlight"><pre><span></span><code>hosts:      files dns
-</code></pre></div>
+<pre><code class="language-bash">hosts:      files dns
+</code></pre>
 <p>This line means the OS has to look up first in file (/etc/hosts) and then use DNS protocol to do the resolution if there is no match in /etc/hosts. </p>
 <p>The file /etc/hosts is of format</p>
 <p>IPAddress FQDN [FQDN].*</p>
-<div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1 localhost.localdomain localhost
+<pre><code class="language-bash">127.0.0.1 localhost.localdomain localhost
 ::1 localhost.localdomain localhost
-</code></pre></div>
+</code></pre>
 <p>If a match exists for a domain in this file then that IP address is returned by the OS. Lets add a line to this file</p>
-<div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1 test.linkedin.com
-</code></pre></div>
+<pre><code class="language-bash">127.0.0.1 test.linkedin.com
+</code></pre>
 <p>And then do ping test.linkedin.com</p>
-<div class="highlight"><pre><span></span><code>ping test.linkedin.com -n
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>PING test.linkedin.com <span class="o">(</span><span class="m">127</span>.0.0.1<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
-<span class="m">64</span> bytes from <span class="m">127</span>.0.0.1: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.047 ms
-<span class="m">64</span> bytes from <span class="m">127</span>.0.0.1: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.036 ms
-<span class="m">64</span> bytes from <span class="m">127</span>.0.0.1: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.037 ms
-</code></pre></div>
+<pre><code class="language-bash">ping test.linkedin.com -n
+</code></pre>
+<pre><code class="language-bash">PING test.linkedin.com (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.047 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.036 ms
+64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.037 ms
+
+</code></pre>
 <p>As mentioned earlier, if no match exists in /etc/hosts, the OS tries to do a DNS resolution using the DNS protocol. The linux system makes a DNS request to the first IP in /etc/resolv.conf. If there is no response, requests are sent to subsequent servers in resolv.conf. These servers in resolv.conf are called DNS resolvers. The DNS resolvers are populated by <a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">DHCP</a> or statically configured by an administrator. 
 <a href="https://linux.die.net/man/1/dig">Dig</a> is a userspace DNS system which creates and sends request to DNS resolvers and prints the response it receives to the console.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#run this command in one shell to capture all DNS requests</span>
-sudo tcpdump -s <span class="m">0</span> -A -i any port <span class="m">53</span>
-<span class="c1">#make a dig request from another shell</span>
+<pre><code class="language-bash">#run this command in one shell to capture all DNS requests
+sudo tcpdump -s 0 -A -i any port 53
+#make a dig request from another shell
 dig linkedin.com
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="m">13</span>:19:54.432507 IP <span class="m">172</span>.19.209.122.56497 &gt; <span class="m">172</span>.23.195.101.53: <span class="m">527</span>+ <span class="o">[</span>1au<span class="o">]</span> A? linkedin.com. <span class="o">(</span><span class="m">41</span><span class="o">)</span>
-....E..E....@.n....z...e...5.1.:... .........linkedin.com.......<span class="o">)</span>........
-<span class="m">13</span>:19:54.485131 IP <span class="m">172</span>.23.195.101.53 &gt; <span class="m">172</span>.19.209.122.56497: <span class="m">527</span> <span class="m">1</span>/0/1 A <span class="m">108</span>.174.10.10 <span class="o">(</span><span class="m">57</span><span class="o">)</span>
-....E..U..@.<span class="p">|</span>.  ....e...z.5...A...............linkedin.com..............3..l.
+</code></pre>
+<pre><code class="language-bash">13:19:54.432507 IP 172.19.209.122.56497 &gt; 172.23.195.101.53: 527+ [1au] A? linkedin.com. (41)
+....E..E....@.n....z...e...5.1.:... .........linkedin.com.......)........
+13:19:54.485131 IP 172.23.195.101.53 &gt; 172.19.209.122.56497: 527 1/0/1 A 108.174.10.10 (57)
+....E..U..@.|.  ....e...z.5...A...............linkedin.com..............3..l.
 
-..<span class="o">)</span>........
-</code></pre></div>
+..)........
+</code></pre>
 <p>The packet capture shows a request is made to 172.23.195.101:53 (this is the resolver in /etc/resolv.conf) for linkedin.com and a response is received from 172.23.195.101 with the IP address of linkedin.com 108.174.10.10</p>
 <p>Now let's try to understand how DNS resolver tries to find the IP address of linkedin.com. DNS resolver first looks at its cache. Since many devices in the network can query for the domain name linkedin.com, the name resolution result may already exist in the cache. If there is a cache miss, it starts the DNS resolution process. The DNS server breaks “linkedin.com” to “.”, “com.” and “linkedin.com.” and starts DNS resolution from “.”. The “.” is called root domain and those IPs are known to the DNS resolver software. DNS resolver queries the root domain Nameservers to find the right nameservers which could respond regarding details for "com.". The address of the authoritative nameserver of “com.” is returned. Now the DNS resolution service contacts the authoritative nameserver for “com.” to fetch the authoritative nameserver for “linkedin.com”. Once an authoritative nameserver of “linkedin.com” is known, the resolver contacts Linkedin’s nameserver to provide the IP address of “linkedin.com”. This whole process can be visualized by running </p>
-<div class="highlight"><pre><span></span><code>dig +trace linkedin.com
-</code></pre></div>
-<p><div class="highlight"><pre><span></span><code>linkedin.com.       <span class="m">3600</span>    IN  A   <span class="m">108</span>.174.10.10
-</code></pre></div>
-This DNS response has 5 fields where the first field is the request and the last field is the response. The second field is the Time to Live which says how long the DNS response is valid in seconds. In this case this mapping of linkedin.com is valid for 1 hour. This is how the resolvers and application(browser) maintain their cache. Any request for linkedin.com beyond 1 hour will be treated as a cache miss as the mapping has expired its TTL and the whole process has to be redone.
+<pre><code class="language-bash">dig +trace linkedin.com
+</code></pre>
+<pre><code class="language-bash">linkedin.com.       3600    IN  A   108.174.10.10
+</code></pre>
+<p>This DNS response has 5 fields where the first field is the request and the last field is the response. The second field is the Time to Live which says how long the DNS response is valid in seconds. In this case this mapping of linkedin.com is valid for 1 hour. This is how the resolvers and application(browser) maintain their cache. Any request for linkedin.com beyond 1 hour will be treated as a cache miss as the mapping has expired its TTL and the whole process has to be redone.
 The 4th field says the type of DNS response/request. Some of the various DNS query types are
 A, AAAA, NS, TXT, PTR, MX and CNAME. 
 - A record returns IPV4 address of the domain name 
@@ -1333,12 +1334,12 @@ A, AAAA, NS, TXT, PTR, MX and CNAME.
 - NS record returns the authoritative nameserver for the domain name
 - CNAME records are aliases to the domain names. Some domains point to other domain names and resolving the latter domain name gives an IP which is used as an IP for the former domain name as well. Example www.linkedin.com’s IP address is the same as 2-01-2c3e-005a.cdx.cedexis.net. 
 - For the brevity we are not discussing other DNS record types, the RFC of each of these records are available <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">here</a>.</p>
-<p><div class="highlight"><pre><span></span><code>dig A linkedin.com +short
-<span class="m">108</span>.174.10.10
+<pre><code class="language-bash">dig A linkedin.com +short
+108.174.10.10
 
 
 dig AAAA linkedin.com +short
-<span class="m">2620</span>:109:c002::6cae:a0a
+2620:109:c002::6cae:a0a
 
 
 dig NS linkedin.com +short
@@ -1352,9 +1353,9 @@ ns3.p43.dynect.net.
 dns1.p09.nsone.net.
 
 dig www.linkedin.com CNAME +short
-<span class="m">2</span>-01-2c3e-005a.cdx.cedexis.net.
-</code></pre></div>
-Armed with these fundamentals of DNS lets see usecases where DNS is used by SREs.</p>
+2-01-2c3e-005a.cdx.cedexis.net.
+</code></pre>
+<p>Armed with these fundamentals of DNS lets see usecases where DNS is used by SREs.</p>
 <h2 id="applications-in-sre-role">Applications in SRE role</h2>
 <p>This section covers some of the common solutions SRE can derive from DNS</p>
 <ol>

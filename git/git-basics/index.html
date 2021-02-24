@@ -1487,162 +1487,162 @@
 <p>Though you might be aware already, let's revisit why we need a version control system. As the project grows and multiple developers start working on it, an efficient method for collaboration is warranted. Git helps the team collaborate easily and also maintains the history of the changes happening with the codebase.</p>
 <h3 id="creating-a-git-repo">Creating a Git Repo</h3>
 <p>Any folder can be converted into a git repository. After executing the following command, we will see a <code>.git</code> folder within the folder, which makes our folder a git repository. <strong>All the magic that git does, <code>.git</code> folder is the enabler for the same.</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># creating an empty folder and changing current dir to it</span>
-$ <span class="nb">cd</span> /tmp
+<pre><code class="language-bash"># creating an empty folder and changing current dir to it
+$ cd /tmp
 $ mkdir school-of-sre
-$ <span class="nb">cd</span> school-of-sre/
+$ cd school-of-sre/
 
-<span class="c1"># initialize a git repo</span>
+# initialize a git repo
 $ git init
-Initialized empty Git repository <span class="k">in</span> /private/tmp/school-of-sre/.git/
-</code></pre></div>
+Initialized empty Git repository in /private/tmp/school-of-sre/.git/
+</code></pre>
 <p>As the output says, an empty git repo has been initialized in our folder. Let's take a look at what is there.</p>
-<div class="highlight"><pre><span></span><code>$ ls .git/
+<pre><code class="language-bash">$ ls .git/
 HEAD        config      description hooks       info        objects     refs
-</code></pre></div>
+</code></pre>
 <p>There are a bunch of folders and files in the <code>.git</code> folder. As I said, all these enables git to do its magic. We will look into some of these folders and files. But for now, what we have is an empty git repository.</p>
 <h3 id="tracking-a-file">Tracking a File</h3>
 <p>Now as you might already know, let us create a new file in our repo (we will refer to the folder as <em>repo</em> now.) And see git status</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="s2">&quot;I am file 1&quot;</span> &gt; file1.txt
+<pre><code class="language-bash">$ echo &quot;I am file 1&quot; &gt; file1.txt
 $ git status
 On branch master
 
 No commits yet
 
 Untracked files:
- <span class="o">(</span>use <span class="s2">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="k">in</span> what will be committed<span class="o">)</span>
+ (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
 
        file1.txt
 
-nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> to track<span class="o">)</span>
-</code></pre></div>
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+</code></pre>
 <p>The current git status says <code>No commits yet</code> and there is one untracked file. Since we just created the file, git is not tracking that file. We explicitly need to ask git to track files and folders. (also checkout <a href="https://git-scm.com/docs/gitignore">gitignore</a>) And how we do that is via <code>git add</code> command as suggested in the above output. Then we go ahead and create a  commit.</p>
-<div class="highlight"><pre><span></span><code>$ git add file1.txt
+<pre><code class="language-bash">$ git add file1.txt
 $ git status
 On branch master
 
 No commits yet
 
 Changes to be committed:
- <span class="o">(</span>use <span class="s2">&quot;git rm --cached &lt;file&gt;...&quot;</span> to unstage<span class="o">)</span>
+ (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
 
        new file:   file1.txt
 
-$ git commit -m <span class="s2">&quot;adding file 1&quot;</span>
-<span class="o">[</span>master <span class="o">(</span>root-commit<span class="o">)</span> df2fb7a<span class="o">]</span> adding file <span class="m">1</span>
-<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
-create mode <span class="m">100644</span> file1.txt
-</code></pre></div>
+$ git commit -m &quot;adding file 1&quot;
+[master (root-commit) df2fb7a] adding file 1
+1 file changed, 1 insertion(+)
+create mode 100644 file1.txt
+</code></pre>
 <p>Notice how after adding the file, git status says <code>Changes to be committed:</code>. What it means is whatever is listed there, will be included in the next commit. Then we go ahead and create a commit, with an attached messaged via <code>-m</code>.</p>
 <h3 id="more-about-a-commit">More About a Commit</h3>
 <p>Commit is a snapshot of the repo. Whenever a commit is made, a snapshot of the current state of repo (the folder) is taken and saved. Each commit has a unique ID. (<code>df2fb7a</code> for the commit we made in the previous step). As we keep adding/changing more and more contents and keep making commits, all those snapshots are stored by git. Again, all this magic happens inside the <code>.git</code> folder. This is where all this snapshot or versions are stored <em>in an efficient manner.</em></p>
 <h3 id="adding-more-changes">Adding More Changes</h3>
 <p>Let us create one more file and commit the change. It would look the same as the previous commit we made.</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="s2">&quot;I am file 2&quot;</span> &gt; file2.txt
+<pre><code class="language-bash">$ echo &quot;I am file 2&quot; &gt; file2.txt
 $ git add file2.txt
-$ git commit -m <span class="s2">&quot;adding file 2&quot;</span>
-<span class="o">[</span>master 7f3b00e<span class="o">]</span> adding file <span class="m">2</span>
-<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
-create mode <span class="m">100644</span> file2.txt
-</code></pre></div>
+$ git commit -m &quot;adding file 2&quot;
+[master 7f3b00e] adding file 2
+1 file changed, 1 insertion(+)
+create mode 100644 file2.txt
+</code></pre>
 <p>A new commit with ID <code>7f3b00e</code> has been created. You can issue <code>git status</code> at any time to see the state of the repository.</p>
-<div class="highlight"><pre><span></span><code>   **IMPORTANT: Note that commit IDs are long string (SHA) but we can refer to a commit by its initial few (8 or more) characters too. We will interchangeably using shorter and longer commit IDs.**
-</code></pre></div>
+<pre><code>   **IMPORTANT: Note that commit IDs are long string (SHA) but we can refer to a commit by its initial few (8 or more) characters too. We will interchangeably using shorter and longer commit IDs.**
+</code></pre>
 <p>Now that we have two commits, let's visualize them:</p>
-<div class="highlight"><pre><span></span><code>$ git log --oneline --graph
-* 7f3b00e <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
-</code></pre></div>
+<pre><code class="language-bash">$ git log --oneline --graph
+* 7f3b00e (HEAD -&gt; master) adding file 2
+* df2fb7a adding file 1
+</code></pre>
 <p><code>git log</code>, as the name suggests, prints the log of all the git commits. Here you see two additional arguments, <code>--oneline</code> prints the shorter version of the log, ie: the commit message only and not the person who made the commit and when. <code>--graph</code> prints it in graph format.</p>
 <p><strong>Now at this moment the commits might look like just one in each line but all commits are stored as a tree like data structure internally by git. That means there can be two or more children commits of a given commit. And not just a single line of commits. We will look more into this part when we get to the Branches section. For now this is our commit history:</strong></p>
-<div class="highlight"><pre><span></span><code>   <span class="nv">df2fb7a</span> <span class="o">===</span>&gt; 7f3b00e
-</code></pre></div>
+<pre><code class="language-bash">   df2fb7a ===&gt; 7f3b00e
+</code></pre>
 <h3 id="are-commits-really-linked">Are commits really linked?</h3>
 <p>As I just said, the two commits we just made are linked via tree like data structure and we saw how they are linked. But let's actually verify it. Everything in git is an object. Newly created files are stored as an object. Changes to file are stored as an objects and even commits are objects. To view contents of an object we can use the following command with the object's ID. We will take a look at the contents of the second commit</p>
-<div class="highlight"><pre><span></span><code>$ git cat-file -p 7f3b00e
+<pre><code class="language-bash">$ git cat-file -p 7f3b00e
 tree ebf3af44d253e5328340026e45a9fa9ae3ea1982
 parent df2fb7a61f5d40c1191e0fdeb0fc5d6e7969685a
-author Sanket Patel &lt;spatel1@linkedin.com&gt; <span class="m">1603273316</span> -0700
-committer Sanket Patel &lt;spatel1@linkedin.com&gt; <span class="m">1603273316</span> -0700
+author Sanket Patel &lt;spatel1@linkedin.com&gt; 1603273316 -0700
+committer Sanket Patel &lt;spatel1@linkedin.com&gt; 1603273316 -0700
 
-adding file <span class="m">2</span>
-</code></pre></div>
+adding file 2
+</code></pre>
 <p>Take a note of <code>parent</code> attribute in the above output. It points to the commit id of the first commit we made. So this proves that they are linked! Additionally you can see the second commit's message in this object. As I said all this magic is enabled by <code>.git</code> folder and the object to which we are looking at also is in that folder.</p>
-<div class="highlight"><pre><span></span><code>$ ls .git/objects/7f/3b00eaa957815884198e2fdfec29361108d6a9
+<pre><code class="language-bash">$ ls .git/objects/7f/3b00eaa957815884198e2fdfec29361108d6a9
 .git/objects/7f/3b00eaa957815884198e2fdfec29361108d6a9
-</code></pre></div>
+</code></pre>
 <p>It is stored in <code>.git/objects/</code> folder. All the files and changes to them as well are stored in this folder.</p>
 <h3 id="the-version-control-part-of-git">The Version Control part of Git</h3>
 <p>We already can see two commits (versions) in our git log. One thing a version control tool gives you is ability to browse back and forth in history. For example: some of your users are running an old version of code and they are reporting an issue. In order to debug the issue, you need access to the old code. The one in your current repo is the latest code. In this example, you are working on the second commit (7f3b00e) and someone reported an issue with the code snapshot at commit (df2fb7a). This is how you would get access to the code at any older commit</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Current contents, two files present</span>
+<pre><code class="language-bash"># Current contents, two files present
 $ ls
 file1.txt file2.txt
 
-<span class="c1"># checking out to (an older) commit</span>
+# checking out to (an older) commit
 $ git checkout df2fb7a
-Note: checking out <span class="s1">&#39;df2fb7a&#39;</span>.
+Note: checking out 'df2fb7a'.
 
-You are <span class="k">in</span> <span class="s1">&#39;detached HEAD&#39;</span> state. You can look around, make experimental
-changes and commit them, and you can discard any commits you make <span class="k">in</span> this
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
 state without impacting any branches by performing another checkout.
 
 If you want to create a new branch to retain commits you create, you may
-<span class="k">do</span> so <span class="o">(</span>now or later<span class="o">)</span> by using -b with the checkout <span class="nb">command</span> again. Example:
+do so (now or later) by using -b with the checkout command again. Example:
 
  git checkout -b &lt;new-branch-name&gt;
 
-HEAD is now at df2fb7a adding file <span class="m">1</span>
+HEAD is now at df2fb7a adding file 1
 
-<span class="c1"># checking contents, can verify it has old contents</span>
+# checking contents, can verify it has old contents
 $ ls
 file1.txt
-</code></pre></div>
+</code></pre>
 <p>So this is how we would get access to old versions/snapshots. All we need is a <em>reference</em> to that snapshot. Upon executing <code>git checkout ...</code>, what git does for you is use the <code>.git</code> folder, see what was the state of things (files and folders) at that version/reference and replace the contents of current directory with those contents. The then-existing content will no longer be present in the local dir (repo) but we can and will still get access to them because they are tracked via git commit and <code>.git</code> folder has them stored/tracked.</p>
 <h3 id="reference">Reference</h3>
 <p>I mention in the previous section that we need a <em>reference</em> to the version. By default, git repo is made of tree of commits. And each commit has a unique IDs. But the unique ID is not the only thing we can reference commits via. There are multiple ways to reference commits. For example: <code>HEAD</code> is a reference to current commit. <em>Whatever commit your repo is checked out at, <code>HEAD</code> will point to that.</em> <code>HEAD~1</code> is reference to previous commit. So while checking out previous version in section above, we could have done <code>git checkout HEAD~1</code>.</p>
 <p>Similarly, master is also a reference (to a branch). Since git uses tree like structure to store commits, there of course will be branches. And the default branch is called <code>master</code>. Master (or any branch reference) will point to the latest commit in the branch. Even though we have checked out to the previous commit in out repo, <code>master</code> still points to the latest commit. And we can get back to the latest version by checkout at <code>master</code> reference</p>
-<div class="highlight"><pre><span></span><code>$ git checkout master
-Previous HEAD position was df2fb7a adding file <span class="m">1</span>
-Switched to branch <span class="s1">&#39;master&#39;</span>
+<pre><code class="language-bash">$ git checkout master
+Previous HEAD position was df2fb7a adding file 1
+Switched to branch 'master'
 
-<span class="c1"># now we will see latest code, with two files</span>
+# now we will see latest code, with two files
 $ ls
 file1.txt file2.txt
-</code></pre></div>
+</code></pre>
 <p>Note, instead of <code>master</code> in above command, we could have used commit's ID as well.</p>
 <h3 id="references-and-the-magic">References and The Magic</h3>
 <p>Let's look at the state of things. Two commits, <code>master</code> and <code>HEAD</code> references are pointing to the latest commit</p>
-<div class="highlight"><pre><span></span><code>$ git log --oneline --graph
-* 7f3b00e <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
-</code></pre></div>
+<pre><code class="language-bash">$ git log --oneline --graph
+* 7f3b00e (HEAD -&gt; master) adding file 2
+* df2fb7a adding file 1
+</code></pre>
 <p>The magic? Let's examine these files:</p>
-<div class="highlight"><pre><span></span><code>$ cat .git/refs/heads/master
+<pre><code class="language-bash">$ cat .git/refs/heads/master
 7f3b00eaa957815884198e2fdfec29361108d6a9
-</code></pre></div>
+</code></pre>
 <p>Viola! Where master is pointing to is stored in a file. <strong>Whenever git needs to know where master reference is pointing to, or if git needs to update where master points, it just needs to update the file above.</strong> So when you create a new commit, a new commit is created on top of the current commit and the master file is updated with the new commit's ID.</p>
 <p>Similary, for <code>HEAD</code> reference:</p>
-<div class="highlight"><pre><span></span><code>$ cat .git/HEAD
+<pre><code class="language-bash">$ cat .git/HEAD
 ref: refs/heads/master
-</code></pre></div>
+</code></pre>
 <p>We can see <code>HEAD</code> is pointing to a reference called <code>refs/heads/master</code>. So <code>HEAD</code> will point where ever the <code>master</code> points.</p>
 <h3 id="little-adventure">Little Adventure</h3>
 <p>We discussed how git will update the files as we execute commands. But let's try to do it ourselves, by hand, and see what happens.</p>
-<div class="highlight"><pre><span></span><code>$ git log --oneline --graph
-* 7f3b00e <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
-</code></pre></div>
+<pre><code class="language-bash">$ git log --oneline --graph
+* 7f3b00e (HEAD -&gt; master) adding file 2
+* df2fb7a adding file 1
+</code></pre>
 <p>Now let's change master to point to the previous/first commit.</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> df2fb7a61f5d40c1191e0fdeb0fc5d6e7969685a &gt; .git/refs/heads/master
+<pre><code class="language-bash">$ echo df2fb7a61f5d40c1191e0fdeb0fc5d6e7969685a &gt; .git/refs/heads/master
 $ git log --oneline --graph
-* df2fb7a <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding file <span class="m">1</span>
+* df2fb7a (HEAD -&gt; master) adding file 1
 
-<span class="c1"># RESETTING TO ORIGINAL</span>
-$ <span class="nb">echo</span> 7f3b00eaa957815884198e2fdfec29361108d6a9 &gt; .git/refs/heads/master
+# RESETTING TO ORIGINAL
+$ echo 7f3b00eaa957815884198e2fdfec29361108d6a9 &gt; .git/refs/heads/master
 $ git log --oneline --graph
-* 7f3b00e <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
-</code></pre></div>
+* 7f3b00e (HEAD -&gt; master) adding file 2
+* df2fb7a adding file 1
+</code></pre>
 <p>We just edited the <code>master</code> reference file and now we can see only the first commit in git log. Undoing the change to the file brings the state back to original. Not so much of magic, is it?</p>
                 
               

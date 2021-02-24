@@ -1414,28 +1414,28 @@
 <p>This might sound a little weird to you: python, in a way is a compiled language! Python has a compiler built-in! It is obvious in the case of java since we compile it using a separate command ie: <code>javac helloWorld.java</code> and it will produce a <code>.class</code> file which we know as a <em>bytecode</em>. Well, python is very similar to that. One difference here is that there is no separate compile command/binary needed to run a python program.</p>
 <p><strong>What is the difference then, between java and python?</strong>
 Well, Java's compiler is more strict and sophisticated. As you might know Java is a statically typed language. So the compiler is written in a way that it can verify types related errors during compile time. While python being a <em>dynamic</em> language, types are not known until a program is run. So in a way, python compiler is dumb (or, less strict). But there indeed is a compile step involved when a python program is run. You might have seen python bytecode files with <code>.pyc</code> extension. Here is how you can see bytecode for a given python program.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a Hello World</span>
-$ <span class="nb">echo</span> <span class="s2">&quot;print(&#39;hello world&#39;)&quot;</span> &gt; hello_world.py
+<pre><code class="language-bash"># Create a Hello World
+$ echo &quot;print('hello world')&quot; &gt; hello_world.py
 
-<span class="c1"># Making sure it runs</span>
+# Making sure it runs
 $ python3 hello_world.py
 hello world
 
-<span class="c1"># The bytecode of the given program</span>
+# The bytecode of the given program
 $ python -m dis hello_world.py
- <span class="m">1</span>           <span class="m">0</span> LOAD_NAME                <span class="m">0</span> <span class="o">(</span>print<span class="o">)</span>
-             <span class="m">2</span> LOAD_CONST               <span class="m">0</span> <span class="o">(</span><span class="s1">&#39;hello world&#39;</span><span class="o">)</span>
-             <span class="m">4</span> CALL_FUNCTION            <span class="m">1</span>
-             <span class="m">6</span> POP_TOP
-             <span class="m">8</span> LOAD_CONST               <span class="m">1</span> <span class="o">(</span>None<span class="o">)</span>
-            <span class="m">10</span> RETURN_VALUE
-</code></pre></div>
+ 1           0 LOAD_NAME                0 (print)
+             2 LOAD_CONST               0 ('hello world')
+             4 CALL_FUNCTION            1
+             6 POP_TOP
+             8 LOAD_CONST               1 (None)
+            10 RETURN_VALUE
+</code></pre>
 <p>Read more about dis module <a href="https://docs.python.org/3/library/dis.html">here</a></p>
 <p>Now coming to C/C++, there of course is a compiler. But the output is different than what java/python compiler would produce. Compiling a C program would produce what we also know as <em>machine code</em>. As opposed to bytecode.</p>
 <h3 id="running-the-programs">Running The Programs</h3>
 <p>We know compilation is involved in all 3 languages we are discussing. Just that the compilers are different in nature and they output different types of content. In case of C/C++, the output is machine code which can be directly read by your operating system. When you execute that program, your OS will know how exactly to run it. <strong>But this is not the case with bytecode.</strong></p>
 <p>Those bytecodes are language specific. Python has its own set of bytecode defined (more in <code>dis</code> module) and so does java. So naturally, your operating system will not know how to run it. To run this bytecode, we have something called Virtual Machines. Ie: The JVM or the Python VM (CPython, Jython). These so called Virtual Machines are the programs which can read the bytecode and run it on a given operating system. Python has multiple VMs available. Cpython is a python VM implemented in C language, similarly Jython is a Java implementation of python VM. <strong>At the end of the day, what they should be capable of is to understand python language syntax, be able to compile it to bytecode and be able to run that bytecode.</strong> You can implement a python VM in any language! (And people do so, just because it can be done)</p>
-<div class="highlight"><pre><span></span><code>                                                              The Operating System
+<pre><code>                                                              The Operating System
 
                                                               +------------------------------------+
                                                               |                                    |
@@ -1465,7 +1465,7 @@ hello_world.c                     OS Specific machinecode     |         A New Pr
                                                               |                                    |
                                                               |                                    |
                                                               +------------------------------------+
-</code></pre></div>
+</code></pre>
 <p>Two things to note for above diagram:</p>
 <ol>
 <li>Generally, when we run a python program, a python VM process is started which reads the python source code, compiles it to byte code and run it in a single step. Compiling is not a separate step. Shown only for illustration purpose.</li>

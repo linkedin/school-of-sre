@@ -1516,15 +1516,16 @@
 <ul>
 <li>Applications regularly fail to process transactions for many reasons. How they fail can determine if an application is secure or not.</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code><span class="n">is_admin</span> <span class="o">=</span>  <span class="kc">true</span><span class="p">;</span>
-<span class="k">try</span> <span class="p">{</span>
-    <span class="n">code_which_may_faile</span><span class="p">();</span>
-     <span class="n">is_admin</span> <span class="o">=</span> <span class="n">is_user_assigned_role</span><span class="p">(</span><span class="s">&quot;Adminstrator&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">err</span><span class="p">)</span> <span class="p">{</span>
-<span class="n">log</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="n">err</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
-<span class="p">}</span>
-</code></pre></div>
+<p>```</p>
+<p>is_admin =  true;
+try {
+    code_which_may_faile();
+     is_admin = is_user_assigned_role("Adminstrator");
+}
+catch (Exception err) {
+log.error(err.toString());
+}</p>
+<p>```
 - If either codeWhichMayFail() or isUserInRole fails or throws an exception, the user is an admin by default. This is obviously a security risk.</p>
 </li>
 <li>
@@ -1596,14 +1597,17 @@
 <ul>
 <li>Ciphers are the cornerstone of cryptography. A cipher is a set of algorithms that performs encryption or decryption on a message. An encryption algorithm (E) takes a secret key (k) and a message (m) and produces a ciphertext (c). Similarly, a Decryption algorithm (D) takes a secret key (K) and the previous resulting Ciphertext (C). They are represented as follows:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>E(k,m) = c
+<pre><code>
+E(k,m) = c
 D(k,c) = m
-</code></pre></div>
+
+</code></pre>
 <ul>
 <li>This also means that for it to be a cipher, it must satisfy the consistency equation as follows, making it possible to decrypt.</li>
 </ul>
-<div class="highlight"><pre><span></span><code>D(k,E(k,m)) = m
-</code></pre></div>
+<pre><code>
+D(k,E(k,m)) = m
+</code></pre>
 <p>Stream Ciphers:</p>
 <ul>
 <li>The message is broken into characters or bits and enciphered with a key or keystream(should be random and generated independently of the message stream) that is as long as the plaintext bitstream.</li>

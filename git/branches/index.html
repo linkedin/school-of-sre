@@ -1271,145 +1271,145 @@
 <p>Coming back to our local repo which has two commits. So far, what we have is a single line of history. Commits are chained in a single line. But sometimes you may have a need to work on two different features in parallel in the same repo. Now one option here could be making a new folder/repo with the same code and use that for another feature development. But there's a better way. Use <em>branches.</em> Since git follows tree like structure for commits, we can use branches to work on different sets of features. From a commit, two or more branches can be created and branches can also be merged.</p>
 <p>Using branches, there can exist multiple lines of histories and we can checkout to any of them and work on it. Checking out, as we discussed earlier, would simply mean replacing contents of the directory (repo) with the snapshot at the checked out version.</p>
 <p>Let's create a branch and see how it looks like:</p>
-<div class="highlight"><pre><span></span><code>$ git branch b1
+<pre><code class="language-bash">$ git branch b1
 $ git log --oneline --graph
-* 7f3b00e <span class="o">(</span>HEAD -&gt; master, b1<span class="o">)</span> adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
-</code></pre></div>
+* 7f3b00e (HEAD -&gt; master, b1) adding file 2
+* df2fb7a adding file 1
+</code></pre>
 <p>We create a branch called <code>b1</code>. Git log tells us that b1 also points to the last commit (7f3b00e) but the <code>HEAD</code> is still pointing to master. If you remember, HEAD points to the commit/reference wherever you are checkout to. So if we checkout to <code>b1</code>, HEAD should point to that. Let's confirm:</p>
-<div class="highlight"><pre><span></span><code>$ git checkout b1
-Switched to branch <span class="s1">&#39;b1&#39;</span>
+<pre><code class="language-bash">$ git checkout b1
+Switched to branch 'b1'
 $ git log --oneline --graph
-* 7f3b00e <span class="o">(</span>HEAD -&gt; b1, master<span class="o">)</span> adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
-</code></pre></div>
+* 7f3b00e (HEAD -&gt; b1, master) adding file 2
+* df2fb7a adding file 1
+</code></pre>
 <p><code>b1</code> still points to the same commit but HEAD now points to <code>b1</code>. Since we create a branch at commit <code>7f3b00e</code>, there will be two lines of histories starting this commit. Depending on which branch you are checked out on, the line of history will progress.</p>
 <p>At this moment, we are checked out on branch <code>b1</code>, so making a new commit will advance branch reference <code>b1</code> to that commit and current <code>b1</code> commit will become its parent. Let's do that.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Creating a file and making a commit</span>
-$ <span class="nb">echo</span> <span class="s2">&quot;I am a file in b1 branch&quot;</span> &gt; b1.txt
+<pre><code class="language-bash"># Creating a file and making a commit
+$ echo &quot;I am a file in b1 branch&quot; &gt; b1.txt
 $ git add b1.txt
-$ git commit -m <span class="s2">&quot;adding b1 file&quot;</span>
-<span class="o">[</span>b1 872a38f<span class="o">]</span> adding b1 file
-<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
-create mode <span class="m">100644</span> b1.txt
+$ git commit -m &quot;adding b1 file&quot;
+[b1 872a38f] adding b1 file
+1 file changed, 1 insertion(+)
+create mode 100644 b1.txt
 
-<span class="c1"># The new line of history</span>
+# The new line of history
 $ git log --oneline --graph
-* 872a38f <span class="o">(</span>HEAD -&gt; b1<span class="o">)</span> adding b1 file
-* 7f3b00e <span class="o">(</span>master<span class="o">)</span> adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
+* 872a38f (HEAD -&gt; b1) adding b1 file
+* 7f3b00e (master) adding file 2
+* df2fb7a adding file 1
 $
-</code></pre></div>
+</code></pre>
 <p>Do note that master is still pointing to the old commit it was pointing to. We can now checkout to master branch and make commits there. This will result in another line of history starting from commit 7f3b00e.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># checkout to master branch</span>
+<pre><code class="language-bash"># checkout to master branch
 $ git checkout master
-Switched to branch <span class="s1">&#39;master&#39;</span>
+Switched to branch 'master'
 
-<span class="c1"># Creating a new commit on master branch</span>
-$ <span class="nb">echo</span> <span class="s2">&quot;new file in master branch&quot;</span> &gt; master.txt
+# Creating a new commit on master branch
+$ echo &quot;new file in master branch&quot; &gt; master.txt
 $ git add master.txt
-$ git commit -m <span class="s2">&quot;adding master.txt file&quot;</span>
-<span class="o">[</span>master 60dc441<span class="o">]</span> adding master.txt file
-<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
-create mode <span class="m">100644</span> master.txt
+$ git commit -m &quot;adding master.txt file&quot;
+[master 60dc441] adding master.txt file
+1 file changed, 1 insertion(+)
+create mode 100644 master.txt
 
-<span class="c1"># The history line</span>
+# The history line
 $ git log --oneline --graph
-* 60dc441 <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding master.txt file
-* 7f3b00e adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
-</code></pre></div>
+* 60dc441 (HEAD -&gt; master) adding master.txt file
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
 <p>Notice how branch b1 is not visible here since we are on the master. Let's try to visualize both to get the whole picture:</p>
-<div class="highlight"><pre><span></span><code>$ git log --oneline --graph --all
-* 60dc441 <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding master.txt file
-<span class="p">|</span> * 872a38f <span class="o">(</span>b1<span class="o">)</span> adding b1 file
-<span class="p">|</span>/
-* 7f3b00e adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
-</code></pre></div>
+<pre><code class="language-bash">$ git log --oneline --graph --all
+* 60dc441 (HEAD -&gt; master) adding master.txt file
+| * 872a38f (b1) adding b1 file
+|/
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
 <p>Above tree structure should make things clear. Notice a clear branch/fork on commit 7f3b00e. This is how we create branches. Now they both are two separate lines of history on which feature development can be done independently.</p>
 <p><strong>To reiterate, internally, git is just a tree of commits. Branch names (human readable) are pointers to those commits in the tree. We use various git commands to work with the tree structure and references. Git accordingly modifies contents of our repo.</strong></p>
 <h2 id="merges">Merges</h2>
 <p>Now say the feature you were working on branch <code>b1</code> is complete and you need to merge it on master branch, where all the final version of code goes. So first you will checkout to branch master and then you pull the latest code from upstream (eg: GitHub). Then you need to merge your code from <code>b1</code> into master. There could be two ways this can be done.</p>
 <p>Here is the current history:</p>
-<div class="highlight"><pre><span></span><code>$ git log --oneline --graph --all
-* 60dc441 <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding master.txt file
-<span class="p">|</span> * 872a38f <span class="o">(</span>b1<span class="o">)</span> adding b1 file
-<span class="p">|</span>/
-* 7f3b00e adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
-</code></pre></div>
+<pre><code class="language-bash">$ git log --oneline --graph --all
+* 60dc441 (HEAD -&gt; master) adding master.txt file
+| * 872a38f (b1) adding b1 file
+|/
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
 <p><strong>Option 1: Directly merge the branch.</strong> Merging the branch b1 into master will result in a new merge commit. This will merge changes from two different lines of history and create a new commit of the result.</p>
-<div class="highlight"><pre><span></span><code>$ git merge b1
-Merge made by the <span class="s1">&#39;recursive&#39;</span> strategy.
-b1.txt <span class="p">|</span> <span class="m">1</span> +
-<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
-create mode <span class="m">100644</span> b1.txt
+<pre><code class="language-bash">$ git merge b1
+Merge made by the 'recursive' strategy.
+b1.txt | 1 +
+1 file changed, 1 insertion(+)
+create mode 100644 b1.txt
 $ git log --oneline --graph --all
-*   8fc28f9 <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> Merge branch <span class="s1">&#39;b1&#39;</span>
-<span class="p">|</span><span class="se">\</span>
-<span class="p">|</span> * 872a38f <span class="o">(</span>b1<span class="o">)</span> adding b1 file
-* <span class="p">|</span> 60dc441 adding master.txt file
-<span class="p">|</span>/
-* 7f3b00e adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
-</code></pre></div>
+*   8fc28f9 (HEAD -&gt; master) Merge branch 'b1'
+|\
+| * 872a38f (b1) adding b1 file
+* | 60dc441 adding master.txt file
+|/
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
 <p>You can see a new merge commit created (8fc28f9). You will be prompted for the commit message. If there are a lot of branches in the repo, this result will end-up with a lot of merge commits. Which looks ugly compared to a single line of history of development. So let's look at an alternative approach</p>
 <p>First let's <a href="https://git-scm.com/docs/git-reset">reset</a> our last merge and go to the previous state.</p>
-<div class="highlight"><pre><span></span><code>$ git reset --hard 60dc441
+<pre><code class="language-bash">$ git reset --hard 60dc441
 HEAD is now at 60dc441 adding master.txt file
 $ git log --oneline --graph --all
-* 60dc441 <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding master.txt file
-<span class="p">|</span> * 872a38f <span class="o">(</span>b1<span class="o">)</span> adding b1 file
-<span class="p">|</span>/
-* 7f3b00e adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
-</code></pre></div>
+* 60dc441 (HEAD -&gt; master) adding master.txt file
+| * 872a38f (b1) adding b1 file
+|/
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
 <p><strong>Option 2: Rebase.</strong> Now, instead of merging two branches which has a similar base (commit: 7f3b00e), let us rebase branch b1 on to current master. <strong>What this means is take branch <code>b1</code> (from commit 7f3b00e to commit 872a38f) and rebase (put them on top of) master (60dc441).</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Switch to b1</span>
+<pre><code class="language-bash"># Switch to b1
 $ git checkout b1
-Switched to branch <span class="s1">&#39;b1&#39;</span>
+Switched to branch 'b1'
 
-<span class="c1"># Rebase (b1 which is current branch) on master</span>
+# Rebase (b1 which is current branch) on master
 $ git rebase master
 First, rewinding head to replay your work on top of it...
 Applying: adding b1 file
 
-<span class="c1"># The result</span>
+# The result
 $ git log --oneline --graph --all
-* 5372c8f <span class="o">(</span>HEAD -&gt; b1<span class="o">)</span> adding b1 file
-* 60dc441 <span class="o">(</span>master<span class="o">)</span> adding master.txt file
-* 7f3b00e adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
-</code></pre></div>
+* 5372c8f (HEAD -&gt; b1) adding b1 file
+* 60dc441 (master) adding master.txt file
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
 <p>You can see <code>b1</code> which had 1 commit. That commit's parent was <code>7f3b00e</code>. But since we rebase it on master (<code>60dc441</code>). That becomes the parent now. As a side effect, you also see it has become a single line of history. Now if we were to merge <code>b1</code> into <code>master</code>, it would simply mean change <code>master</code> to point to <code>5372c8f</code> which is <code>b1</code>. Let's try it:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># checkout to master since we want to merge code into master</span>
+<pre><code class="language-bash"># checkout to master since we want to merge code into master
 $ git checkout master
-Switched to branch <span class="s1">&#39;master&#39;</span>
+Switched to branch 'master'
 
-<span class="c1"># the current history, where b1 is based on master</span>
+# the current history, where b1 is based on master
 $ git log --oneline --graph --all
-* 5372c8f <span class="o">(</span>b1<span class="o">)</span> adding b1 file
-* 60dc441 <span class="o">(</span>HEAD -&gt; master<span class="o">)</span> adding master.txt file
-* 7f3b00e adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
+* 5372c8f (b1) adding b1 file
+* 60dc441 (HEAD -&gt; master) adding master.txt file
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
 
 
-<span class="c1"># Performing the merge, notice the &quot;fast-forward&quot; message</span>
+# Performing the merge, notice the &quot;fast-forward&quot; message
 $ git merge b1
 Updating 60dc441..5372c8f
 Fast-forward
-b1.txt <span class="p">|</span> <span class="m">1</span> +
-<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
-create mode <span class="m">100644</span> b1.txt
+b1.txt | 1 +
+1 file changed, 1 insertion(+)
+create mode 100644 b1.txt
 
-<span class="c1"># The Result</span>
+# The Result
 $ git log --oneline --graph --all
-* 5372c8f <span class="o">(</span>HEAD -&gt; master, b1<span class="o">)</span> adding b1 file
+* 5372c8f (HEAD -&gt; master, b1) adding b1 file
 * 60dc441 adding master.txt file
-* 7f3b00e adding file <span class="m">2</span>
-* df2fb7a adding file <span class="m">1</span>
-</code></pre></div>
+* 7f3b00e adding file 2
+* df2fb7a adding file 1
+</code></pre>
 <p>Now you see both <code>b1</code> and <code>master</code> are pointing to the same commit. Your code has been merged to the master branch and it can be pushed. Also we have clean line of history! :D</p>
                 
               

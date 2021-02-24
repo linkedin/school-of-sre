@@ -1740,15 +1740,15 @@ online bash shell.</p>
 This command is very useful for many other purposes but we will discuss
 the simplest use case of creating a new file.</p>
 <p>General syntax of using touch command</p>
-<div class="highlight"><pre><span></span><code>touch &lt;file_name&gt;
-</code></pre></div>
+<pre><code>touch &lt;file_name&gt;
+</code></pre>
 <p><img alt="" src="../images/linux/commands/image9.png" /></p>
 <h3 id="mkdir-create-new-directories">mkdir (create new directories)</h3>
 <p>The mkdir command is used to create directories.You can use ls command
 to verify that the new directory is created.</p>
 <p>General syntax of using mkdir command</p>
-<div class="highlight"><pre><span></span><code>mkdir &lt;directory_name&gt;
-</code></pre></div>
+<pre><code>mkdir &lt;directory_name&gt;
+</code></pre>
 <p><img alt="" src="../images/linux/commands/image11.png" /></p>
 <h3 id="rm-delete-files-and-directories">rm (delete files and directories)</h3>
 <p>The rm command can be used to delete files and directories. It is very
@@ -1757,8 +1757,8 @@ directories. It's almost impossible to recover these files and
 directories once you have executed rm command on them successfully. Do
 run this command with care.</p>
 <p>General syntax of using rm command:</p>
-<div class="highlight"><pre><span></span><code>rm &lt;file_name&gt;
-</code></pre></div>
+<pre><code>rm &lt;file_name&gt;
+</code></pre>
 <p>Let's try to understand the rm command with an example. We will try to
 delete the file and directory we created using touch and mkdir command
 respectively.</p>
@@ -1769,8 +1769,8 @@ to another. Do note that the cp command doesn't do any change to the
 original files or directories. The original files or directories and
 their copy both co-exist after running cp command successfully.</p>
 <p>General syntax of using cp command:</p>
-<div class="highlight"><pre><span></span><code>cp &lt;source_path&gt; &lt;destination_path&gt;
-</code></pre></div>
+<pre><code>cp &lt;source_path&gt; &lt;destination_path&gt;
+</code></pre>
 <p>We are currently in the '/home/runner' directory. We will use the mkdir
 command to create a new directory named "test_directory". We will now
 try to copy the "_test_runner.py" file to the directory we created just
@@ -1792,8 +1792,8 @@ location to another or it can be used to rename files or directories. Do
 note that moving files and copying them are very different. When you
 move the files or directories, the original copy is lost.</p>
 <p>General syntax of using mv command:</p>
-<div class="highlight"><pre><span></span><code>mv &lt;source_path&gt; &lt;destination_path&gt;
-</code></pre></div>
+<pre><code>mv &lt;source_path&gt; &lt;destination_path&gt;
+</code></pre>
 <p>In this example, we will use the mv command to move the
 "_test_runner.py" file to "test_directory". In this case, this file
 already exists in "test_directory". The mv command will just replace it.
@@ -1924,8 +1924,8 @@ words in a text file. It will display all the lines in a file that
 contains a particular input. The word we want to search is provided as
 an input to the grep command.</p>
 <p>General syntax of using grep command:</p>
-<div class="highlight"><pre><span></span><code>grep &lt;word_to_search&gt; &lt;file_name&gt;
-</code></pre></div>
+<pre><code>grep &lt;word_to_search&gt; &lt;file_name&gt;
+</code></pre>
 <p>In this example, we are trying to search for a string "1" in this file.
 The grep command outputs the lines where it found this string.</p>
 <p><img alt="" src="../images/linux/commands/image5.png" /></p>
@@ -1933,8 +1933,8 @@ The grep command outputs the lines where it found this string.</p>
 <p>The sed command in its simplest form can be used to replace a text in a
 file.</p>
 <p>General syntax of using the sed command for replacement:</p>
-<div class="highlight"><pre><span></span><code>sed <span class="s1">&#39;s/&lt;text_to_replace&gt;/&lt;replacement_text&gt;/&#39;</span> &lt;file_name&gt;
-</code></pre></div>
+<pre><code>sed 's/&lt;text_to_replace&gt;/&lt;replacement_text&gt;/' &lt;file_name&gt;
+</code></pre>
 <p>Let's try to replace each occurrence of "1" in the file with "3" using
 sed command.</p>
 <p><img alt="" src="../images/linux/commands/image31.png" /></p>

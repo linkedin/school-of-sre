@@ -1207,7 +1207,7 @@
 <p><strong>Setup</strong></p>
 <p>Create a working directory named sos or something similar, and cd into it.</p>
 <p>Enter the following into a file named my.cnf under a directory named custom.</p>
-<div class="highlight"><pre><span></span><code>sos $ cat custom/my.cnf
+<pre><code>sos $ cat custom/my.cnf
 [mysqld]
 # These settings apply to MySQL server
 # You can set port, socket path, buffer size etc.
@@ -1215,76 +1215,76 @@
 slow_query_log=1
 slow_query_log_file=/var/log/mysqlslow.log
 long_query_time=0.1
-</code></pre></div>
+</code></pre>
 <p>Start a container and enable slow query log with the following:</p>
-<div class="highlight"><pre><span></span><code>sos $ docker run --name db -v custom:/etc/mysql/conf.d -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>realsecret -d mysql:8
-sos $ docker cp custom/mysqld.cnf <span class="k">$(</span>docker ps -qf <span class="s2">&quot;name=db&quot;</span><span class="k">)</span>:/etc/mysql/conf.d/custom.cnf
-sos $ docker restart <span class="k">$(</span>docker ps -qf <span class="s2">&quot;name=db&quot;</span><span class="k">)</span>
-</code></pre></div>
+<pre><code>sos $ docker run --name db -v custom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=realsecret -d mysql:8
+sos $ docker cp custom/mysqld.cnf $(docker ps -qf &quot;name=db&quot;):/etc/mysql/conf.d/custom.cnf
+sos $ docker restart $(docker ps -qf &quot;name=db&quot;)
+</code></pre>
 <p>Import a sample database</p>
-<div class="highlight"><pre><span></span><code>sos $ git clone git@github.com:datacharmer/test_db.git
-sos $ docker cp test_db <span class="k">$(</span>docker ps -qf <span class="s2">&quot;name=db&quot;</span><span class="k">)</span>:/home/test_db/
-sos $ docker <span class="nb">exec</span> -it <span class="k">$(</span>docker ps -qf <span class="s2">&quot;name=db&quot;</span><span class="k">)</span> bash
-root@3ab5b18b0c7d:/# <span class="nb">cd</span> /home/test_db/
+<pre><code>sos $ git clone git@github.com:datacharmer/test_db.git
+sos $ docker cp test_db $(docker ps -qf &quot;name=db&quot;):/home/test_db/
+sos $ docker exec -it $(docker ps -qf &quot;name=db&quot;) bash
+root@3ab5b18b0c7d:/# cd /home/test_db/
 root@3ab5b18b0c7d:/# mysql -uroot -prealsecret mysql &lt; employees.sql
 root@3ab5b18b0c7d:/etc# touch /var/log/mysqlslow.log
 root@3ab5b18b0c7d:/etc# chown mysql:mysql /var/log/mysqlslow.log
-</code></pre></div>
+</code></pre>
 <p><em>Workshop 1: Run some sample queries</em>
-Run the following
-<div class="highlight"><pre><span></span><code>$ mysql -uroot -prealsecret mysql
+Run the following</p>
+<pre><code>$ mysql -uroot -prealsecret mysql
 mysql&gt;
 
-<span class="c1"># inspect DBs and tables</span>
-<span class="c1"># the last 4 are MySQL internal DBs</span>
+# inspect DBs and tables
+# the last 4 are MySQL internal DBs
 
-mysql&gt; show databases<span class="p">;</span>
+mysql&gt; show databases;
 +--------------------+
-<span class="p">|</span> Database           <span class="p">|</span>
+| Database           |
 +--------------------+
-<span class="p">|</span> employees          <span class="p">|</span>
-<span class="p">|</span> information_schema <span class="p">|</span>
-<span class="p">|</span> mysql              <span class="p">|</span>
-<span class="p">|</span> performance_schema <span class="p">|</span>
-<span class="p">|</span> sys                <span class="p">|</span>
+| employees          |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
 +--------------------+
 
-&gt; use employees<span class="p">;</span>
-mysql&gt; show tables<span class="p">;</span>
+&gt; use employees;
+mysql&gt; show tables;
 +----------------------+
-<span class="p">|</span> Tables_in_employees  <span class="p">|</span>
+| Tables_in_employees  |
 +----------------------+
-<span class="p">|</span> current_dept_emp     <span class="p">|</span>
-<span class="p">|</span> departments          <span class="p">|</span>
-<span class="p">|</span> dept_emp             <span class="p">|</span>
-<span class="p">|</span> dept_emp_latest_date <span class="p">|</span>
-<span class="p">|</span> dept_manager         <span class="p">|</span>
-<span class="p">|</span> employees            <span class="p">|</span>
-<span class="p">|</span> salaries             <span class="p">|</span>
-<span class="p">|</span> titles               <span class="p">|</span>
+| current_dept_emp     |
+| departments          |
+| dept_emp             |
+| dept_emp_latest_date |
+| dept_manager         |
+| employees            |
+| salaries             |
+| titles               |
 +----------------------+
 
-<span class="c1"># read a few rows</span>
-mysql&gt; <span class="k">select</span> * from employees limit <span class="m">5</span><span class="p">;</span>
+# read a few rows
+mysql&gt; select * from employees limit 5;
 
-<span class="c1"># filter data by conditions</span>
-mysql&gt; <span class="k">select</span> count<span class="o">(</span>*<span class="o">)</span> from employees where <span class="nv">gender</span> <span class="o">=</span> <span class="s1">&#39;M&#39;</span> limit <span class="m">5</span><span class="p">;</span>
+# filter data by conditions
+mysql&gt; select count(*) from employees where gender = 'M' limit 5;
 
-<span class="c1"># find count of particular data</span>
-mysql&gt; <span class="k">select</span> count<span class="o">(</span>*<span class="o">)</span> from employees where <span class="nv">first_name</span> <span class="o">=</span> <span class="s1">&#39;Sachin&#39;</span><span class="p">;</span> 
-</code></pre></div></p>
-<p><em>Workshop 2: Use explain and explain analyze to profile a query, identify and add indexes required for improving performance</em>
-<div class="highlight"><pre><span></span><code><span class="c1"># View all indexes on table </span>
-<span class="c1">#(\G is to output horizontally, replace it with a ; to get table output)</span>
-mysql&gt; show index from employees from employees<span class="se">\G</span>
-*************************** <span class="m">1</span>. row ***************************
+# find count of particular data
+mysql&gt; select count(*) from employees where first_name = 'Sachin'; 
+</code></pre>
+<p><em>Workshop 2: Use explain and explain analyze to profile a query, identify and add indexes required for improving performance</em></p>
+<pre><code># View all indexes on table 
+#(\G is to output horizontally, replace it with a ; to get table output)
+mysql&gt; show index from employees from employees\G
+*************************** 1. row ***************************
         Table: employees
-   Non_unique: <span class="m">0</span>
+   Non_unique: 0
      Key_name: PRIMARY
- Seq_in_index: <span class="m">1</span>
+ Seq_in_index: 1
   Column_name: emp_no
     Collation: A
-  Cardinality: <span class="m">299113</span>
+  Cardinality: 299113
      Sub_part: NULL
        Packed: NULL
          Null:
@@ -1294,28 +1294,28 @@ Index_comment:
       Visible: YES
    Expression: NULL
 
-<span class="c1"># This query uses an index, idenitfied by &#39;key&#39; field</span>
-<span class="c1"># By prefixing explain keyword to the command, </span>
-<span class="c1"># we get query plan (including key used)</span>
-mysql&gt; explain <span class="k">select</span> * from employees where emp_no &lt; <span class="m">10005</span><span class="se">\G</span>
-*************************** <span class="m">1</span>. row ***************************
-           id: <span class="m">1</span>
+# This query uses an index, idenitfied by 'key' field
+# By prefixing explain keyword to the command, 
+# we get query plan (including key used)
+mysql&gt; explain select * from employees where emp_no &lt; 10005\G
+*************************** 1. row ***************************
+           id: 1
   select_type: SIMPLE
         table: employees
    partitions: NULL
          type: range
 possible_keys: PRIMARY
           key: PRIMARY
-      key_len: <span class="m">4</span>
+      key_len: 4
           ref: NULL
-         rows: <span class="m">4</span>
-     filtered: <span class="m">100</span>.00
+         rows: 4
+     filtered: 100.00
         Extra: Using where
 
-<span class="c1"># Compare that to the next query which does not utilize any index</span>
-mysql&gt; explain <span class="k">select</span> first_name, last_name from employees where <span class="nv">first_name</span> <span class="o">=</span> <span class="s1">&#39;Sachin&#39;</span><span class="se">\G</span>
-*************************** <span class="m">1</span>. row ***************************
-           id: <span class="m">1</span>
+# Compare that to the next query which does not utilize any index
+mysql&gt; explain select first_name, last_name from employees where first_name = 'Sachin'\G
+*************************** 1. row ***************************
+           id: 1
   select_type: SIMPLE
         table: employees
    partitions: NULL
@@ -1324,64 +1324,64 @@ possible_keys: NULL
           key: NULL
       key_len: NULL
           ref: NULL
-         rows: <span class="m">299113</span>
-     filtered: <span class="m">10</span>.00
+         rows: 299113
+     filtered: 10.00
         Extra: Using where
 
-<span class="c1"># Let&#39;s see how much time this query takes</span>
-mysql&gt; explain analyze <span class="k">select</span> first_name, last_name from employees where <span class="nv">first_name</span> <span class="o">=</span> <span class="s1">&#39;Sachin&#39;</span><span class="se">\G</span>
-*************************** <span class="m">1</span>. row ***************************
-EXPLAIN: -&gt; Filter: <span class="o">(</span>employees.first_name <span class="o">=</span> <span class="s1">&#39;Sachin&#39;</span><span class="o">)</span>  <span class="o">(</span><span class="nv">cost</span><span class="o">=</span><span class="m">30143</span>.55 <span class="nv">rows</span><span class="o">=</span><span class="m">29911</span><span class="o">)</span> <span class="o">(</span>actual <span class="nv">time</span><span class="o">=</span><span class="m">28</span>.284..3952.428 <span class="nv">rows</span><span class="o">=</span><span class="m">232</span> <span class="nv">loops</span><span class="o">=</span><span class="m">1</span><span class="o">)</span>
-    -&gt; Table scan on employees  <span class="o">(</span><span class="nv">cost</span><span class="o">=</span><span class="m">30143</span>.55 <span class="nv">rows</span><span class="o">=</span><span class="m">299113</span><span class="o">)</span> <span class="o">(</span>actual <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.095..1996.092 <span class="nv">rows</span><span class="o">=</span><span class="m">300024</span> <span class="nv">loops</span><span class="o">=</span><span class="m">1</span><span class="o">)</span>
+# Let's see how much time this query takes
+mysql&gt; explain analyze select first_name, last_name from employees where first_name = 'Sachin'\G
+*************************** 1. row ***************************
+EXPLAIN: -&gt; Filter: (employees.first_name = 'Sachin')  (cost=30143.55 rows=29911) (actual time=28.284..3952.428 rows=232 loops=1)
+    -&gt; Table scan on employees  (cost=30143.55 rows=299113) (actual time=0.095..1996.092 rows=300024 loops=1)
 
 
-<span class="c1"># Cost(estimated by query planner) is 30143.55</span>
-<span class="c1"># actual time=28.284ms for first row, 3952.428 for all rows</span>
-<span class="c1"># Now lets try adding an index and running the query again</span>
-mysql&gt; create index idx_firstname on employees<span class="o">(</span>first_name<span class="o">)</span><span class="p">;</span>
-Query OK, <span class="m">0</span> rows affected <span class="o">(</span><span class="m">1</span>.25 sec<span class="o">)</span>
-Records: <span class="m">0</span>  Duplicates: <span class="m">0</span>  Warnings: <span class="m">0</span>
+# Cost(estimated by query planner) is 30143.55
+# actual time=28.284ms for first row, 3952.428 for all rows
+# Now lets try adding an index and running the query again
+mysql&gt; create index idx_firstname on employees(first_name);
+Query OK, 0 rows affected (1.25 sec)
+Records: 0  Duplicates: 0  Warnings: 0
 
-mysql&gt; explain analyze <span class="k">select</span> first_name, last_name from employees where <span class="nv">first_name</span> <span class="o">=</span> <span class="s1">&#39;Sachin&#39;</span><span class="p">;</span>
+mysql&gt; explain analyze select first_name, last_name from employees where first_name = 'Sachin';
 +--------------------------------------------------------------------------------------------------------------------------------------------+
-<span class="p">|</span> EXPLAIN                                                                                                                                    <span class="p">|</span>
+| EXPLAIN                                                                                                                                    |
 +--------------------------------------------------------------------------------------------------------------------------------------------+
-<span class="p">|</span> -&gt; Index lookup on employees using idx_firstname <span class="o">(</span><span class="nv">first_name</span><span class="o">=</span><span class="s1">&#39;Sachin&#39;</span><span class="o">)</span>  <span class="o">(</span><span class="nv">cost</span><span class="o">=</span><span class="m">81</span>.20 <span class="nv">rows</span><span class="o">=</span><span class="m">232</span><span class="o">)</span> <span class="o">(</span>actual <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.551..2.934 <span class="nv">rows</span><span class="o">=</span><span class="m">232</span> <span class="nv">loops</span><span class="o">=</span><span class="m">1</span><span class="o">)</span>
- <span class="p">|</span>
+| -&gt; Index lookup on employees using idx_firstname (first_name='Sachin')  (cost=81.20 rows=232) (actual time=0.551..2.934 rows=232 loops=1)
+ |
 +--------------------------------------------------------------------------------------------------------------------------------------------+
-<span class="m">1</span> row <span class="k">in</span> <span class="nb">set</span> <span class="o">(</span><span class="m">0</span>.01 sec<span class="o">)</span>
+1 row in set (0.01 sec)
 
-<span class="c1"># Actual time=0.551ms for first row</span>
-<span class="c1"># 2.934ms for all rows. A huge improvement!</span>
-<span class="c1"># Also notice that the query involves only an index lookup,</span>
-<span class="c1"># and no table scan (reading all rows of table)</span>
-<span class="c1"># ..which vastly reduces load on the DB.</span>
-</code></pre></div></p>
-<p><em>Workshop 3: Identify slow queries on a MySQL server</em>
-<div class="highlight"><pre><span></span><code><span class="c1"># Run the command below in two terminal tabs to open two shells into the container.</span>
-docker <span class="nb">exec</span> -it <span class="k">$(</span>docker ps -qf <span class="s2">&quot;name=db&quot;</span><span class="k">)</span> bash
+# Actual time=0.551ms for first row
+# 2.934ms for all rows. A huge improvement!
+# Also notice that the query involves only an index lookup,
+# and no table scan (reading all rows of table)
+# ..which vastly reduces load on the DB.
+</code></pre>
+<p><em>Workshop 3: Identify slow queries on a MySQL server</em></p>
+<pre><code># Run the command below in two terminal tabs to open two shells into the container.
+docker exec -it $(docker ps -qf &quot;name=db&quot;) bash
 
-<span class="c1"># Open a mysql prompt in one of them and execute this command</span>
-<span class="c1"># We have configured to log queries that take longer than 1s,</span>
-<span class="c1"># so this sleep(3) will be logged</span>
+# Open a mysql prompt in one of them and execute this command
+# We have configured to log queries that take longer than 1s,
+# so this sleep(3) will be logged
 mysql -uroot -prealsecret mysql
-mysql&gt; sleep<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="p">;</span>
+mysql&gt; sleep(3);
 
-<span class="c1"># Now, in the other terminal, tail the slow log to find details about the query</span>
+# Now, in the other terminal, tail the slow log to find details about the query
 root@62c92c89234d:/etc# tail -f /var/log/mysqlslow.log
-/usr/sbin/mysqld, Version: <span class="m">8</span>.0.21 <span class="o">(</span>MySQL Community Server - GPL<span class="o">)</span>. started with:
-Tcp port: <span class="m">3306</span>  Unix socket: /var/run/mysqld/mysqld.sock
+/usr/sbin/mysqld, Version: 8.0.21 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
 Time                 Id Command    Argument
-<span class="c1"># Time: 2020-11-26T14:53:44.822348Z</span>
-<span class="c1"># User@Host: root[root] @ localhost []  Id:     9</span>
-<span class="c1"># Query_time: 5.404938  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 1</span>
-use employees<span class="p">;</span>
-<span class="c1"># Time: 2020-11-26T14:53:58.015736Z</span>
-<span class="c1"># User@Host: root[root] @ localhost []  Id:     9</span>
-<span class="c1"># Query_time: 10.000225  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 1</span>
-SET <span class="nv">timestamp</span><span class="o">=</span><span class="m">1606402428</span><span class="p">;</span>
-<span class="k">select</span> sleep<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="p">;</span>
-</code></pre></div></p>
+# Time: 2020-11-26T14:53:44.822348Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 5.404938  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 1
+use employees;
+# Time: 2020-11-26T14:53:58.015736Z
+# User@Host: root[root] @ localhost []  Id:     9
+# Query_time: 10.000225  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 1
+SET timestamp=1606402428;
+select sleep(3);
+</code></pre>
 <p>These were simulated examples with minimal complexity. In real life, the queries would be much more complex and the explain/analyze and slow query logs would have more details.</p>
                 
               

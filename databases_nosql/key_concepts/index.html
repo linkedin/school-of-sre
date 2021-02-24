@@ -1493,17 +1493,17 @@ Web caching
 <h3 id="hashing">Hashing</h3>
 <p>A hash function is a function that maps one piece of data—typically describing some kind of object, often of arbitrary size—to another piece of data, typically an integer, known as <em>hash code</em>, or simply <em>hash</em>. In a partitioned database, it is important to consistently map a key to a server/replica. </p>
 <p>For ex: you can use a very simple hash as a modulo function.</p>
-<div class="highlight"><pre><span></span><code>_p = k mod n_
-</code></pre></div>
+<pre><code>_p = k mod n_
+</code></pre>
 <p>Where </p>
-<div class="highlight"><pre><span></span><code>p -&gt; partition,
+<pre><code>p -&gt; partition,
 
 
 k -&gt; primary key
 
 
 n -&gt; no of nodes
-</code></pre></div>
+</code></pre>
 <p>The downside of this simple hash is that, whenever the cluster topology changes, the data distribution also changes. When you are dealing with memory caches, it will be easy to distribute partitions around. Whenever a node joins/leaves a topology, partitions can reorder themselves, a cache miss can be re-populated from backend DB. However when you look at persistent data, it is not possible as the new node doesn’t have the data needed to serve it. This brings us to consistent hashing.</p>
 <h4 id="consistent-hashing">Consistent Hashing</h4>
 <p>Consistent hashing is a distributed hashing scheme that operates independently of the number of servers or objects in a distributed <em>hash table</em> by assigning them a position on an abstract circle, or <em>hash ring</em>. This allows servers and objects to scale without affecting the overall system.</p>
