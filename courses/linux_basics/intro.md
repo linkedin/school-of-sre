@@ -167,7 +167,7 @@ to perform a particular operation.
 
 Shell is a program that takes commands from the
 users and gives them to the operating system for processing. Shell is an
-example of a CLI(command line interface). Bash is one of the most popular shell
+example of a CLI (command line interface). Bash is one of the most popular shell
 programs available on Linux servers. Other popular shell programs are
 zsh, ksh and tcsh.
 
