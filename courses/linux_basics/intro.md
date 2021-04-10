@@ -143,7 +143,7 @@ Operating system based on Linux kernel are widely used in:
 
 - Embedded devices - watches, televisions, traffic lights etc
 
-- Satelites
+- Satellites
 
 - Network devices - routers, switches etc.
 
