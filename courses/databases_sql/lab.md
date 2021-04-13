@@ -18,7 +18,7 @@ sos $ cat custom/my.cnf
 # Below, we are configuring slow query settings
 slow_query_log=1
 slow_query_log_file=/var/log/mysqlslow.log
-long_query_time=0.1
+long_query_time=1
 ```
 
 
@@ -27,7 +27,7 @@ Start a container and enable slow query log with the following:
 
 ```
 sos $ docker run --name db -v custom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=realsecret -d mysql:8
-sos $ docker cp custom/mysqld.cnf $(docker ps -qf "name=db"):/etc/mysql/conf.d/custom.cnf
+sos $ docker cp custom/my.cnf $(docker ps -qf "name=db"):/etc/mysql/conf.d/custom.cnf
 sos $ docker restart $(docker ps -qf "name=db")
 ```
 
@@ -186,7 +186,7 @@ docker exec -it $(docker ps -qf "name=db") bash
 # We have configured to log queries that take longer than 1s,
 # so this sleep(3) will be logged
 mysql -uroot -prealsecret mysql
-mysql> sleep(3);
+mysql> select sleep(3);
 
 # Now, in the other terminal, tail the slow log to find details about the query
 root@62c92c89234d:/etc# tail -f /var/log/mysqlslow.log
