@@ -75,6 +75,7 @@ nav:
 - 貢献する: CONTRIBUTING.md
 - Code of Conduct: CODE_OF_CONDUCT.md
 - SREコミュニティ: sre_community.md
+- 翻訳について: about_translation.md
 copyright: "Copyright 2020 LinkedIn Corporation. All Rights Reserved. Licensed under the Creative Commons Attribution 4.0 International Public License"
 extra:
     social:
