@@ -1,5 +1,5 @@
 site_name: School Of SRE
-docs_dir: courses
+docs_dir: courses/ja
 theme:
   name: material
   logo: img/sos.png
