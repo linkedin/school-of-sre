@@ -8,73 +8,73 @@ theme:
 extra_css:
     - stylesheets/custom.css
 nav:
-- Home: index.md
-- Fundamentals Series:
-    - Linux Basics:
-        - Introduction: linux_basics/intro.md
-        - Command Line Basics: linux_basics/command_line_basics.md
-        - Server Administration: linux_basics/linux_server_administration.md
-        - Conclusion: linux_basics/conclusion.md
+- ホーム: index.md
+- 基礎:
+    - Linuxの基礎:
+        - はじめに: linux_basics/intro.md
+        - コマンドラインの基礎: linux_basics/command_line_basics.md
+        - サーバー管理: linux_basics/linux_server_administration.md
+        - まとめ: linux_basics/conclusion.md
     - Git:
-        - Git Basics: git/git-basics.md
-        - Working With Branches: git/branches.md
-        - Github and Hooks: git/github-hooks.md
-        - Conclusion: git/conclusion.md
-    - Linux Networking:
-        - Introduction: linux_networking/intro.md
+        - Gitの基礎: git/git-basics.md
+        - ブランチを使った作業: git/branches.md
+        - GithubとHooks: git/github-hooks.md
+        - まとめ: git/conclusion.md
+    - Linuxネットワーキング:
+        - はじめに: linux_networking/intro.md
         - DNS: linux_networking/dns.md
         - UDP: linux_networking/udp.md
         - HTTP: linux_networking/http.md
         - TCP: linux_networking/tcp.md
-        - Routing: linux_networking/ipr.md
-        - Conclusion: linux_networking/conclusion.md
-- Python and Web:
-    - Introduction: python_web/intro.md
-    - Some Python Concepts: python_web/python-concepts.md
-    - Python, Web and Flask: python_web/python-web-flask.md
-    - The URL Shortening App: python_web/url-shorten-app.md
-    - Conclusion: python_web/sre-conclusion.md
-- Data:
-    - Relational Databases:
-        - Introduction: databases_sql/intro.md
-        - Key Concepts: databases_sql/concepts.md
+        - ルーティング: linux_networking/ipr.md
+        - まとめ: linux_networking/conclusion.md
+- PythonとWeb:
+    - はじめに: python_web/intro.md
+    - Pythonの概念: python_web/python-concepts.md
+    - PythonとWebとFlask: python_web/python-web-flask.md
+    - URL短縮アプリ: python_web/url-shorten-app.md
+    - まとめ: python_web/sre-conclusion.md
+- データ:
+    - リレーショナルデータベース:
+        - はじめに: databases_sql/intro.md
+        - キーコンセプト: databases_sql/concepts.md
         - MySQL: databases_sql/mysql.md
         - InnoDB: databases_sql/innodb.md
-        - Operational Concepts: databases_sql/operations.md
-        - Lab: databases_sql/lab.md
-        - Conclusion: databases_sql/conclusion.md
+        - 運用上の概念: databases_sql/operations.md
+        - 実験: databases_sql/lab.md
+        - まとめ: databases_sql/conclusion.md
     - NoSQL:
-        - Introduction: databases_nosql/intro.md
-        - Key Concepts: databases_nosql/key_concepts.md
-        - Conclusion:  databases_nosql/further_reading.md
-    - Big Data:
-        - Introduction: big_data/intro.md
-        - Evolution and Architecture of Hadoop: big_data/evolution.md
-        - Conclusion: big_data/tasks.md
-- Systems Design:
-    - Introduction: systems_design/intro.md
-    - Scalability: systems_design/scalability.md
-    - Availability: systems_design/availability.md
-    - Fault Tolerance: systems_design/fault-tolerance.md
-    - Conclusion: systems_design/conclusion.md
-- Metrics and Monitoring:
-    - Introduction: metrics_and_monitoring/introduction.md
-    - Command-line Tools: metrics_and_monitoring/command-line_tools.md
-    - Third-party Monitoring: metrics_and_monitoring/third-party_monitoring.md
-    - Proactive Monitoring with Alerts: metrics_and_monitoring/alerts.md
-    - Best Practices for Monitoring: metrics_and_monitoring/best_practices.md
-    - Observability: metrics_and_monitoring/observability.md
-    - Conclusion: metrics_and_monitoring/conclusion.md
-- Security:
-    - Introduction: security/intro.md
-    - Fundamentals of Security: security/fundamentals.md
-    - Network Security: security/network_security.md
-    - Threat, Attacks & Defences: security/threats_attacks_defences.md
-    - Writing Secure code: security/writing_secure_code.md
-    - Conclusion: security/conclusion.md
-- Contribute: CONTRIBUTING.md
+        - はじめに: databases_nosql/intro.md
+        - キーコンセプト: databases_nosql/key_concepts.md
+        - まとめ: databases_nosql/further_reading.md
+    - ビッグデータ:
+        - はじめに: big_data/intro.md
+        - Hadoopの進化とアーキテクチャ: big_data/evolution.md
+        - まとめ: big_data/tasks.md
+- システム設計:
+    - はじめに: systems_design/intro.md
+    - スケーラビリティ: systems_design/scalability.md
+    - 可用性: systems_design/availability.md
+    - フォールトトレランス: systems_design/fault-tolerance.md
+    - まとめ: systems_design/conclusion.md
+- メトリクスとモニタリング:
+    - はじめに: metrics_and_monitoring/introduction.md
+    - コマンドラインツール: metrics_and_monitoring/command-line_tools.md
+    - サードパーティモニタリング: metrics_and_monitoring/third-party_monitoring.md
+    - アラートによるプロアクティブモニタリング: metrics_and_monitoring/alerts.md
+    - モニタリングのベストプラクティス: metrics_and_monitoring/best_practices.md
+    - 可観測性: metrics_and_monitoring/observability.md
+    - まとめ: metrics_and_monitoring/conclusion.md
+- セキュリティ:
+    - はじめに: security/intro.md
+    - セキュリティの基礎知識: security/fundamentals.md
+    - ネットワークセキュリティ: security/network_security.md
+    - 脅威、攻撃、防御: security/threats_attacks_defences.md
+    - セキュアなコードを書く: security/writing_secure_code.md
+    - まとめ: security/conclusion.md
+- 貢献する: CONTRIBUTING.md
 - Code of Conduct: CODE_OF_CONDUCT.md
-- SRE Community: sre_community.md
+- SREコミュニティ: sre_community.md
 copyright: "Copyright 2020 LinkedIn Corporation. All Rights Reserved. Licensed under the Creative Commons Attribution 4.0 International Public License"
 extra:
     social:

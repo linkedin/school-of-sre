@@ -2,27 +2,27 @@
 
 <img src="img/sos.png" width=200 >
 
-In early 2019, we started visiting campuses across India to recruit the best and brightest minds to ensure LinkedIn, and all the services that make up its complex technology stack are always available for everyone. This critical function at LinkedIn falls under the purview of the Site Engineering team and Site Reliability Engineers (SREs) who are Software Engineers specializing in reliability. SREs apply the principles of computer science and engineering to the design, development, and operation of computer systems: generally, large-scale, distributed ones.
+2019年初頭、私たちはインド中のキャンパスを訪問し優秀な人材を採用し始めました。LinkedInおよびその複雑なテクノロジースタックを構成するすべてのサービスを皆様がいつでも利用できることを保証するためです。LinkedInにおけるこの重要な機能は、サイトエンジニアリングチームと、信頼性を専門とするソフトウェアエンジニアであるサイトリライアビリティエンジニア（SRE）の管轄下にあります。SREは、コンピュータサイエンスとエンジニアリングの原則を、大規模な分散型コンピュータシステムの設計、開発、運用に適用します。
 
-As we continued on this journey we started getting a lot of questions from these campuses on what exactly the site reliability engineering role entails? And, how could someone learn the skills and the disciplines involved to become a successful site reliability engineer? Fast forward a few months, and a few of these campus students had joined LinkedIn either as interns or as full-time engineers to become a part of the Site Engineering team; we also had a few lateral hires who joined our organization who were not from a traditional SRE background. That's when a few of us got together and started to think about how we can onboard new graduate engineers to the Site Engineering team.
+この旅を続けていくうちに、キャンパスで多くの質問を受けるようになりました。「サイトリライアビリティエンジニアリングの役割とは何か？また、SREとして成功するためには、どのようにしてスキルや知識を身につければよいのでしょうか？数ヶ月後、このキャンパスの学生の何人かがLinkedInにインターンとして、またはフルタイムのエンジニアとして入社し、サイトエンジニアリングチームの一員となりました。また、従来のSREのバックグラウンドを持たない後任者も数名入社しました。そこで何人かで集まって、新卒のエンジニアをサイトエンジニアリングチームに迎え入れるにはどうしたらいいかを考え始めたのです。
 
-There is a vast amount of resources scattered throughout the web on what the roles and responsibilities of SREs are, how to monitor site health, production incidents, define SLO/SLI, etc. But there are very few resources out there guiding someone on the basic skill sets one has to acquire as a beginner. Because of the lack of these resources, we felt that individuals have a tough time getting into open positions in the industry. We created the School Of SRE as a starting point for anyone wanting to build their career as an SRE.
+SREの役割や責任、サイトの健全性やプロダクションのインシデントの監視方法、SLO/SLIなどの定義については、ウェブ上に膨大な量のリソースが散在しています。しかし、初心者として身につけなければならない基本的なスキルセットを案内するリソースはほとんどありません。このようなリソースがないために、個人がこの業界のオープンポジションに入るのは難しいと感じていました。私たちは、SREとしてのキャリアを築きたい人のための出発点として、「School Of SRE」を設立しました。
 
-In this course, we are focusing on building strong foundational skills. The course is structured in a way to provide more real life examples and how learning each of these topics can play an important role in day to day SRE life. Currently we are covering the following topics under the School Of SRE:
+このコースでは、基礎的で強固なスキルを身につけることに重点を置いています。このコースは、より多くの実例を示し、各トピックを学ぶことがSREの仕事でどのように重要な役割を果たすかを説明するように構成されています。現在、School Of SREでは以下のトピックを取り上げています。
 
--   Fundamentals Series
-    -   [Linux Basics](https://linkedin.github.io/school-of-sre/linux_basics/intro/)
-    -   [Git](https://linkedin.github.io/school-of-sre/git/git-basics/)
-    -   [Linux Networking](https://linkedin.github.io/school-of-sre/linux_networking/intro/)
--   [Python and Web](https://linkedin.github.io/school-of-sre/python_web/intro/)
--   Data
-    - [Relational databases(MySQL)](https://linkedin.github.io/school-of-sre/databases_sql/intro/)
-    -   [NoSQL concepts](https://linkedin.github.io/school-of-sre/databases_nosql/intro/)
-    -   [Big Data](https://linkedin.github.io/school-of-sre/big_data/intro/)
--   [Systems Design](https://linkedin.github.io/school-of-sre/systems_design/intro/)
--   [Metrics and Monitoring](https://linkedin.github.io/school-of-sre/metrics_and_monitoring/introduction/)
--   [Security](https://linkedin.github.io/school-of-sre/security/intro/)
+- 基礎
+    - [Linuxの基礎](linux_basics/intro/)
+    - [Git](git/git-basics/)
+    - [Linuxネットワーク](linux_networking/intro/)
+- [PythonとWeb](python_web/intro/)
+- データ
+    - [リレーショナルデータベース(MySQL)](databases_sql/intro/)
+    - [NoSQLの概念](databases_nosql/intro/)
+    - [ビッグデータ](big_data/intro/)
+- [システム設計](systems_design/intro/)
+- [メトリクスとモニタリング](metrics_and_monitoring/introduction/)
+- [セキュリティ](security/intro/)
 
-We believe continuous learning will help in acquiring deeper knowledge and competencies in order to expand your skill sets, every module has added references that could be a guide for further learning. Our hope is that by going through these modules we should be able to build the essential skills required for a Site Reliability Engineer.
+継続的に学習することでより深い知識と能力を身につけ、スキルセットを拡大することができると考えています。すべてのモジュールには、さらなる学習のためのガイドとなる参考文献が追加されています。これらのモジュールを通して、SREに必須のスキルを身につけられるようになることを願っています。
 
-At LinkedIn, we are using this curriculum for onboarding our non-traditional hires and new college grads into the SRE role. We had multiple rounds of successful onboarding experiences with new employees and the course helped them be productive in a very short period of time. This motivated us to open source the content for helping other organizations in onboarding new engineers into the role and provide guidance for aspiring individuals to get into the role. We realize that the initial content we created is just a starting point and we hope that the community can help in the journey of refining and expanding the content. Check out [the contributing guide](./CONTRIBUTING.md) to get started.
+LinkedInでは、このカリキュラムを、従来とは異なる採用者や大学新卒者のSRE職へのオンボーディングに使用しています。新入社員のオンボーディングを何度も成功させましたが、このコースのおかげで短期間で生産性を上げることができました。このことから、他の組織が新入社員をSREに迎え入れる際に役立つコンテンツをオープンソース化し、意欲的な人たちにSREになるためのガイダンスを提供したいと考えました。私たちが作成した最初のコンテンツは出発点に過ぎないことを理解しており、コミュニティがコンテンツの改良と拡張の道のりを支援してくれることを願っています。まずは、[コントリビューションガイド](./CONTRIBUTING.md)をご覧ください。
