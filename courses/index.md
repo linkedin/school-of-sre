@@ -1,5 +1,12 @@
 # School of SRE
 
+このサイトはLinkedIn社が公開している[School of SRE](https://linkedin.github.io/school-of-sre/)の非公式の翻訳です。
+現在は[natsuokawai](https://github.com/natsuokawai)が個人で運営しています。
+
+訳の間違いなどありましたら[https://github.com/natsuokawai/school-of-sre](https://github.com/natsuokawai/school-of-sre)まで報告いただけますと幸いです。
+
+---
+
 <img src="img/sos.png" width=200 >
 
 In early 2019, we started visiting campuses across India to recruit the best and brightest minds to ensure LinkedIn, and all the services that make up its complex technology stack are always available for everyone. This critical function at LinkedIn falls under the purview of the Site Engineering team and Site Reliability Engineers (SREs) who are Software Engineers specializing in reliability. SREs apply the principles of computer science and engineering to the design, development, and operation of computer systems: generally, large-scale, distributed ones.
