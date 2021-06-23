@@ -333,7 +333,7 @@ More command displays as much as can fit on the current screen and waits for use
 ### less
 
 Less command is an improved version of more. It displays the contents of a file or a command output, one page at a time.
-It allows backward navigation as well as forward navigation in the file and also has search options. We can use arrow keys for advancing backward or forward by one line. For moving forward by one page, press Enter and for moving backward by one page, press b on your keyboard.
+It allows backward navigation as well as forward navigation in the file and also has search options. We can use arrow keys for advancing backward or forward by one line. For moving forward by one page, press Space and for moving backward by one page, press b on your keyboard.
 You can go to the beginning and the end of a file instantly.
 
 
