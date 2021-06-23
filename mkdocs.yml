@@ -41,7 +41,7 @@ nav:
         - MySQL: databases_sql/mysql.md
         - InnoDB: databases_sql/innodb.md
         - 運用上の概念: databases_sql/operations.md
-        - 実験: databases_sql/lab.md
+        - ラボ: databases_sql/lab.md
         - まとめ: databases_sql/conclusion.md
     - NoSQL:
         - はじめに: databases_nosql/intro.md
