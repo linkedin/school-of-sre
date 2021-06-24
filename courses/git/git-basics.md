@@ -218,7 +218,7 @@ $ cat .git/refs/heads/master
 7f3b00eaa957815884198e2fdfec29361108d6a9
 ```
 
-Viola! Where master is pointing to is stored in a file. **Whenever git needs to know where master reference is pointing to, or if git needs to update where master points, it just needs to update the file above.** So when you create a new commit, a new commit is created on top of the current commit and the master file is updated with the new commit's ID.
+Voilà! Where master is pointing to is stored in a file. **Whenever git needs to know where master reference is pointing to, or if git needs to update where master points, it just needs to update the file above.** So when you create a new commit, a new commit is created on top of the current commit and the master file is updated with the new commit's ID.
 
 Similary, for `HEAD` reference:
 
