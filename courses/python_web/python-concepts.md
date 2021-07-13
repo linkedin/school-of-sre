@@ -143,8 +143,8 @@ Let's visualize it for better understanding
        |call function object with id 100 |
        |print("after")                   |
        |                                 |
-       +---------------------------^-----+
-                                   |
+       +---------------------------------+
+                                   ^
                                    |
        AFTER                       |
                                    |
@@ -158,5 +158,5 @@ Note how the `hello_world` name points to a new function object but that new fun
 
 - While it is very quick to build prototypes in python and there are tons of libraries available, as the codebase complexity increases, type errors become more common and will get hard to deal with. (There are solutions to that problem like type annotations in python. Checkout [mypy](http://mypy-lang.org/).)
 - Because python is dynamically typed language, that means all types are determined at runtime. And that makes python run very slow compared to other statically typed languages.
-- Python has something called [GIL](https://www.dabeaz.com/python/UnderstandingGIL.pdf) (global interpreter lock) which is a limiting factor for utilizing multiple CPI cores for parallel computation.
+- Python has something called [GIL](https://www.dabeaz.com/python/UnderstandingGIL.pdf) (global interpreter lock) which is a limiting factor for utilizing multiple CPU cores for parallel computation.
 - Some weird things that python does: https://github.com/satwikkansal/wtfpython
