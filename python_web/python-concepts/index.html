@@ -1449,8 +1449,8 @@ after
        |call function object with id 100 |
        |print(&quot;after&quot;)                   |
        |                                 |
-       +---------------------------^-----+
-                                   |
+       +---------------------------------+
+                                   ^
                                    |
        AFTER                       |
                                    |
@@ -1462,7 +1462,7 @@ after
 <ul>
 <li>While it is very quick to build prototypes in python and there are tons of libraries available, as the codebase complexity increases, type errors become more common and will get hard to deal with. (There are solutions to that problem like type annotations in python. Checkout <a href="http://mypy-lang.org/">mypy</a>.)</li>
 <li>Because python is dynamically typed language, that means all types are determined at runtime. And that makes python run very slow compared to other statically typed languages.</li>
-<li>Python has something called <a href="https://www.dabeaz.com/python/UnderstandingGIL.pdf">GIL</a> (global interpreter lock) which is a limiting factor for utilizing multiple CPI cores for parallel computation.</li>
+<li>Python has something called <a href="https://www.dabeaz.com/python/UnderstandingGIL.pdf">GIL</a> (global interpreter lock) which is a limiting factor for utilizing multiple CPU cores for parallel computation.</li>
 <li>Some weird things that python does: https://github.com/satwikkansal/wtfpython</li>
 </ul>
                 
