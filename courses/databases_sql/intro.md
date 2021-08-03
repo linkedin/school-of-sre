@@ -24,6 +24,10 @@ The main purpose of database systems is to manage data. This includes storage, a
 - [Key Concepts](https://linkedin.github.io/school-of-sre/databases_sql/concepts/)
 - [MySQL Architecture](https://linkedin.github.io/school-of-sre/databases_sql/mysql/#mysql-architecture)
 - [InnoDB](https://linkedin.github.io/school-of-sre/databases_sql/innodb/)
-- [Operational Concepts](https://linkedin.github.io/school-of-sre/databases_sql/operations/)
+- [Backup and Recovery](https://linkedin.github.io/school-of-sre/databases_sql/backup_recovery/)
+- [MySQL Replication](https://linkedin.github.io/school-of-sre/databases_sql/replication/)
+- Operational Concepts
+    - [SELECT Query](https://linkedin.github.io/school-of-sre/databases_sql/select_query/)
+    - [Query Performance](https://linkedin.github.io/school-of-sre/databases_sql/query_performance/)
 - [Lab](https://linkedin.github.io/school-of-sre/databases_sql/lab/)
 - [Further Reading](https://linkedin.github.io/school-of-sre/databases_sql/conclusion/#further-reading)

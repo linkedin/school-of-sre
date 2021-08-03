@@ -40,7 +40,11 @@ nav:
         - Key Concepts: databases_sql/concepts.md
         - MySQL: databases_sql/mysql.md
         - InnoDB: databases_sql/innodb.md
-        - Operational Concepts: databases_sql/operations.md
+        - Backup and Recovery: databases_sql/backup_recovery.md
+        - MySQL Replication: databases_sql/replication.md
+        - Operational Concepts:
+            - Select Query: databases_sql/select_query.md
+            - Query Performance: databases_sql/query_performance.md
         - Lab: databases_sql/lab.md
         - Conclusion: databases_sql/conclusion.md
     - NoSQL:
