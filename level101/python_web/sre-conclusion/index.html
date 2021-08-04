@@ -1004,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../systems_design/intro.md" class="md-nav__link">
+      <a href="../../systems_design/intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -1016,7 +1016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../systems_design/scalability.md" class="md-nav__link">
+      <a href="../../systems_design/scalability/" class="md-nav__link">
         Scalability
       </a>
     </li>
@@ -1028,7 +1028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../systems_design/availability.md" class="md-nav__link">
+      <a href="../../systems_design/availability/" class="md-nav__link">
         Availability
       </a>
     </li>
@@ -1040,7 +1040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../systems_design/fault-tolerance.md" class="md-nav__link">
+      <a href="../../systems_design/fault-tolerance/" class="md-nav__link">
         Fault Tolerance
       </a>
     </li>
@@ -1052,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../systems_design/conclusion.md" class="md-nav__link">
+      <a href="../../systems_design/conclusion/" class="md-nav__link">
         Conclusion
       </a>
     </li>
@@ -1406,7 +1406,7 @@
 <p>Initially we can start with deploying this app on one virtual machine on any cloud provider. But this is a <code>Single point of failure</code> which is something we never allow as an SRE (or even as an engineer). So an improvement here can be having multiple instances of applications deployed behind a load balancer. This certainly prevents problems of one machine going down.</p>
 <p>Scaling here would mean adding more instances behind the load balancer. But this is scalable upto only a certain point. After that, other bottlenecks in the system will start appearing. ie: DB will become the bottleneck, or perhaps the load balancer itself. How do you know what is the bottleneck? You need to have observability into each aspects of the application architecture.</p>
 <p>Only after you have metrics, you will be able to know what is going wrong where. <strong>What gets measured, gets fixed!</strong></p>
-<p>Get deeper insights into scaling from School Of SRE's <a href="../systems_design/scalability.md">Scalability module</a> and post going through it, apply your learnings and takeaways to this app. Think how will we make this app geographically distributed and highly available and scalable.</p>
+<p>Get deeper insights into scaling from School Of SRE's <a href="../../systems_design/scalability/">Scalability module</a> and post going through it, apply your learnings and takeaways to this app. Think how will we make this app geographically distributed and highly available and scalable.</p>
 <h2 id="monitoring-strategy">Monitoring Strategy</h2>
 <p>Once we have our application deployed. It will be working ok. But not forever. Reliability is in the title of our job and we make systems reliable by making the design in a certain way. But things still will go down. Machines will fail. Disks will behave weirdly. Buggy code will get pushed to production. And all these possible scenarios will make the system less reliable. So what do we do? <strong>We monitor!</strong></p>
 <p>We keep an eye on the system's health and if anything is not going as expected, we want ourselves to get alerted.</p>
