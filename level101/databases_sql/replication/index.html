@@ -1,0 +1,1752 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>MySQL Replication - School Of SRE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mysql-replication" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+   <script async defer data-domain="linkedin.github.io" src="https://tracking.eskratch.com/js/plausible.js"></script>
+
+
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="School Of SRE" class="md-header-nav__button md-logo" aria-label="School Of SRE">
+      
+  <img src="../../../img/sos.png" alt="logo">
+
+    </a>
+    <!-- Button to open drawer -->
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            <a href="../../.." title="School Of SRE" >
+              School Of SRE
+            </a>
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              MySQL Replication
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      
+      <label class="md-nav__link" for="nav-2">
+        Level 101
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Level 101" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Level 101
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+      
+      <label class="md-nav__link" for="nav-2-1">
+        Fundamentals Series
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Fundamentals Series" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-1">
+          <span class="md-nav__icon md-icon"></span>
+          Fundamentals Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-1" type="checkbox" id="nav-2-1-1" >
+      
+      <label class="md-nav__link" for="nav-2-1-1">
+        Linux Basics
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Linux Basics" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-1-1">
+          <span class="md-nav__icon md-icon"></span>
+          Linux Basics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_basics/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_basics/command_line_basics/" class="md-nav__link">
+        Command Line Basics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_basics/linux_server_administration/" class="md-nav__link">
+        Server Administration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_basics/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-2" type="checkbox" id="nav-2-1-2" >
+      
+      <label class="md-nav__link" for="nav-2-1-2">
+        Git
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Git" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-1-2">
+          <span class="md-nav__icon md-icon"></span>
+          Git
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/git-basics/" class="md-nav__link">
+        Git Basics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/branches/" class="md-nav__link">
+        Working With Branches
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/github-hooks/" class="md-nav__link">
+        Github and Hooks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3" >
+      
+      <label class="md-nav__link" for="nav-2-1-3">
+        Linux Networking
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Linux Networking" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-1-3">
+          <span class="md-nav__icon md-icon"></span>
+          Linux Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/dns/" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/udp/" class="md-nav__link">
+        UDP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/http/" class="md-nav__link">
+        HTTP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/tcp/" class="md-nav__link">
+        TCP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/ipr/" class="md-nav__link">
+        Routing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+      
+      <label class="md-nav__link" for="nav-2-2">
+        Python and Web
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Python and Web" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-2">
+          <span class="md-nav__icon md-icon"></span>
+          Python and Web
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/python-concepts/" class="md-nav__link">
+        Some Python Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/python-web-flask/" class="md-nav__link">
+        Python, Web and Flask
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/url-shorten-app/" class="md-nav__link">
+        The URL Shortening App
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/sre-conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
+      
+      <label class="md-nav__link" for="nav-2-3">
+        Data
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Data" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-3">
+          <span class="md-nav__icon md-icon"></span>
+          Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-1" type="checkbox" id="nav-2-3-1" checked>
+      
+      <label class="md-nav__link" for="nav-2-3-1">
+        Relational Databases
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Relational Databases" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-3-1">
+          <span class="md-nav__icon md-icon"></span>
+          Relational Databases
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        Key Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mysql/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../innodb/" class="md-nav__link">
+        InnoDB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backup_recovery/" class="md-nav__link">
+        Backup and Recovery
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          MySQL Replication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        MySQL Replication
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mysql-replication" class="md-nav__link">
+    MySQL Replication
+  </a>
+  
+    <nav class="md-nav" aria-label="MySQL Replication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-replication" class="md-nav__link">
+    Setting up Replication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    Further Reading
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-1-7" type="checkbox" id="nav-2-3-1-7" >
+      
+      <label class="md-nav__link" for="nav-2-3-1-7">
+        Operational Concepts
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Operational Concepts" data-md-level="4">
+        <label class="md-nav__title" for="nav-2-3-1-7">
+          <span class="md-nav__icon md-icon"></span>
+          Operational Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../select_query/" class="md-nav__link">
+        Select Query
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../query_performance/" class="md-nav__link">
+        Query Performance
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab/" class="md-nav__link">
+        Lab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-2" type="checkbox" id="nav-2-3-2" >
+      
+      <label class="md-nav__link" for="nav-2-3-2">
+        NoSQL
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-3-2">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_nosql/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_nosql/key_concepts/" class="md-nav__link">
+        Key Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_nosql/further_reading/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-3" type="checkbox" id="nav-2-3-3" >
+      
+      <label class="md-nav__link" for="nav-2-3-3">
+        Big Data
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Big Data" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-3-3">
+          <span class="md-nav__icon md-icon"></span>
+          Big Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../big_data/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../big_data/evolution/" class="md-nav__link">
+        Evolution and Architecture of Hadoop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../big_data/tasks/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" >
+      
+      <label class="md-nav__link" for="nav-2-4">
+        Systems Design
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Systems Design" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-4">
+          <span class="md-nav__icon md-icon"></span>
+          Systems Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/intro.md" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/scalability.md" class="md-nav__link">
+        Scalability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/availability.md" class="md-nav__link">
+        Availability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/fault-tolerance.md" class="md-nav__link">
+        Fault Tolerance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/conclusion.md" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5" >
+      
+      <label class="md-nav__link" for="nav-2-5">
+        Metrics and Monitoring
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Metrics and Monitoring" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-5">
+          <span class="md-nav__icon md-icon"></span>
+          Metrics and Monitoring
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/command-line_tools/" class="md-nav__link">
+        Command-line Tools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/third-party_monitoring/" class="md-nav__link">
+        Third-party Monitoring
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/alerts/" class="md-nav__link">
+        Proactive Monitoring with Alerts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/best_practices/" class="md-nav__link">
+        Best Practices for Monitoring
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/observability/" class="md-nav__link">
+        Observability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-6" type="checkbox" id="nav-2-6" >
+      
+      <label class="md-nav__link" for="nav-2-6">
+        Security
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Security" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-6">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/fundamentals/" class="md-nav__link">
+        Fundamentals of Security
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/network_security/" class="md-nav__link">
+        Network Security
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/threats_attacks_defences/" class="md-nav__link">
+        Threat, Attacks & Defences
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/writing_secure_code/" class="md-nav__link">
+        Writing Secure code
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CONTRIBUTING/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CODE_OF_CONDUCT/" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sre_community/" class="md-nav__link">
+        SRE Community
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mysql-replication" class="md-nav__link">
+    MySQL Replication
+  </a>
+  
+    <nav class="md-nav" aria-label="MySQL Replication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-replication" class="md-nav__link">
+    Setting up Replication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    Further Reading
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>MySQL Replication</h1>
+                
+                <h3 id="mysql-replication">MySQL Replication</h3>
+<p>Replication enables data from one MySQL host (termed as Primary) to be copied to another MySQL host (termed as Replica). MySQL Replication is asynchronous in nature by default, but it can be changed to semi-synchronous with some configurations.</p>
+<p>Some common applications of MySQL replication are:-</p>
+<ul>
+<li><strong>Read-scaling</strong> - as multiple hosts can replicate the data from a single primary host, we can set up as many replicas as we need and scale reads through them, i.e. application writes will go to a single primary host and the reads can balance between all the replicas that are there. Such a setup can improve the write performance as well, as the primary is dedicated to only updates and not reads.</li>
+<li><strong>Backups using replicas</strong> - the backup process can sometimes be a little heavy. But if we have replicas configured, then we can use one of them to get the backup without affecting the primary data at all.</li>
+<li><strong>Disaster Recovery</strong> - a replica in some other geographical region paves a proper path to configure disaster recovery.</li>
+</ul>
+<p>MySQL supports different types of synchronizations as well:-</p>
+<ul>
+<li><strong>Asynchronous</strong> - this is the default synchronization method. It is one-way, i.e. one host serves as primary and one or more hosts as replica. We will discuss this method throughout the replication topic.</li>
+</ul>
+<p><img alt="replication topologies" src="../images/replication_topologies.png" title="Different Replication Scenarios" /></p>
+<ul>
+<li><strong>Semi-Synchronous</strong> - in this type of synchronization, a commit performed on the primary host is blocked until at least one replica acknowledges it. Post the acknowledgement from any one replica, the control is returned to the session that performed the transaction. This ensures strong consistency but the replication is slower than asynchronous.</li>
+<li><strong>Delayed</strong> - we can deliberately lag the replica in a typical MySQL replication by the number of seconds desired by the use case. This type of replication safeguards from severe human errors of dropping or corrupting the data on the primary, for example, in the above diagram for Delayed Replication, if a DROP DATABASE is executed by mistake on the primary, we still have 30 minutes to recover the data from R2 as that command has not been replicated on R2 yet.</li>
+</ul>
+<p><strong>Pre-Requisites</strong></p>
+<p>Before we dive into setting up replication, we should know about the binary logs. Binary logs play a very important role in MySQL replication. Binary logs, or commonly known as <em>binlogs</em> contain events about the changes done to the database, like table structure changes, data changes via DML operations, etc. They are not used to log SELECT statements. For replication, the primary sends the information to the replicas using its binlogs about the changes done to the database, and the replicas make the same data changes. </p>
+<p>With respect to MySQL replication, the binary log format can be of two types that decides the main type of replication:-
+- Statement-Based Replication or SBR
+- Row-Based Replication or RBR</p>
+<p><strong>Statement Based Binlog Format</strong></p>
+<p>Originally, the replication in MySQL was based on SQL statements getting replicated and executed on the replica from the primary. This is called statement based logging. The binlog contains the exact SQL statement run by the session. </p>
+<p><img alt="SBR update example" src="../images/sbr_example_update_1.png" title="SBR update example" /></p>
+<p>So If we run the above statements to insert 3 records and the update 3 in a single update statement, they will be logged exactly the same as when we executed them.</p>
+<p><img alt="SBR binlog" src="../images/sbr_binlog_view_1.png" title="SBR binlog" /></p>
+<p><strong>Row Based Binlog Format</strong></p>
+<p>The Row based is the default one in the latest MySQL releases. This is a lot different from the Statement format as here, row events are logged instead of statements. By that we mean, in the above example one update statement affected 3 records, but binlog had only one update statement; if it is a row based format, binlog will have an event for each record updated.</p>
+<p><img alt="RBR update example" src="../images/rbr_example_update_1.png" title="RBR update example" /></p>
+<p><img alt="RBR binlog" src="../images/rbr_binlog_view_1.png" title="RBR binlog" /></p>
+<p><strong>Statement Based v/s Row Based binlogs</strong></p>
+<p>Let’s have a look at the operational differences between statement-based and row-based binlogs. </p>
+<table>
+<thead>
+<tr>
+<th>Statement Based</th>
+<th>Row Based</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logs SQL statements as executed</td>
+<td>Logs row events based on SQL statements executed</td>
+</tr>
+<tr>
+<td>Takes lesser disk space</td>
+<td>Takes more disk space</td>
+</tr>
+<tr>
+<td>Restoring using binlogs is faster</td>
+<td>Restoring using binlogs is slower</td>
+</tr>
+<tr>
+<td>When used for replication, if any statement has a predefined function that has its own value, like sysdate(), uuid() etc, the output could be different on the replica which makes it inconsistent.</td>
+<td>Whatever is executed becomes a row event with values, so there will be no problem if such functions are used in SQL statements.</td>
+</tr>
+<tr>
+<td>Only statements are logged so no other row events are generated.</td>
+<td>A lot of events are generated when a table is copied into another using INSERT INTO SELECT.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong> - There is another type of binlog format called <strong>Mixed</strong>. With mixed logging, statement based is used by default but it switches to row based in certain cases. If MySQL cannot guarantee that statement based logging is safe for the statements executed, it issues a warning and switches to row based for those statements.</p>
+<p>We will be using binary log format as Row for the entire replication topic.</p>
+<p><strong>Replication in Motion</strong></p>
+<p><img alt="replication in motion" src="../images/replication_function.png" title="Replication in motion" /></p>
+<p>The above figure indicates how a typical MySQL replication works.</p>
+<ol>
+<li>Replica_IO_Thread is responsible to fetch the binlog events from the primary binary logs to the replica</li>
+<li>On the Replica host, relay logs are created which are exact copies of the binary logs. If the binary logs on primary are in row format, the relay logs will be the same.</li>
+<li>Replica_SQL_Thread applies the relay logs on the replica MySQL server.</li>
+<li>If log-bin is enabled on the replica, then the replica will have its own binary logs as well. If log-slave-updates is enabled, then it will have the updates from the primary logged in the binlogs as well.</li>
+</ol>
+<h4 id="setting-up-replication">Setting up Replication</h4>
+<p>In this section, we will set up a simple asynchronous replication. The binlogs will be in row based format. The replication will be set up on two fresh hosts with no prior data present. There are two different ways in which we can set up replication. </p>
+<ul>
+<li><strong>Binlog based</strong> - Each replica keeps a record of the binlog coordinates on the primary - current binlog and position in the binlog till where it has read and processed. So, at a time different replicas might be reading different parts of the same binlog.</li>
+<li><strong>GTID based</strong> - Every transaction gets an identifier called global transaction identifier or GTID. There is no need to keep the record of binlog coordinates, as long as the replica has all the GTIDs executed on the primary, it is consistent with the primary. A typical GTID is the server_uuid:# positive integer.</li>
+</ul>
+<p>We will set up a GTID based replication in the following section but will also discuss binlog based replication setup as well.</p>
+<p><strong>Primary Host Configurations</strong></p>
+<p>The following config parameters should be present in the primary my.cnf file for setting up GTID based replication.</p>
+<pre><code>server-id - a unique ID for the mysql server
+log-bin - the binlog location
+binlog-format - ROW | STATEMENT (we will use ROW)
+gtid-mode - ON
+enforce-gtid-consistency - ON (allows execution of only those statements which can be logged using GTIDs)
+</code></pre>
+<p><strong>Replica Host Configurations</strong></p>
+<p>The following config parameters should be present in the replica my.cnf file for setting up replication.</p>
+<pre><code>server-id - different than the primary host
+log-bin - (optional, if you want replica to log its own changes as well)
+binlog-format - depends on the above
+gtid-mode - ON
+enforce-gtid-consistency - ON
+log-slave-updates - ON (if binlog is enabled, then we can enable this. This enables the replica to log the changes coming from the primary along with its own changes. Helps in setting up chain replication)
+</code></pre>
+<p><strong>Replication User</strong></p>
+<p>Every replica connects to the primary using a mysql user for replicating. So there must be a mysql user account for the same on the primary host. Any user can be used for this purpose provided it has REPLICATION SLAVE privilege. If the sole purpose is replication then we can have a user with only the required privilege.</p>
+<p>On the primary host</p>
+<pre><code>mysql&gt; create user repl_user@&lt;replica_IP&gt; identified by 'xxxxx';
+
+mysql&gt; grant replication slave on *.* to repl_user@'&lt;replica_IP&gt;';
+</code></pre>
+<p><strong>Obtaining Starting position from Primary</strong></p>
+<p>Run the following command on the primary host</p>
+<pre><code>mysql&gt; show master status\G
+*************************** 1. row ***************************
+             File: mysql-bin.000001
+         Position: 73
+     Binlog_Do_DB:
+ Binlog_Ignore_DB:
+Executed_Gtid_Set: e17d0920-d00e-11eb-a3e6-000d3aa00f87:1-3
+1 row in set (0.00 sec)
+</code></pre>
+<p>If we are working with binary log based replication, the top two output lines are the most important ones. That tells the current binlog on the primary host and till what position it has written. For fresh hosts we know that no data is written so we can directly set up replication using the very first binlog file and position 4. If we are setting up a replication from a backup, then that changes the way we obtain the starting position. For GTIDs, the executed_gtid_set is the value where primary is right now. Again, for a fresh setup, we don’t have to specify anything about the starting point and it will start from the transaction id 1, but when we set up from a backup, the backup will contain the GTID positions till where backup has been taken.</p>
+<p><strong>Setting up Replica</strong></p>
+<p>The replication setup must know about the primary host, the user and password to connect, the binlog coordinates (for binlog based replication) or the GTID auto-position parameter.
+The following command is used for setting up</p>
+<pre><code>change master to
+master_host = '&lt;primary host IP&gt;',
+master_port = &lt;primary host port - default=3306&gt;,
+master_user = 'repl_user',
+master_password = 'xxxxx',
+master_auto_position = 1;
+</code></pre>
+<p><strong>Note</strong> - the <em>Change Master To</em> command has been replaced with <em>Change Replication Source To</em> from Mysql 8.0.23 onwards, also all the <em>master</em> and <em>slave</em> keywords are replaced with <em>source</em> and <em>replica</em>.</p>
+<p>If it is binlog based replication, then instead of master_auto_position, we need to specify the binlog coordinates.</p>
+<pre><code>master_log_file = 'mysql-bin.000001',
+master_log_pos = 4
+</code></pre>
+<p><strong>Starting Replication and Check Status</strong></p>
+<p>Now that everything is configured, we just need to start the replication on the replica via the following command</p>
+<p><code>start slave;</code></p>
+<p>OR from MySQL 8.0.23 onwards,</p>
+<p><code>start replica;</code></p>
+<p>Whether or not the replication is running successfully, we can determine by running the following command</p>
+<p><code>show slave status\G</code></p>
+<p>OR from MySQL 8.0.23 onwards,</p>
+<p><code>show replica status\G</code></p>
+<pre><code>mysql&gt; show replica status\G
+*************************** 1. row ***************************
+             Replica_IO_State: Waiting for master to send event
+                  Source_Host: &lt;primary IP&gt;
+                  Source_User: repl_user
+                  Source_Port: &lt;primary port&gt;
+                Connect_Retry: 60
+              Source_Log_File: mysql-bin.000001
+          Read_Source_Log_Pos: 852
+               Relay_Log_File: mysql-relay-bin.000002
+                Relay_Log_Pos: 1067
+        Relay_Source_Log_File: mysql-bin.000001
+           Replica_IO_Running: Yes
+          Replica_SQL_Running: Yes
+              Replicate_Do_DB:
+          Replicate_Ignore_DB:
+           Replicate_Do_Table:
+       Replicate_Ignore_Table:
+      Replicate_Wild_Do_Table:
+  Replicate_Wild_Ignore_Table:
+                   Last_Errno: 0
+                   Last_Error:
+                 Skip_Counter: 0
+          Exec_Source_Log_Pos: 852
+              Relay_Log_Space: 1283
+              Until_Condition: None
+               Until_Log_File:
+                Until_Log_Pos: 0
+           Source_SSL_Allowed: No
+           Source_SSL_CA_File:
+           Source_SSL_CA_Path:
+              Source_SSL_Cert:
+            Source_SSL_Cipher:
+               Source_SSL_Key:
+        Seconds_Behind_Source: 0
+Source_SSL_Verify_Server_Cert: No
+                Last_IO_Errno: 0
+                Last_IO_Error:
+               Last_SQL_Errno: 0
+               Last_SQL_Error:
+  Replicate_Ignore_Server_Ids:
+             Source_Server_Id: 1
+                  Source_UUID: e17d0920-d00e-11eb-a3e6-000d3aa00f87
+             Source_Info_File: mysql.slave_master_info
+                    SQL_Delay: 0
+          SQL_Remaining_Delay: NULL
+    Replica_SQL_Running_State: Slave has read all relay log; waiting for more updates
+           Source_Retry_Count: 86400
+                  Source_Bind:
+      Last_IO_Error_Timestamp:
+     Last_SQL_Error_Timestamp:
+               Source_SSL_Crl:
+           Source_SSL_Crlpath:
+           Retrieved_Gtid_Set: e17d0920-d00e-11eb-a3e6-000d3aa00f87:1-3
+            Executed_Gtid_Set: e17d0920-d00e-11eb-a3e6-000d3aa00f87:1-3
+                Auto_Position: 1
+         Replicate_Rewrite_DB:
+                 Channel_Name:
+           Source_TLS_Version:
+       Source_public_key_path:
+        Get_Source_public_key: 0
+            Network_Namespace:
+1 row in set (0.00 sec)
+</code></pre>
+<p>Some of the parameters are explained below:-</p>
+<ul>
+<li><strong>Relay_Source_Log_File</strong> - the primary’s file where replica is currently reading from</li>
+<li><strong>Execute_Source_Log_Pos</strong> - for the above file on which position is the replica reading currently from. These two parameters are of utmost importance when binlog based replication is used.</li>
+<li><strong>Replica_IO_Running</strong> - IO thread of replica is running or not</li>
+<li><strong>Replica_SQL_Running</strong> - SQL thread of replica is running or not</li>
+<li><strong>Seconds_Behind_Source</strong> - the difference of seconds when a statement was executed on Primary and then on Replica. This indicates how much replication lag is there.</li>
+<li><strong>Source_UUID</strong> - the uuid of the primary host</li>
+<li><strong>Retrieved_Gtid_Set</strong> - the GTIDs fetched from the primary host by the replica to be executed.</li>
+<li><strong>Executed_Gtid_Set</strong> - the GTIDs executed on the replica. This set remains the same for the entire cluster if the replicas are in sync.</li>
+<li><strong>Auto_Position</strong> - it directs the replica to fetch the next GTID automatically</li>
+</ul>
+<p><strong>Create a Replica for the already setup cluster</strong></p>
+<p>The steps discussed in the previous section talks about the setting up replication on two fresh hosts. When we have to set up a replica for a host which is already serving applications, then the backup of the primary is used, either fresh backup taken for the replica (should only be done if the traffic it is serving is less) or use a recently taken backup.</p>
+<p>If the size of the databases on the MySQL primary server is small, less than 100G recommended, then mysqldump can be used to take backup along with the following options.</p>
+<p><code>mysqldump -uroot -p -hhost_ip -P3306 --all-databases --single-transaction --master-data=1 &gt; primary_host.bkp</code></p>
+<ul>
+<li><code>--single-transaction</code> - this option starts a transaction before taking the backup which ensures it is consistent. As transactions are isolated from each other, so no other writes affect the backup.</li>
+<li><code>--master-data</code> - this option is required if binlog based replication is desired to be set up. It includes the binary log file and log file position in the backup file.</li>
+</ul>
+<p>When GTID mode is enabled and <strong>mysqldump</strong> is executed, it includes the GTID executed to be used to start the replica after the backup position. The contents of the mysqldump output file will have the following</p>
+<p><img alt="GTID info in mysqldump" src="../images/mysqldump_gtid_text.png" title="GTID info in mysqldump" /></p>
+<p>It is recommended to comment these before restoring otherwise they could throw errors. Also, using master-data=2 will automatically comment the master_log_file line.</p>
+<p>Similarly, when taking backup of the host using <strong>xtrabackup</strong>, the file <em>xtrabckup_info</em> file contains the information about binlog file and file position, as well as the GTID executed set.</p>
+<pre><code>server_version = 8.0.25
+start_time = 2021-06-22 03:45:17
+end_time = 2021-06-22 03:45:20
+lock_time = 0
+binlog_pos = filename 'mysql-bin.000007', position '196', GTID of the last change 'e17d0920-d00e-11eb-a3e6-000d3aa00f87:1-5'
+innodb_from_lsn = 0
+innodb_to_lsn = 18153149
+partial = N
+incremental = N
+format = file
+compressed = N
+encrypted = N
+</code></pre>
+<p>Now, after setting MySQL server on the desired host, restore the backup taken from any one of the above methods. If the intended way is binlog based replication, then use the binlog file and position info in the following command</p>
+<pre><code>change Replication Source to 
+source_host = ‘primary_ip’,
+source_port = 3306,
+source_user = ‘repl_user’,
+source_password = ‘xxxxx’,
+source_log_file = ‘mysql-bin.000007’,
+source_log_pos = ‘196’;
+</code></pre>
+<p>If the replication needs to be set via GITDs, then run the below command to tell the replica about the GTIDs already executed. On the Replica host, run th following commands</p>
+<pre><code>reset master;
+
+set global gtid_purged = ‘e17d0920-d00e-11eb-a3e6-000d3aa00f87:1-5’
+
+change replication source to
+source_host = ‘primary_ip’,
+source_port = 3306,
+source_user = ‘repl_user’,
+source_password = ‘xxxxx’,
+source_auto_position = 1
+</code></pre>
+<p>The reset master command resets the position of the binary log to initial. It can be skipped if the host is a freshly installed MySQL, but we restored a backup so it is necessary. The gtid_purged global variable lets the replica know the GTIDs that have already been executed, so that the replication can start after that. Then in the change source command, we set the auto-position to 1 which automatically gets the next GTID to proceed.</p>
+<h4 id="further-reading">Further Reading</h4>
+<ul>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/replication-solutions.html">More applications of Replication</a></li>
+<li><a href="https://github.com/openark/orchestrator/tree/master/docs">Automtaed Failovers using MySQL Orchestrator</a></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../backup_recovery/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Backup and Recovery
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../select_query/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Select Query
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright 2020 LinkedIn Corporation. All Rights Reserved. Licensed under the Creative Commons Attribution 4.0 International Public License
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/linkedin/school-of-sre" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

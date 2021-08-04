@@ -1,0 +1,2449 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Network Security - School Of SRE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#part-ii-network-security" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+   <script async defer data-domain="linkedin.github.io" src="https://tracking.eskratch.com/js/plausible.js"></script>
+
+
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="School Of SRE" class="md-header-nav__button md-logo" aria-label="School Of SRE">
+      
+  <img src="../../../img/sos.png" alt="logo">
+
+    </a>
+    <!-- Button to open drawer -->
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            <a href="../../.." title="School Of SRE" >
+              School Of SRE
+            </a>
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Network Security
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      
+      <label class="md-nav__link" for="nav-2">
+        Level 101
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Level 101" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Level 101
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+      
+      <label class="md-nav__link" for="nav-2-1">
+        Fundamentals Series
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Fundamentals Series" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-1">
+          <span class="md-nav__icon md-icon"></span>
+          Fundamentals Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-1" type="checkbox" id="nav-2-1-1" >
+      
+      <label class="md-nav__link" for="nav-2-1-1">
+        Linux Basics
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Linux Basics" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-1-1">
+          <span class="md-nav__icon md-icon"></span>
+          Linux Basics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_basics/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_basics/command_line_basics/" class="md-nav__link">
+        Command Line Basics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_basics/linux_server_administration/" class="md-nav__link">
+        Server Administration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_basics/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-2" type="checkbox" id="nav-2-1-2" >
+      
+      <label class="md-nav__link" for="nav-2-1-2">
+        Git
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Git" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-1-2">
+          <span class="md-nav__icon md-icon"></span>
+          Git
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/git-basics/" class="md-nav__link">
+        Git Basics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/branches/" class="md-nav__link">
+        Working With Branches
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/github-hooks/" class="md-nav__link">
+        Github and Hooks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3" >
+      
+      <label class="md-nav__link" for="nav-2-1-3">
+        Linux Networking
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Linux Networking" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-1-3">
+          <span class="md-nav__icon md-icon"></span>
+          Linux Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/dns/" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/udp/" class="md-nav__link">
+        UDP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/http/" class="md-nav__link">
+        HTTP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/tcp/" class="md-nav__link">
+        TCP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/ipr/" class="md-nav__link">
+        Routing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+      
+      <label class="md-nav__link" for="nav-2-2">
+        Python and Web
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Python and Web" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-2">
+          <span class="md-nav__icon md-icon"></span>
+          Python and Web
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/python-concepts/" class="md-nav__link">
+        Some Python Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/python-web-flask/" class="md-nav__link">
+        Python, Web and Flask
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/url-shorten-app/" class="md-nav__link">
+        The URL Shortening App
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/sre-conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" >
+      
+      <label class="md-nav__link" for="nav-2-3">
+        Data
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Data" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-3">
+          <span class="md-nav__icon md-icon"></span>
+          Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-1" type="checkbox" id="nav-2-3-1" >
+      
+      <label class="md-nav__link" for="nav-2-3-1">
+        Relational Databases
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Relational Databases" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-3-1">
+          <span class="md-nav__icon md-icon"></span>
+          Relational Databases
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/concepts/" class="md-nav__link">
+        Key Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/mysql/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/innodb/" class="md-nav__link">
+        InnoDB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/backup_recovery/" class="md-nav__link">
+        Backup and Recovery
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/replication/" class="md-nav__link">
+        MySQL Replication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-1-7" type="checkbox" id="nav-2-3-1-7" >
+      
+      <label class="md-nav__link" for="nav-2-3-1-7">
+        Operational Concepts
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Operational Concepts" data-md-level="4">
+        <label class="md-nav__title" for="nav-2-3-1-7">
+          <span class="md-nav__icon md-icon"></span>
+          Operational Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/select_query/" class="md-nav__link">
+        Select Query
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/query_performance/" class="md-nav__link">
+        Query Performance
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/lab/" class="md-nav__link">
+        Lab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-2" type="checkbox" id="nav-2-3-2" >
+      
+      <label class="md-nav__link" for="nav-2-3-2">
+        NoSQL
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-3-2">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_nosql/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_nosql/key_concepts/" class="md-nav__link">
+        Key Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_nosql/further_reading/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-3" type="checkbox" id="nav-2-3-3" >
+      
+      <label class="md-nav__link" for="nav-2-3-3">
+        Big Data
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Big Data" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-3-3">
+          <span class="md-nav__icon md-icon"></span>
+          Big Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../big_data/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../big_data/evolution/" class="md-nav__link">
+        Evolution and Architecture of Hadoop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../big_data/tasks/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" >
+      
+      <label class="md-nav__link" for="nav-2-4">
+        Systems Design
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Systems Design" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-4">
+          <span class="md-nav__icon md-icon"></span>
+          Systems Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/intro.md" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/scalability.md" class="md-nav__link">
+        Scalability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/availability.md" class="md-nav__link">
+        Availability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/fault-tolerance.md" class="md-nav__link">
+        Fault Tolerance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/conclusion.md" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5" >
+      
+      <label class="md-nav__link" for="nav-2-5">
+        Metrics and Monitoring
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Metrics and Monitoring" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-5">
+          <span class="md-nav__icon md-icon"></span>
+          Metrics and Monitoring
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/command-line_tools/" class="md-nav__link">
+        Command-line Tools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/third-party_monitoring/" class="md-nav__link">
+        Third-party Monitoring
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/alerts/" class="md-nav__link">
+        Proactive Monitoring with Alerts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/best_practices/" class="md-nav__link">
+        Best Practices for Monitoring
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/observability/" class="md-nav__link">
+        Observability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-6" type="checkbox" id="nav-2-6" checked>
+      
+      <label class="md-nav__link" for="nav-2-6">
+        Security
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Security" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-6">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fundamentals/" class="md-nav__link">
+        Fundamentals of Security
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Network Security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Network Security
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-key-infrastructure" class="md-nav__link">
+    Public Key Infrastructure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipsec-a-security-protocol-at-the-network-layer" class="md-nav__link">
+    IPsec: A Security Protocol at the Network Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pgp-smime-email-security" class="md-nav__link">
+    PGP &amp; S/MIME : Email Security
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-perimeter-security" class="md-nav__link">
+    Network  Perimeter Security
+  </a>
+  
+    <nav class="md-nav" aria-label="Network  Perimeter Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-firewall-framework" class="md-nav__link">
+    General Firewall Framework
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packet-filters" class="md-nav__link">
+    Packet Filters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-gateways" class="md-nav__link">
+    Circuit Gateways
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-gatewaysalg" class="md-nav__link">
+    Application Gateways(ALG)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trusted-systems-bastion-hosts" class="md-nav__link">
+    Trusted Systems &amp; Bastion Hosts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-techniques-scannings-packet-capturing" class="md-nav__link">
+    Common Techniques &amp; Scannings, Packet Capturing
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Techniques &amp; Scannings, Packet Capturing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scanning-ports-with-nmap" class="md-nav__link">
+    Scanning Ports with Nmap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-nmap-scan" class="md-nav__link">
+    Types of Nmap Scan:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openvas" class="md-nav__link">
+    OpenVAS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wireshark" class="md-nav__link">
+    WireShark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dumpcap" class="md-nav__link">
+    DumpCap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemonlogger" class="md-nav__link">
+    DaemonLogger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netsniff-ng" class="md-nav__link">
+    NetSniff-NG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netflow" class="md-nav__link">
+    Netflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ids" class="md-nav__link">
+    IDS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chinks-in-the-armour-tcpip-security-issues" class="md-nav__link">
+    Chinks In The Armour (TCP/IP Security Issues)
+  </a>
+  
+    <nav class="md-nav" aria-label="Chinks In The Armour (TCP/IP Security Issues)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-spoofing" class="md-nav__link">
+    IP Spoofing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#covert-channel" class="md-nav__link">
+    Covert Channel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip-fragmentation-attack" class="md-nav__link">
+    IP Fragmentation Attack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-hijacking" class="md-nav__link">
+    Connection Hijacking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffer-overflow" class="md-nav__link">
+    Buffer Overflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-spoofing" class="md-nav__link">
+    More Spoofing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../threats_attacks_defences/" class="md-nav__link">
+        Threat, Attacks & Defences
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../writing_secure_code/" class="md-nav__link">
+        Writing Secure code
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CONTRIBUTING/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CODE_OF_CONDUCT/" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sre_community/" class="md-nav__link">
+        SRE Community
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-key-infrastructure" class="md-nav__link">
+    Public Key Infrastructure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipsec-a-security-protocol-at-the-network-layer" class="md-nav__link">
+    IPsec: A Security Protocol at the Network Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pgp-smime-email-security" class="md-nav__link">
+    PGP &amp; S/MIME : Email Security
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-perimeter-security" class="md-nav__link">
+    Network  Perimeter Security
+  </a>
+  
+    <nav class="md-nav" aria-label="Network  Perimeter Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-firewall-framework" class="md-nav__link">
+    General Firewall Framework
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packet-filters" class="md-nav__link">
+    Packet Filters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-gateways" class="md-nav__link">
+    Circuit Gateways
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-gatewaysalg" class="md-nav__link">
+    Application Gateways(ALG)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trusted-systems-bastion-hosts" class="md-nav__link">
+    Trusted Systems &amp; Bastion Hosts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-techniques-scannings-packet-capturing" class="md-nav__link">
+    Common Techniques &amp; Scannings, Packet Capturing
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Techniques &amp; Scannings, Packet Capturing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scanning-ports-with-nmap" class="md-nav__link">
+    Scanning Ports with Nmap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-nmap-scan" class="md-nav__link">
+    Types of Nmap Scan:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openvas" class="md-nav__link">
+    OpenVAS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wireshark" class="md-nav__link">
+    WireShark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dumpcap" class="md-nav__link">
+    DumpCap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemonlogger" class="md-nav__link">
+    DaemonLogger
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netsniff-ng" class="md-nav__link">
+    NetSniff-NG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netflow" class="md-nav__link">
+    Netflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ids" class="md-nav__link">
+    IDS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chinks-in-the-armour-tcpip-security-issues" class="md-nav__link">
+    Chinks In The Armour (TCP/IP Security Issues)
+  </a>
+  
+    <nav class="md-nav" aria-label="Chinks In The Armour (TCP/IP Security Issues)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-spoofing" class="md-nav__link">
+    IP Spoofing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#covert-channel" class="md-nav__link">
+    Covert Channel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip-fragmentation-attack" class="md-nav__link">
+    IP Fragmentation Attack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-hijacking" class="md-nav__link">
+    Connection Hijacking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buffer-overflow" class="md-nav__link">
+    Buffer Overflow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-spoofing" class="md-nav__link">
+    More Spoofing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="part-ii-network-security">Part II: Network Security</h1>
+<h2 id="introduction">Introduction</h2>
+<ul>
+<li>TCP/IP is the dominant networking technology today. It is a five-layer architecture. These layers are, from top to bottom, the application layer, the transport layer (TCP), the network layer (IP), the data-link layer, and the physical layer. In addition to TCP/IP, there also are other networking technologies. For convenience, we use the OSI network model to represent non-TCP/IP network technologies. Different networks are interconnected using gateways. A gateway can be placed at any layer.</li>
+<li>
+<p>The OSI model is a seven-layer architecture. The OSI architecture is similar to the TCP/IP architecture, except that the OSI model specifies two additional layers between the application layer and the transport layer in the TCP/IP architecture. These two layers are the presentation layer and the session layer. Figure 5.1 shows the relationship between the TCP/IP layers and the OSI layers. The application layer in TCP/IP corresponds to the application layer and the presentation layer in OSI. The transport layer in TCP/IP corresponds to the session layer and the transport layer in OSI. The remaining three layers in the TCP/IP architecture are one-to-one correspondent to the remaining three layers in the OSI model.</p>
+<p><img alt="image14" src="../images/image14.png" />
+Correspondence between layers of the TCP/IP architecture and the OSI model. Also shown are placements of cryptographic algorithms in network layers, where the dotted arrows indicate actual communications of cryptographic algorithms</p>
+</li>
+</ul>
+<p>The functionalities of OSI layers are briefly described as follows:</p>
+<ol>
+<li>The application layer serves as an interface between applications and network programs. It supports application programs and end-user processing. Common application-layer programs include remote logins, file transfer, email, and Web browsing.</li>
+<li>The presentation layer is responsible for dealing with data that is formed differently. This protocol layer allows application-layer programs residing on different sides of a communication channel with different platforms to understand each other's data formats regardless of how they are presented.</li>
+<li>The session layer is responsible for creating, managing, and closing a communication connection.</li>
+<li>The transport layer is responsible for providing reliable connections, such as packet sequencing, traffic control, and congestion control.</li>
+<li>The network layer is responsible for routing device-independent data packets from the current hop to the next hop.</li>
+<li>The data-link layer is responsible for encapsulating device-independent data packets into device-dependent data frames. It has two sublayers: logical link control and media access control.</li>
+<li>
+<p>The physical layer is responsible for transmitting device-dependent frames through some physical media.</p>
+</li>
+<li>
+<p>Starting from the application layer, data generated from an application program is passed down layer-by-layer to the physical layer. Data from the previous layer is enclosed in a new envelope at the current layer, where the data from the previous layer is also just an envelope containing the data from the layer before it. This is similar to enclosing a smaller envelope in a larger one. The envelope added at each layer contains sufficient information for handling the packet. Application-layer data are divided into blocks small enough to be encapsulated in an envelope at the next layer.</p>
+</li>
+<li>
+<p>Application data blocks are “dressed up” in the TCP/IP architecture according to the following basic steps. At the sending side, an application data block is encapsulated in a TCP packet when it is passed down to the TCP layer. In other words, a TCP packet consists of a header and a payload, where the header corresponds to the TCP envelope and the payload is the application data block. Likewise, the TCP packet will be encapsulated in an IP packet when it is passed down to the IP layer. An IP packet consists of a header and a payload, which is the TCP packet passed down from the TCP layer. The IP packet will be encapsulated in a device-dependent frame (e.g., an Ethernet frame) when it is passed down to the data-link layer. A frame has a header, and it may also have a trailer. For example, in addition to having a header, an Ethernet frame also has a 32-bit cyclic redundancy check (CRC) trailer. When it is passed down to the physical layer, a frame will be transformed into a sequence of media signals for transmission</p>
+<p><img alt="image15" src="../images/image15.png" />
+    Flow Diagram of a Packet Generation</p>
+</li>
+<li>
+<p>At the destination side, the medium signals are converted by the physical layer into a frame, which is passed up to the data-link layer. The data-link layer passes the frame payload (i.e., the IP packet encapsulated in the frame) up to the IP layer. The IP layer passes the IP payload, namely, the TCP packet encapsulated in the IP packet, up to the TCP layer. The TCP layer passes the TCP payload, namely, the application data block, up to the application layer. When a packet arrives at a router, it only goes up to the IP layer, where certain fields in the IP header are modified (e.g., the value of TTL is decreased by 1). This modified packet is then passed back down layer-by-layer to the physical layer for further transmission.</p>
+</li>
+</ol>
+<h3 id="public-key-infrastructure">Public Key Infrastructure</h3>
+<ul>
+<li>To deploy cryptographic algorithms in network applications, we need a way to distribute secret keys using open networks. Public-key cryptography is the best way to distribute these secret keys. To use public-key cryptography, we need to build a public-key infrastructure (PKI) to support and manage public-key certificates and certificate authority (CA) networks. In particular, PKIs are set up to perform the following functions:</li>
+<li>Determine the legitimacy of users before issuing public-key certificates to them.</li>
+<li>Issue public-key certificates upon user requests.</li>
+<li>Extend public-key certificates valid time upon user requests.</li>
+<li>Revoke public-key certificates upon users' requests or when the corresponding private keys are compromised.</li>
+<li>Store and manage public-key certificates.</li>
+<li>Prevent digital signature signers from denying their signatures.</li>
+<li>Support CA networks to allow different CAs to authenticate public-key certificates issued by other CAs.</li>
+<li>X.509: <a href="https://certificatedecoder.dev/?gclid=EAIaIQobChMI0M731O6G6gIVVSQrCh04bQaAEAAYASAAEgKRkPD_BwE">https://certificatedecoder.dev/?gclid=EAIaIQobChMI0M731O6G6gIVVSQrCh04bQaAEAAYASAAEgKRkPD_BwE</a></li>
+</ul>
+<h3 id="ipsec-a-security-protocol-at-the-network-layer">IPsec: A Security Protocol at the Network Layer</h3>
+<ul>
+<li>IPsec is a major security protocol at the network layer</li>
+<li>IPsec provides a potent platform for constructing virtual private networks (VPN). VPNs are private networks overlayed on public networks.</li>
+<li>The purpose of deploying cryptographic algorithms at the network layer is to encrypt or authenticate IP packets (either just the payloads or the whole packets).</li>
+<li>IPsec also specifies how to exchange keys. Thus, IPsec consists of authentication protocols, encryption protocols, and key exchange protocols. They are referred to, respectively, as authentication header (AH), encapsulating security payload (ESP), and Internet key exchange (IKE).</li>
+</ul>
+<h3 id="pgp-smime-email-security">PGP &amp; S/MIME : Email Security</h3>
+<ul>
+<li>There are several security protocols at the application layer. The most used of these protocols are email security protocols namely PGP and S/MIME.</li>
+<li>SMTP (“Simple Mail Transfer Protocol”) is used for sending and delivering from a client to a server via port 25: it’s the outgoing server. On the contrary, POP (“Post Office Protocol”) allows the users to pick up the message and download it into their inbox: it’s the incoming server. The latest version of the Post Office Protocol is named POP3, and it’s been used since 1996; it uses port 110</li>
+</ul>
+<p>PGP</p>
+<ul>
+<li>PGP implements all major cryptographic algorithms, the ZIP compression algorithm, and the Base64 encoding algorithm.</li>
+<li>It can be used to authenticate a message, encrypt a message, or both. PGP follows the following general process: authentication, ZIP compression, encryption, and Base64 encoding.</li>
+<li>The Base64 encoding procedure makes the message ready for SMTP transmission</li>
+</ul>
+<p>GPG (GnuPG)</p>
+<ul>
+<li>GnuPG is another free encryption standard that companies may use that is based on OpenPGP.</li>
+<li>GnuPG serves as a replacement for Symantec’s PGP.</li>
+<li>The main difference is the supported algorithms. However, GnuPG plays nice with PGP by design. Because GnuPG is open, some businesses would prefer the technical support and the user interface that comes with Symantec’s PGP.</li>
+<li>It is important to note that there are some nuances between the compatibility of GnuPG and PGP, such as the compatibility between certain algorithms, but in most applications such as email, there are workarounds. One such algorithm is the IDEA Module which isn’t included in GnuPG out of the box due to patent issues.</li>
+</ul>
+<p>S/MIME</p>
+<ul>
+<li>SMTP can only handle 7-bit ASCII text (You can use UTF-8 extensions to alleviate these limitations, ) messages. While POP can handle other content types besides 7-bit ASCII, POP may, under a common default setting, download all the messages stored in the mail server to the user's local computer. After that, if POP removes these messages from the mail server. This makes it difficult for the users to read their messages from multiple computers.</li>
+<li>The Multipurpose Internet Mail Extension protocol (MIME) was designed to support sending and receiving email messages in various formats, including nontext files generated by word processors, graphics files, sound files, and video clips. Moreover, MIME allows a single message to include mixed types of data in any combination of these formats.</li>
+<li>The Internet Mail Access Protocol (IMAP), operated on TCP port 143(only for non-encrypted), stores (Configurable on both server &amp; client just like PoP) incoming email messages in the mail server until the user deletes them deliberately. This allows the users to access their mailbox from multiple machines and download messages to a local machine without deleting it from the mailbox in the mail server.</li>
+</ul>
+<p>SSL/TLS</p>
+<ul>
+<li>SSL uses a PKI to decide if a server’s public key is trustworthy by requiring servers to use a security certificate signed by a trusted CA.</li>
+<li>When Netscape Navigator 1.0 was released, it trusted a single CA operated by the RSA Data Security corporation.</li>
+<li>The server’s public RSA keys were used to be stored in the security certificate, which can then be used by the browser to establish a secure communication channel. The security certificates we use today still rely on the same standard (named X.509) that Netscape Navigator 1.0 used back then.</li>
+<li>Netscape intended to train users(though this didn’t work out later) to differentiate secure communications from insecure ones, so they put a lock icon next to the address bar. When the lock is open, the communication is insecure. A closed lock means communication has been secured with SSL, which required the server to provide a signed certificate. You’re obviously familiar with this icon as it’s been in every browser ever since. The engineers at Netscape truly created a standard for secure internet communications.</li>
+<li>
+<p>A year after releasing SSL 2.0, Netscape fixed several security issues and released SSL 3.0, a protocol that, albeit being officially deprecated since June 2015, remains in use in certain parts of the world more than 20 years after its introduction. To standardize SSL, the Internet Engineering Task Force (IETF) created a slightly modified SSL 3.0 and, in 1999, unveiled it as Transport Layer Security (TLS) 1.0. The name change between SSL and TLS continues to confuse people today. Officially, TLS is the new SSL, but in practice, people use SSL and TLS interchangeably to talk about any version of the protocol.</p>
+</li>
+<li>
+<p>Must See:</p>
+</li>
+<li><a href="https://tls.ulfheim.net/">https://tls.ulfheim.net/</a></li>
+<li><a href="https://davidwong.fr/tls13/">https://davidwong.fr/tls13/</a></li>
+</ul>
+<h2 id="network-perimeter-security">Network  Perimeter Security</h2>
+<p>Let us see how we keep a check on the perimeter i.e the edges, the first layer of protection</p>
+<h3 id="general-firewall-framework">General Firewall Framework</h3>
+<ul>
+<li>Firewalls are needed because encryption algorithms cannot effectively stop malicious packets from getting into an edge network.</li>
+<li>This is because IP packets, regardless of whether they are encrypted, can always be forwarded into an edge network.</li>
+<li>Firewalls that were developed in the 1990s are important instruments to help restrict network access. A firewall may be a hardware device, a software package, or a combination of both.</li>
+<li>Packets flowing into the internal network from the outside should be evaluated before they are allowed to enter. One of the critical elements of a firewall is its ability to examine packets without imposing a negative impact on communication speed while providing security protections for the internal network.</li>
+<li>The packet inspection that is carried out by firewalls can be done using several different methods. Based on the particular method used by the firewall, it can be characterized as either a packet filter, circuit gateway, application gateway, or dynamic packet filter.</li>
+</ul>
+<h3 id="packet-filters">Packet Filters</h3>
+<ul>
+<li>It inspects ingress packets coming to an internal network from outside and inspects egress packets going outside from an internal network</li>
+<li>Packing filtering only inspects IP headers and TCP headers, not the payloads generated at the application layer</li>
+<li>A packet-filtering firewall uses a set of rules to determine whether a packet should be allowed or denied to pass through.</li>
+<li>2 types:</li>
+<li>
+<p>Stateless</p>
+<ul>
+<li>It treats each packet as an independent object, and it does not keep track of any previously processed packets. In other words, stateless filtering inspects a packet when it arrives and makes a decision without leaving any record of the packet being inspected.</li>
+</ul>
+</li>
+<li>
+<p>Stateful</p>
+<ul>
+<li>Stateful filtering, also referred to as connection-state filtering, keeps track of connections between an internal host and an external host. A connection state (or state, for short) indicates whether it is a TCP connection or a UDP connection and whether the connection is established.</li>
+</ul>
+</li>
+</ul>
+<h3 id="circuit-gateways">Circuit Gateways</h3>
+<ul>
+<li>Circuit gateways, also referred to as circuit-level gateways, are typically operated at the transportation layer</li>
+<li>They evaluate the information of the IP addresses and the port numbers contained in TCP (or UDP) headers and use it to determine whether to allow or to disallow an internal host and an external host to establish a connection.</li>
+<li>It is common practice to combine packet filters and circuit gateways to form a dynamic packet filter (DPF).</li>
+</ul>
+<h3 id="application-gatewaysalg">Application Gateways(ALG)</h3>
+<ul>
+<li>Aka PROXY Servers</li>
+<li>An Application Level Gateway (ALG) acts as a proxy for internal hosts, processing service requests from external clients.</li>
+<li>An ALG performs deep inspections on each IP packet (ingress or egress).</li>
+<li>In particular, an ALG inspects application program formats contained in the packet (e.g., MIME format or SQL format) and examines whether its payload is permitted.</li>
+<li>Thus, an ALG may be able to detect a computer virus contained in the payload. Because an ALG inspects packet payloads, it may be able to detect malicious code and quarantine suspicious packets, in addition to blocking packets with suspicious IP addresses and TCP ports. On the other hand, an ALG also incurs substantial computation and space overheads.</li>
+</ul>
+<h3 id="trusted-systems-bastion-hosts">Trusted Systems &amp; Bastion Hosts</h3>
+<ul>
+<li>A Trusted Operating System (TOS) is an operating system that meets a particular set of security requirements. Whether an operating system can be trusted or not depends on several elements. For example, for an operating system on a particular computer to be certified trusted, one needs to validate that, among other things, the following four requirements are satisfied:</li>
+<li>Its system design contains no defects;</li>
+<li>Its system software contains no loopholes;</li>
+<li>Its system is configured properly; and</li>
+<li>
+<p>Its system management is appropriate.</p>
+</li>
+<li>
+<p>Bastion Hosts</p>
+</li>
+<li>Bastion hosts are computers with strong defence mechanisms. They often serve as host computers for implementing application gateways, circuit gateways, and other types of firewalls. A bastion host is operated on a trusted operating system that must not contain unnecessary functionalities or programs. This measure helps to reduce error probabilities and makes it easier to conduct security checks. Only those network application programs that are necessary, for example, SSH, DNS, SMTP, and authentication programs, are installed on a bastion host.</li>
+<li>Bastion hosts are also primarily used as controlled ingress points so that the security monitoring can focus more narrowly on actions happening at a single point closely.</li>
+</ul>
+<hr />
+<h2 id="common-techniques-scannings-packet-capturing">Common Techniques &amp; Scannings, Packet Capturing</h2>
+<h3 id="scanning-ports-with-nmap">Scanning Ports with Nmap</h3>
+<ul>
+<li>Nmap ("Network Mapper") is a free and open-source (license) utility for network discovery and security auditing.  Many systems and network administrators also find it useful for tasks such as network inventory, managing service upgrade schedules, and monitoring host or service uptime.</li>
+<li>The best thing about Nmap is it’s free and open-source and is very flexible and versatile</li>
+<li>Nmap is often used to determine alive hosts in a network, open ports on those hosts, services running on those open ports, and version identification of that service on that port.</li>
+<li>More at http://scanme.nmap.org/</li>
+</ul>
+<pre><code>nmap [scan type] [options] [target specification]
+</code></pre>
+<p>Nmap uses 6 different port states:</p>
+<ul>
+<li><strong>Open</strong> — An open port is one that is actively accepting TCP, UDP or SCTP connections. Open ports are what interests us the most because they are the ones that are vulnerable to attacks. Open ports also show the available services on a network.</li>
+<li><strong>Closed</strong> — A port that receives and responds to Nmap probe packets but there is no application listening on that port. Useful for identifying that the host exists and for OS detection.</li>
+<li><strong>Filtered</strong> — Nmap can’t determine whether the port is open because packet filtering prevents its probes from reaching the port. Filtering could come from firewalls or router rules. Often little information is given from filtered ports during scans as the filters can drop the probes without responding or respond with useless error messages e.g. destination unreachable.</li>
+<li><strong>Unfiltered</strong> — Port is accessible but Nmap doesn’t know if it is open or closed. Only used in ACK scan which is used to map firewall rulesets. Other scan types can be used to identify whether the port is open.</li>
+<li><strong>Open/filtered</strong> — Nmap is unable to determine between open and filtered. This happens when an open port gives no response. No response could mean that the probe was dropped by a packet filter or any response is blocked.</li>
+<li><strong>Closed/filtered</strong> — Nmap is unable to determine whether a port is closed or filtered. Only used in the IP ID idle scan.</li>
+</ul>
+<h3 id="types-of-nmap-scan">Types of Nmap Scan:</h3>
+<ol>
+<li>TCP Connect</li>
+<li>TCP Connect scan completes the 3-way handshake.</li>
+<li>If a port is open, the operating system completes the TCP three-way handshake and the port scanner immediately closes the connection to avoid DOS. This is “noisy” because the services can log the sender IP address and might trigger Intrusion Detection Systems.</li>
+<li>UDP Scan</li>
+<li>This scan checks to see if any UDP ports are listening.</li>
+<li>
+<p>Since UDP does not respond with a positive acknowledgement like TCP and only responds to an incoming UDP packet when the port is closed,</p>
+</li>
+<li>
+<p>SYN Scan</p>
+</li>
+<li>SYN scan is another form of TCP scanning.</li>
+<li>This scan type is also known as “half-open scanning” because it never actually opens a full TCP connection.</li>
+<li>The port scanner generates a SYN packet. If the target port is open, it will respond with an SYN-ACK packet. The scanner host responds with an RST packet, closing the connection before the handshake is completed.</li>
+<li>If the port is closed but unfiltered, the target will instantly respond with an RST packet.</li>
+<li>
+<p>SYN scan has the advantage that the individual services never actually receive a connection.</p>
+</li>
+<li>
+<p>FIN Scan</p>
+</li>
+<li>
+<p>This is a stealthy scan, like the SYN scan, but sends a TCP FIN packet instead.</p>
+</li>
+<li>
+<p>ACK Scan</p>
+</li>
+<li>Ack scanning determines whether the port is filtered or not.</li>
+<li>Null Scan</li>
+<li>Another very stealthy scan that sets all the TCP header flags to off or null.</li>
+<li>This is not normally a valid packet and some hosts will not know what to do with this.</li>
+<li>XMAS Scan</li>
+<li>Similar to the NULL scan except for all the flags in the TCP header is set to on</li>
+<li>RPC Scan</li>
+<li>This special type of scan looks for machine answering to RPC (Remote Procedure Call) services</li>
+<li>IDLE Scan</li>
+<li>It is a super stealthy method whereby the scan packets are bounced off an external host.</li>
+<li>You don’t need to have control over the other host but it does have to set up and meet certain requirements. You must input the IP address of our “zombie” host and what port number to use. It is one of the more controversial options in Nmap since it only has a use for malicious attacks.</li>
+</ol>
+<p>Scan Techniques</p>
+<p>A couple of scan techniques which can be used to gain more information about a system and its ports. You can read more at <a href="https://medium.com/infosec-adventures/nmap-cheatsheet-a423fcdda0ca">https://medium.com/infosec-adventures/nmap-cheatsheet-a423fcdda0ca</a></p>
+<h3 id="openvas">OpenVAS</h3>
+<ul>
+<li>OpenVAS is a full-featured vulnerability scanner. </li>
+<li>OpenVAS is a framework of services and tools that provides a comprehensive and powerful vulnerability scanning and management package</li>
+<li>OpenVAS, which is an open-source program, began as a fork of the once-more-popular scanning program, Nessus.</li>
+<li>OpenVAS is made up of three main parts. These are:</li>
+<li>a regularly updated feed of Network Vulnerability Tests (NVTs);</li>
+<li>a scanner, which runs the NVTs; and</li>
+<li>an SQLite 3 database for storing both your test configurations and the NVTs’ results and configurations.</li>
+<li><a href="https://www.greenbone.net/en/install_use_gce/">https://www.greenbone.net/en/install_use_gce/</a></li>
+</ul>
+<h3 id="wireshark">WireShark</h3>
+<ul>
+<li>Wireshark is a protocol analyzer.</li>
+<li>This means Wireshark is designed to decode not only packet bits and bytes but also the relations between packets and protocols.</li>
+<li>Wireshark understands protocol sequences.</li>
+</ul>
+<p>A simple demo of Wireshark</p>
+<ol>
+<li>Capture only udp packets:</li>
+<li>
+<p>Capture filter = “udp”</p>
+</li>
+<li>
+<p>Capture only tcp packets</p>
+</li>
+<li>
+<p>Capture filter = “tcp”</p>
+</li>
+<li>
+<p>TCP/IP 3 way Handshake
+   <img alt="image17" src="../images/image17.png" /></p>
+</li>
+<li>
+<p>Filter by IP address: displays all traffic from IP, be it source or destination</p>
+</li>
+<li>ip.addr == 192.168.1.1</li>
+<li>Filter by source address: display traffic only from IP source</li>
+<li>
+<p>ip.src == 192.168.0.1</p>
+</li>
+<li>
+<p>Filter by destination: display traffic only form IP destination</p>
+</li>
+<li>
+<p>ip.dst == 192.168.0.1</p>
+</li>
+<li>
+<p>Filter by IP subnet: display traffic from subnet, be it source or destination</p>
+</li>
+<li>
+<p>ip.addr = 192.168.0.1/24 </p>
+</li>
+<li>
+<p>Filter by protocol: filter traffic by protocol name</p>
+</li>
+<li>dns</li>
+<li>http</li>
+<li>ftp</li>
+<li>arp</li>
+<li>ssh</li>
+<li>telnet</li>
+<li>
+<p>icmp</p>
+</li>
+<li>
+<p>Exclude IP address: remove traffic from and to IP address</p>
+</li>
+<li>
+<p>!ip.addr ==192.168.0.1</p>
+</li>
+<li>
+<p>Display traffic between two specific subnet</p>
+<ul>
+<li>ip.addr == 192.168.0.1/24 and ip.addr == 192.168.1.1/24</li>
+</ul>
+</li>
+<li>
+<p>Display traffic between two specific workstations</p>
+<ul>
+<li>ip.addr == 192.168.0.1 and ip.addr == 192.168.0.2</li>
+</ul>
+</li>
+<li>
+<p>Filter by MAC</p>
+<ul>
+<li>eth.addr = 00:50:7f:c5:b6:78</li>
+</ul>
+</li>
+<li>
+<p>Filter TCP port</p>
+<ul>
+<li>tcp.port == 80</li>
+</ul>
+</li>
+<li>Filter TCP port source<ul>
+<li>tcp.srcport == 80</li>
+</ul>
+</li>
+<li>Filter TCP port destination<ul>
+<li>tcp.dstport == 80</li>
+</ul>
+</li>
+<li>Find user agents<ul>
+<li>http.user_agent contains Firefox</li>
+<li>!http.user_agent contains || !http.user_agent contains Chrome</li>
+</ul>
+</li>
+<li>Filter broadcast traffic<ul>
+<li>!(arp or icmp or dns)</li>
+</ul>
+</li>
+<li>
+<p>Filter IP address and port</p>
+<ul>
+<li>tcp.port == 80 &amp;&amp; ip.addr == 192.168.0.1</li>
+</ul>
+</li>
+<li>
+<p>Filter all http get requests</p>
+<ul>
+<li>http.request</li>
+</ul>
+</li>
+<li>Filter all http get requests and responses<ul>
+<li>http.request or http.response</li>
+</ul>
+</li>
+<li>Filter three way handshake<ul>
+<li>tcp.flags.syn==1 or (tcp.seq==1 and tcp.ack==1 and tcp.len==0 and tcp.analysis.initial_rtt)</li>
+</ul>
+</li>
+<li>Find files by type<ul>
+<li>frame contains “(attachment|tar|exe|zip|pdf)”</li>
+</ul>
+</li>
+<li>Find traffic based on keyword<ul>
+<li>tcp contains facebook</li>
+<li>frame contains facebook</li>
+</ul>
+</li>
+<li>Detecting SYN Floods<ul>
+<li>tcp.flags.syn == 1 and tcp.flags.ack == 0</li>
+</ul>
+</li>
+</ol>
+<p><strong>Wireshark Promiscuous Mode</strong>
+    - By default, Wireshark only captures packets going to and from the computer where it runs. By checking the box to run Wireshark in Promiscuous Mode in the Capture Settings, you can capture most of the traffic on the LAN.</p>
+<h3 id="dumpcap">DumpCap</h3>
+<ul>
+<li>Dumpcap is a network traffic dump tool. It captures packet data from a live network and writes the packets to a file. Dumpcap’s native capture file format is pcapng, which is also the format used by Wireshark.</li>
+<li>By default, Dumpcap uses the pcap library to capture traffic from the first available network interface and writes the received raw packet data, along with the packets’ time stamps into a pcapng file. The capture filter syntax follows the rules of the pcap library.</li>
+<li>The Wireshark command-line utility called 'dumpcap.exe' can be used to capture LAN traffic over an extended period of time.</li>
+<li>Wireshark itself can also be used, but dumpcap does not significantly utilize the computer's memory while capturing for long periods.</li>
+</ul>
+<h3 id="daemonlogger">DaemonLogger</h3>
+<ul>
+<li>Daemonlogger is a packet logging application designed specifically for use in Network and Systems Management (NSM)  environments.</li>
+<li>The biggest benefit Daemonlogger provides is that, like Dumpcap, it is simple to use for capturing packets. In order to begin capturing, you need only to invoke the command and specify an interface.</li>
+<li>daemonlogger –i eth1</li>
+<li>This option, by default, will begin capturing packets and logging them to the current working directory.</li>
+<li>Packets will be collected until the capture file size reaches 2 GB, and then a new file will be created. This will continue indefinitely until the process is halted.</li>
+</ul>
+<h3 id="netsniff-ng">NetSniff-NG</h3>
+<ul>
+<li>Netsniff-NG is a high-performance packet capture utility</li>
+<li>While the utilities we’ve discussed to this point rely on Libpcap for capture, Netsniff-NG utilizes zero-copy mechanisms to capture packets. This is done with the intent to support full packet capture over high throughput links.</li>
+<li>To begin capturing packets with Netsniff-NG, we have to specify an input and output. In most cases, the input will be a network interface, and the output will be a file or folder on disk.</li>
+</ul>
+<p><code>netsniff-ng –i eth1 –o data.pcap</code></p>
+<h3 id="netflow">Netflow</h3>
+<ul>
+<li>
+<p>NetFlow is a feature that was introduced on Cisco routers around 1996 that provides the ability to collect IP network traffic as it enters or exits an interface. By analyzing the data provided by NetFlow, a network administrator can determine things such as the source and destination of traffic, class of service, and the causes of congestion. A typical flow monitoring setup (using NetFlow) consists of three main components:[1]</p>
+</li>
+<li>
+<p>Flow exporter: aggregates packets into flows and exports flow records towards one or more flow collectors.</p>
+</li>
+<li>Flow collector: responsible for reception, storage and pre-processing of flow data received from a flow exporter.</li>
+<li>Analysis application: analyzes received flow data in the context of intrusion detection or traffic profiling, for example.<ul>
+<li>Routers and switches that support NetFlow can collect IP traffic statistics on all interfaces where NetFlow is enabled, and later export those statistics as NetFlow records toward at least one NetFlow collector—typically a server that does the actual traffic analysis.</li>
+</ul>
+</li>
+</ul>
+<h3 id="ids">IDS</h3>
+<p>A security solution that detects security-related events in your environment but does not block them.
+IDS sensors can be software and hardware-based used to collect and analyze the network traffic. These sensors are available in two varieties, network IDS and host IDS.</p>
+<ul>
+<li>A host IDS is a server-specific agent running on a server with a minimum of overhead to monitor the operating system.</li>
+<li>A network IDS can be embedded in a networking device, a standalone appliance, or a module monitoring the network traffic.</li>
+</ul>
+<p>Signature Based IDS</p>
+<ul>
+<li>The signature-based IDS monitors the network traffic or observes the system and sends an alarm if a known malicious event is happening. </li>
+<li>It does so by comparing the data flow against a database of known attack patterns</li>
+<li>These signatures explicitly define what traffic or activity should be considered as malicious. </li>
+<li>Signature-based detection has been the bread and butter of network-based defensive security for over a decade, partially because it is very similar to how malicious activity is detected at the host level with antivirus utilities</li>
+<li>
+<p>The formula is fairly simple: an analyst observes a malicious activity, derives indicators from the activity and develops them into signatures, and then those signatures will alert whenever the activity occurs again.</p>
+</li>
+<li>
+<p>ex: SNORT &amp; SURICATA</p>
+</li>
+</ul>
+<p>Policy-Based IDS</p>
+<ul>
+<li>The policy-based IDSs (mainly host IDSs) trigger an alarm whenever a violation occurs against the configured policy.</li>
+<li>This configured policy is or should be a representation of the security policies.</li>
+<li>This type of IDS is flexible and can be customized to a company's network requirements because it knows exactly what is permitted and what is not.</li>
+<li>On the other hand, the signature-based systems rely on vendor specifics and default settings.</li>
+</ul>
+<p>Anomaly Based IDS</p>
+<ul>
+<li>The anomaly-based IDS looks for traffic that deviates from the normal, but the definition of what is a normal network traffic pattern is the tricky part</li>
+<li>Two types of anomaly-based IDS exist: statistical and nonstatistical anomaly detection</li>
+<li>Statistical anomaly detection learns the traffic patterns interactively over a period of time.</li>
+<li>In the nonstatistical approach, the IDS has a predefined configuration of the supposedly acceptable and valid traffic patterns.</li>
+</ul>
+<p>Host-Based IDS &amp; Network-Based IDS</p>
+<ul>
+<li>
+<p>A host IDS can be described as a distributed agent residing on each server of the network that needs protection. These distributed agents are tied very closely to the underlying operating system.</p>
+</li>
+<li>
+<p>Network IDSs, on the other hand, can be described as intelligent sniffing devices. Data (raw packets) is captured from the network by a network IDS, whereas host IDSs capture the data from the host on which they are installed.</p>
+</li>
+</ul>
+<p>Honeypots </p>
+<ul>
+<li>The use of decoy machines to direct intruders' attention away from the machines under protection is a major technique to preclude intrusion attacks. Any device, system, directory, or file used as a decoy to lure attackers away from important assets and to collect intrusion or abusive behaviours is referred to as a honeypot.</li>
+<li>A honeypot may be implemented as a physical device or as an emulation system. The idea is to set up decoy machines in a LAN, or decoy directories/files in a file system and make them appear important, but with several exploitable loopholes, to lure attackers to attack these machines or directories/files, so that other machines, directories, and files can evade intruders' attentions. A decoy machine may be a host computer or a server computer. Likewise, we may also set up decoy routers or even decoy LANs.</li>
+</ul>
+<hr />
+<h2 id="chinks-in-the-armour-tcpip-security-issues">Chinks In The Armour (TCP/IP Security Issues)</h2>
+<p><img alt="image18" src="../images/image18.png" /></p>
+<h3 id="ip-spoofing">IP Spoofing</h3>
+<ul>
+<li>In this type of attack, the attacker replaces the IP address of the sender, or in some rare cases the destination, with a different address.</li>
+<li>IP spoofing is normally used to exploit a target host. In other cases, it is used to start a denial-of-service (DoS) attack.</li>
+<li>In a DoS attack, an attacker modifies the IP packet to mislead the target host into accepting the original packet as a packet sourced at a trusted host. The attacker must know the IP address of the trusted host to modify the packet headers (source IP address) so that it appears that the packets are coming from that host.</li>
+</ul>
+<p>IP Spoofing Detection Techniques</p>
+<ul>
+<li>Direct TTL Probes</li>
+<li>
+<p>In this technique we send a packet to a host of suspect spoofed IP that triggers reply and compares TTL with suspect packet; if the TTL in the reply is not the same as the packet being checked; it is a spoofed packet.</p>
+</li>
+<li>
+<p>This Technique is successful when the attacker is in a different subnet from the victim.
+  <img alt="image19" src="../images/image19.png" /></p>
+</li>
+<li>
+<p>IP Identification Number.</p>
+</li>
+<li>Send a probe to the host of suspect spoofed traffic that triggers a reply and compares IP ID with suspect traffic.</li>
+<li>
+<p>If IP IDs are not in the near value of packet being checked, suspect traffic is spoofed</p>
+</li>
+<li>
+<p>TCP Flow Control Method</p>
+</li>
+<li>Attackers sending spoofed TCP packets will not receive the target’s SYN-ACK packets.</li>
+<li>Attackers cannot, therefore, be responsive to change in the congestion window size</li>
+<li>When the receiver still receives traffic even after a windows size is exhausted, most probably the packets are spoofed.</li>
+</ul>
+<h3 id="covert-channel">Covert Channel</h3>
+<ul>
+<li>A covert or clandestine channel can be best described as a pipe or communication channel between two entities that can be exploited by a process or application transferring information in a manner that violates the system's security specifications.</li>
+<li>More specifically for TCP/IP, in some instances, covert channels are established, and data can be secretly passed between two end systems.</li>
+<li>Ex: ICMP resides at the Internet layer of the TCP/IP protocol suite and is implemented in all TCP/IP hosts. Based on the specifications of the ICMP Protocol, an ICMP Echo Request message should have an 8-byte header and a 56-byte payload. The ICMP Echo Request packet should not carry any data in the payload. However, these packets are often used to carry secret information. The ICMP packets are altered slightly to carry secret data in the payload. This makes the size of the packet larger, but no control exists in the protocol stack to defeat this behaviour. The alteration of ICMP packets allows intruders to program specialized client-server pairs. These small pieces of code export confidential information without alerting the network administrator.</li>
+<li>
+<p>ICMP can be leveraged for more than data exfiltration. For eg. some C&amp;C tools such as Loki used ICMP channel to establish encrypted interactive session back in 1996.</p>
+</li>
+<li>
+<p>Deep packet inspection has since come a long way. A lot of IDS/IPS detect ICMP tunnelling.</p>
+<ul>
+<li>Check for echo responses that do not contain the same payload as  request</li>
+<li>Check for the volume of ICMP traffic especially for volumes beyond an acceptable threshold</li>
+</ul>
+</li>
+</ul>
+<h3 id="ip-fragmentation-attack">IP Fragmentation Attack</h3>
+<ul>
+<li>The TCP/IP protocol suite, or more specifically IP, allows the fragmentation of packets.(this is a feature &amp; not a bug)</li>
+<li>IP fragmentation offset is used to keep track of the different parts of a datagram.</li>
+<li>The information or content in this field is used at the destination to reassemble the datagrams</li>
+<li>
+<p>All such fragments have the same Identification field value, and the fragmentation offset indicates the position of the current fragment in the context of the original packet.</p>
+</li>
+<li>
+<p>Many access routers and firewalls do not perform packet reassembly. In normal operation, IP fragments do not overlap, but attackers can create artificially fragmented packets to mislead the routers or firewalls. Usually, these packets are small and almost impractical for end systems because of data and computational overhead.</p>
+</li>
+<li>A good example of an IP fragmentation attack is the Ping of Death attack. The Ping of Death attack sends fragments that, when reassembled at the end station, create a larger packet than the maximum permissible length.</li>
+</ul>
+<p>TCP Flags</p>
+<ul>
+<li>Data exchange using TCP does not happen until a three-way handshake has been completed. This handshake uses different flags to influence the way TCP segments are processed.</li>
+<li>There are 6 bits in the TCP header that are often called flags. Namely:</li>
+<li>
+<p>6 different flags are part of the TCP header: Urgent pointer field (URG), Acknowledgment field (ACK), Push function (PSH), Reset the connection (RST), Synchronize sequence numbers (SYN), and the sender is finished with this connection (FIN).
+  <img alt="image20" src="../images/image20.png" /></p>
+</li>
+<li>
+<p>Abuse of the normal operation or settings of these flags can be used by attackers to launch DoS attacks. This causes network servers or web servers to crash or hang.</p>
+</li>
+</ul>
+<pre><code>| SYN  | FIN  | PSH   | RST  | Validity|  
+|------|------|-------|------|---------|
+| 1    |1     |0      |0     |Illegal Combination
+| 1    |1     |1      |0     |Illegal Combination
+| 1    |1     |0      |1     |Illegal Combination
+| 1    |1     |1      |1     |Illegal Combination
+</code></pre>
+<ul>
+<li>The attacker's ultimate goal is to write special programs or pieces of code that can construct these illegal combinations resulting in an efficient DoS attack.</li>
+</ul>
+<p>SYN FLOOD</p>
+<ul>
+<li>The timers (or lack of certain timers) in 3 way handshake are often used and exploited by attackers to disable services or even to enter systems.</li>
+<li>After step 2 of the three-way handshake, no limit is set on the time to wait after receiving a SYN. The attacker initiates many connection requests to the webserver of Company XYZ (almost certainly with a spoofed IP address).</li>
+<li>The SYN+ACK packets (Step 2) sent by the web server back to the originating source IP address are not replied to. This leaves a TCP session half-open on the webserver. Multiple packets cause multiple TCP sessions to stay open.</li>
+<li>Based on the hardware limitations of the server, a limited number of TCP sessions can stay open, and as a result, the webserver refuses further connection establishments attempts from any host as soon as a certain limit is reached. These half-open connections need to be completed or timed out before new connections can be established.</li>
+</ul>
+<p>FIN Attack</p>
+<ul>
+<li>In normal operation, the sender sets the TCP FIN flag indicating that no more data will be transmitted and the connection can be closed down.</li>
+<li>
+<p>This is a four-way handshake mechanism, with both sender and receiver expected to send an acknowledgement on a received FIN packet.</p>
+</li>
+<li>
+<p>During an attack that is trying to kill connections, a spoofed FIN packet is constructed. This packet also has the correct sequence number, so the packets are seen as valid by the targeted host. These sequence numbers are easy to predict. This process is referred to as TCP sequence number prediction, whereby the attacker either sniffs the current Sequence and Acknowledgment (SEQ/ACK) numbers of the connection or can algorithmically predict these numbers.</p>
+</li>
+</ul>
+<h3 id="connection-hijacking">Connection Hijacking</h3>
+<p><img alt="image22" src="../images/image22.png" /></p>
+<ul>
+<li>An authorized user (Employee X) sends HTTP requests over a TCP session with the webserver.</li>
+<li>The web server accepts the packets from Employee X only when the packet has the correct SEQ/ACK numbers. As seen previously, these numbers are important for the webserver to distinguish between different sessions and to make sure it is still talking to Employee X. Imagine that the cracker starts sending packets to the web server spoofing the IP address of Employee X, using the correct SEQ/ACK combination. The web server accepts the packet and increments the ACK number.</li>
+<li>In the meantime, Employee X continues to send packets but with incorrect SEQ/ACK numbers. As a result of sending unsynchronized packets, all data from Employee X is discarded when received by the webserver. The attacker pretends to be Employee X using the correct numbers. This finally results in the cracker hijacking the connection, whereby Employee X is completely confused and the webserver replies assuming the cracker is sending correct synchronized data.</li>
+</ul>
+<p>STEPS:</p>
+<ol>
+<li>The attacker examines the traffic flows with a network monitor and notices traffic from Employee X to a web server.</li>
+<li>The web server returns or echoes data back to the origination station (Employee X).</li>
+<li>Employee X acknowledges the packet.</li>
+<li>The cracker launches a spoofed packet to the server.</li>
+<li>The web server responds to the cracker. The cracker starts verifying SEQ/ACK numbers to double-check success. At this time, the cracker takes over the session from Employee X, which results in a session hanging for Employee X.</li>
+<li>The cracker can start sending traffic to the webserver.</li>
+<li>The web server returns the requested data to confirm delivery with the correct ACK number.</li>
+<li>The cracker can continue to send data (keeping track of the correct SEQ/ACK numbers) until eventually setting the FIN flag to terminate the session.</li>
+</ol>
+<h3 id="buffer-overflow">Buffer Overflow</h3>
+<ul>
+<li>A buffer is a temporary data storage area used to store program code and data.</li>
+<li>When a program or process tries to store more data in a buffer than it was originally anticipated to hold, a buffer overflow occurs.</li>
+<li>Buffers are temporary storage locations in memory (memory or buffer sizes are often measured in bytes) that can store a fixed amount of data in bytes. When more data is retrieved than can be stored in a buffer location, the additional information must go into an adjacent buffer, resulting in overwriting the valid data held in them.</li>
+</ul>
+<p>Mechanism:</p>
+<ul>
+<li>Buffer overflow vulnerabilities exist in different types. But the overall goal for all buffer overflow attacks is to take over the control of a privileged program and, if possible, the host. The attacker has two tasks to achieve this goal. First, the dirty code needs to be available in the program's code address space. Second, the privileged program should jump to that particular part of the code, which ensures that the proper parameters are loaded into memory.</li>
+<li>The first task can be achieved in two ways: by injecting the code in the right address space or by using the existing code and modifying certain parameters slightly. The second task is a little more complex because the program's control flow needs to be modified to make the program jump to the dirty code.</li>
+</ul>
+<p>CounterMeasure:</p>
+<ul>
+<li>The most important approach is to have a concerted focus on writing correct code.</li>
+<li>A second method is to make the data buffers (memory locations) address space of the program code non-executable. This type of address space makes it impossible to execute code, which might be infiltrated in the program's buffers during an attack.</li>
+</ul>
+<h3 id="more-spoofing">More Spoofing</h3>
+<p>Address Resolution Protocol Spoofing</p>
+<ul>
+<li>The Address Resolution Protocol (ARP) provides a mechanism to resolve, or map, a known IP address to a MAC sublayer address.</li>
+<li>Using ARP spoofing, the cracker can exploit this hardware address authentication mechanism by spoofing the hardware address of Host B. Basically, the attacker can convince any host or network device on the local network that the cracker's workstation is the host to be trusted. This is a common method used in a switched environment.</li>
+<li>ARP spoofing can be prevented with the implementation of static ARP tables in all the hosts and routers of your network. Alternatively, you can implement an ARP server that responds to ARP requests on behalf of the target host.</li>
+</ul>
+<p>DNS Spoofing</p>
+<ul>
+<li>DNS spoofing is the method whereby the hacker convinces the target machine that the system it wants to connect to is the machine of the cracker.</li>
+<li>The cracker modifies some records so that name entries of hosts correspond to the attacker's IP address. There have been instances in which the complete DNS server was compromised by an attack.</li>
+<li>To counter DNS spoofing, the reverse lookup detects these attacks. The reverse lookup is a mechanism to verify the IP address against a name. The IP address and name files are usually kept on different servers to make compromise much more difficult</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../fundamentals/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Fundamentals of Security
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../threats_attacks_defences/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Threat, Attacks & Defences
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright 2020 LinkedIn Corporation. All Rights Reserved. Licensed under the Creative Commons Attribution 4.0 International Public License
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/linkedin/school-of-sre" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

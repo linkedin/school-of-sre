@@ -1,0 +1,2552 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Server Administration - School Of SRE</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/custom.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux-server-administration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+   <script async defer data-domain="linkedin.github.io" src="https://tracking.eskratch.com/js/plausible.js"></script>
+
+
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="School Of SRE" class="md-header-nav__button md-logo" aria-label="School Of SRE">
+      
+  <img src="../../../img/sos.png" alt="logo">
+
+    </a>
+    <!-- Button to open drawer -->
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            <a href="../../.." title="School Of SRE" >
+              School Of SRE
+            </a>
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Server Administration
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      
+      <label class="md-nav__link" for="nav-2">
+        Level 101
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Level 101" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Level 101
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+      
+      <label class="md-nav__link" for="nav-2-1">
+        Fundamentals Series
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Fundamentals Series" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-1">
+          <span class="md-nav__icon md-icon"></span>
+          Fundamentals Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-1" type="checkbox" id="nav-2-1-1" checked>
+      
+      <label class="md-nav__link" for="nav-2-1-1">
+        Linux Basics
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Linux Basics" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-1-1">
+          <span class="md-nav__icon md-icon"></span>
+          Linux Basics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../command_line_basics/" class="md-nav__link">
+        Command Line Basics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Server Administration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Server Administration
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-environment-setup" class="md-nav__link">
+    Lab Environment Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-user-operating-systems" class="md-nav__link">
+    Multi-User Operating Systems
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usergroup-management" class="md-nav__link">
+    User/Group Management
+  </a>
+  
+    <nav class="md-nav" aria-label="User/Group Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id-command" class="md-nav__link">
+    id command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-files-associated-with-usersgroups" class="md-nav__link">
+    Important files associated with users/groups
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-commands-for-managing-users" class="md-nav__link">
+    Important commands for managing users
+  </a>
+  
+    <nav class="md-nav" aria-label="Important commands for managing users">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useradd" class="md-nav__link">
+    useradd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passwd" class="md-nav__link">
+    passwd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usermod" class="md-nav__link">
+    usermod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#userdel" class="md-nav__link">
+    userdel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-commands-for-managing-groups" class="md-nav__link">
+    Important commands for managing groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#becoming-a-superuser" class="md-nav__link">
+    Becoming a Superuser
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-permissions" class="md-nav__link">
+    File Permissions
+  </a>
+  
+    <nav class="md-nav" aria-label="File Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chmod-command" class="md-nav__link">
+    Chmod command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chown-command" class="md-nav__link">
+    Chown command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chgrp-command" class="md-nav__link">
+    Chgrp command
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-command" class="md-nav__link">
+    SSH Command
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH Command">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passwordless-authentication-using-ssh" class="md-nav__link">
+    Passwordless Authentication Using SSH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-run-commands-on-a-remote-host" class="md-nav__link">
+    How to run commands on a remote host ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-transfer-files-from-one-host-to-another-host" class="md-nav__link">
+    How to transfer files from one host to another host ?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-management" class="md-nav__link">
+    Package Management
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-management" class="md-nav__link">
+    Process Management
+  </a>
+  
+    <nav class="md-nav" aria-label="Process Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ps-process-status" class="md-nav__link">
+    ps (process status)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top" class="md-nav__link">
+    top
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-management" class="md-nav__link">
+    Memory Management
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#free" class="md-nav__link">
+    free
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmstat" class="md-nav__link">
+    vmstat
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-disk-space" class="md-nav__link">
+    Checking Disk Space
+  </a>
+  
+    <nav class="md-nav" aria-label="Checking Disk Space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#df-disk-free" class="md-nav__link">
+    df (disk free)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#du-disk-usage" class="md-nav__link">
+    du (disk usage)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daemons" class="md-nav__link">
+    Daemons
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemd" class="md-nav__link">
+    Systemd
+  </a>
+  
+    <nav class="md-nav" aria-label="Systemd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#managing-system-services" class="md-nav__link">
+    Managing System Services
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    Logs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-2" type="checkbox" id="nav-2-1-2" >
+      
+      <label class="md-nav__link" for="nav-2-1-2">
+        Git
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Git" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-1-2">
+          <span class="md-nav__icon md-icon"></span>
+          Git
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/git-basics/" class="md-nav__link">
+        Git Basics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/branches/" class="md-nav__link">
+        Working With Branches
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/github-hooks/" class="md-nav__link">
+        Github and Hooks
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3" >
+      
+      <label class="md-nav__link" for="nav-2-1-3">
+        Linux Networking
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Linux Networking" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-1-3">
+          <span class="md-nav__icon md-icon"></span>
+          Linux Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/dns/" class="md-nav__link">
+        DNS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/udp/" class="md-nav__link">
+        UDP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/http/" class="md-nav__link">
+        HTTP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/tcp/" class="md-nav__link">
+        TCP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/ipr/" class="md-nav__link">
+        Routing
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_networking/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+      
+      <label class="md-nav__link" for="nav-2-2">
+        Python and Web
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Python and Web" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-2">
+          <span class="md-nav__icon md-icon"></span>
+          Python and Web
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/python-concepts/" class="md-nav__link">
+        Some Python Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/python-web-flask/" class="md-nav__link">
+        Python, Web and Flask
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/url-shorten-app/" class="md-nav__link">
+        The URL Shortening App
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_web/sre-conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" >
+      
+      <label class="md-nav__link" for="nav-2-3">
+        Data
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Data" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-3">
+          <span class="md-nav__icon md-icon"></span>
+          Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-1" type="checkbox" id="nav-2-3-1" >
+      
+      <label class="md-nav__link" for="nav-2-3-1">
+        Relational Databases
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Relational Databases" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-3-1">
+          <span class="md-nav__icon md-icon"></span>
+          Relational Databases
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/concepts/" class="md-nav__link">
+        Key Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/mysql/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/innodb/" class="md-nav__link">
+        InnoDB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/backup_recovery/" class="md-nav__link">
+        Backup and Recovery
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/replication/" class="md-nav__link">
+        MySQL Replication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-1-7" type="checkbox" id="nav-2-3-1-7" >
+      
+      <label class="md-nav__link" for="nav-2-3-1-7">
+        Operational Concepts
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Operational Concepts" data-md-level="4">
+        <label class="md-nav__title" for="nav-2-3-1-7">
+          <span class="md-nav__icon md-icon"></span>
+          Operational Concepts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/select_query/" class="md-nav__link">
+        Select Query
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/query_performance/" class="md-nav__link">
+        Query Performance
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/lab/" class="md-nav__link">
+        Lab
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_sql/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-2" type="checkbox" id="nav-2-3-2" >
+      
+      <label class="md-nav__link" for="nav-2-3-2">
+        NoSQL
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="NoSQL" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-3-2">
+          <span class="md-nav__icon md-icon"></span>
+          NoSQL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_nosql/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_nosql/key_concepts/" class="md-nav__link">
+        Key Concepts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases_nosql/further_reading/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-3" type="checkbox" id="nav-2-3-3" >
+      
+      <label class="md-nav__link" for="nav-2-3-3">
+        Big Data
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Big Data" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-3-3">
+          <span class="md-nav__icon md-icon"></span>
+          Big Data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../big_data/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../big_data/evolution/" class="md-nav__link">
+        Evolution and Architecture of Hadoop
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../big_data/tasks/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" >
+      
+      <label class="md-nav__link" for="nav-2-4">
+        Systems Design
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Systems Design" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-4">
+          <span class="md-nav__icon md-icon"></span>
+          Systems Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/intro.md" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/scalability.md" class="md-nav__link">
+        Scalability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/availability.md" class="md-nav__link">
+        Availability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/fault-tolerance.md" class="md-nav__link">
+        Fault Tolerance
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems_design/conclusion.md" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5" >
+      
+      <label class="md-nav__link" for="nav-2-5">
+        Metrics and Monitoring
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Metrics and Monitoring" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-5">
+          <span class="md-nav__icon md-icon"></span>
+          Metrics and Monitoring
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/command-line_tools/" class="md-nav__link">
+        Command-line Tools
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/third-party_monitoring/" class="md-nav__link">
+        Third-party Monitoring
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/alerts/" class="md-nav__link">
+        Proactive Monitoring with Alerts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/best_practices/" class="md-nav__link">
+        Best Practices for Monitoring
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/observability/" class="md-nav__link">
+        Observability
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics_and_monitoring/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-6" type="checkbox" id="nav-2-6" >
+      
+      <label class="md-nav__link" for="nav-2-6">
+        Security
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Security" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-6">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/fundamentals/" class="md-nav__link">
+        Fundamentals of Security
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/network_security/" class="md-nav__link">
+        Network Security
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/threats_attacks_defences/" class="md-nav__link">
+        Threat, Attacks & Defences
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/writing_secure_code/" class="md-nav__link">
+        Writing Secure code
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/conclusion/" class="md-nav__link">
+        Conclusion
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CONTRIBUTING/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CODE_OF_CONDUCT/" class="md-nav__link">
+        Code of Conduct
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../sre_community/" class="md-nav__link">
+        SRE Community
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-environment-setup" class="md-nav__link">
+    Lab Environment Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-user-operating-systems" class="md-nav__link">
+    Multi-User Operating Systems
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usergroup-management" class="md-nav__link">
+    User/Group Management
+  </a>
+  
+    <nav class="md-nav" aria-label="User/Group Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id-command" class="md-nav__link">
+    id command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-files-associated-with-usersgroups" class="md-nav__link">
+    Important files associated with users/groups
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-commands-for-managing-users" class="md-nav__link">
+    Important commands for managing users
+  </a>
+  
+    <nav class="md-nav" aria-label="Important commands for managing users">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useradd" class="md-nav__link">
+    useradd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passwd" class="md-nav__link">
+    passwd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usermod" class="md-nav__link">
+    usermod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#userdel" class="md-nav__link">
+    userdel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-commands-for-managing-groups" class="md-nav__link">
+    Important commands for managing groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#becoming-a-superuser" class="md-nav__link">
+    Becoming a Superuser
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-permissions" class="md-nav__link">
+    File Permissions
+  </a>
+  
+    <nav class="md-nav" aria-label="File Permissions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chmod-command" class="md-nav__link">
+    Chmod command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chown-command" class="md-nav__link">
+    Chown command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chgrp-command" class="md-nav__link">
+    Chgrp command
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-command" class="md-nav__link">
+    SSH Command
+  </a>
+  
+    <nav class="md-nav" aria-label="SSH Command">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passwordless-authentication-using-ssh" class="md-nav__link">
+    Passwordless Authentication Using SSH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-run-commands-on-a-remote-host" class="md-nav__link">
+    How to run commands on a remote host ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-transfer-files-from-one-host-to-another-host" class="md-nav__link">
+    How to transfer files from one host to another host ?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-management" class="md-nav__link">
+    Package Management
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-management" class="md-nav__link">
+    Process Management
+  </a>
+  
+    <nav class="md-nav" aria-label="Process Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ps-process-status" class="md-nav__link">
+    ps (process status)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top" class="md-nav__link">
+    top
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-management" class="md-nav__link">
+    Memory Management
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#free" class="md-nav__link">
+    free
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vmstat" class="md-nav__link">
+    vmstat
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-disk-space" class="md-nav__link">
+    Checking Disk Space
+  </a>
+  
+    <nav class="md-nav" aria-label="Checking Disk Space">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#df-disk-free" class="md-nav__link">
+    df (disk free)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#du-disk-usage" class="md-nav__link">
+    du (disk usage)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daemons" class="md-nav__link">
+    Daemons
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemd" class="md-nav__link">
+    Systemd
+  </a>
+  
+    <nav class="md-nav" aria-label="Systemd">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#managing-system-services" class="md-nav__link">
+    Managing System Services
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logs" class="md-nav__link">
+    Logs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="linux-server-administration">Linux Server Administration</h1>
+<p>In this course will try to cover some of the common tasks that a linux
+server administrator performs. We will first try to understand what a
+particular command does and then try to understand the commands using
+examples. Do keep in mind that it's very important to practice the Linux
+commands on your own.</p>
+<h2 id="lab-environment-setup">Lab Environment Setup</h2>
+<ul>
+<li>
+<p>Install docker on your system - <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a></p>
+</li>
+<li>
+<p>We will be running all the commands on Red Hat Enterprise Linux (RHEL) 8 system.</p>
+</li>
+</ul>
+<p><img alt="" src="../images/linux/admin/image19.png" /></p>
+<ul>
+<li>We will run most of the commands used in this module in the above Docker container.</li>
+</ul>
+<h2 id="multi-user-operating-systems">Multi-User Operating Systems</h2>
+<p>An operating system is considered as multi-user if it allows multiple people/users to use a computer and not affect each other's files and preferences. Linux based operating systems are multi-user in nature as it allows multiple users to access the system at the same time. A typical computer will only have one keyboard and monitor but multiple users can log in via SSH if the computer is connected to the network. We will cover more about SSH later.</p>
+<p>As a server administrator, we are mostly concerned with the Linux servers which are physically present at a very large distance from us. We can connect to these servers with the help of remote login methods like SSH.</p>
+<p>Since Linux supports multiple users, we need to have a method which can protect the users from each other. One user should not be able to access and modify files of other users</p>
+<h2 id="usergroup-management">User/Group Management</h2>
+<ul>
+<li>
+<p>Users in Linux has an associated user ID called UID attached to them.</p>
+</li>
+<li>
+<p>Users also has a home directory and a login shell associated with them.</p>
+</li>
+<li>
+<p>A group is a collection of one or more users. A group makes it easier to share permissions among a group of users.</p>
+</li>
+<li>
+<p>Each group has a group ID called GID associated with it.</p>
+</li>
+</ul>
+<h3 id="id-command">id command</h3>
+<p><code>id</code> command can be used to find the uid and gid associated with an user.
+It also lists down the groups to which the user belongs to.</p>
+<p>The uid and gid associated with the root user is 0.
+<img alt="" src="../images/linux/admin/image30.png" /></p>
+<p>A good way to find out the current user in Linux is to use the whoami
+command.</p>
+<p><img alt="" src="../images/linux/admin/image35.png" /></p>
+<p><strong>"root" user or superuser is the most privileged user with</strong>
+<strong>unrestricted access to all the resources on the system. It has UID 0</strong></p>
+<h3 id="important-files-associated-with-usersgroups">Important files associated with users/groups</h3>
+<table>
+<thead>
+<tr>
+<th>/etc/passwd</th>
+<th>Stores the user name, the uid, the gid, the home directory, the login shell etc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/etc/shadow</td>
+<td>Stores the password associated with the users</td>
+</tr>
+<tr>
+<td>/etc/group</td>
+<td>Stores information about different groups on the system</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../images/linux/admin/image23.png" /></p>
+<p><img alt="" src="../images/linux/admin/image21.png" /></p>
+<p><img alt="" src="../images/linux/admin/image9.png" /></p>
+<p>If you want to understand each filed discussed in the above outputs, you can go
+through below links:</p>
+<ul>
+<li>
+<p><a href="https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/shadow-file-formats.html">https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/shadow-file-formats.html</a></p>
+</li>
+<li>
+<p><a href="https://tldp.org/HOWTO/User-Authentication-HOWTO/x71.html">https://tldp.org/HOWTO/User-Authentication-HOWTO/x71.html</a></p>
+</li>
+</ul>
+<h2 id="important-commands-for-managing-users">Important commands for managing users</h2>
+<p>Some of the commands which are used frequently to manage users/groups
+on Linux are following:</p>
+<ul>
+<li>
+<p><code>useradd</code> - Creates a new user</p>
+</li>
+<li>
+<p><code>passwd</code> - Adds or modifies passwords for a user</p>
+</li>
+<li>
+<p><code>usermod</code> - Modifies attributes of an user</p>
+</li>
+<li>
+<p><code>userdel</code> - Deletes an user</p>
+</li>
+</ul>
+<h3 id="useradd">useradd</h3>
+<p>The useradd command adds a new user in Linux.</p>
+<p>We will create a new user 'shivam'. We will also verify that the user
+has been created by tailing the /etc/passwd file. The uid and gid are
+1000 for the newly created user. The home directory assigned to the user
+is /home/shivam and the login shell assigned is /bin/bash. Do note that
+the user home directory and login shell can be modified later on.</p>
+<p><img alt="" src="../images/linux/admin/image41.png" /></p>
+<p>If we do not specify any value for attributes like home directory or
+login shell, default values will be assigned to the user. We can also
+override these default values when creating a new user.</p>
+<p><img alt="" src="../images/linux/admin/image54.png" /></p>
+<h3 id="passwd">passwd</h3>
+<p>The passwd command is used to create or modify passwords for a user.</p>
+<p>In the above examples, we have not assigned any password for users
+'shivam' or 'amit' while creating them.</p>
+<p>"!!" in an account entry in shadow means the account of an user has
+been created, but not yet given a password.</p>
+<p><img alt="" src="../images/linux/admin/image13.png" /></p>
+<p>Let's now try to create a password for user "shivam".</p>
+<p><img alt="" src="../images/linux/admin/image55.png" /></p>
+<p>Do remember the password as we will be later using examples
+where it will be useful.</p>
+<p>Also, let's change the password for the root user now. When we switch
+from a normal user to root user, it will request you for a password.
+Also, when you login using root user, the password will be asked.</p>
+<p><img alt="" src="../images/linux/admin/image39.png" /></p>
+<h3 id="usermod">usermod</h3>
+<p>The usermod command is used to modify the attributes of an user like the
+home directory or the shell.</p>
+<p>Let's try to modify the login shell of user "amit" to "/bin/bash".</p>
+<p><img alt="" src="../images/linux/admin/image17.png" /></p>
+<p>In a similar way, you can also modify many other attributes for a user.
+Try 'usermod -h' for a list of attributes you can modify.</p>
+<h3 id="userdel">userdel</h3>
+<p>The userdel command is used to remove a user on Linux. Once we remove a
+user, all the information related to that user will be removed.</p>
+<p>Let's try to delete the user "amit". After deleting the user, you will
+not find the entry for that user in "/etc/passwd" or "/etc/shadow" file.</p>
+<p><img alt="" src="../images/linux/admin/image34.png" /></p>
+<h2 id="important-commands-for-managing-groups">Important commands for managing groups</h2>
+<p>Commands for managing groups are quite similar to the commands used for managing users. Each command is not explained  in detail here as they are quite similar. You can try running these commands on your system.</p>
+<table>
+<thead>
+<tr>
+<th>groupadd \&lt;group_name></th>
+<th>Creates a new group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>groupmod \&lt;group_name></td>
+<td>Modifies attributes of a group</td>
+</tr>
+<tr>
+<td>groupdel \&lt;group_name></td>
+<td>Deletes a group</td>
+</tr>
+<tr>
+<td>gpasswd \&lt;group_name></td>
+<td>Modifies password for group</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../images/linux/admin/image52.png" /></p>
+<p>We will now try to add user "shivam" to the group we have created above.</p>
+<p><img alt="" src="../images/linux/admin/image33.png" /></p>
+<h2 id="becoming-a-superuser">Becoming a Superuser</h2>
+<p><strong>Before running the below commands, do make sure that you have set up a
+password for user "shivam" and user "root" using the passwd command
+described in the above section.</strong></p>
+<p>The su command can be used to switch users in Linux. Let's now try to
+switch to user "shivam".</p>
+<p><img alt="" src="../images/linux/admin/image37.png" /></p>
+<p>Let's now try to open the "/etc/shadow" file.</p>
+<p><img alt="" src="../images/linux/admin/image29.png" /></p>
+<p>The operating system didn't allow the user "shivam" to read the content
+of the "/etc/shadow" file. This is an important file in Linux which
+stores the passwords of users. This file can only be accessed by root or
+users who have the superuser privileges.</p>
+<p><strong>The sudo command allows a</strong> <strong>user to run commands with the security
+privileges of the root user.</strong> Do remember that the root user has all
+the privileges on a system. We can also use su command to switch to the
+root user and open the above file but doing that will require the
+password of the root user. An alternative way which is preferred on most
+modern operating systems is to use sudo command for becoming a
+superuser. Using this way, a user has to enter his/her password and they
+need to be a part of the sudo group.</p>
+<p><strong>How to provide superpriveleges to other users ?</strong></p>
+<p>Let's first switch to the root user using su command. Do note that using
+the below command will need you to enter the password for the root user.</p>
+<p><img alt="" src="../images/linux/admin/image44.png" /></p>
+<p>In case, you forgot to set a password for the root user, type "exit" and
+you will be back as the root user. Now, set up a password using the
+passwd command.</p>
+<p><strong>The file /etc/sudoers holds the names of users permitted to invoke
+sudo</strong>. In redhat operating systems, this file is not present by
+default. We will need to install sudo.</p>
+<p><img alt="" src="../images/linux/admin/image3.png" /></p>
+<p>We will discuss the yum command in detail in later sections.</p>
+<p>Try to open the "/etc/sudoers" file on the system. The file has a lot of
+information. This file stores the rules that users must follow when
+running the sudo command. For example, root is allowed to run any
+commands from anywhere.</p>
+<p><img alt="" src="../images/linux/admin/image8.png" /></p>
+<p>One easy way of providing root access to users is to add them to a group
+which has permissions to run all the commands. "wheel" is a group in
+redhat Linux with such privileges.</p>
+<p><img alt="" src="../images/linux/admin/image25.png" /></p>
+<p>Let's add the user "shivam" to this group so that it also has sudo
+privileges.</p>
+<p><img alt="" src="../images/linux/admin/image48.png" /></p>
+<p>Let's now switch back to user "shivam" and try to access the
+"/etc/shadow" file.</p>
+<p><img alt="" src="../images/linux/admin/image56.png" /></p>
+<p>We need to use sudo before running the command since it can only be
+accessed with the sudo privileges. We have already given sudo privileges
+to user “shivam” by adding him to the group “wheel”.</p>
+<h2 id="file-permissions">File Permissions</h2>
+<p>On a Linux operating system, each file and directory is assigned access
+permissions for the owner of the file, the members of a group of related
+users and everybody else. This is to make sure that one user is not
+allowed to access the files and resources of another user.</p>
+<p>To see the permissions of a file, we can use the ls command. Let's look
+at the permissions of /etc/passwd file.</p>
+<p><img alt="" src="../images/linux/admin/image40.png" /></p>
+<p>Let's go over some of the important fields in the output that are
+related to file permissions.</p>
+<p><img alt="" src="../images/linux/admin/image31.jpg" /></p>
+<p><img alt="" src="../images/linux/admin/image57.png" /></p>
+<h3 id="chmod-command">Chmod command</h3>
+<p>The chmod command is used to modify files and directories permissions in
+Linux.</p>
+<p>The chmod command accepts permissions in as a numerical argument. We can
+think of permission as a series of bits with 1 representing True or
+allowed and 0 representing False or not allowed.</p>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>rwx</th>
+<th>Binary</th>
+<th>Decimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read, write and execute</td>
+<td>rwx</td>
+<td>111</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Read and write</td>
+<td>rw-</td>
+<td>110</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Read and execute</td>
+<td>r-x</td>
+<td>101</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Read only</td>
+<td>r--</td>
+<td>100</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Write and execute</td>
+<td>-wx</td>
+<td>011</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Write only</td>
+<td>-w-</td>
+<td>010</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Execute only</td>
+<td>--x</td>
+<td>001</td>
+<td>1</td>
+</tr>
+<tr>
+<td>None</td>
+<td>---</td>
+<td>000</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>We will now create a new file and check the permission of the file.</p>
+<p><img alt="" src="../images/linux/admin/image15.png" /></p>
+<p>The group owner doesn't have the permission to write to this file. Let's
+give the group owner or root the permission to write to it using chmod
+command.</p>
+<p><img alt="" src="../images/linux/admin/image26.png" /></p>
+<p>Chmod command can be also used to change the permissions of a directory
+in the similar way.</p>
+<h3 id="chown-command">Chown command</h3>
+<p>The chown command is used to change the owner of files or
+directories in Linux.</p>
+<p>Command syntax: chown \&lt;new_owner> \&lt;file_name></p>
+<p><img alt="" src="../images/linux/admin/image6.png" /></p>
+<p><strong>In case, we do not have sudo privileges, we need to use sudo
+command</strong>. Let's switch to user 'shivam' and try changing the owner. We
+have also changed the owner of the file to root before running the below
+command.</p>
+<p><img alt="" src="../images/linux/admin/image12.png" /></p>
+<p>Chown command can also be used to change the owner of a directory in the
+similar way.</p>
+<h3 id="chgrp-command">Chgrp command</h3>
+<p>The chgrp command can be used to change the group ownership of files or
+directories in Linux. The syntax is very similar to that of chown
+command.</p>
+<p><img alt="" src="../images/linux/admin/image27.png" /></p>
+<p>Chgrp command can also be used to change the owner of a directory in the
+similar way.</p>
+<h2 id="ssh-command">SSH Command</h2>
+<p>The ssh command is used for logging into the remote systems, transfer files between systems and for executing commands on a remote machine. SSH stands for secure shell and is used to provide an encrypted secured connection between two hosts over an insecure network like the internet.</p>
+<p>Reference:
+<a href="https://www.ssh.com/ssh/command/">https://www.ssh.com/ssh/command/</a></p>
+<p>We will now discuss passwordless authentication which is secure and most
+commonly used for ssh authentication.</p>
+<h3 id="passwordless-authentication-using-ssh">Passwordless Authentication Using SSH</h3>
+<p>Using this method, we can ssh into hosts without entering the password.
+This method is also useful when we want some scripts to perform
+ssh-related tasks.</p>
+<p>Passwordless authentication requires the use of a public and private key pair. As the name implies, the public key can be shared with anyone but the private key should be kept private.
+Lets not get  into the details of how this authentication works. You can read more about it
+<a href="https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process">here</a></p>
+<p>Steps for setting up a passwordless authentication with a remote host:</p>
+<ol>
+<li>
+<p>Generating public-private key pair  </p>
+<p><strong>If we already have a key pair stored in \~/.ssh directory, we will not need to generate keys again.</strong></p>
+<p>Install openssh package which contains all the commands related to ssh.</p>
+<p><img alt="" src="../images/linux/admin/image49.png" /></p>
+<p>Generate a key pair using the ssh-keygen command. One can choose the
+default values for all prompts.</p>
+<p><img alt="" src="../images/linux/admin/image47.png" /></p>
+<p>After running the ssh-keygen command successfully, we should see two
+keys present in the \~/.ssh directory. Id_rsa is the private key and
+id_rsa.pub is the public key. Do note that the private key can only be
+read and modified by you.</p>
+<p><img alt="" src="../images/linux/admin/image7.png" /></p>
+</li>
+<li>
+<p>Transferring the public key to the remote host</p>
+<p>There are multiple ways to transfer the public key to the remote server.
+We will look at one of the most common ways of doing it using the
+ssh-copy-id command.</p>
+<p><img alt="" src="../images/linux/admin/image11.png" /></p>
+<p>Install the openssh-clients package to use ssh-copy-id command.</p>
+<p><img alt="" src="../images/linux/admin/image46.png" /></p>
+<p>Use the ssh-copy-id command to copy your public key to the remote host.</p>
+<p><img alt="" src="../images/linux/admin/image50.png" /></p>
+<p>Now, ssh into the remote host using the password authentication.</p>
+<p><img alt="" src="../images/linux/admin/image51.png" /></p>
+<p>Our public key should be there in \~/.ssh/authorized_keys now.</p>
+<p><img alt="" src="../images/linux/admin/image4.png" /></p>
+<p>\~/.ssh/authorized_key contains a list of public keys. The users
+associated with these public keys have the ssh access into the remote
+host.</p>
+</li>
+</ol>
+<h3 id="how-to-run-commands-on-a-remote-host">How to run commands on a remote host ?</h3>
+<p>General syntax: ssh \&lt;user>@\&lt;hostname/hostip> \&lt;command></p>
+<p><img alt="" src="../images/linux/admin/image14.png" /></p>
+<h3 id="how-to-transfer-files-from-one-host-to-another-host">How to transfer files from one host to another host ?</h3>
+<p>General syntax: scp \&lt;source> \&lt;destination></p>
+<p><img alt="" src="../images/linux/admin/image32.png" /></p>
+<h2 id="package-management">Package Management</h2>
+<p>Package management is the process of installing and managing software on
+the system. We can install the packages which we require from the Linux
+package distributor. Different distributors use different packaging
+systems.</p>
+<table>
+<thead>
+<tr>
+<th>Packaging systems</th>
+<th>Distributions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Debian style (.deb)</td>
+<td>Debian, Ubuntu</td>
+</tr>
+<tr>
+<td>Red Hat style (.rpm)</td>
+<td>Fedora, CentOS, Red Hat Enterprise Linux</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Popular Packaging Systems in Linux</strong></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yum install \&lt;package_name></td>
+<td>Installs a package on your system</td>
+</tr>
+<tr>
+<td>yum update \&lt;package_name></td>
+<td>Updates a package to it's latest available version</td>
+</tr>
+<tr>
+<td>yum remove \&lt;package_name></td>
+<td>Removes a package from your system</td>
+</tr>
+<tr>
+<td>yum search \&lt;keyword></td>
+<td>Searches for a particular keyword</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://docs.fedoraproject.org/en-US/quick-docs/dnf/">DNF</a> is
+the successor to YUM which is now used in Fedora for installing and
+managing packages. DNF may replace YUM in the future on all RPM based
+Linux distributions.</p>
+<p><img alt="" src="../images/linux/admin/image20.png" /></p>
+<p>We did find an exact match for the keyword httpd when we searched using
+yum search command. Let's now install the httpd package.</p>
+<p><img alt="" src="../images/linux/admin/image28.png" /></p>
+<p>After httpd is installed, we will use the yum remove command to remove
+httpd package.</p>
+<p><img alt="" src="../images/linux/admin/image43.png" /></p>
+<h2 id="process-management">Process Management</h2>
+<p>In this section, we will study about some useful commands that can be
+used to monitor the processes on Linux systems.</p>
+<h3 id="ps-process-status">ps (process status)</h3>
+<p>The ps command is used to know the information of a process or list of
+processes.</p>
+<p><img alt="" src="../images/linux/admin/image24.png" /></p>
+<p>If you get an error "ps command not found" while running ps command, do
+install <strong>procps</strong> package.</p>
+<p>ps without any arguments is not very useful. Let's try to list all the
+processes on the system by using the below command.</p>
+<p>Reference:
+<a href="https://unix.stackexchange.com/questions/106847/what-does-aux-mean-in-ps-aux">https://unix.stackexchange.com/questions/106847/what-does-aux-mean-in-ps-aux</a></p>
+<p><img alt="" src="../images/linux/admin/image42.png" /></p>
+<p>We can use an additional argument with ps command to list the
+information about the process with a specific process ID.</p>
+<p><img alt="" src="../images/linux/admin/image2.png" /></p>
+<p>We can use grep in combination with ps command to list only specific
+processes.</p>
+<p><img alt="" src="../images/linux/admin/image1.png" /></p>
+<h3 id="top">top</h3>
+<p>The top command is used to show information about Linux processes
+running on the system in real time. It also shows a summary of the
+system information.</p>
+<p><img alt="" src="../images/linux/admin/image53.png" /></p>
+<p>For each process, top lists down the process ID, owner, priority, state,
+cpu utilization, memory utilization and much more information. It also
+lists down the memory utilization and cpu utilization of the system as a
+whole along with system uptime and cpu load average.</p>
+<h2 id="memory-management">Memory Management</h2>
+<p>In this section, we will study about some useful commands that can be
+used to view information about the system memory.</p>
+<h3 id="free">free</h3>
+<p>The free command is used to display the memory usage of the system. The
+command displays the total free and used space available in the RAM
+along with space occupied by the caches/buffers.</p>
+<p><img alt="" src="../images/linux/admin/image22.png" /></p>
+<p>free command by default shows the memory usage in kilobytes. We can use
+an additional argument to get the data in human-readable format.</p>
+<p><img alt="" src="../images/linux/admin/image5.png" /></p>
+<h3 id="vmstat">vmstat</h3>
+<p>The vmstat command can be used to display the memory usage along with
+additional information about io and cpu usage.</p>
+<p><img alt="" src="../images/linux/admin/image38.png" /></p>
+<h2 id="checking-disk-space">Checking Disk Space</h2>
+<p>In this section, we will study about some useful commands that can be
+used to view disk space on Linux.</p>
+<h3 id="df-disk-free">df (disk free)</h3>
+<p>The df command is used to display the free and available space for each
+mounted file system.</p>
+<p><img alt="" src="../images/linux/admin/image36.png" /></p>
+<h3 id="du-disk-usage">du (disk usage)</h3>
+<p>The du command is used to display disk usage of files and directories on
+the system.</p>
+<p><img alt="" src="../images/linux/admin/image10.png" /></p>
+<p>The below command can be used to display the top 5 largest directories
+in the root directory.</p>
+<p><img alt="" src="../images/linux/admin/image18.png" /></p>
+<h2 id="daemons">Daemons</h2>
+<p>A computer program that runs as a background process is called a daemon.
+Traditionally, the name of daemon processes ended with d - sshd, httpd
+etc. We cannot interact with a daemon process as they run in the
+background.</p>
+<p>Services and daemons are used interchangeably most of the time.</p>
+<h2 id="systemd">Systemd</h2>
+<p>Systemd is a system and service manager for Linux operating systems.
+Systemd units are the building blocks of systemd. These units are
+represented by unit configuration files.</p>
+<p>The below examples shows the unit configuration files available at
+/usr/lib/systemd/system which are distributed by installed RPM packages.
+We are more interested in the configuration file that ends with service
+as these are service units.</p>
+<p><img alt="" src="../images/linux/admin/image16.png" /></p>
+<h3 id="managing-system-services">Managing System Services</h3>
+<p>Service units end with .service file extension. Systemctl command can be
+used to start/stop/restart the services managed by systemd.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>systemctl start name.service</td>
+<td>Starts a service</td>
+</tr>
+<tr>
+<td>systemctl stop name.service</td>
+<td>Stops a service</td>
+</tr>
+<tr>
+<td>systemctl restart name.service</td>
+<td>Restarts a service</td>
+</tr>
+<tr>
+<td>systemctl status name.service</td>
+<td>Check the status of a service</td>
+</tr>
+<tr>
+<td>systemctl reload name.service</td>
+<td>Reload the configuration of a service</td>
+</tr>
+</tbody>
+</table>
+<h2 id="logs">Logs</h2>
+<p>In this section, we will talk about some important files and directories
+which can be very useful for viewing system logs and applications logs
+in Linux. These logs can be very useful when you are troubleshooting on
+the system.</p>
+<p><img alt="" src="../images/linux/admin/image58.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../command_line_basics/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Command Line Basics
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../conclusion/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Conclusion
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright 2020 LinkedIn Corporation. All Rights Reserved. Licensed under the Creative Commons Attribution 4.0 International Public License
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/linkedin/school-of-sre" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
