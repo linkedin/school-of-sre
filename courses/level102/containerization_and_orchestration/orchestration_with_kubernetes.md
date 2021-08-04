@@ -42,7 +42,7 @@ Kubernetes components can be divided into two parts: [control plane components](
 
 A Kubernetes cluster consists of 1 or more host machines (called nodes) where the containers managed by Kubernetes are run. This constitutes the data plane (or node plane). 
 
-The brain of Kuberentes which responds to events from the node plane (e.g create a pod, replicas mismatch) and does the main orchestration is called the control plane. All control plan components are typically installed in a master node. This master node does not run any user containers.
+The brain of Kuberentes which responds to events from the node plane (e.g create a pod, replicas mismatch) and does the main orchestration is called the control plane. All control plane components are typically installed in a master node. This master node does not run any user containers.
 
 The Kubernetes components themselves are run as containers wrapped in Pods (which is the most basic kubernetes resource object).
 
@@ -57,7 +57,7 @@ The Kubernetes components themselves are run as containers wrapped in Pods (whic
 
 This workflow might help you understand the working on components better:
 
-- An SRE installs `kubectl` in their local machine. This is the client which interacts with the Kubernetes control plan (and hence the cluster).
+- An SRE installs `kubectl` in their local machine. This is the client which interacts with the Kubernetes control plane (and hence the cluster).
 
 - They create a YAML file, called manifest which specifies the desired state of the resource (e.g a deployment names “frontend” needs 3 pods to always be running)
 
@@ -197,7 +197,7 @@ Verify that 3 pods are indeed created.
 
 If you’re curious, check the output of `kubectl get deploy` and `kubectl describe deploy nginx-deployment`.
 
-* Delete one of the 3 pods using `kubectl delete po <pod name>`. After a few seconds again do `kubectl get po`.
+* Delete one of the 3 pods using `kubectl delete pod <pod name>`. After a few seconds again do `kubectl get pod`.
 
 ![](images/kube7.png)
 

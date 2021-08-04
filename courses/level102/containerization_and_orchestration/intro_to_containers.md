@@ -177,7 +177,7 @@ This limit is too low and hence most of the processes attached to mem_group shou
 
 The process is OOM killed as expected. You can confirm the same with dmesg logs (mm_fault_error).
 
-We highly recommend trying out the more in depth block IO [cgroup tutorial in GeeksForGeeks](geeksforgeeks.org/linux-virtualization-resource-throttling-using-cgroups/).
+If you want to try out a more in-depth exercise on cgroups, check out [this tutorial from Geeks for Geeks](geeksforgeeks.org/linux-virtualization-resource-throttling-using-cgroups/).
 
 
 Let’s come back to containers again. Containers share the same kernel as the underlying host operating system and provide an isolated environment of the application within. Cgroups help in managing resources used by processes within a container and namespaces help isolate network stack, pids, users, group ids and mount points in a container from another container running on the same host.
@@ -195,4 +195,4 @@ Container engines ease the process of creating and managing containers in a host
 * The files in the container image are then mounted to the isolated environment to get the  application up and running within the container.
 
 There are several container engines available like Docker, RKT, LXC (one of the first container engines) which require different image formats (Docker, LXD). OCI (Open Container Initiative) is a collaborative project started by Docker that aims to standardize container runtime specifications and image formats across vendors. OCI [FAQ section](https://opencontainers.org/faq/) is a good place to start if you’re curious about this project.
-We will focus on Docker in the [next section](https://linkedin.github.io/school-of-sre/containerization_and_orchestration/containerization_with_docker/).
+We will focus on Docker in the [next section](https://linkedin.github.io/school-of-sre/level102/containerization_and_orchestration/containerization_with_docker/).

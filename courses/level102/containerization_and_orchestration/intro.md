@@ -9,7 +9,7 @@ In this module we talk about the ins and outs of containers: the internals and u
 ### Prerequisites
 - Basic knowledge of linux will be helpful understanding the internals of containers
 - Basic knowledge of shell commands (will come handy when we're containerizing applications)
-- Knowledge of running a basic web application. You can go through our [Python And Web module](https://linkedin.github.io/school-of-sre/python_web/intro/) to gain familiarity with this.
+- Knowledge of running a basic web application. You can go through our [Python And Web module](https://linkedin.github.io/school-of-sre/level101/python_web/intro/) to gain familiarity with this.
 
 
 ## What to expect from this course

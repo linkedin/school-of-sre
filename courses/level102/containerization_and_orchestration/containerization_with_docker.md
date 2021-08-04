@@ -1,6 +1,6 @@
 ## Introduction
 
-Docker has gained huge popularity among other container engines since it was released to the public in 2013. Here are some of the reasons why Docker so darn popular:
+Docker has gained huge popularity among other container engines since it was released to the public in 2013. Here are some of the reasons why Docker so popular:
 
 - _Improved portability_
 
@@ -19,7 +19,7 @@ Since Docker images are in the form of layers, one image can be used as base on 
 
 - _Community support_
 
-Docker hub is a container registry where anyone logged in can upload or download a container image. Docker images versions of popular OS distros are regularly updated in docker hub and receive large community support.
+Docker hub is a container registry where anyone logged in can upload or download a container image. Docker images of popular OS distros are regularly updated in docker hub and receive large community support.
 
 Let’s look at some terms which come up during our discussion of Docker.
 
@@ -91,7 +91,7 @@ While we have covered the basics of containerization and how a standalone applic
 
 **Docker networks**
 
-Docker networks facilitate the interaction between containers running on the same hosts or even different hosts. There are several options provided through docker network command which specifies how the container interacts with the host and with other containers. The host option allows sharing of network stack with the host, bridge allows communication between containers running on the same host but not to external to the host, overlay facilitates interaction between containers across hosts attached to the same network and macvlan which assigns a separate MAC address to a container for legacy containers are some important types of networks supported by Docker.  This however is outside the scope of this module. The official documentation on [docker networks](https://docs.docker.com/network/) itself is a good place to start.
+Docker networks facilitate the interaction between containers running on the same hosts or even different hosts. There are several options provided through docker network command which specifies how the container interacts with the host and with other containers. The `host` option allows sharing of network stack with the host, `bridge` allows communication between containers running on the same host but not external to the host, `overlay` facilitates interaction between containers across hosts attached to the same network and `macvlan` which assigns a separate MAC address to a container for legacy containers are some important types of networks supported by Docker.  This however is outside the scope of this module. The official documentation on [docker networks](https://docs.docker.com/network/) itself is a good place to start.
 
 **Volumes**
 
