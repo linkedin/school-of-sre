@@ -97,4 +97,4 @@ Docker networks facilitate the interaction between containers running on the sam
 
 Apart from images, containers and networks, Docker also provides the option to create and mount volumes within containers. Generally, data within docker containers is non-persistent i.e once you kill the container the data is lost. Volumes are used for storing persistent data in containers. This [KataKoda lab](https://www.katacoda.com/courses/docker/persisting-data-using-volumes) is a great place to start playing with volumes.
 
-[In the next section](https://linkedin.github.io/school-of-sre/orchestration_with_kubernetes/) we see how container deployments are orchestrated with Kubernetes.
+[In the next section](https://linkedin.github.io/school-of-sre/level102/containerization_and_orchestration/orchestration_with_kubernetes/) we see how container deployments are orchestrated with Kubernetes.
