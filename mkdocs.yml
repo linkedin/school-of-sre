@@ -78,14 +78,20 @@ nav:
         - Writing Secure code: level101/security/writing_secure_code.md
         - Conclusion: level101/security/conclusion.md
 - Level 102:
-  - Linux Advanced:
-    - Containerization And Orchestration:
-      - Introduction: level102/containerization_and_orchestration/intro.md
-      - Introduction To Containers: level102/containerization_and_orchestration/intro_to_containers.md
-      - Containerization With Docker: level102/containerization_and_orchestration/containerization_with_docker.md
-      - Orchestration With Kubernetes: level102/containerization_and_orchestration/orchestration_with_kubernetes.md
-      - Conclusion: level102/containerization_and_orchestration/conclusion.md
- 
+    - Linux Advanced:
+        - Containerization And Orchestration:
+            - Introduction: level102/containerization_and_orchestration/intro.md
+            - Introduction To Containers: level102/containerization_and_orchestration/intro_to_containers.md
+            - Containerization With Docker: level102/containerization_and_orchestration/containerization_with_docker.md
+            - Orchestration With Kubernetes: level102/containerization_and_orchestration/orchestration_with_kubernetes.md
+            - Conclusion: level102/containerization_and_orchestration/conclusion.md
+    - System Troubleshooting and Performance Improvements:
+        - Introduction: level102/system_troubleshooting_and_performance/introduction.md
+        - Troubleshooting: level102/system_troubleshooting_and_performance/troubleshooting.md
+        - Important Tools: level102/system_troubleshooting_and_performance/important-tools.md
+        - Performance Improvements: level102/system_troubleshooting_and_performance/performance-improvements.md
+        - Troubleshooting Example: level102/system_troubleshooting_and_performance/troubleshooting-example.md
+        - Conclusion: level102/system_troubleshooting_and_performance/conclusion.md
 - Contribute: CONTRIBUTING.md
 - Code of Conduct: CODE_OF_CONDUCT.md
 - SRE Community: sre_community.md
