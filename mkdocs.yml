@@ -87,7 +87,7 @@ nav:
       - Conclusion: level102/containerization_and_orchestration/conclusion.md
   - Networking:
       - Introduction: level102/networking/introduction.md
-      - Security: level102/networking/security.md       - Scale: level102/networking/scale.md
+      - Security: level102/networking/security.md
       - Scale: level102/networking/scale.md
       - RTT: level102/networking/rtt.md
       - Infrastructure Services: level102/networking/infrastructure-features.md
