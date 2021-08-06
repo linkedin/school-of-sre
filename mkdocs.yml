@@ -92,6 +92,13 @@ nav:
       - RTT: level102/networking/rtt.md
       - Infrastructure Services: level102/networking/infrastructure-features.md
       - Conclusion: level102/networking/conclusion.md
+  - System Design:
+      - Introduction: level102/system_design/intro.md
+      - Large System Design: level102/system_design/large-system-design.md
+      - Scaling: level102/system_design/scaling.md
+      - Scaling Beyond the Data Center: level102/system_design/scaling-beyond-the-datacenter.md
+      - Resiliency: level102/system_design/resiliency.md
+      - Conclusion: level102/system_design/conclusion.md
   - System Troubleshooting and Performance Improvements:
         - Introduction: level102/system_troubleshooting_and_performance/introduction.md
         - Troubleshooting: level102/system_troubleshooting_and_performance/troubleshooting.md
