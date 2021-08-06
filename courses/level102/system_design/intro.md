@@ -26,11 +26,11 @@ system. Instead, we try to focus on the fundamental considerations that need to 
 ## Course Contents
 
 - [Introduction](https://linkedin.github.io/school-of-sre/level102/system_design/intro/)
-- [Large system Design](https://linkedin.github.io/school-of-sre/level102//large-system-design/)
-- [Scaling](https://linkedin.github.io/school-of-sre/level102/scaling/)
-- [Scaling beyond the datacentre](https://linkedin.github.io/school-of-sre/level102/scaling-beyond-the-datacenter/)
-- [Design patterns for resiliency](https://linkedin.github.io/school-of-sre/level102/resiliency/)
-- [Conclusion](https://linkedin.github.io/school-of-sre/level102/conclusion/)
+- [Large system Design](https://linkedin.github.io/school-of-sre/level102/system_design/large-system-design/)
+- [Scaling](https://linkedin.github.io/school-of-sre/level102/system_design/scaling/)
+- [Scaling beyond the datacentre](https://linkedin.github.io/school-of-sre/level102/system_design/scaling-beyond-the-datacenter/)
+- [Design patterns for resiliency](https://linkedin.github.io/school-of-sre/level102/system_design/resiliency/)
+- [Conclusion](https://linkedin.github.io/school-of-sre/level102/system_design/conclusion/)
 
 ## Introduction
 
