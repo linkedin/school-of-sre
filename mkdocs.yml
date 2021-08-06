@@ -92,7 +92,13 @@ nav:
       - RTT: level102/networking/rtt.md
       - Infrastructure Services: level102/networking/infrastructure-features.md
       - Conclusion: level102/networking/conclusion.md
- 
+  - System Troubleshooting and Performance Improvements:
+        - Introduction: level102/system_troubleshooting_and_performance/introduction.md
+        - Troubleshooting: level102/system_troubleshooting_and_performance/troubleshooting.md
+        - Important Tools: level102/system_troubleshooting_and_performance/important-tools.md
+        - Performance Improvements: level102/system_troubleshooting_and_performance/performance-improvements.md
+        - Troubleshooting Example: level102/system_troubleshooting_and_performance/troubleshooting-example.md
+        - Conclusion: level102/system_troubleshooting_and_performance/conclusion.md
 - Contribute: CONTRIBUTING.md
 - Code of Conduct: CODE_OF_CONDUCT.md
 - SRE Community: sre_community.md
