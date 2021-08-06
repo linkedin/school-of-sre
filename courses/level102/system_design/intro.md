@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- [School of SRE - System Design - Phase I](https://linkedin.github.io/school-of-sre/systems_design/intro/)
+- [School of SRE - System Design - Phase I](https://linkedin.github.io/school-of-sre/level101/systems_design/intro/)
 
 ## What to expect from this course 
 
