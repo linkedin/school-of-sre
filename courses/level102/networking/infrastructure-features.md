@@ -20,7 +20,7 @@ the rapid growth of server infrastructure (Note: Not only the ToR ports
 are used efficiently, but the upper switching layer in DC fabric as well, 
 the port usage will be efficient). On the downside, the servers can be
 unreachable if there is an issue with the ToR, link or NIC. This will
-impact the stateful apps the more, as the existing connections get
+impact the stateful apps more, as the existing connections get
 abruptly disconnected.
 
 ![Graphical user interface, application Description automatically
@@ -38,10 +38,10 @@ either in layer 2 or in layer 3.
 
 ##### Layer 2
 
-In this case, both the links are bundled together as a bond on the
+In this case, both the links are bundled together as a [bond](https://en.wikipedia.org/wiki/Link_aggregation) on the
 server side (with one NIC taking the active role and the other being
 passive). On the switch side, these two links are made part of
-multi-chassis lag (similar to bonding, but spread across switches). The
+[multi-chassis lag](https://en.wikipedia.org/wiki/Multi-chassis_link_aggregation_group) (similar to bonding, but spread across switches). The
 prerequisite here is, both the ToR should be part of the same layer 2
 domain. The IP addresses are configured on the bond interface on the
 server and SVI on the switch side.
@@ -125,7 +125,7 @@ identifies the real server to redirect the request and then modifies the
 destination mac address of that Ethernet frame. Upon processing this
 packet, the real server responds directly to the client.
 
-        * L3 DSR: In this case, the load balancer and real servers need not be
+        * [L3 DSR](https://github.com/yahoo/l3dsr): In this case, the load balancer and real servers need not be
 in the same VLAN (does away with layer 2 complexities like running STP,
 managing wider broadcast domain, etc). Upon incoming request, the load
 balancer redirects to the real server, by modifying the destination IP
