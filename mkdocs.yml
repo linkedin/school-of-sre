@@ -1,3 +1,4 @@
+site_url: https://linkedin.github.io/school-of-sre/
 site_name: School Of SRE
 docs_dir: courses
 theme:

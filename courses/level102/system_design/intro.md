@@ -1,4 +1,4 @@
-# System Design Phase 2
+# System Design
 
 ## Prerequisites
 
