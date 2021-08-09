@@ -113,7 +113,7 @@ implemented in different ways
 1. Hardware load balancers: A LB device is placed inline of the traffic
 flow, and looks at the layer 3 and layer 4 information in an incoming
 packet. Then determine the set of real hosts, to which the connections
-are to be redirected. As covered in the [Scale](http://athiagar-ld2:8000/linux_networking/Phase_2/scale/#load-balancer) topic, these load balancers can be set up in two ways,
+are to be redirected. As covered in the [Scale](https://linkedin.github.io/school-of-sre/level102/networking/scale/#load-balancer) topic, these load balancers can be set up in two ways,
 
     - Single-arm mode: In this mode, the load balancer handles only the
 incoming requests to the VIP. The response from the server goes directly
@@ -140,7 +140,7 @@ and outgoing traffic.
 2. DNS based load balancer: Here the DNS servers keep a check of the
 health of the real servers and resolve the domain in such a way that the
 client can connect to different servers in that cluster. This part was
-explained in detail in the deployment at [scale](http://athiagar-ld2:8000/linux_networking/Phase_2/scale/#dns-based-load-balancing) section.
+explained in detail in the deployment at [scale](https://linkedin.github.io/school-of-sre/level102/networking/scale/#dns-based-load-balancing) section.
 
 3. IPVS based load balancing: This is another means, where an IPVS
 server presents itself as the service endpoint to the clients. Upon

@@ -34,7 +34,7 @@ in this case. It requires planning to decide how much server loss can be
 handled without overloading other servers. Based on this, the service
 can be distributed across many cabinets. These calculations may vary,
 depending upon the resiliency in the ToR design, which will be covered
-in [ToR connectivity](http://athiagar-ld2:8000/linux_networking/Phase_2/infrastructure-features/#dual-tor) section.
+in [ToR connectivity](https://linkedin.github.io/school-of-sre/level102/networking/infrastructure-features/#dual-tor) section.
 
 #### Site failures
 
