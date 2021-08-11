@@ -86,6 +86,11 @@ nav:
       - Containerization With Docker: level102/containerization_and_orchestration/containerization_with_docker.md
       - Orchestration With Kubernetes: level102/containerization_and_orchestration/orchestration_with_kubernetes.md
       - Conclusion: level102/containerization_and_orchestration/conclusion.md
+    - System Calls and Signals:
+      - Introduction: level102/system_calls_and_signals/intro.md
+      - Signals: level102/system_calls_and_signals/signals.md
+      - System Calls: level102/system_calls_and_signals/system_calls.md
+      - Conclusion: level102/system_calls_and_signals/conclusion.md
   - Networking:
       - Introduction: level102/networking/introduction.md
       - Security: level102/networking/security.md
