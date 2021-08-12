@@ -30,6 +30,7 @@ In this course, we are focusing on building strong foundational skills. The cour
 -   Level 102
     -   Linux Advanced
         -   [Containers and orchestration](https://linkedin.github.io/school-of-sre/level102/containerization_and_orchestration/intro/)
+        -   [System Calls and Signals](https://linkedin.github.io/school-of-sre/level102/system_calls_and_signals/intro/)
     -   [Networking](https://linkedin.github.io/school-of-sre/level102/networking/introduction/)
     -   [System Design](https://linkedin.github.io/school-of-sre/level102/system_design/intro/)
     -   [System troubleshooting and performance improvements](https://linkedin.github.io/school-of-sre/level102/system_troubleshooting_and_performance/introduction/) 
