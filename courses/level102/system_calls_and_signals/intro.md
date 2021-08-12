@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- [Linux Basics](https://linkedin.github.io/school-of-sre/linux_basics/intro/)
+- [Linux Basics](https://linkedin.github.io/school-of-sre/level101/linux_basics/intro/)
 - [Python Basics](https://linkedin.github.io/school-of-sre/level101/python_web/intro/)
 
 ## What to expect from this course
