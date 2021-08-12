@@ -26,4 +26,4 @@ The course does not discuss any other interrupts or interrupt handling apart fro
     - [User mode,kernel mode and their transitions](https://linkedin.github.io/school-of-sre/level102/system_calls_and_signals/system_calls/#user-mode-kernel-mode-and-their-transitions)
     - [Working of *write()* system call](https://linkedin.github.io/school-of-sre/level102/system_calls_and_signals/system_calls/#working-of-write-system-call)
     - [Debugging in Linux with strace](https://linkedin.github.io/school-of-sre/level102/system_calls_and_signals/system_calls/#debugging-in-linux-with-strace)
-
+    
