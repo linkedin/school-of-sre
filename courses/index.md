@@ -28,6 +28,7 @@ In this course, we are focusing on building strong foundational skills. The cour
     -   [Security](https://linkedin.github.io/school-of-sre/level101/security/intro/)
 
 -   Level 102
+    -   [Linux Intermediate](https://linkedin.github.io/school-of-sre/level102/linux_intermediate/introduction/)
     -   Linux Advanced
         -   [Containers and orchestration](https://linkedin.github.io/school-of-sre/level102/containerization_and_orchestration/intro/)
         -   [System Calls and Signals](https://linkedin.github.io/school-of-sre/level102/system_calls_and_signals/intro/)

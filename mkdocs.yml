@@ -79,6 +79,14 @@ nav:
         - Writing Secure code: level101/security/writing_secure_code.md
         - Conclusion: level101/security/conclusion.md
 - Level 102:
+  - Linux Intermediate:
+      - Introduction: level102/linux_intermediate/introduction.md
+      - Package Management: level102/linux_intermediate/package_management.md
+      - Storage Media: level102/linux_intermediate/storage_media.md
+      - Archiving and Backup: level102/linux_intermediate/archiving_backup.md
+      - Introduction to Vim: level102/linux_intermediate/introvim.md
+      - Bash Scripting: level102/linux_intermediate/bashscripting.md
+      - Conclusion: level102/linux_intermediate/conclusion.md
   - Linux Advanced:
     - Containerization And Orchestration:
       - Introduction: level102/containerization_and_orchestration/intro.md
