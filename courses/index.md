@@ -35,6 +35,7 @@ In this course, we are focusing on building strong foundational skills. The cour
     -   [Networking](https://linkedin.github.io/school-of-sre/level102/networking/introduction/)
     -   [System Design](https://linkedin.github.io/school-of-sre/level102/system_design/intro/)
     -   [System troubleshooting and performance improvements](https://linkedin.github.io/school-of-sre/level102/system_troubleshooting_and_performance/introduction/) 
+    -   [Continuous Integration and Continuous Delivery](https://linkedin.github.io/school-of-sre/level102/continuous_integration_and_continuous_delivery/introduction/)
 
 We believe continuous learning will help in acquiring deeper knowledge and competencies in order to expand your skill sets, every module has added references that could be a guide for further learning. Our hope is that by going through these modules we should be able to build the essential skills required for a Site Reliability Engineer.
 
