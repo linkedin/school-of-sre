@@ -120,6 +120,14 @@ nav:
         - Performance Improvements: level102/system_troubleshooting_and_performance/performance-improvements.md
         - Troubleshooting Example: level102/system_troubleshooting_and_performance/troubleshooting-example.md
         - Conclusion: level102/system_troubleshooting_and_performance/conclusion.md
+  - Continuous Integration and Continuous Delivery:
+        - Introduction: level102/continuous_integration_and_continuous_delivery/introduction.md
+        - What is CI/CD?: level102/continuous_integration_and_continuous_delivery/introduction_to_cicd.md
+        - Brief History: level102/continuous_integration_and_continuous_delivery/cicd_brief_history.md
+        - Continuous Integration: level102/continuous_integration_and_continuous_delivery/continuous_integration_build_pipeline.md
+        - Continuous Delivery and Deployment: level102/continuous_integration_and_continuous_delivery/continuous_delivery_release_pipeline.md
+        - CI/CD Pipeline - Hands-on: level102/continuous_integration_and_continuous_delivery/jenkins_cicd_pipeline_hands_on_lab.md
+        - Conclusion: level102/continuous_integration_and_continuous_delivery/conclusion.md
 - Contribute: CONTRIBUTING.md
 - Code of Conduct: CODE_OF_CONDUCT.md
 - SRE Community: sre_community.md
