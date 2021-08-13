@@ -7,10 +7,10 @@ There should be a CI server where it can trigger a build as soon as the code is 
 [Jenkins](https://www.jenkins.io/), [Bamboo](https://confluence.atlassian.com/bamboo/understanding-the-bamboo-ci-server-289277285.html), [Travis CI](https://travis-ci.org/), [GitLab](https://about.gitlab.com/), [Azure DevOps](https://azure.microsoft.com/en-in/services/devops/) etc. are the few popular CI tools. These tools provide various plugins and integration such as [ant](https://ant.apache.org/), [maven](https://maven.apache.org/) etc. for building and packaging, and Junit, selenium etc. are for performing the unit tests. [SonarQube](https://www.sonarqube.org/) can be used for static code analysis and code security.
 
 
-![](./images/CI_Image1.jpg)
+![](./images/CI_Image1.JPG)
 
 *Fig 1: Continuous Integration Pipeline*
 
-![](./images/CI_Image2.jpg)
+![](./images/CI_Image2.JPG)
 
 *Fig 2: Continuous Integration Process*

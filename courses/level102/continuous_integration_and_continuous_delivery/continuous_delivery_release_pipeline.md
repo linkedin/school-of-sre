@@ -7,6 +7,6 @@ The deployment to the Production is often manual after performing additional acc
 Often, the deployment involves more than one production environment, for example in [blue-green environments](https://www.linkedin.com/pulse/using-blue-green-deployments-reduce-downtime-nessan-harpur) the application is first deployed to the blue environment and then to the green environment so that the downtime is not required.
 
 
-![](./images/CD_Image1.jpg)
+![](./images/CD_Image1.JPG)
 
 *Fig 3: Continuous Delivery Pipeline*
