@@ -11,7 +11,7 @@ This hands-on is based on the Jenkins running on docker on your local workstatio
 **Note:** The hands-on lab is designed with Jenkins on the docker. However, the steps are applicable for the direct docker installation on your windows workstation as well.
 
 ### Installing Git, Docker and Jenkins:
-* Install git command line tool on your workstation. (Follow [this](suwebdev.github.io) to install Git Locally·) 
+* Install git command line tool on your workstation. (Follow [this](https://suwebdev.github.io/wats-lab-faq/first-question.html#download-and-install-git) to install Git Locally·) 
 * Docker Desktop for windows is installed on the workstation. Follow the [instructions](https://docs.docker.com/docker-for-windows/install/#install-docker-desktop-on-windows) to install docker. 
 * Ensure that your Docker for Windows installation is configured to run Linux Containers rather than Windows Containers. See the Docker documentation for instructions to switch to Linux containers.
 * [Refer](https://www.jenkins.io/doc/tutorials/build-a-java-app-with-maven/#on-windows) this to run and setup the Jenkins on docker.

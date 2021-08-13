@@ -14,6 +14,6 @@ The big barrier between the developers and the operation teams has been shrunken
 
 ## CI/CD and DevOps
 
-The term [DevOps](https://in.linkedin.com/in/devopsonlinetraining) represents the combination of Development (Dev) and Operations (Ops) teams. That is bringing developers and operations teams together for more collaboration. The development team often wants to introduce more features and more changes while the operation teams are more focused on the stability of the application in production. A change is always taken as a threat by the operations team as it can shake the stability of the environment. DevOps is termed as a culture that introduces the processes to reduce the barriers between developers and operations.
+The term **DevOps** represents the combination of Development (Dev) and Operations (Ops) teams. That is bringing developers and operations teams together for more collaboration. The development team often wants to introduce more features and more changes while the operation teams are more focused on the stability of the application in production. A change is always taken as a threat by the operations team as it can shake the stability of the environment. DevOps is termed as a culture that introduces the processes to reduce the barriers between developers and operations.
 
 The collaboration between Dev and Ops allows better follow-up of end-to-end production deployments and more frequent deployments. So, thus CI/CD is a key element in the DevOps processes.

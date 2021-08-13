@@ -1,5 +1,6 @@
 Continuous Integration and Continuous Delivery, also known as CI/CD, is a set of processes that helps in faster integration of software code changes and deployment to the end user in a reliable manner. The more frequent integrations and deployments helps reduce the software development lifecycle. 
 There are three practices in CI/CD:
+
 * Continuous Integration
 * Continuous Delivery
 * Continuous Deployment
