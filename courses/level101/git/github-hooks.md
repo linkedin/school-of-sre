@@ -1,4 +1,4 @@
-# Git with Github
+# Git with GitHub
 
 Till now all the operations we did were in our local repo while git also helps us in a collaborative environment. GitHub is one place on the internet where you can centrally host your git repos and collaborate with other developers.
 
