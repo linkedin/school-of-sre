@@ -9,18 +9,19 @@
     2. HDFS is highly fault-tolerant and is designed to be deployed on low-cost hardware. HDFS provides high throughput access to application data and is suitable for applications that have large data sets.
     3. HDFS is part of the [Apache Hadoop Core project](https://github.com/apache/hadoop).
 
-    ![HDFS Architecture](images/hdfs_architecture.png)
+        ![HDFS Architecture](images/hdfs_architecture.png)
 
+    The main components of HDFS include:
     1. NameNode: is the arbitrator and central repository of file namespace in the cluster. The NameNode executes the operations such as opening, closing, and renaming files and directories.
     2. DataNode: manages the storage attached to the node on which it runs. It is responsible for serving all the read and writes requests. It performs operations on instructions on NameNode such as creation, deletion, and replications of blocks.
     3. Client: Responsible for getting the required metadata from the namenode and then communicating with the datanodes for reads and writes. </br></br></br>
 
 2. **YARN**
-    1. YARN stands for “Yet Another Resource Negotiator“. It was introduced in Hadoop 2.0 to remove the bottleneck on Job Tracker which was present in Hadoop 1.0. YARN was described as a “Redesigned Resource Manager” at the time of its launching, but it has now evolved to be known as a large-scale distributed operating system used for Big Data processing.
-    2. The main components of YARN architecture include:
+    YARN stands for “Yet Another Resource Negotiator“. It was introduced in Hadoop 2.0 to remove the bottleneck on Job Tracker which was present in Hadoop 1.0. YARN was described as a “Redesigned Resource Manager” at the time of its launching, but it has now evolved to be known as a large-scale distributed operating system used for Big Data processing.
 
     ![YARN Architecture](images/yarn_architecture.gif)
-
+    
+    The main components of YARN architecture include:
     1. Client: It submits map-reduce(MR) jobs to the resource manager.
     2. Resource Manager: It is the master daemon of YARN and is responsible for resource assignment and management among all the applications. Whenever it receives a processing request, it forwards it to the corresponding node manager and allocates resources for the completion of the request accordingly. It has two major components:
     3. Scheduler: It performs scheduling based on the allocated application and available resources. It is a pure scheduler, which means that it does not perform other tasks such as monitoring or tracking and does not guarantee a restart if a task fails. The YARN scheduler supports plugins such as Capacity Scheduler and Fair Scheduler to partition the cluster resources.
