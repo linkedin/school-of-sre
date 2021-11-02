@@ -158,7 +158,7 @@ We usually come up with tasks that are mostly repetitive, looping helps us to co
 | until | until \[ expression \] <br><br>do <br><br>    \[ until\_block\_to_execute \]<br><br>done |
 
 ```
-!/bin/bash
+#!/bin/bash
 #Script to monitor the server
 
 hosts=`cat host_list`

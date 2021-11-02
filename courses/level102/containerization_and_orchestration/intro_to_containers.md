@@ -177,7 +177,7 @@ This limit is too low and hence most of the processes attached to mem_group shou
 
 The process is OOM killed as expected. You can confirm the same with dmesg logs (mm_fault_error).
 
-If you want to try out a more in-depth exercise on cgroups, check out [this tutorial from Geeks for Geeks](geeksforgeeks.org/linux-virtualization-resource-throttling-using-cgroups/).
+If you want to try out a more in-depth exercise on cgroups, check out [this tutorial from Geeks for Geeks](https://geeksforgeeks.org/linux-virtualization-resource-throttling-using-cgroups/).
 
 
 Let’s come back to containers again. Containers share the same kernel as the underlying host operating system and provide an isolated environment of the application within. Cgroups help in managing resources used by processes within a container and namespaces help isolate network stack, pids, users, group ids and mount points in a container from another container running on the same host.
