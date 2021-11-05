@@ -131,7 +131,7 @@ nav:
 - Contribute: CONTRIBUTING.md
 - Code of Conduct: CODE_OF_CONDUCT.md
 - SRE Community: sre_community.md
-copyright: "Copyright 2020 LinkedIn Corporation. All Rights Reserved. Licensed under the Creative Commons Attribution 4.0 International Public License"
+copyright: "Copyright 2020-2021 LinkedIn Corporation. All Rights Reserved. Licensed under the Creative Commons Attribution 4.0 International Public License"
 extra:
     social:
         - icon: fontawesome/brands/github
