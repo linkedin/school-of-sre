@@ -2371,7 +2371,7 @@ cpuacct — this subsystem generates automatic reports on CPU resources used by 
 </ul>
 <p><img alt="Fig 6" src="../images/cg6.png" /></p>
 <p>The process is OOM killed as expected. You can confirm the same with dmesg logs (mm_fault_error).</p>
-<p>If you want to try out a more in-depth exercise on cgroups, check out <a href="geeksforgeeks.org/linux-virtualization-resource-throttling-using-cgroups/">this tutorial from Geeks for Geeks</a>.</p>
+<p>If you want to try out a more in-depth exercise on cgroups, check out <a href="https://geeksforgeeks.org/linux-virtualization-resource-throttling-using-cgroups/">this tutorial from Geeks for Geeks</a>.</p>
 <p>Let’s come back to containers again. Containers share the same kernel as the underlying host operating system and provide an isolated environment of the application within. Cgroups help in managing resources used by processes within a container and namespaces help isolate network stack, pids, users, group ids and mount points in a container from another container running on the same host.</p>
 <p>Of course, there are more components to containers which truly make it fully functional but that discussion is out of scope of this module.</p>
 <h2 id="container-engine">Container engine</h2>
