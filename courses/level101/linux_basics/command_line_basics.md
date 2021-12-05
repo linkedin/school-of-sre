@@ -88,8 +88,8 @@ print the working directory.
 The cd command can be used to change the working directory. Using the
 command, you can move from one directory to another.
 
-In the below example, we are initially in the root directory. we have
-then used the cd command to change the directory.
+In the below example, we are initially in the root directory. we then
+used the cd command to change the directory.
 
 ![](images/linux/commands/image3.png)
 
@@ -223,22 +223,22 @@ mv <source_path> <destination_path>
 ```
 
 In this example, we will use the mv command to move the
-"\_test_runner.py" file to "test_directory". In this case, this file
+"\_test_runner.py" file to "test_directory". In this case, this file is 
 already exists in "test_directory". The mv command will just replace it.
 **Do note that the original file doesn't exist in the current directory
-after mv command ran successfully.**
+after the mv command ran successfully.**
 
 ![](images/linux/commands/image26.png)
 
 We can also use the mv command to move a directory from one location to
 another. In this case, we do not need to use the '-r' flag that we did
 while using the cp command. Do note that the original directory will not
-exist if we use mv command.
+exist if we use the mv command.
 
 One of the important uses of the mv command is to rename files and
 directories. Let's see how we can use this command for renaming.
 
-We have first changed our location to "test_directory". We then use the
+We first changed our location to "test_directory". We then use the
 mv command to rename the ""\_test_runner.py" file to "test.py".
 
 ![](images/linux/commands/image29.png)
@@ -268,7 +268,7 @@ to 100 in this file. Each number will be in a separate line.
 ![](images/linux/commands/image21.png)
 
 Do not worry about the above command now. It's an advanced command which
-is used to generate numbers. We have then used a redirection operator to
+is used to generate numbers. We then used a redirection operator to
 push these numbers to the file. We will be discussing I/O redirection in the
 later sections.
 
@@ -282,7 +282,7 @@ other purposes. We will study about other use cases later.
 ![](images/linux/commands/image1.png)
 
 You can try to run the above command and you will see numbers being
-printed from 1 to 100 on your screen. You will need to scroll up to view
+printed from 1 to 100 on your screen. You will need to scroll up to see
 all the numbers.
 
 ### head
@@ -291,12 +291,12 @@ The head command displays the first 10 lines of the file by default. We
 can include additional arguments to display as many lines as we want
 from the top.
 
-In this example, we are only able to see the first 10 lines from the
+In this example, we are only able to see the first 10 lines of the
 file when we use the head command.
 
 ![](images/linux/commands/image15.png)
 
-By default, head command will only display the first 10 lines. If we
+By default, the head command will only display the first 10 lines. If we
 want to specify the number of lines we want to see from start, use the
 '-n' argument to provide the input.
 
@@ -311,7 +311,7 @@ from the end of the file.
 ![](images/linux/commands/image22.png)
 
 By default, the tail command will only display the last 10 lines. If we
-want to specify the number of lines we want to see from the end, use '-n'
+want to specify the number of lines we want to see from the end, use the '-n'
 argument to provide the input.
 
 ![](images/linux/commands/image10.png)

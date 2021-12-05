@@ -22,7 +22,7 @@ An operating system is considered as multi-user if it allows multiple people/use
 
 As a server administrator, we are mostly concerned with the Linux servers which are physically present at a very large distance from us. We can connect to these servers with the help of remote login methods like SSH.
 
-Since Linux supports multiple users, we need to have a method which can protect the users from each other. One user should not be able to access and modify files of other users
+Since Linux supports multiple users, we need to have a method which can protect the users from each other. One user should not be able to access and modify files of other users.
 
 
 ## User/Group Management
@@ -64,8 +64,8 @@ command.
 
 ![](images/linux/admin/image9.png)
 
-If you want to understand each filed discussed in the above outputs, you can go
-through below links:
+If you want to understand each field discussed in the above outputs, you can go
+through the below links:
 
 - [https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/shadow-file-formats.html](https://tldp.org/LDP/lame/LAME/linux-admin-made-easy/shadow-file-formats.html)
 
@@ -199,7 +199,7 @@ need to be a part of the sudo group.
 **How to provide superpriveleges to other users ?**
 
 Let's first switch to the root user using su command. Do note that using
-the below command will need you to enter the password for the root user.
+the below command will require you to enter the password for the root user.
 
 ![](images/linux/admin/image44.png)
 
@@ -239,7 +239,7 @@ Let's now switch back to user "shivam" and try to access the
 ![](images/linux/admin/image56.png)
 
 We need to use sudo before running the command since it can only be
-accessed with the sudo privileges. We have already given sudo privileges
+accessed with sudo privileges. We have already given sudo privileges
 to user “shivam” by adding him to the group “wheel”.
 
 
@@ -251,7 +251,7 @@ users and everybody else. This is to make sure that one user is not
 allowed to access the files and resources of another user.
 
 To see the permissions of a file, we can use the ls command. Let's look
-at the permissions of /etc/passwd file.
+at the permissions of the /etc/passwd file.
 
 ![](images/linux/admin/image40.png)
 
@@ -288,13 +288,13 @@ We will now create a new file and check the permission of the file.
 ![](images/linux/admin/image15.png)
 
 The group owner doesn't have the permission to write to this file. Let's
-give the group owner or root the permission to write to it using chmod
+give the group owner or root permission to write to it using chmod
 command.
 
 ![](images/linux/admin/image26.png)
 
 Chmod command can be also used to change the permissions of a directory
-in the similar way.
+in a similar way.
 
 ### Chown command
 
@@ -343,16 +343,16 @@ This method is also useful when we want some scripts to perform
 ssh-related tasks.
 
 Passwordless authentication requires the use of a public and private key pair. As the name implies, the public key can be shared with anyone but the private key should be kept private.
-Lets not get  into the details of how this authentication works. You can read more about it
-[here](https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process)
+Let's not get into the details of how this authentication works. You can read more about it
+[here](https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process).
 
 Steps for setting up a passwordless authentication with a remote host:
 
-1. Generating public-private key pair  
+1. Generating a public-private key pair  
 
     **If we already have a key pair stored in \~/.ssh directory, we will not need to generate keys again.**
 
-    Install openssh package which contains all the commands related to ssh.
+    Install the openssh package which contains all the commands related to ssh.
 
     ![](images/linux/admin/image49.png)
 
@@ -437,12 +437,12 @@ Linux distributions.
 
 ![](images/linux/admin/image20.png)
 
-We did find an exact match for the keyword httpd when we searched using
+We did find an exact match for the keyword httpd when we searched using the
 yum search command. Let's now install the httpd package.
 
 ![](images/linux/admin/image28.png)
 
-After httpd is installed, we will use the yum remove command to remove
+After httpd is installed, we will use the yum remove command to remove the
 httpd package.
 
 ![](images/linux/admin/image43.png)
@@ -520,7 +520,7 @@ additional information about io and cpu usage.
 
 ## Checking Disk Space
 
-In this section, we will study about some useful commands that can be
+In this section, we will study some useful commands that can be
 used to view disk space on Linux.
 
 ### df (disk free)
@@ -580,7 +580,7 @@ used to start/stop/restart the services managed by systemd.
 ## Logs 
 
 In this section, we will talk about some important files and directories
-which can be very useful for viewing system logs and applications logs
+which can be very useful for viewing system logs and application logs
 in Linux. These logs can be very useful when you are troubleshooting on
 the system.
 

@@ -79,7 +79,7 @@ and system utilities. The Linux kernel was independently developed and
 released by Linus Torvalds. The Linux kernel is free and open-source -
 [https://github.com/torvalds/linux](https://github.com/torvalds/linux)
 
-Linux is a kernel and and not a complete operating system. Linux kernel is combined with GNU system to make a complete operating system. Therefore, linux based operating systems are also called as GNU/Linux systems. GNU is an extensive collection of free softwares like compiler, debugger, C library etc.
+Linux is a kernel and it's not a complete operating system. Linux kernel is combined with GNU system to make a complete operating system. Therefore, linux based operating systems are also called as GNU/Linux systems. GNU is an extensive collection of free softwares like compiler, debugger, C library etc.
 [Linux and the GNU  System](https://www.gnu.org/gnu/linux-and-gnu.en.html)
 
 History of Linux -
@@ -92,7 +92,7 @@ the Linux kernel and a package management system. A package management
 system consists of tools that help in installing, upgrading,
 configuring and removing softwares on the operating system.
 
-Software are usually adopted to a distribution and are packaged in a
+Softwares are usually adopted to a distribution and are packaged in a
 distro specific format. These packages are available through a distro
 specific repository. Packages are installed and managed in the operating
 system by a package manager.
