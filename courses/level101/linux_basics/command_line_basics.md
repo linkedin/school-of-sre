@@ -53,7 +53,9 @@ files or user related files.
   
   tmp   | This directory is used to store temporary files on the system
   
-  usr   |  This directory is used to store application programs on the system
+  usr   | This directory is used to store application programs on the system
+
+  root  | This sirectory is the home directory of the root user. Instead of being located at /home/root, its located at /root
 
 ## Commands for Navigating the File System
 
