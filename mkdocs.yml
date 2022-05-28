@@ -2,6 +2,15 @@ site_url: https://linkedin.github.io/school-of-sre/
 site_name: School Of SRE
 docs_dir: courses
 theme:
+  palette: 
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch 
+        name: Switch to dark mode
+    - scheme: slate 
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
   name: material
   logo: img/sos.png
   favicon: img/favicon.ico
