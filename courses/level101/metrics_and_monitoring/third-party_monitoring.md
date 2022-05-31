@@ -18,7 +18,7 @@ errors during transmission or on the client side. As previously
 mentioned, monitoring services from within the service infrastructure
 give good visibility into service health, but this is not enough. You
 need to monitor user experience, specifically the availability of
-services for clients. A number of third-party services such asf
+services for clients. A number of third-party services such as
 [Catchpoint](https://www.catchpoint.com/),
 [Pingdom](https://www.pingdom.com/), and so on are available for
 achieving this goal.
