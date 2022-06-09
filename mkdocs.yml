@@ -53,6 +53,10 @@ nav:
             - Introduction: level101/databases_nosql/intro.md
             - Key Concepts: level101/databases_nosql/key_concepts.md
             - Conclusion:  level101/databases_nosql/further_reading.md
+        - Message Queue:
+            - Introduction: level101/messagequeue/intro.md
+            - Key Concepts: level101/messagequeue/key_concepts.md
+            - Conclusion:  level101/messagequeue/further_reading.md
         - Big Data:
             - Introduction: level101/big_data/intro.md
             - Evolution and Architecture of Hadoop: level101/big_data/evolution.md
@@ -128,6 +132,11 @@ nav:
         - Continuous Delivery and Deployment: level102/continuous_integration_and_continuous_delivery/continuous_delivery_release_pipeline.md
         - CI/CD Pipeline - Hands-on: level102/continuous_integration_and_continuous_delivery/jenkins_cicd_pipeline_hands_on_lab.md
         - Conclusion: level102/continuous_integration_and_continuous_delivery/conclusion.md
+- Level 103:
+  - IaaS
+    - AWS
+  - IaC
+    - Terraform
 - Contribute: CONTRIBUTING.md
 - Code of Conduct: CODE_OF_CONDUCT.md
 - SRE Community: sre_community.md
