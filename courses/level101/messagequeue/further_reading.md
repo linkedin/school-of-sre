@@ -4,17 +4,19 @@ We have covered basic concepts of Message Queue. There is much more to learn and
 
 # Further reading
 
-Message Queue
-
 [https://sudhir.io/the-big-little-guide-to-message-queues](https://sudhir.io/the-big-little-guide-to-message-queues)
 
-[Understanding Message Brokers](http://www.oreilly.com/programming/free/understanding-message-brokers.csp)
+[Understanding message brokers: learn the mechanics of messaging though ActiveMQ and Kafka](http://www.oreilly.com/programming/free/understanding-message-brokers.csp)
 
-[The Myth of the Magical Messaging Fabric by Jakub Korab](https://www.youtube.com/watch?v=Ie3--CSpCGs)
-
-[Exactly-once message delivery](https://exactly-once.github.io/posts/exactly-once-delivery/)
+[Video: The Myth of the Magical Messaging Fabric by Jakub Korab](https://www.youtube.com/watch?v=Ie3--CSpCGs)
 
 [A Fair Comparison of Message Queuing Systems](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9303425)
+
+[Design Patterns for Cloud Native Applications: Chapter 2 Communication Patterns]()
+
+[Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](https://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services)
+
+[Exactly-once message delivery](https://exactly-once.github.io/posts/exactly-once-delivery/)
 
 [Task Queues](https://taskqueues.com/)
 
