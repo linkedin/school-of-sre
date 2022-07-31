@@ -10,7 +10,7 @@ We have covered basic concepts of Message Queue. There is much more to learn and
 
 [Video: The Myth of the Magical Messaging Fabric by Jakub Korab](https://www.youtube.com/watch?v=Ie3--CSpCGs)
 
-[A Fair Comparison of Message Queuing Systems](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9303425)
+[G. Fu, Y. Zhang and G. Yu, "A Fair Comparison of Message Queuing Systems," in IEEE Access, vol. 9, pp. 421-432, 2021, doi: 10.1109/ACCESS.2020.3046503.](https://ieeexplore.ieee.org/document/9303425) ([PDF](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9303425))
 
 [Design Patterns for Cloud Native Applications: Chapter 2 Communication Patterns]()
 
