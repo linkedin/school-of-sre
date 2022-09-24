@@ -78,7 +78,7 @@ This workflow might help you understand the working on components better:
 
 The best way to start this exercise is to use a [Play with kubernetes lab](https://labs.play-with-k8s.com/). 
 
-The environment gets torn down after 10 mins. So make sure that you save your files if you want to resume them. For persistent kubernetes clusters, you can set it up either in your local (using [minikube](https://minikube.sigs.k8s.io/docs/start/)) or you can create a [kubernetes cluster in Azure](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal), GCP or any other cloud provider.
+The environment gets torn down after 4 hours. So make sure that you save your files if you want to resume them. For persistent kubernetes clusters, you can set it up either in your local (using [minikube](https://minikube.sigs.k8s.io/docs/start/)) or you can create a [kubernetes cluster in Azure](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal), GCP or any other cloud provider.
 
 Knowledge of YAML is nice to have for understanding the manifest files.
 
