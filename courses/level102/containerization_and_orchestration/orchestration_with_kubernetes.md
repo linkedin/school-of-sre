@@ -76,9 +76,9 @@ This workflow might help you understand the working on components better:
 
 ### Prerequisites
 
-The best way to start this exercise is to use a [Katacoda kubernetes playground](https://www.katacoda.com/courses/kubernetes/playground). A single node kubernetes cluster is already set up for you here for quick experimentation. You can also use this to play with docker.
+The best way to start this exercise is to use a [Play with kubernetes lab](https://labs.play-with-k8s.com/). 
 
-The environment gets torn down after 10 mins. So make sure that you save your files if you want to resume them. For persistent kubernetes clusters, you can set it up either in your local (using [minikube](https://minikube.sigs.k8s.io/docs/start/)) or you can create a [kubernetes cluster in Azure](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal), GCP or any other cloud provider.
+The environment gets torn down after 4 hours. So make sure that you save your files if you want to resume them. For persistent kubernetes clusters, you can set it up either in your local (using [minikube](https://minikube.sigs.k8s.io/docs/start/)) or you can create a [kubernetes cluster in Azure](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal), GCP or any other cloud provider.
 
 Knowledge of YAML is nice to have for understanding the manifest files.
 
@@ -143,7 +143,6 @@ Here, this is 10.244.1.3
 
   A container is created within the pod but the pod is the same. You can verify by checking the pod start time in describe command. It would show a much older time.
 
-You can actually see the nginx container by doing `docker ps` on the node01 terminal (if you’re using Katacoda).
 
 What if we want to change the image to 1.20.1 for 1000 nginx pods? Stepping a little back, what if we want to create 1000 nginx pods. Of course, we can write a script but Kubernetes already offers a resource type called “deployment” to manage large scale deployments better.
  
@@ -222,8 +221,7 @@ It is possible to have a public IP instead (i.e an actual external load balancer
 The above exercises a pretty good exposure to using Kubernetes to manage large scale deployments. Trust me, the process is very similar to the above for operating 1000 deployments and containers too! While a Deployment object is good enough for managing stateless applications, Kuberenetes provides other resources like Job, Daemonset, Cronjob, Statefulset etc. to manage special use cases. 
 
 **eAdditional labs:**
-https://www.katacoda.com/lizrice/scenarios/kube-web
-https://www.katacoda.com/courses/kubernetes (Huge number of free follow-along exercises to play with Kubernetes)
+https://kubernetes.courselabs.co/ (Huge number of free follow-along exercises to play with Kubernetes)
 
 ## Advanced topics
 Most often than not, microservices orchestrated with Kubernetes contain dozens of instances of resources like deployment, services and configs. The manifests for these applications can be auto- generated with Helm templates and passed on as Helm charts. Similar to how we have PiPy for python packages there are remote repositories like Bitnami where Helm charts (e.g for setting up a production-ready Prometheus or Kafka with a single click) can be downloaded and used. [This is a good place to begin](https://www.digitalocean.com/community/tutorials/an-introduction-to-helm-the-package-manager-for-kubernetes).

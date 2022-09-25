@@ -83,7 +83,7 @@ The official [docker github](https://github.com/docker/labs) provides labs at se
 
 3. [Creating and containerizing a basic Flask app](https://github.com/docker/labs/blob/master/beginner/chapters/webapps.md)
 
-Here is another [beginner level lab](https://www.katacoda.com/courses/docker/2) from Katacoda  for dockerizing a node js application. You don’t even need a local setup for this and it’s easy to follow along.
+Here is another [beginner level lab](https://github.com/docker/awesome-compose/tree/master/react-express-mongodb) for dockerizing a MERN (Mongo + React + Express) application and it’s easy to follow along.
 
 ## Advanced features of Docker
 
@@ -95,6 +95,6 @@ Docker networks facilitate the interaction between containers running on the sam
 
 **Volumes**
 
-Apart from images, containers and networks, Docker also provides the option to create and mount volumes within containers. Generally, data within docker containers is non-persistent i.e once you kill the container the data is lost. Volumes are used for storing persistent data in containers. This [KataKoda lab](https://www.katacoda.com/courses/docker/persisting-data-using-volumes) is a great place to start playing with volumes.
+Apart from images, containers and networks, Docker also provides the option to create and mount volumes within containers. Generally, data within docker containers is non-persistent i.e once you kill the container the data is lost. Volumes are used for storing persistent data in containers. This [Docker lab](https://dockerlabs.collabnix.com/beginners/volume/creating-volume-mount-from-dockercli.html) is a great place to start playing with volumes.
 
 [In the next section](https://linkedin.github.io/school-of-sre/level102/containerization_and_orchestration/orchestration_with_kubernetes/) we see how container deployments are orchestrated with Kubernetes.
