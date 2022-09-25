@@ -35,21 +35,23 @@ files or user related files.
 
 ![](images/linux/commands/image17.png)
   
-  bin   | The executable program of most commonly used commands reside in bin directory  
-  
-  sbin  | This directory contains programs used for system administration.
-  
-  home  | This directory contains user related files and directories.
-  
-  lib   | This directory contains all the library files
-  
+  bin   | The executable program of most commonly used commands reside in bin directory
+
+  dev   | This directory contains files related to devices on the system  
+
   etc   | This directory contains all the system configuration files
-  
+
+  home  | This directory contains user related files and directories.
+
+  lib   | This directory contains all the library files
+
+  mnt   | This directory contains files related to mounted devices on the system
+
   proc  | This directory contains files related to the running processes on the system
   
-  dev   | This directory contains files related to devices on the system
+  root  | This directory contains root user related files and directories.
   
-  mnt   | This directory contains files related to mounted devices on the system
+  sbin  | This directory contains programs used for system administration.
   
   tmp   | This directory is used to store temporary files on the system
   
