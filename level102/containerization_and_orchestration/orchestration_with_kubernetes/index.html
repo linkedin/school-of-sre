@@ -2252,7 +2252,7 @@
 <p><img alt="Kubernetes Architecture" src="../images/kubernetes.png" /></p>
 <p>Kubernetes components can be divided into two parts: <a href="https://kubernetes.io/docs/concepts/overview/components/#control-plane-components">control plane components</a> and <a href="https://kubernetes.io/docs/concepts/overview/components/#node-components">data plane components</a>. </p>
 <p>A Kubernetes cluster consists of 1 or more host machines (called nodes) where the containers managed by Kubernetes are run. This constitutes the data plane (or node plane). </p>
-<p>The brain of Kuberentes which responds to events from the node plane (e.g create a pod, replicas mismatch) and does the main orchestration is called the control plane. All control plane components are typically installed in a master node. This master node does not run any user containers.</p>
+<p>The brain of Kubernetes which responds to events from the node plane (e.g create a pod, replicas mismatch) and does the main orchestration is called the control plane. All control plane components are typically installed in a master node. This master node does not run any user containers.</p>
 <p>The Kubernetes components themselves are run as containers wrapped in Pods (which is the most basic kubernetes resource object).</p>
 <ul>
 <li>Control plane components:</li>
