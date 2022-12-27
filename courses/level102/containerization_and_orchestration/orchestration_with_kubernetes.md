@@ -42,7 +42,7 @@ Kubernetes components can be divided into two parts: [control plane components](
 
 A Kubernetes cluster consists of 1 or more host machines (called nodes) where the containers managed by Kubernetes are run. This constitutes the data plane (or node plane). 
 
-The brain of Kuberentes which responds to events from the node plane (e.g create a pod, replicas mismatch) and does the main orchestration is called the control plane. All control plane components are typically installed in a master node. This master node does not run any user containers.
+The brain of Kubernetes which responds to events from the node plane (e.g create a pod, replicas mismatch) and does the main orchestration is called the control plane. All control plane components are typically installed in a master node. This master node does not run any user containers.
 
 The Kubernetes components themselves are run as containers wrapped in Pods (which is the most basic kubernetes resource object).
 
