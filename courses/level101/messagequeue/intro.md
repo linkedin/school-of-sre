@@ -3,20 +3,31 @@
 
 ## What to expect from this course
 
-At the end of training, you will have an understanding of what a Message Queue is, learn about different types of Message Queue implementation and understand some of the underlying concepts & trade offs.
+At the end of training, you will have an understanding of what a Message Services is, learn about different types of Message Service implementation and understand some of the underlying concepts & trade offs.
 
 ## What is not covered under this course
 
-We will not be deep diving into any specific Message Queue. 
+We will not be deep diving into any specific Message Service. 
 
 
 ## Course Contents
 
+*   [Introduction to Messaging Service](https://linkedin.github.io/school-of-sre/level101/messagequeue/intro/#introduction)
+*   [Delivery guarantees](https://linkedin.github.io/school-of-sre/level101/messagequeue/key_concepts/#delivery-guarantees)
+*   [Messages ordering and parallelism](https://linkedin.github.io/school-of-sre/level101/messagequeue/key_concepts/#messages-ordering-and-parallelism)
+*   [Fan Out / In](https://linkedin.github.io/school-of-sre/level101/messagequeue/key_concepts/#fan-out--in)
+*   [Poison Pills and Dead Letters](https://linkedin.github.io/school-of-sre/level101/messagequeue/key_concepts/#poison-pills-and-dead-letters)
 
 ## Introduction
 
+In today's distributed systems and microservices architectures, messaging services play a crucial role in ensuring reliable communication and coordination between different components. These services enable the asynchronous exchange of messages, providing a wide range of benefits, such as increased performance, improved fault tolerance, and enhanced scalability.
+
+This article will provide an overview of the various types of messaging services available, including general-purpose message queues, pub/sub messaging, stream processing, brokerless messaging, and database-as-queue systems. We will also explore key concepts like delivery guarantees, message ordering, parallelism, poison pills, and dead letters, which are essential to understanding how messaging services function and how they can be effectively utilized.
+
 
 ### Types of Messaging services:
+
+In this section, we will explore various types of messaging services, each designed to address different requirements and use cases in distributed systems.
 
 1. **General-purpose message queue:**  General-purpose message queues are versatile and can be used in various non-very-scenarios, from distributing tasks and buffering requests to enabling communication between microservices. These messaging systems are designed to provide reliable message delivery and ensure that messages are processed in the correct order, and handle message volumes typically up to 100,000 messages per second. Message queues often support multiple messaging patterns, such as point-to-point and publish-subscribe, providing flexibility for different use cases. Examples of general-purpose message queues include RabbitMQ, ActiveMQ, and Amazon SQS. By using these message queues, developers can decouple their applications and scale them independently, improving overall system resilience and performance.
 
@@ -30,7 +41,7 @@ We will not be deep diving into any specific Message Queue.
 
 ### Comparsion
 
-| Messaging Service Type | Performance        | Scalability        | Flexibility          | Complexity          | Functionality        | Ease of Use          |
+|                        | Performance        | Scalability        | Flexibility          | Complexity          | Functionality        | Ease of Use          |
 |------------------------|--------------------|--------------------|----------------------|---------------------|----------------------|----------------------|
 | General-purpose MQ     | Moderate           | Moderate           | High                 | Moderate            | High                 | Moderate             |
 | Pub/Sub                | Moderate to High   | High               | High                 | Moderate            | Moderate to High     | Moderate to High     |
