@@ -1,6 +1,6 @@
 # Conclusion
 
-We have covered basic concepts of Message Queue. There is much more to learn and do. We hope this course gives you a good start and inspires you to explore further.
+We have covered basic concepts of Message Services. There is much more to learn and do. We hope this course gives you a good start and inspires you to explore further.
 
 # Further reading
 
