@@ -394,7 +394,7 @@ grep <word_to_search> <file_name>
 In this example, we are trying to search for a string "1" in this file.
 The grep command outputs the lines where it found this string.
 
-![](images/linux/commands/image35.png)
+![](images/linux/commands/image36.png)
 
 ### sed
 
