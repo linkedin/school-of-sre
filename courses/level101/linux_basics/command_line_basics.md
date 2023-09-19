@@ -347,7 +347,7 @@ programming languages.
 
 The echo command prints the given input string on the screen.
 
-![](images/linux/commands/image24.png)
+![](images/linux/commands/image34.png)
 
 ## Text Processing Commands
 
@@ -394,7 +394,7 @@ grep <word_to_search> <file_name>
 In this example, we are trying to search for a string "1" in this file.
 The grep command outputs the lines where it found this string.
 
-![](images/linux/commands/image5.png)
+![](images/linux/commands/image35.png)
 
 ### sed
 
