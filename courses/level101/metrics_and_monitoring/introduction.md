@@ -276,6 +276,6 @@ each of these infrastructure components:
      Today many metrics servers such as
      [Grafana](https://github.com/grafana/grafana) support alert
      management. We discuss alerting [in detail
-     later](#proactive-monitoring-using-alerts). Examples are
+     later](https://linkedin.github.io/school-of-sre/level101/metrics_and_monitoring/alerts/). Examples are
      [Grafana](https://github.com/grafana/grafana) and
      [Icinga](https://icinga.com/).
