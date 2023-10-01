@@ -23,7 +23,7 @@ Also, choice of hash algorithm matters. We will need to analyze algorithms. Thei
 Given a URL to shorten, how do we verify if the URL is valid? Do we even verify or validate? One basic check that can be done is see if the URL matches a regex of a URL. To go even further we can try opening/visiting the URL. But there are certain gotchas here.
 
 1. We need to define success criteria. ie: HTTP 200 means it is valid.
-2. What is the URL is in private network?
+2. What if the URL is in private network?
 3. What if URL is temporarily down?
 
 ### 4. Storage
