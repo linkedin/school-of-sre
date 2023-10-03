@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://linkedin.github.io/school-of-sre/level101/systems_design/fault-tolerance/">
+        <link rel="canonical" href="https://linkedin.github.io/school-of-sre/level101/messagequeue/intro/">
       
       <link rel="shortcut icon" href="../../../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-6.2.8">
     
     
       
-        <title>Fault Tolerance - School Of SRE</title>
+        <title>Introduction - School Of SRE</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fault-tolerance" class="md-skip">
+        <a href="#messaging-services" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Fault Tolerance
+              Introduction
             
           </span>
         </div>
@@ -589,12 +589,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
       
       <label class="md-nav__link" for="nav-2-3">
         Data
@@ -835,12 +837,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-3" type="checkbox" id="nav-2-3-3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3-3" type="checkbox" id="nav-2-3-3" checked>
       
       <label class="md-nav__link" for="nav-2-3-3">
         Message Queue
@@ -857,11 +861,90 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../messagequeue/intro/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Introduction
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-to-expect-from-this-course" class="md-nav__link">
+    What to expect from this course
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-not-covered-under-this-course" class="md-nav__link">
+    What is not covered under this course
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#course-contents" class="md-nav__link">
+    Course Contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-messaging-services" class="md-nav__link">
+    Types of Messaging services:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparsion" class="md-nav__link">
+    Comparsion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -871,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../messagequeue/key_concepts/" class="md-nav__link">
+      <a href="../key_concepts/" class="md-nav__link">
         Key Concepts
       </a>
     </li>
@@ -883,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../messagequeue/further_reading/" class="md-nav__link">
+      <a href="../further_reading/" class="md-nav__link">
         Conclusion
       </a>
     </li>
@@ -969,14 +1052,12 @@
             
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" >
       
       <label class="md-nav__link" for="nav-2-4">
         Systems Design
@@ -995,7 +1076,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro/" class="md-nav__link">
+      <a href="../../systems_design/intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -1007,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scalability/" class="md-nav__link">
+      <a href="../../systems_design/scalability/" class="md-nav__link">
         Scalability
       </a>
     </li>
@@ -1019,7 +1100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../availability/" class="md-nav__link">
+      <a href="../../systems_design/availability/" class="md-nav__link">
         Availability
       </a>
     </li>
@@ -1029,103 +1110,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Fault Tolerance
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../systems_design/fault-tolerance/" class="md-nav__link">
         Fault Tolerance
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#fault-tolerance-failure-metrics" class="md-nav__link">
-    Fault Tolerance - Failure Metrics
-  </a>
-  
-    <nav class="md-nav" aria-label="Fault Tolerance - Failure Metrics">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#refer" class="md-nav__link">
-    Refer
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fault-tolerance-fault-isolation-terms" class="md-nav__link">
-    Fault Tolerance - Fault Isolation Terms
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#swimlane-principles" class="md-nav__link">
-    Swimlane Principles
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#swimlane-approaches" class="md-nav__link">
-    Swimlane Approaches
-  </a>
-  
-    <nav class="md-nav" aria-label="Swimlane Approaches">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#refer_1" class="md-nav__link">
-    Refer
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#applications-in-sre-role" class="md-nav__link">
-    Applications in SRE role
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1135,7 +1124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../conclusion/" class="md-nav__link">
+      <a href="../../systems_design/conclusion/" class="md-nav__link">
         Conclusion
       </a>
     </li>
@@ -2183,63 +2172,50 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fault-tolerance-failure-metrics" class="md-nav__link">
-    Fault Tolerance - Failure Metrics
+  <a href="#what-to-expect-from-this-course" class="md-nav__link">
+    What to expect from this course
   </a>
   
-    <nav class="md-nav" aria-label="Fault Tolerance - Failure Metrics">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-not-covered-under-this-course" class="md-nav__link">
+    What is not covered under this course
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#course-contents" class="md-nav__link">
+    Course Contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#refer" class="md-nav__link">
-    Refer
+  <a href="#types-of-messaging-services" class="md-nav__link">
+    Types of Messaging services:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparsion" class="md-nav__link">
+    Comparsion
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fault-tolerance-fault-isolation-terms" class="md-nav__link">
-    Fault Tolerance - Fault Isolation Terms
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#swimlane-principles" class="md-nav__link">
-    Swimlane Principles
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#swimlane-approaches" class="md-nav__link">
-    Swimlane Approaches
-  </a>
-  
-    <nav class="md-nav" aria-label="Swimlane Approaches">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#refer_1" class="md-nav__link">
-    Refer
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#applications-in-sre-role" class="md-nav__link">
-    Applications in SRE role
-  </a>
   
 </li>
       
@@ -2256,52 +2232,102 @@
               
                 
                 
-                <h1 id="fault-tolerance">Fault Tolerance</h1>
-<p>Failures are not avoidable in any system and will happen all the time, hence we need to build systems that can tolerate failures or recover from them.</p>
+                <h1 id="messaging-services">Messaging services</h1>
+<h2 id="what-to-expect-from-this-course">What to expect from this course</h2>
+<p>At the end of training, you will have an understanding of what a Message Services is, learn about different types of Message Service implementation and understand some of the underlying concepts &amp; trade offs.</p>
+<h2 id="what-is-not-covered-under-this-course">What is not covered under this course</h2>
+<p>We will not be deep diving into any specific Message Service. </p>
+<h2 id="course-contents">Course Contents</h2>
 <ul>
-<li>In systems, failure is the norm rather than the exception.</li>
-<li>"Anything that can go wrong will go wrong” -- Murphy’s Law</li>
-<li>“Complex systems contain changing mixtures of failures latent within them” -- How Complex Systems Fail.</li>
+<li><a href="https://linkedin.github.io/school-of-sre/level101/messagequeue/intro/#introduction">Introduction to Messaging Service</a></li>
+<li><a href="https://linkedin.github.io/school-of-sre/level101/messagequeue/key_concepts/#delivery-guarantees">Delivery guarantees</a></li>
+<li><a href="https://linkedin.github.io/school-of-sre/level101/messagequeue/key_concepts/#messages-ordering-and-parallelism">Messages ordering and parallelism</a></li>
+<li><a href="https://linkedin.github.io/school-of-sre/level101/messagequeue/key_concepts/#fan-out--in">Fan Out / In</a></li>
+<li><a href="https://linkedin.github.io/school-of-sre/level101/messagequeue/key_concepts/#poison-pills-and-dead-letters">Poison Pills and Dead Letters</a></li>
 </ul>
-<h3 id="fault-tolerance-failure-metrics">Fault Tolerance - Failure Metrics</h3>
-<p>Common failure metrics that get measured and tracked for any system.</p>
-<p><strong>Mean time to repair (MTTR):</strong> The average time to repair and restore a failed system. </p>
-<p><strong>Mean time between failures (MTBF):</strong> The average operational time between one device failure or system breakdown and the next. </p>
-<p><strong>Mean time to failure (MTTF):</strong> The average time a device or system is expected to function before it fails. </p>
-<p><strong>Mean time to detect (MTTD):</strong> The average time between the onset of a problem and when the organization detects it. </p>
-<p><strong>Mean time to investigate (MTTI):</strong> The average time between the detection of an incident and when the organization begins to investigate its cause and solution. </p>
-<p><strong>Mean time to restore service (MTRS):</strong> The average elapsed time from the detection of an incident until the affected system or component is again available to users.</p>
-<p><strong>Mean time between system incidents (MTBSI):</strong> The average elapsed time between the detection of two consecutive incidents. MTBSI can be calculated by adding MTBF and MTRS (MTBSI = MTBF + MTRS).</p>
-<p><strong>Failure rate:</strong> Another reliability metric, which measures the frequency with which a component or system fails. It is expressed as a number of failures over a unit of time.</p>
-<h4 id="refer">Refer</h4>
-<ul>
-<li>https://www.splunk.com/en_us/data-insider/what-is-mean-time-to-repair.html</li>
-</ul>
-<h3 id="fault-tolerance-fault-isolation-terms">Fault Tolerance - Fault Isolation Terms</h3>
-<p>Systems should have a short circuit. Say in our content sharing system, if “Notifications” is not working, the site should gracefully handle that failure by removing the functionality instead of taking the whole site down. </p>
-<p>Swimlane is one of the commonly used fault isolation methodologies. Swimlane adds a barrier to the service from other services so that failure on either of them won’t affect the other. Say we roll out a new feature ‘Advertisement’ in our content sharing app.
-We can have two architectures
-<img alt="Swimlane" src="../images/swimlane-1.jpg" /></p>
-<p>If Ads are generated on the fly synchronously during each Newsfeed request, the faults in the Ads feature get propagated to the Newsfeed feature. Instead if we swimlane the “Generation of Ads” service and use a shared storage to populate Newsfeed App, Ads failures won’t cascade to Newsfeed, and worst case if Ads don’t meet SLA , we can have Newsfeed without Ads.</p>
-<p>Let's take another example, we have come up with a new model for our Content sharing App. Here we roll out an enterprise content sharing App where enterprises pay for the service and the content should never be shared outside the enterprise. </p>
-<p><img alt="Swimlane-principles" src="../images/swimlane-2.jpg" /></p>
-<h3 id="swimlane-principles">Swimlane Principles</h3>
-<p><strong>Principle 1:</strong> Nothing is shared (also known as “share as little as possible”). The less that is shared within a swim lane, the more fault isolative the swim lane becomes. (as shown in Enterprise use-case)</p>
-<p><strong>Principle 2:</strong> Nothing crosses a swim lane boundary. Synchronous (defined by expecting a request—not the transfer protocol) communication never crosses a swim lane boundary; if it does, the boundary is drawn incorrectly. (as shown in Ads feature)</p>
-<h3 id="swimlane-approaches">Swimlane Approaches</h3>
-<p><strong>Approach 1:</strong> Swim lane the money-maker. Never allow your cash register to be compromised by other systems. (Tier 1  vs Tier 2 in enterprise use case)</p>
-<p><strong>Approach 2:</strong> Swim lane the biggest sources of incidents. Identify the recurring causes of pain and isolate them. (if Ads feature is in code yellow, swim laning it is the best option)</p>
-<p><strong>Approach 3:</strong> Swim lane natural barriers. Customer boundaries make good swim lanes. (Public vs Enterprise customers)</p>
-<h4 id="refer_1">Refer</h4>
-<ul>
-<li>https://learning.oreilly.com/library/view/the-art-of/9780134031408/ch21.html#ch21</li>
-</ul>
-<h3 id="applications-in-sre-role">Applications in SRE role</h3>
+<h2 id="introduction">Introduction</h2>
+<p>In today's distributed systems and microservices architectures, messaging services play a crucial role in ensuring reliable communication and coordination between different components. These services enable the asynchronous exchange of messages, providing a wide range of benefits, such as increased performance, improved fault tolerance, and enhanced scalability.</p>
+<p>This article will provide an overview of the various types of messaging services available, including general-purpose message queues, pub/sub messaging, stream processing, brokerless messaging, and database-as-queue systems. We will also explore key concepts like delivery guarantees, message ordering, parallelism, poison pills, and dead letters, which are essential to understanding how messaging services function and how they can be effectively utilized.</p>
+<h3 id="types-of-messaging-services">Types of Messaging services:</h3>
+<p>In this section, we will explore various types of messaging services, each designed to address different requirements and use cases in distributed systems.</p>
 <ol>
-<li>Work with the DC tech or cloud team to distribute infrastructure such that its immune to switch or power failures by creating fault zones within a Data Center
-https://docs.microsoft.com/en-us/azure/virtual-machines/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures</li>
-<li>Work with the partners and design interaction between services such that one service breakdown is not amplified in a cascading fashion to all upstreams</li>
+<li>
+<p><strong>General-purpose message queue:</strong>  General-purpose message queues are versatile and can be used in various non-very-scenarios, from distributing tasks and buffering requests to enabling communication between microservices. These messaging systems are designed to provide reliable message delivery and ensure that messages are processed in the correct order, and handle message volumes typically up to 100,000 messages per second. Message queues often support multiple messaging patterns, such as point-to-point and publish-subscribe, providing flexibility for different use cases. Examples of general-purpose message queues include <a href="https://www.rabbitmq.com/">RabbitMQ</a>, <a href="https://activemq.apache.org/">ActiveMQ</a>, and <a href="https://aws.amazon.com/sqs/">Amazon SQS</a>. By using these message queues, developers can decouple their applications and scale them independently, improving overall system resilience and performance.</p>
+</li>
+<li>
+<p><strong>Pub/Sub messaging:</strong>  Publish-Subscribe (Pub/Sub) messaging services allow publishers to send messages to multiple subscribers without direct point-to-point connections. This enables decoupling of producers and consumers, making the system more scalable and fault-tolerant. Pub/Sub systems are particularly useful in scenarios where multiple consumers need to receive and process the same messages, such as sending notifications, logging, or data replication. The Pub/Sub model supports dynamic subscription management, allowing consumers to subscribe and unsubscribe from specific topics or channels at runtime. Examples of Pub/Sub messaging services include <a href="https://cloud.google.com/pubsub">Google Cloud Pub/Sub</a>, <a href="https://pulsar.apache.org/">Apache Pulsar</a>, <a href="https://azure.microsoft.com/en-us/products/event-grid">Azure Event Grid</a>, <a href="https://aws.amazon.com/sns/">AWS SNS</a> and <a href="https://nats.io/">NATS</a>. By adopting a Pub/Sub messaging system, developers can create event-driven architectures, reduce system complexity, and streamline the integration of new services.</p>
+</li>
+<li>
+<p><strong>Streaming processing:</strong>  Stream processing services are designed to handle large volumes of real-time data (say 1 milion messages per second), allowing continuous processing and analysis of data streams. These services enable complex event processing, time-windowed aggregations, and stateful transformations. They provide a robust platform for building real-time analytics, monitoring, and alerting applications. Stream processing systems often use a combination of in-memory and disk-based storage to balance performance and durability. They also support horizontal scaling, allowing developers to process massive data volumes with low latency. Examples of stream processing services include <a href="https://kafka.apache.org/">Apache Kafka</a>, <a href="https://aws.amazon.com/kinesis/data-streams/">Amazon Kinesis Data Streams</a>, <a href="https://azure.microsoft.com/en-us/products/event-hubs">Azure Event Hubs</a>, <a href="https://rocketmq.apache.org/">RocketMQ</a>, <a href="https://pulsar.apache.org/">Apache Pulsar</a> and <a href="https://redis.io/docs/data-types/streams/">Redis Streams</a>. By leveraging stream processing services, organizations can gain valuable insights from their data in real-time and make data-driven decisions more effectively.</p>
+</li>
+<li>
+<p><strong>Brokerless:</strong>  Brokerless messaging systems enable direct communication between producers and consumers without relying on a central broker, thereby reducing latency and improving performance. In brokerless systems, nodes communicate with each other using a peer-to-peer architecture, which can simplify deployment and reduce the need for dedicated message broker infrastructure. These systems are particularly suitable for high-performance, low-latency applications or situations where network connectivity is intermittent or unreliable. Examples of brokerless messaging systems include <a href="https://zeromq.org/">ZeroMQ</a>, <a href="https://nanomsg.org/">nanomsg</a>, <a href="https://github.com/OpenHFT/Chronicle-Queue">Chronicle Queue</a> and <a href="https://lmax-exchange.github.io/disruptor/">the Disruptor</a>. By adopting a brokerless messaging system, developers can build lightweight, fast, and efficient communication channels between components in their distributed systems</p>
+</li>
+<li>
+<p><strong>Database-as-queue</strong>  In some cases, a traditional relational or NoSQL database can be used as a message queue, allowing for simpler integration with existing systems and providing familiar tools for data management. This approach can be particularly useful for smaller-scale applications or as a transitional step when migrating from monolithic to distributed architectures. Using a database-as-queue can leverage built-in database features like transactions, indexing, and querying to manage messages effectively. Examples of using a database-as-queue include PostgreSQL's LISTEN/NOTIFY feature or leveraging Amazon DynamoDB Streams. While using a database-as-queue might not provide the same performance and scalability as dedicated messaging services and sometimes is considered as an anti-pattern, it can be a suitable option for specific use cases or when the application requirements are less demanding.</p>
+</li>
 </ol>
+<h3 id="comparsion">Comparsion</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Performance</th>
+<th>Scalability</th>
+<th>Flexibility</th>
+<th>Complexity</th>
+<th>Functionality</th>
+<th>Ease of Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>General-purpose MQ</td>
+<td>Moderate</td>
+<td>Moderate</td>
+<td>High</td>
+<td>Moderate</td>
+<td>High</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Pub/Sub</td>
+<td>Moderate to High</td>
+<td>High</td>
+<td>High</td>
+<td>Moderate</td>
+<td>Moderate to High</td>
+<td>Moderate to High</td>
+</tr>
+<tr>
+<td>Stream processing</td>
+<td>High</td>
+<td>High</td>
+<td>Moderate to High</td>
+<td>High</td>
+<td>High</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Brokerless</td>
+<td>High</td>
+<td>Moderate</td>
+<td>Moderate</td>
+<td>Low to Moderate</td>
+<td>Moderate</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Database-as-queue</td>
+<td>Low to Moderate</td>
+<td>Low to Moderate</td>
+<td>Moderate</td>
+<td>Low</td>
+<td>Low to Moderate</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
                 
               
               
@@ -2320,7 +2346,7 @@ https://docs.microsoft.com/en-us/azure/virtual-machines/manage-availability#use-
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../availability/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../databases_nosql/further_reading/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -2329,19 +2355,19 @@ https://docs.microsoft.com/en-us/azure/virtual-machines/manage-availability#use-
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Availability
+                Conclusion
               </div>
             </div>
           </a>
         
         
-          <a href="../conclusion/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../key_concepts/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Conclusion
+                Key Concepts
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

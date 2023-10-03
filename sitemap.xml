@@ -181,6 +181,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://linkedin.github.io/school-of-sre/level101/messagequeue/further_reading/</loc>
+         <lastmod>2023-10-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://linkedin.github.io/school-of-sre/level101/messagequeue/intro/</loc>
+         <lastmod>2023-10-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://linkedin.github.io/school-of-sre/level101/messagequeue/key_concepts/</loc>
+         <lastmod>2023-10-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://linkedin.github.io/school-of-sre/level101/metrics_and_monitoring/alerts/</loc>
          <lastmod>2023-10-03</lastmod>
          <changefreq>daily</changefreq>
