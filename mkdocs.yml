@@ -53,6 +53,10 @@ nav:
             - Introduction: level101/databases_nosql/intro.md
             - Key Concepts: level101/databases_nosql/key_concepts.md
             - Conclusion:  level101/databases_nosql/further_reading.md
+        - Message Queue:
+            - Introduction: level101/messagequeue/intro.md
+            - Key Concepts: level101/messagequeue/key_concepts.md
+            - Conclusion:  level101/messagequeue/further_reading.md
         - Big Data:
             - Introduction: level101/big_data/intro.md
             - Evolution and Architecture of Hadoop: level101/big_data/evolution.md
