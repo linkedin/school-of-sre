@@ -8,7 +8,7 @@ commands on your own.
 
 ## Lab Environment Setup
 
-- Install docker on your system - [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
+- Install docker on your system - [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/) OR you can used online [Docker playground](https://labs.play-with-docker.com/)
 
 - We will be running all the commands on Red Hat Enterprise Linux (RHEL) 8 system.
 
