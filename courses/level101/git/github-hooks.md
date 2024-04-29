@@ -1,13 +1,13 @@
 # Git with GitHub
 
-Till now all the operations we did were in our local repo while git also helps us in a collaborative environment. GitHub is one place on the internet where you can centrally host your git repos and collaborate with other developers.
+Till now all the operations we did were in our local repo while git also helps us in a collaborative environment. GitHub is one place on the Internet where you can centrally host your git repos and collaborate with other developers.
 
 Most of the workflow will remain the same as we discussed, with addition of couple of things:
 
- 1. Pull: to pull latest changes from github (the central) repo
- 2. Push: to push your changes to github repo so that it's available to all people
+ 1. Pull: to pull latest changes from GitHub (the central) repo
+ 2. Push: to push your changes to GitHub repo so that it's available to all people
 
-GitHub has written nice guides and tutorials about this and you can refer them here:
+GitHub has written nice guides and tutorials about this and you can refer to them here:
 
 - [GitHub Hello World](https://guides.github.com/activities/hello-world/)
 - [Git Handbook](https://guides.github.com/introduction/git-handbook/)
@@ -22,7 +22,7 @@ applypatch-msg.sample     fsmonitor-watchman.sample pre-applypatch.sample     pr
 commit-msg.sample         post-update.sample        pre-commit.sample         pre-rebase.sample         prepare-commit-msg.sample
 ```
 
-Names are self explanatory. These hooks are useful when you want to do certain things when a certain event happens. If you want to run tests before pushing code, you would want to setup `pre-push` hooks. Let's try to create a pre commit hook.
+Names are self-explanatory. These hooks are useful when you want to do certain things when a certain event happens. If you want to run tests before pushing code, you would want to setup `pre-push` hooks. Let's try to create a pre commit hook.
 
 ```bash
 $ echo "echo this is from pre commit hook" > .git/hooks/pre-commit
