@@ -25,7 +25,7 @@ Note: Some LinkedIn-managed communities have codes of conduct that pre-date this
 
 We encourage all communities to resolve issues on their own whenever possible. This builds a broader and deeper understanding and ultimately a healthier interaction. In the event that an issue cannot be resolved locally, please feel free to report your concerns by contacting [oss@linkedin.com](mailto:oss@linkedin.com).
 
-In your report please include:
+In your report, please include:
 
 *   Your contact information.
 *   Names (real, usernames or pseudonyms) of any individuals involved. If there are additional witnesses, please include them as well.
