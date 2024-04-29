@@ -3,7 +3,7 @@
 ## Introduction
 ### Prerequisites
 
-- Should be comfortable in using any operating systems like Windows, Linux or Mac
+- Should be comfortable in using any operating systems like Windows, Linux or
 - Expected to have fundamental knowledge of operating systems
 
 ## What to expect from this course
@@ -15,17 +15,17 @@ difference between GUI and CLI.
 
 In the second part, we cover some basic commands used in Linux. 
 We will focus on commands used for navigating the file system, viewing and manipulating files,
-I/O redirection etc.
+I/O redirection, etc.
 
-In the third part, we cover Linux system administration. This includes day to day tasks 
+In the third part, we cover Linux system administration. This includes day-to-day tasks 
 performed by Linux admins, like managing users/groups, managing file permissions, 
 monitoring system performance, log files etc.
 
-In the second and third part, we will be taking examples to understand the concepts.
+In the second and third part, we will be showing examples to understand the concepts.
 
 ## What is not covered under this course
 
-We are not covering advanced Linux commands and bash scripting in this
+We are not covering advanced Linux commands and Bash scripting in this
 course. We will also not be covering Linux internals. 
 
 ## Course Contents
@@ -69,32 +69,32 @@ Most of us are familiar with the Windows operating system used in more than
  75% of the personal computers. The Windows operating systems
 are based on Windows NT kernel. 
 
-A kernel is the most important part of
-an operating system - it performs important functions like process
-management, memory management, filesystem management etc.
+A _kernel_ is the most important part of
+an operating system&mdash;it performs important functions like process
+management, memory management, filesystem management, etc.
 
-Linux operating systems are based on the Linux kernel. A Linux based
+Linux operating systems are based on the Linux kernel. A Linux-based
 operating system will consist of Linux kernel, GUI/CLI, system libraries
 and system utilities. The Linux kernel was independently developed and
-released by Linus Torvalds. The Linux kernel is free and open-source -
-[https://github.com/torvalds/linux](https://github.com/torvalds/linux)
+released by Linus Torvalds. The Linux kernel is free and open-source (See 
+[https://github.com/torvalds/linux](https://github.com/torvalds/linux)).
 
-Linux is a kernel and not a complete operating system. Linux kernel is combined with GNU system to make a complete operating system. Therefore, linux based operating systems are also called as GNU/Linux systems. GNU is an extensive collection of free softwares like compiler, debugger, C library etc.
-[Linux and the GNU  System](https://www.gnu.org/gnu/linux-and-gnu.en.html)
+Linux is a kernel and not a complete operating system. Linux kernel is combined with GNU system to make a complete operating system. Therefore, Linux-based operating systems are also called as GNU/Linux systems. GNU is an extensive collection of free softwares like compiler, debugger, C library etc. (See
+[Linux and the GNU  System](https://www.gnu.org/gnu/linux-and-gnu.en.html))
 
 History of Linux -
 [https://en.wikipedia.org/wiki/History_of_Linux](https://en.wikipedia.org/wiki/History_of_Linux)
 
 ## What are popular Linux distributions
 
-A Linux distribution(distro) is an operating system based on
+A Linux distribution (_distro_) is an operating system based on
 the Linux kernel and a package management system. A package management
 system consists of tools that help in installing, upgrading,
 configuring and removing softwares on the operating system.
 
 Software are usually adopted to a distribution and are packaged in a
-distro specific format. These packages are available through a distro
-specific repository. Packages are installed and managed in the operating
+distro-specific format. These packages are available through a distro-specific 
+repository. Packages are installed and managed in the operating
 system by a package manager.
 
 **List of popular Linux distributions:**
@@ -116,8 +116,8 @@ system by a package manager.
 
 | Packaging systems      | Distributions                              | Package manager
 | ---------------------- | ------------------------------------------ | -----------------
-| Debian style (.deb)    |   Debian, Ubuntu                          |   APT
-| Red Hat style (.rpm)   |   Fedora, CentOS, Red Hat Enterprise Linux |  YUM
+| Debian style (`.deb`)  |   Debian, Ubuntu                           |   APT
+| Red Hat style (`.rpm`) |   Fedora, CentOS, Red Hat Enterprise Linux |  YUM
 
 ## Linux Architecture
 
@@ -141,11 +141,11 @@ Operating system based on Linux kernel are widely used in:
 
 - Mobile phones - Android is based on Linux operating system
 
-- Embedded devices - watches, televisions, traffic lights etc
+- Embedded devices - watches, televisions, traffic lights, etc.
 
 - Satellites
 
-- Network devices - routers, switches etc.
+- Network devices - routers, switches, etc.
 
 ## Graphical user interface (GUI) vs Command line interface (CLI)
 
@@ -172,9 +172,9 @@ programs available on Linux servers. Other popular shell programs are
 zsh, ksh and tcsh.
 
 Terminal is a program that opens a window and lets you interact with the
-shell. Some popular examples of terminals are gnome-terminal, xterm,
-konsole etc.
+shell. Some popular examples of terminals are GNOME-terminal, xterm,
+Konsole, etc.
 
-Linux users do use the terms shell, terminal, prompt, console etc.
+Linux users do use the terms shell, terminal, prompt, console, etc.
 interchangeably. In simple terms, these all refer to a way of taking
 commands from the user.
