@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- High-level knowledge of commonly used jargon in TCP/IP stack like  DNS, TCP, UDP and HTTP
+- High-level knowledge of commonly used jargon in TCP/IP stack like DNS, TCP, UDP and HTTP
 - [Linux Commandline Basics](https://linkedin.github.io/school-of-sre/level101/linux_basics/command_line_basics/)
 
 ## What to expect from this course
@@ -11,11 +11,11 @@ Throughout the course, we cover how an SRE can optimize the system to improve th
 
 ## What is not covered under this course
 
-This course spends time on the fundamentals. We are not covering concepts like [HTTP/2.0](https://en.wikipedia.org/wiki/HTTP/2), [QUIC](https://en.wikipedia.org/wiki/QUIC), [TCP congestion control protocols](https://en.wikipedia.org/wiki/TCP_congestion_control), [Anycast](https://en.wikipedia.org/wiki/Anycast), [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol), [CDN](https://en.wikipedia.org/wiki/Content_delivery_network), [Tunnels](https://en.wikipedia.org/wiki/Virtual_private_network) and [Multicast](https://en.wikipedia.org/wiki/Multicast). We expect that this course will provide the relevant basics to understand such concepts
+This course spends time on the fundamentals. We are not covering concepts like [HTTP/2.0](https://en.wikipedia.org/wiki/HTTP/2), [QUIC](https://en.wikipedia.org/wiki/QUIC), [TCP congestion control protocols](https://en.wikipedia.org/wiki/TCP_congestion_control), [Anycast](https://en.wikipedia.org/wiki/Anycast), [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol), [CDN](https://en.wikipedia.org/wiki/Content_delivery_network), [Tunnels](https://en.wikipedia.org/wiki/Virtual_private_network) and [Multicast](https://en.wikipedia.org/wiki/Multicast). We expect that this course will provide the relevant basics to understand such concepts.
 
 ## Birds eye view of the course
 
-The course covers the question “What happens when you open linkedin.com in your browser?” The course follows the flow of TCP/IP stack.More specifically, the course covers topics of Application layer protocols DNS and HTTP, transport layer protocols UDP and TCP, networking layer protocol IP and Data Link Layer protocol 
+The course covers the question “What happens when you open [linkedin.com](https://www.linkedin.com) in your browser?” The course follows the flow of TCP/IP stack. More specifically, the course covers topics of Application layer protocols (DNS and HTTP), transport layer protocols (UDP and TCP), networking layer protocol (IP) and data link layer protocol.
 
 ##  Course Contents
 1. [DNS](https://linkedin.github.io/school-of-sre/level101/linux_networking/dns/)
