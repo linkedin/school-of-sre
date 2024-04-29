@@ -16,18 +16,18 @@ Writing programs to draw analytics from data.
 ## Course Contents
 
 1. [Overview of Big Data](https://linkedin.github.io/school-of-sre/level101/big_data/intro/#overview-of-big-data)
-2. [Usage of Big Data techniques](https://linkedin.github.io/school-of-sre/level101/big_data/intro/#usage-of-big-data-techniques)
+2. [Usage of Big Data Techniques](https://linkedin.github.io/school-of-sre/level101/big_data/intro/#usage-of-big-data-techniques)
 3. [Evolution of Hadoop](https://linkedin.github.io/school-of-sre/level101/big_data/evolution/)
-4. [Architecture of hadoop](https://linkedin.github.io/school-of-sre/level101/big_data/evolution/#architecture-of-hadoop)
+4. [Architecture of Hadoop](https://linkedin.github.io/school-of-sre/level101/big_data/evolution/#architecture-of-hadoop)
     1. HDFS
     2. Yarn
-5. [MapReduce framework](https://linkedin.github.io/school-of-sre/level101/big_data/evolution/#mapreduce-framework)
-6. [Other tooling around hadoop](https://linkedin.github.io/school-of-sre/level101/big_data/evolution/#other-tooling-around-hadoop)
+5. [MapReduce Framework](https://linkedin.github.io/school-of-sre/level101/big_data/evolution/#mapreduce-framework)
+6. [Other Tooling Around Hadoop](https://linkedin.github.io/school-of-sre/level101/big_data/evolution/#other-tooling-around-hadoop)
     1. Hive
     2. Pig
     3. Spark
     4. Presto
-7. [Data Serialisation and storage](https://linkedin.github.io/school-of-sre/level101/big_data/evolution/#data-serialisation-and-storage)
+7. [Data Serialization and Storage](https://linkedin.github.io/school-of-sre/level101/big_data/evolution/#data-serialisation-and-storage)
 
 
 # Overview of Big Data
@@ -50,7 +50,7 @@ Writing programs to draw analytics from data.
 1. Take the example of the traffic lights problem.
     1. There are more than 300,000 traffic lights in the US as of 2018.
     2. Let us assume that we placed a device on each of them to collect metrics and send it to a central metrics collection system.
-    3. If each of the IoT devices sends 10 events per minute, we have 300000x10x60x24 = 432x10^7 events per day.
+    3. If each of the IoT devices sends 10 events per minute, we have `300000 x 10 x 60 x 24 = 432 x 10 ^ 7` events per day.
     4. How would you go about processing that and telling me how many of the signals were “green” at 10:45 am on a particular day?
 2. Consider the next example on Unified Payments Interface (UPI) transactions:
     1. We had about 1.15 billion UPI transactions in the month of October 2019 in India.
