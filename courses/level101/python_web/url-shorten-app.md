@@ -1,6 +1,6 @@
 # The URL Shortening App
 
-Let's build a very simple URL shortening app using flask and try to incorporate all aspects of the development process including the reliability aspects. We will not be building the UI and we will come up with a minimal set of API that will be enough for the app to function well.
+Let's build a very simple URL-shortening app using Flask and try to incorporate all aspects of the development process including the reliability aspects. We will not be building the UI and we will come up with a minimal set of API that will be enough for the app to function well.
 
 ## Design
 
@@ -8,19 +8,19 @@ We don't jump directly to coding. First thing we do is gather requirements. Come
 
 ### 1. High Level Operations and API Endpoints
 
-Since it's a URL shortening app, we will need an API for generating the shorten link given an original link. And an API/Endpoint which will accept the shorten link and redirect to original URL. We are not including the user aspect of the app to keep things minimal. These two API should make app functional and usable by anyone.
+Since it's a URL-shortening app, we will need an API for generating the shorten link given an original link. And an API/Endpoint which will accept the shorten link and redirect to original URL. We are not including the user aspect of the app to keep things minimal. These two API should make app functional and usable by anyone.
 
 ### 2. How to shorten?
 
-Given a url, we will need to generate a shortened version of it. One approach could be using random characters for each link. Another thing that can be done is to use some sort of hashing algorithm. The benefit here is we will reuse the same hash for the same link. ie: if lot of people are shortening `https://www.linkedin.com` they all will have the same value, compared to multiple entries in DB if chosen random characters.
+Given a URL, we will need to generate a shortened version of it. One approach could be using random characters for each link. Another thing that can be done is to use some sort of hashing algorithm. The benefit here is we will reuse the same hash for the same link. Ie: if lot of people are shortening `https://www.linkedin.com`, they all will have the same value, compared to multiple entries in DB if chosen random characters.
 
-What about hash collisions? Even in random characters approach, though there is a less probability, hash collisions can happen. And we need to be mindful of them. In that case we might want to prepend/append the string with some random value to avoid conflict.
+What about hash collisions? Even in random characters approach, though there is a less probability, hash collisions can happen. And we need to be mindful of them. In that case, we might want to prepend/append the string with some random value to avoid conflict.
 
 Also, choice of hash algorithm matters. We will need to analyze algorithms. Their CPU requirements and their characteristics. Choose one that suits the most.
 
 ### 3. Is URL Valid?
 
-Given a URL to shorten, how do we verify if the URL is valid? Do we even verify or validate? One basic check that can be done is see if the URL matches a regex of a URL. To go even further we can try opening/visiting the URL. But there are certain gotchas here.
+Given a URL to shorten, how do we verify if the URL is valid? Do we even verify or validate? One basic check that can be done is see if the URL matches a regex of a URL. To go even further, we can try opening/visiting the URL. But there are certain gotchas here.
 
 1. We need to define success criteria. ie: HTTP 200 means it is valid.
 2. What if the URL is in private network?
@@ -32,13 +32,12 @@ Finally, storage. Where will we store the data that we will generate over time? 
 
 ### 5. Other
 
-We are not accounting for users into our app and other possible features like rate limiting, customized links etc but it will eventually come up with time. Depending on the requirements, they too might need to get incorporated.
+We are not accounting for users into our app and other possible features like rate limiting, customized links, etc. but it will eventually come up with time. Depending on the requirements, they too might need to get incorporated.
 
-The minimal working code is given below for reference but I'd encourage you to come up with your own.
+The minimal working code is given below for reference, but I'd encourage you to come up with your own.
 
 ```python
 from flask import Flask, redirect, request
-
 from hashlib import md5
 
 app = Flask("url_shortener")
