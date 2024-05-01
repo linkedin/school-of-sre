@@ -31,19 +31,18 @@ More light will be shed on concepts rather than on setting up and configuring co
 
 So, how do you go about learning to design a system?
 
-*” Like most great questions, it showed a level of naivety that was breathtaking. The only short answer I could give was, essentially, that you learned how to design a system by designing systems and finding out what works and what doesn’t work.”
-Jim Waldo, Sun Microsystems, On System Design*
+"*Like most great questions, it showed a level of naivety that was breathtaking. The only short answer I could give was, essentially, that you learned how to design a system by designing systems and finding out what works and what doesn’t work.*"&mdash;Jim Waldo, Sun Microsystems, On System Design
 
     
 As software and hardware systems have multiple moving parts, we need to think about how those parts will grow, their failure modes, their inter-dependencies, how it will impact the users and the business.
 
 There is no one-shot method or way to learn or do system design, we only learn to design systems by designing and iterating on them.
 
-This course will be a starter to make one think about scalability, availability, and fault tolerance during systems design.
+This course will be a starter to make one think about _scalability_, _availability_, and _fault tolerance_ during systems design.
 
 ## Backstory
 
-Let’s design a simple content sharing application where users can share photos, media in our application which can be liked by their friends. Let’s start with a simple design of the application and evolve it as we learn system design concepts
+Let’s design a simple content sharing application where users can share photos, media in our application which can be liked by their friends. Let’s start with a simple design of the application and evolve it as we learn system design concepts.
 
 ![First architecture diagram](images/first-architecture.jpg)
 
