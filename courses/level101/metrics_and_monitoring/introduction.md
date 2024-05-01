@@ -76,7 +76,7 @@ a system, analyzing the data to derive meaningful information, and
 displaying the data to the users. In simple terms, you measure various
 metrics regularly to understand the state of the system, including but
 not limited to, user requests, latency, and error rate. *What gets
-measured, gets fixed*---if you can measure something, you can reason
+measured, gets fixed*&mdash;if you can measure something, you can reason
 about it, understand it, discuss it, and act upon it with confidence.
 
 
@@ -102,14 +102,14 @@ book](https://sre.google/sre-book/monitoring-distributed-systems/),
 if you can measure only four metrics of your service, focus on these
 four. Let's look at each of the four golden signals.
 
--   **Traffic** -- *Traffic* gives a better understanding of the service
+-   **Traffic**&mdash;*Traffic* gives a better understanding of the service
      demand. Often referred to as *service QPS* (queries per second),
      traffic is a measure of requests served by the service. This
      signal helps you to decide when a service needs to be scaled up to
      handle increasing customer demand and scaled down to be
      cost-effective.
 
--   **Latency** -- *Latency* is the measure of time taken by the service
+-   **Latency**&mdash;*Latency* is the measure of time taken by the service
      to process the incoming request and send the response. Measuring
      service latency helps in the early detection of slow degradation
      of the service. Distinguishing between the latency of successful
@@ -121,7 +121,7 @@ four. Let's look at each of the four golden signals.
      HTTP 500 error indicates a failed request, factoring 500s into
      overall latency might result in misleading calculations.
 
--   **Error (rate)** -- *Error* is the measure of failed client
+-   **Error (rate)**&mdash;*Error* is the measure of failed client
      requests. These failures can be easily identified based on the
      response codes ([HTTP 5XX
      error](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses)).
@@ -136,7 +136,7 @@ four. Let's look at each of the four golden signals.
      [instrumentation](https://en.wikipedia.org/wiki/Instrumentation_(computer_programming)))
      in place to capture errors in addition to the response codes.
 
--   **Saturation** -- *Saturation* is a measure of the resource
+-   **Saturation**&mdash;*Saturation* is a measure of the resource
      utilization by a service. This signal tells you the state of
      service resources and how full they are. These resources include
      memory, compute, network I/O, and so on. Service performance
@@ -168,17 +168,17 @@ service health. With access to historical data collected over time, you
 can build intelligent applications to address specific needs. Some of
 the key use cases follow:
 
--   **Reduction in time to resolve issues** -- With a good monitoring
+-   **Reduction in time to resolve issues**&mdash;With a good monitoring
      infrastructure in place, you can identify issues quickly and
      resolve them, which reduces the impact caused by the issues.
 
--   **Business decisions** -- Data collected over a period of time can
+-   **Business decisions**&mdash;Data collected over a period of time can
      help you make business decisions such as determining the product
      release cycle, which features to invest in, and geographical areas
      to focus on. Decisions based on long-term data can improve the
      overall product experience.
 
--   **Resource planning** -- By analyzing historical data, you can
+-   **Resource planning**&mdash;By analyzing historical data, you can
      forecast service compute-resource demands, and you can properly
      allocate resources. This allows financially effective decisions,
      with no compromise in end-user experience.
@@ -186,35 +186,35 @@ the key use cases follow:
 Before we dive deeper into monitoring, let's understand some basic
 terminologies.
 
--   **Metric** -- A metric is a quantitative measure of a particular
-     system attribute---for example, memory or CPU
+-   **Metric**&mdash;A metric is a quantitative measure of a particular
+     system attribute&mdash;for example, memory or CPU
 
--   **Node or host** -- A physical server, virtual machine, or container
+-   **Node or host**&mdash;A physical server, virtual machine, or container
      where an application is running
 
--   **QPS** -- *Queries Per Second*, a measure of traffic served by the
+-   **QPS**&mdash;*Queries Per Second*, a measure of traffic served by the
      service per second
 
--   **Latency** -- The time interval between user action and the
-     response from the server---for example, time spent after sending a
+-   **Latency**&mdash;The time interval between user action and the
+     response from the server&mdash;for example, time spent after sending a
      query to a database before the first response bit is received
 
--   **Error** **rate** -- Number of errors observed over a particular
+-   **Error** **rate**&mdash;Number of errors observed over a particular
      time period (usually a second)
 
--   **Graph** -- In monitoring, a graph is a representation of one or
+-   **Graph**&mdash;In monitoring, a graph is a representation of one or
      more values of metrics collected over time
 
--   **Dashboard** -- A dashboard is a collection of graphs that provide
+-   **Dashboard**&mdash;A dashboard is a collection of graphs that provide
      an overview of system health
 
--   **Incident** -- An incident is an event that disrupts the normal
+-   **Incident**&mdash;An incident is an event that disrupts the normal
      operations of a system
 
--   **MTTD** -- *Mean Time To Detect* is the time interval between the
+-   **MTTD**&mdash;*Mean Time To Detect* is the time interval between the
      beginning of a service failure and the detection of such failure
 
--   **MTTR** -- Mean Time To Resolve is the time spent to fix a service
+-   **MTTR**&mdash;Mean Time To Resolve is the time spent to fix a service
      failure and bring the service back to its normal state
 
 Before we discuss monitoring an application, let us look at the
@@ -230,7 +230,7 @@ In addition, a monitoring infrastructure includes alert subsystems for
 notifying concerned parties during any abnormal behavior. Let's look at
 each of these infrastructure components:
 
--   **Host metrics agent --** A *host metrics agent* is a process
+-   **Host metrics agent**&mdash;A *host metrics agent* is a process
      running on the host that collects performance statistics for host
      subsystems such as memory, CPU, and network. These metrics are
      regularly relayed to a metrics collector for storage and
@@ -239,7 +239,7 @@ each of these infrastructure components:
      [telegraf](https://www.influxdata.com/time-series-platform/telegraf/),
      and [metricbeat](https://www.elastic.co/beats/metricbeat).
 
--   **Metric aggregator --** A *metric aggregator* is a process running
+-   **Metric aggregator**&mdash;A *metric aggregator* is a process running
      on the host. Applications running on the host collect service
      metrics using
      [instrumentation](https://en.wikipedia.org/wiki/Instrumentation_(computer_programming)).
@@ -249,7 +249,7 @@ each of these infrastructure components:
      collector in batches. An example is
      [StatsD](https://github.com/statsd/statsd).
 
--   **Metrics collector --** A *metrics collector* process collects all
+-   **Metrics collector**&mdash;A *metrics collector* process collects all
      the metrics from the metric aggregators running on multiple hosts.
      The collector takes care of decoding and stores this data on the
      database. Metric collection and storage might be taken care of by
@@ -258,19 +258,19 @@ each of these infrastructure components:
      next. An example is [carbon
      daemons](https://graphite.readthedocs.io/en/latest/carbon-daemons.html).
 
--   **Storage --** A time-series database stores all of these metrics.
+-   **Storage**&mdash;A time-series database stores all of these metrics.
      Examples are [OpenTSDB](http://opentsdb.net/),
      [Whisper](https://graphite.readthedocs.io/en/stable/whisper.html),
      and [InfluxDB](https://www.influxdata.com/).
 
--   **Metrics server --** A *metrics server* can be as basic as a web
+-   **Metrics server**&mdash;A *metrics server* can be as basic as a web
      server that graphically renders metric data. In addition, the
      metrics server provides aggregation functionalities and APIs for
      fetching metric data programmatically. Some examples are
      [Grafana](https://github.com/grafana/grafana) and
      [Graphite-Web](https://github.com/graphite-project/graphite-web).
 
--   **Alert manager --** The *alert manager* regularly polls metric data
+-   **Alert manager**&mdash;The *alert manager* regularly polls metric data
      available and, if there are any anomalies detected, notifies you.
      Each alert has a set of rules for identifying such anomalies.
      Today many metrics servers such as

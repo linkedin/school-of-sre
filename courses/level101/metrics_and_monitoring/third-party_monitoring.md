@@ -8,13 +8,13 @@ addition, a number of companies such as
 monitoring-as-a-service. In this section, we are not covering
 monitoring-as-a-service in depth.
 
-In recent years, more and more people have access to the internet. Many
+In recent years, more and more people have access to the Internet. Many
 services are offered online to cater to the increasing user base. As a
 result, web pages are becoming larger, with increased client-side
 scripts. Users want these services to be fast and error-free. From the
 service point of view, when the response body is composed, an HTTP 200
 OK response is sent, and everything looks okay. But there might be
-errors during transmission or on the client side. As previously
+errors during transmission or on the client-side. As previously
 mentioned, monitoring services from within the service infrastructure
 give good visibility into service health, but this is not enough. You
 need to monitor user experience, specifically the availability of
@@ -29,7 +29,7 @@ service is globally accessible. Other third-party monitoring solutions
 for real user monitoring (RUM) provide performance statistics such as
 service uptime and response time, from different geographical locations.
 This allows you to monitor the user experience from these locations,
-which might have different internet backbones, different operating
+which might have different Internet backbones, different operating
 systems, and different browsers and browser versions. [Catchpoint
 Global Monitoring
 Network](https://pages.catchpoint.com/overview-video) is a
