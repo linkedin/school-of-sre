@@ -58,13 +58,12 @@
     ![Pig Example](images/pig_example.png)
 
     Output:
-
-    ```
+    <pre><code>
     7,Komal,Nayak,24,9848022334,trivendram
     8,Bharathi,Nambiayar,24,9848022333,Chennai
     5,Trupthi,Mohanthy,23,9848022336,Bhuwaneshwar
     6,Archana,Mishra,23,9848022335,Chennai
-    ```
+    </code></pre>
 
 3. [**Spark**](https://spark.apache.org/)
     1. Spark provides primitives for in-memory cluster computing that allows user programs to load data into a cluster’s memory and query it repeatedly, making it well-suited to machine learning algorithms.
@@ -72,11 +71,11 @@
     1. Presto is a high performance, distributed SQL query engine for Big Data.
     2. Its architecture allows users to query a variety of data sources such as Hadoop, AWS S3, Alluxio, MySQL, Cassandra, Kafka, and MongoDB.
     3. Example Presto query:
-    ```
+    <pre><code>
     USE studentDB;
     SHOW TABLES;
     SELECT roll_no, name FROM studentDB.studentDetails WHERE section=’A’ LIMIT 5;
-    ```   
+    </code></pre>   
     
 </br>
 
