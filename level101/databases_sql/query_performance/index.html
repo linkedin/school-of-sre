@@ -2203,7 +2203,7 @@
                 <h3 id="query-performance-improvement">Query Performance Improvement</h3>
 <p>Query Performance is a very crucial aspect of relational databases. If not tuned correctly, the select queries can become slow and painful for the application, and for the MySQL server as well. The important task is to identify the slow queries and try to improve their performance by either rewriting them or creating proper indexes on the tables involved in it.</p>
 <h4 id="the-slow-query-log">The Slow Query Log</h4>
-<p>The slow query log contains SQL statements that take a longer time to execute then set in the config parameter long_query_time. These queries are the candidates for optimization. There are some good utilities to summarize the slow query logs like, mysqldumpslow (provided by MySQL itself), pt-query-digest (provided by Percona), etc. Following are the config parameters that are used to enable and effectively catch slow queries</p>
+<p>The slow query log contains SQL statements that take a longer time to execute than set in the config parameter <code>long_query_time</code>. These queries are the candidates for optimization. There are some good utilities to summarize the slow query logs like, <code>mysqldumpslow</code> (provided by MySQL itself), <code>pt-query-digest</code> (provided by Percona), etc. Following are the config parameters that are used to enable and effectively catch slow queries</p>
 <table>
 <thead>
 <tr>
@@ -2235,24 +2235,35 @@
 </tr>
 </tbody>
 </table>
-<p>So, for this section, we will be enabling <strong>slow_query_log</strong>, <strong>long_query_time</strong> will be kept to <strong>0.3 (300 ms)</strong>, and <strong>log_queries_not_using</strong> index will be enabled as well.</p>
-<p>Below are the queries that we will execute on the employees database.</p>
+<p>So, for this section, we will be enabling <code>slow_query_log</code>, <code>long_query_time</code> will be kept to <strong>0.3 (300 ms)</strong>, and <code>log_queries_not_using</code> index will be enabled as well.</p>
+<p>Below are the queries that we will execute on the <code>employees</code> database.</p>
 <ol>
-<li>select * from employees where last_name = 'Koblick';</li>
-<li>select * from salaries where salary &gt;= 100000;</li>
-<li>select * from titles where title = 'Manager';</li>
-<li>select * from employees where year(hire_date) = 1995;</li>
-<li>select year(e.hire_date), max(s.salary) from employees e join salaries s on e.emp_no=s.emp_no group by year(e.hire_date);</li>
+<li>
+<p><code>SELECT * FROM employees WHERE last_name = 'Koblick'</code></p>
+</li>
+<li>
+<p><code>SELECT * FROM salaries WHERE salary &gt;= 100000</code></p>
+</li>
+<li>
+<p><code>SELECT * FROM titles WHERE title = 'Manager'</code></p>
+</li>
+<li>
+<p><code>SELECT * FROM employees WHERE year(hire_date) = 1995</code></p>
+</li>
+<li>
+<p><code>SELECT year(e.hire_date), max(s.salary) FROM employees e JOIN salaries s ON e.emp_no=s.emp_no GROUP BY year(e.hire_date)</code></p>
+</li>
 </ol>
-<p>Now, queries <strong>1</strong>, <strong>3</strong> and <strong>4</strong> executed under 300 ms but if we check the slow query logs, we will find these queries logged as they are not using any of the index. Queries <strong>2</strong> and <strong>5</strong> are taking longer than 300ms and also not using any index.</p>
-<p>Use the following command to get the summary of the slow query log</p>
-<p><code>mysqldumpslow /var/lib/mysql/mysql-slow.log</code></p>
+<p>Now, queries <strong>1</strong>, <strong>3</strong> and <strong>4</strong> executed under 300ms but if we check the slow query logs, we will find these queries logged as they are not using any of the index. Queries <strong>2</strong> and <strong>5</strong> are taking longer than 300ms and also not using any index.</p>
+<p>Use the following command to get the summary of the slow query log:</p>
+<pre><code class="language-shell">mysqldumpslow /var/lib/mysql/mysql-slow.log
+</code></pre>
 <p><img alt="slow query log analysis" src="../images/mysqldumpslow_out.png" title="slow query log analysis" /></p>
-<p>There are some more queries in the snapshot that were along with the queries mentioned. Mysqldumpslow replaces actual values that were used by N (in case of numbers) and S (in case of strings). That can be overridden by <code>-a</code> option, however that will increase the output lines if different values are used in similar queries.</p>
+<p>There are some more queries in the snapshot that were along with the queries mentioned. <code>mysqldumpslow</code> replaces actual values that were used by <em>N</em> (in case of numbers) and <em>S</em> (in case of strings). That can be overridden by <code>-a</code> option, however, that will increase the output lines if different values are used in similar queries.</p>
 <h4 id="the-explain-plan">The EXPLAIN Plan</h4>
-<p>The <strong>EXPLAIN</strong> command is used with any query that we want to analyze. It describes the query execution plan, how MySQL sees and executes the query. EXPLAIN works with Select, Insert, Update and Delete statements. It tells about different aspects of the query like, how tables are joined, indexes used or not, etc. The important thing here is to understand the basic Explain plan output of a query to determine its performance. </p>
+<p>The <code>EXPLAIN</code> command is used with any query that we want to analyze. It describes the query execution plan, how MySQL sees and executes the query. <code>EXPLAIN</code> works with <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code> and <code>DELETE</code> statements. It tells about different aspects of the query like, how tables are joined, indexes used or not, etc. The important thing here is to understand the basic <code>EXPLAIN</code> plan output of a query to determine its performance. </p>
 <p>Let's take the following query as an example,</p>
-<pre><code>mysql&gt; explain select * from salaries where salary = 100000;
+<pre><code class="language-shell">mysql&gt; EXPLAIN SELECT * FROM salaries WHERE salary = 100000;
 +----+-------------+----------+------------+------+---------------+------+---------+------+---------+----------+-------------+
 | id | select_type | table    | partitions | type | possible_keys | key  | key_len | ref  | rows    | filtered | Extra       |
 +----+-------------+----------+------------+------+---------------+------+---------+------+---------+----------+-------------+
@@ -2260,31 +2271,33 @@
 +----+-------------+----------+------------+------+---------------+------+---------+------+---------+----------+-------------+
 1 row in set, 1 warning (0.00 sec)
 </code></pre>
-<p>The key aspects to understand in the above output are:-</p>
+<p>The key aspects to understand in the above output are:</p>
 <ul>
 <li><strong>Partitions</strong> - the number of partitions considered while executing the query. It is only valid if the table is partitioned.</li>
 <li><strong>Possible_keys</strong> - the list of indexes that were considered during creation of the execution plan.</li>
 <li><strong>Key</strong> - the index that will be used while executing the query.</li>
 <li><strong>Rows</strong> - the number of rows examined during the execution.</li>
 <li><strong>Filtered</strong> - the percentage of rows that were filtered out of the rows examined. The maximum and most optimized result will have 100 in this field. </li>
-<li><strong>Extra</strong> - this tells some extra information on how MySQL evaluates,  whether the query is using only where clause to match target rows, any index or temporary table, etc.</li>
+<li><strong>Extra</strong> - this tells some extra information on how MySQL evaluates, whether the query is using only <code>WHERE</code> clause to match target rows, any index or temporary table, etc.</li>
 </ul>
-<p>So, for the above query, we can determine that there are no partitions, there are no candidate indexes to be used and so no index is used at all, over 2M rows are examined and only 10% of them are included in the result, and lastly, only a where clause is used to match the target rows.</p>
+<p>So, for the above query, we can determine that there are no partitions, there are no candidate indexes to be used and so no index is used at all, over 2M rows are examined and only 10% of them are included in the result, and lastly, only a <code>WHERE</code> clause is used to match the target rows.</p>
 <h4 id="creating-an-index">Creating an Index</h4>
 <p>Indexes are used to speed up selecting relevant rows for a given column value. Without an index, MySQL starts with the first row and goes through the entire table to find matching rows. If the table has too many rows, the operation becomes costly. With indexes, MySQL determines the position to start looking for the data without reading the full table.</p>
 <p>A primary key is also an index which is also the fastest and is stored along with the table data. Secondary indexes are stored outside of the table data and are used to further enhance the performance of SQL statements. Indexes are mostly stored as B-Trees, with some exceptions like spatial indexes use R-Trees and memory tables use hash indexes.</p>
-<p>There are 2 ways to create indexes:-</p>
+<p>There are 2 ways to create indexes:</p>
 <ul>
-<li>While creating a table - if we know beforehand the columns that will drive the most number of where clauses in select queries, then we can put an index over them while creating a table.</li>
-<li>Altering a Table - To improve the performance of a troubling query, we create an index on a table which already has data in it using ALTER or CREATE INDEX command. This operation does not block the table but might take some time to complete depending on the size of the table.</li>
+<li>While creating a table - if we know beforehand the columns that will drive the most number of <code>WHERE</code> clauses in <code>SELECT</code> queries, then we can put an index over them while creating a table.</li>
+<li>Altering a Table - To improve the performance of a troubling query, we create an index on a table which already has data in it using <code>ALTER</code> or <code>CREATE INDEX</code> command. This operation does not block the table but might take some time to complete depending on the size of the table.</li>
 </ul>
 <p>Let’s look at the query that we discussed in the previous section. It’s clear that scanning over 2M records is not a good idea when only 10% of those records are actually in the resultset. </p>
 <p>Hence, we create an index on the salary column of the salaries table.</p>
-<p><code>create index idx_salary on salaries(salary)</code></p>
+<pre><code class="language-SQL">CREATE INDEX idx_salary ON salaries(salary)
+</code></pre>
 <p>OR</p>
-<p><code>alter table salaries add index idx_salary(salary)</code></p>
-<p>And the same explain plan now looks like this</p>
-<pre><code>mysql&gt; explain select * from salaries where salary = 100000;
+<pre><code class="language-SQL">ALTER TABLE salaries ADD INDEX idx_salary(salary)
+</code></pre>
+<p>And the same explain plan now looks like this:</p>
+<pre><code class="language-shell">mysql&gt; EXPLAIN SELECT * FROM salaries WHERE salary = 100000;
 +----+-------------+----------+------------+------+---------------+------------+---------+-------+------+----------+-------+
 | id | select_type | table    | partitions | type | possible_keys | key        | key_len | ref   | rows | filtered | Extra |
 +----+-------------+----------+------------+------+---------------+------------+---------+-------+------+----------+-------+
@@ -2292,9 +2305,9 @@
 +----+-------------+----------+------------+------+---------------+------------+---------+-------+------+----------+-------+
 1 row in set, 1 warning (0.00 sec)
 </code></pre>
-<p>Now the index used is idx_salary, the one we recently created. The index actually helped examine only 13 records and all of them are in the resultset. Also, the query execution time is also reduced from over 700ms to almost negligible. </p>
-<p>Let’s look at another example. Here we are searching for a specific combination of first_name and last_name. But, we might also search based on last_name only.</p>
-<pre><code>mysql&gt; explain select * from employees where last_name = 'Dredge' and first_name = 'Yinghua';
+<p>Now the index used is <code>idx_salary</code>, the one we recently created. The index actually helped examine only 13 records and all of them are in the resultset. Also, the query execution time is also reduced from over 700ms to almost negligible. </p>
+<p>Let’s look at another example. Here, we are searching for a specific combination of <code>first_name</code> and <code>last_name</code>. But, we might also search based on <code>last_name</code> only.</p>
+<pre><code class="language-shell">mysql&gt; EXPLAIN SELECT * FROM employees WHERE last_name = 'Dredge' AND first_name = 'Yinghua';
 +----+-------------+-----------+------------+------+---------------+------+---------+------+--------+----------+-------------+
 | id | select_type | table     | partitions | type | possible_keys | key  | key_len | ref  | rows   | filtered | Extra       |
 +----+-------------+-----------+------------+------+---------------+------+---------+------+--------+----------+-------------+
@@ -2302,9 +2315,10 @@
 +----+-------------+-----------+------------+------+---------------+------+---------+------+--------+----------+-------------+
 1 row in set, 1 warning (0.00 sec)
 </code></pre>
-<p>Now only 1% record out of almost 300K is the resultset. Although the query time is particularly quick as we have only 300K records, this will be a pain if the number of records are over millions. In this case, we create an index on last_name and first_name, not separately, but a composite index including both the columns. </p>
-<p><code>create index idx_last_first on employees(last_name, first_name)</code></p>
-<pre><code>mysql&gt; explain select * from employees where last_name = 'Dredge' and first_name = 'Yinghua';
+<p>Now only 1% record out of almost 300K is the resultset. Although the query time is particularly quick as we have only 300K records, this will be a pain if the number of records are over millions. In this case, we create an index on <code>last_name</code> and <code>first_name</code>, not separately, but a composite index including both the columns. </p>
+<pre><code class="language-SQL">CREATE INDEX idx_last_first ON employees(last_name, first_name)
+</code></pre>
+<pre><code class="language-shell">mysql&gt; EXPLAIN SELECT * FROM employees WHERE last_name = 'Dredge' AND first_name = 'Yinghua';
 +----+-------------+-----------+------------+------+----------------+----------------+---------+-------------+------+----------+-------+
 | id | select_type | table     | partitions | type | possible_keys  | key            | key_len | ref         | rows | filtered | Extra |
 +----+-------------+-----------+------------+------+----------------+----------------+---------+-------------+------+----------+-------+
@@ -2312,8 +2326,8 @@
 +----+-------------+-----------+------------+------+----------------+----------------+---------+-------------+------+----------+-------+
 1 row in set, 1 warning (0.00 sec)
 </code></pre>
-<p>We chose to put last_name before first_name while creating the index as the optimizer starts from the leftmost prefix of the index while evaluating the query. For example, if we have a 3-column index like idx(c1, c2, c3), then the search capability of the index follows - (c1), (c1, c2) or (c1, c2, c3) i.e. if your where clause has only first_name this index won’t work. </p>
-<pre><code>mysql&gt; explain select * from employees where first_name = 'Yinghua';
+<p>We chose to put <code>last_name</code> before <code>first_name</code> while creating the index as the optimizer starts from the leftmost prefix of the index while evaluating the query. For example, if we have a 3-column index like <code>idx(c1, c2, c3)</code>, then the search capability of the index follows - (c1), (c1, c2) or (c1, c2, c3) i.e. if your <code>WHERE</code> clause has only <code>first_name</code>, this index won’t work.</p>
+<pre><code class="language-shell">mysql&gt; EXPLAIN SELECT * FROM employees WHERE first_name = 'Yinghua';
 +----+-------------+-----------+------------+------+---------------+------+---------+------+--------+----------+-------------+
 | id | select_type | table     | partitions | type | possible_keys | key  | key_len | ref  | rows   | filtered | Extra       |
 +----+-------------+-----------+------------+------+---------------+------+---------+------+--------+----------+-------------+
@@ -2321,8 +2335,8 @@
 +----+-------------+-----------+------------+------+---------------+------+---------+------+--------+----------+-------------+
 1 row in set, 1 warning (0.00 sec)
 </code></pre>
-<p>But, if you have only the last_name in the where clause, it will work as expected.</p>
-<pre><code>mysql&gt; explain select * from employees where last_name = 'Dredge';
+<p>But, if you have only the <code>last_name</code> in the <code>WHERE</code> clause, it will work as expected.</p>
+<pre><code class="language-shell">mysql&gt; EXPLAIN SELECT * FROM employees WHERE last_name = 'Dredge';
 +----+-------------+-----------+------------+------+----------------+----------------+---------+-------+------+----------+-------+
 | id | select_type | table     | partitions | type | possible_keys  | key            | key_len | ref   | rows | filtered | Extra |
 +----+-------------+-----------+------------+------+----------------+----------------+---------+-------+------+----------+-------+
@@ -2330,18 +2344,18 @@
 +----+-------------+-----------+------------+------+----------------+----------------+---------+-------+------+----------+-------+
 1 row in set, 1 warning (0.00 sec)
 </code></pre>
-<p>For another example, use the following queries:-</p>
-<pre><code>create table employees_2 like employees;
-create table salaries_2 like salaries;
-alter table salaries_2 drop primary key;
+<p>For another example, use the following queries:</p>
+<pre><code class="language-SQL">CREATE TABLE employees_2 LIKE employees;
+CREATE TABLE salaries_2 LIKE salaries;
+ALTER TABLE salaries_2 DROP PRIMARY KEY;
 </code></pre>
-<p>We made copies of employees and salaries tables without the Primary Key of salaries table to understand an example of Select with Join.</p>
+<p>We made copies of <code>employees</code> and <code>salaries</code> tables without the Primary Key of <code>salaries</code> table to understand an example of <code>SELECT</code> with <code>JOIN</code>.</p>
 <p>When you have queries like the below, it becomes tricky to identify the pain point of the query.</p>
-<pre><code>mysql&gt; select e.first_name, e.last_name, s.salary, e.hire_date from employees_2 e join salaries_2 s on e.emp_no=s.emp_no where e.last_name='Dredge';
+<pre><code class="language-shell">mysql&gt; SELECT e.first_name, e.last_name, s.salary, e.hire_date FROM employees_2 e JOIN salaries_2 s ON e.emp_no=s.emp_no WHERE e.last_name='Dredge';
 1860 rows in set (4.44 sec)
 </code></pre>
 <p>This query is taking about 4.5 seconds to complete with 1860 rows in the resultset. Let’s look at the Explain plan. There will be 2 records in the Explain plan as 2 tables are used in the query.</p>
-<pre><code>mysql&gt; explain select e.first_name, e.last_name, s.salary, e.hire_date from employees_2 e join salaries_2 s on e.emp_no=s.emp_no where e.last_name='Dredge';
+<pre><code class="language-shell">mysql&gt; EXPLAIN SELECT e.first_name, e.last_name, s.salary, e.hire_date FROM employees_2 e JOIN salaries_2 s ON e.emp_no=s.emp_no WHERE e.last_name='Dredge';
 +----+-------------+-------+------------+--------+------------------------+---------+---------+--------------------+---------+----------+-------------+
 | id | select_type | table | partitions | type   | possible_keys          | key     | key_len | ref                | rows    | filtered | Extra       |
 +----+-------------+-------+------------+--------+------------------------+---------+---------+--------------------+---------+----------+-------------+
@@ -2350,10 +2364,11 @@ alter table salaries_2 drop primary key;
 +----+-------------+-------+------------+--------+------------------------+---------+---------+--------------------+---------+----------+-------------+
 2 rows in set, 1 warning (0.00 sec)
 </code></pre>
-<p>These are in order of evaluation i.e. salaries_2 will be evaluated first and then employees_2 will be joined to it. As it looks like, it scans almost all the rows of salaries_2 table and tries to match the employees_2 rows as per the join condition. Though where clause is used in fetching the final resultset, but the index corresponding to the where clause is not used for the employees_2 table. </p>
-<p>If the join is done on two indexes which have the same data-types, it will always be faster. So, let’s create an index on the <em>emp_no</em> column of salaries_2 table and analyze the query again.</p>
-<p><code>create index idx_empno on salaries_2(emp_no);</code></p>
-<pre><code>mysql&gt; explain select e.first_name, e.last_name, s.salary, e.hire_date from employees_2 e join salaries_2 s on e.emp_no=s.emp_no where e.last_name='Dredge';
+<p>These are in order of evaluation, i.e. <code>salaries_2</code> will be evaluated first and then <code>employees_2</code> will be joined to it. As it looks like, it scans almost all the rows of <code>salaries_2</code> table and tries to match the <code>employees_2</code> rows as per the <code>JOIN</code> condition. Though <code>WHERE</code> clause is used in fetching the final resultset, but the index corresponding to the <code>WHERE</code> clause is not used for the <code>employees_2</code> table. </p>
+<p>If the join is done on two indexes which have the same data-types, it will always be faster. So, let’s create an index on the <code>emp_no</code> column of <code>salaries_2</code> table and analyze the query again.</p>
+<pre><code class="language-SQL">CREATE INDEX idx_empno ON salaries_2(emp_no)
+</code></pre>
+<pre><code class="language-shell">mysql&gt; EXPLAIN SELECT e.first_name, e.last_name, s.salary, e.hire_date FROM employees_2 e JOIN salaries_2 s ON e.emp_no=s.emp_no WHERE e.last_name='Dredge';
 +----+-------------+-------+------------+------+------------------------+----------------+---------+--------------------+------+----------+-------+
 | id | select_type | table | partitions | type | possible_keys          | key            | key_len | ref                | rows | filtered | Extra |
 +----+-------------+-------+------------+------+------------------------+----------------+---------+--------------------+------+----------+-------+
@@ -2362,8 +2377,8 @@ alter table salaries_2 drop primary key;
 +----+-------------+-------+------------+------+------------------------+----------------+---------+--------------------+------+----------+-------+
 2 rows in set, 1 warning (0.00 sec)
 </code></pre>
-<p>Now, not only did the index help the optimizer to examine only a few rows in both tables, it reversed the order of the tables in evaluation. The employees_2 table is evaluated first and rows are selected as per the index respective to the where clause. Then the records are joined to salaries_2 table as per the index used due to the join condition. The execution time of the query came down <strong>from 4.5s to 0.02s</strong>.</p>
-<pre><code>mysql&gt; select e.first_name, e.last_name, s.salary, e.hire_date from employees_2 e join salaries_2 s on e.emp_no=s.emp_no where e.last_name='Dredge'\G
+<p>Now, not only did the index help the optimizer to examine only a few rows in both tables, it reversed the order of the tables in evaluation. The <code>employees_2</code> table is evaluated first and rows are selected as per the index respective to the <code>WHERE</code> clause. Then, the records are joined to <code>salaries_2</code> table as per the index used due to the <code>JOIN</code> condition. The execution time of the query came down <strong>from 4.5s to 0.02s</strong>.</p>
+<pre><code class="language-shell">mysql&gt; SELECT e.first_name, e.last_name, s.salary, e.hire_date FROM employees_2 e JOIN salaries_2 s ON e.emp_no=s.emp_no WHERE e.last_name='Dredge'\G
 1860 rows in set (0.02 sec)
 </code></pre>
                 

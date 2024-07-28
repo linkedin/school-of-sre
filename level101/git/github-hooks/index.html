@@ -2151,13 +2151,13 @@
                 
                 
                 <h1 id="git-with-github">Git with GitHub</h1>
-<p>Till now all the operations we did were in our local repo while git also helps us in a collaborative environment. GitHub is one place on the internet where you can centrally host your git repos and collaborate with other developers.</p>
+<p>Till now all the operations we did were in our local repo while git also helps us in a collaborative environment. GitHub is one place on the Internet where you can centrally host your git repos and collaborate with other developers.</p>
 <p>Most of the workflow will remain the same as we discussed, with addition of couple of things:</p>
 <ol>
-<li>Pull: to pull latest changes from github (the central) repo</li>
-<li>Push: to push your changes to github repo so that it's available to all people</li>
+<li>Pull: to pull latest changes from GitHub (the central) repo</li>
+<li>Push: to push your changes to GitHub repo so that it's available to all people</li>
 </ol>
-<p>GitHub has written nice guides and tutorials about this and you can refer them here:</p>
+<p>GitHub has written nice guides and tutorials about this and you can refer to them here:</p>
 <ul>
 <li><a href="https://guides.github.com/activities/hello-world/">GitHub Hello World</a></li>
 <li><a href="https://guides.github.com/introduction/git-handbook/">Git Handbook</a></li>
@@ -2168,7 +2168,7 @@
 applypatch-msg.sample     fsmonitor-watchman.sample pre-applypatch.sample     pre-push.sample           pre-receive.sample        update.sample
 commit-msg.sample         post-update.sample        pre-commit.sample         pre-rebase.sample         prepare-commit-msg.sample
 </code></pre>
-<p>Names are self explanatory. These hooks are useful when you want to do certain things when a certain event happens. If you want to run tests before pushing code, you would want to setup <code>pre-push</code> hooks. Let's try to create a pre commit hook.</p>
+<p>Names are self-explanatory. These hooks are useful when you want to do certain things when a certain event happens. If you want to run tests before pushing code, you would want to setup <code>pre-push</code> hooks. Let's try to create a pre commit hook.</p>
 <pre><code class="language-bash">$ echo &quot;echo this is from pre commit hook&quot; &gt; .git/hooks/pre-commit
 $ chmod +x .git/hooks/pre-commit
 </code></pre>

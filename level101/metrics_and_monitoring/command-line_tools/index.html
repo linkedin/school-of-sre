@@ -2112,28 +2112,28 @@ understand various subsystem statistics (CPU, memory, network, and so
 on). Let's look at some of the tools that are predominantly used.</p>
 <ul>
 <li>
-<p><code>ps/top</code>-- The process status command (ps) displays information
+<p><strong><code>ps/top</code></strong>: The process status command (<code>ps</code>) displays information
      about all the currently running processes in a Linux system. The
-     top command is similar to the ps command, but it periodically
+     top command is similar to the <code>ps</code> command, but it periodically
      updates the information displayed until the program is terminated.
-     An advanced version of top, called htop, has a more user-friendly
+     An advanced version of top, called <code>htop</code>, has a more user-friendly
      interface and some additional features. These command-line
      utilities come with options to modify the operation and output of
      the command. Following are some important options supported by the
-     ps command.</p>
+     <code>ps</code> command.</p>
 <ul>
 <li>
-<p><code>-p &lt;pid1, pid2,...&gt;</code> -- Displays information about processes
+<p><code>-p &lt;pid1, pid2,...&gt;</code>: Displays information about processes
      that match the specified process IDs. Similarly, you can use
      <code>-u &lt;uid&gt;</code> and <code>-g &lt;gid&gt;</code> to display information about
      processes belonging to a specific user or group.</p>
 </li>
 <li>
-<p><code>-a</code> -- Displays information about other users' processes, as well
+<p><code>-a</code>: Displays information about other users' processes, as well
      as one's own.</p>
 </li>
 <li>
-<p><code>-x</code> -- When displaying processes matched by other options,
+<p><code>-x</code>: When displaying processes matched by other options,
      includes processes that do not have a controlling terminal.</p>
 </li>
 </ul>
@@ -2145,21 +2145,21 @@ on). Let's look at some of the tools that are predominantly used.</p>
 </p>
 <ul>
 <li>
-<p><code>ss</code> -- The socket statistics command (ss) displays information
+<p><strong><code>ss</code></strong>: The socket statistics command (<code>ss</code>) displays information
      about network sockets on the system. This tool is the successor of
      <a href="https://man7.org/linux/man-pages/man8/netstat.8.html">netstat</a>,
      which is deprecated. Following are some command-line options
-     supported by the ss command:</p>
+     supported by the <code>ss</code> command:</p>
 <ul>
 <li>
-<p><code>-t</code> -- Displays the TCP socket. Similarly, <code>-u</code> displays UDP
+<p><code>-t</code>: Displays the TCP socket. Similarly, <code>-u</code> displays UDP
      sockets, <code>-x</code> is for UNIX domain sockets, and so on.</p>
 </li>
 <li>
-<p><code>-l</code> -- Displays only listening sockets.</p>
+<p><code>-l</code>: Displays only listening sockets.</p>
 </li>
 <li>
-<p><code>-n</code> -- Instructs the command to not resolve service names.
+<p><code>-n</code>: Instructs the command to not resolve service names.
      Instead displays the port numbers.</p>
 </li>
 </ul>
@@ -2168,7 +2168,7 @@ on). Let's look at some of the tools that are predominantly used.</p>
 <p><img alt="List of listening sockets on a system" src="../images/image8.png" /> <p align="center"> Figure
 3: List of listening sockets on a system </p></p>
 <ul>
-<li><code>free</code> -- The free command displays memory usage statistics on the
+<li><strong><code>free</code></strong>: The <code>free</code> command displays memory usage statistics on the
      host like available memory, used memory, and free memory. Most often,
      this command is used with the <code>-h</code> command-line option, which
      displays the statistics in a human-readable format.</li>
@@ -2177,7 +2177,7 @@ on). Let's look at some of the tools that are predominantly used.</p>
 <p align="center"> Figure 4: Memory statistics on a host in human-readable form </p>
 
 <ul>
-<li><code>df --</code> The df command displays disk space usage statistics. The
+<li><strong><code>df</code></strong>: The <code>df</code> command displays disk space usage statistics. The
      <code>-i</code> command-line option is also often used to display
      <a href="https://en.wikipedia.org/wiki/Inode">inode</a> usage
      statistics. The <code>-h</code> command-line option is used for displaying
@@ -2189,13 +2189,13 @@ on). Let's look at some of the tools that are predominantly used.</p>
 
 <ul>
 <li>
-<p><code>sar</code> -- The sar utility monitors various subsystems, such as CPU
+<p><strong><code>sar</code></strong>: The <code>sar</code> utility monitors various subsystems, such as CPU
      and memory, in real time. This data can be stored in a file
      specified with the <code>-o</code> option. This tool helps to identify
      anomalies.</p>
 </li>
 <li>
-<p><code>iftop</code> -- The interface top command (<code>iftop</code>) displays bandwidth
+<p><strong><code>iftop</code></strong>: The interface top command (<code>iftop</code>) displays bandwidth
      utilization by a host on an interface. This command is often used
      to identify bandwidth usage by active connections. The <code>-i</code> option
      specifies which network interface to watch.</p>
@@ -2209,31 +2209,31 @@ active connection on the host </p>
 </p>
 <ul>
 <li>
-<p><code>tcpdump</code> -- The tcpdump command is a network monitoring tool that
+<p><strong><code>tcpdump</code></strong>: The <code>tcpdump</code> command is a network monitoring tool that
      captures network packets flowing over the network and displays a
      description of the captured packets. The following options are
      available:</p>
 <ul>
 <li>
-<p><code>-i &lt;interface&gt;</code> -- Interface to listen on</p>
+<p><code>-i &lt;interface&gt;</code>: Interface to listen on</p>
 </li>
 <li>
-<p><code>host &lt;IP/hostname&gt;</code> -- Filters traffic going to or from the
+<p><code>host &lt;IP/hostname&gt;</code>: Filters traffic going to or from the
      specified host</p>
 </li>
 <li>
-<p><code>src/dst</code> -- Displays one-way traffic from the source (src) or to
+<p><code>src/dst</code>: Displays one-way traffic from the source (src) or to
      the destination (dst)</p>
 </li>
 <li>
-<p><code>port &lt;port number&gt;</code> -- Filters traffic to or from a particular
+<p><code>port &lt;port number&gt;</code>: Filters traffic to or from a particular
      port</p>
 </li>
 </ul>
 </li>
 </ul>
 <p><img alt="tcpdump of packets on an interface" src="../images/image10.png" /> </p>
-<p align="center"> Figure 7: *tcpdump* of packets on *docker0*
+<p align="center"> Figure 7: <code>tcpdump</code> of packets on <code>docker0</code>
 interface on a host </p>
                 
               

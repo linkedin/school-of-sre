@@ -2178,9 +2178,9 @@
 <li>SQL</li>
 </ul>
 <p>A query language to interact with and manage data.</p>
-<p><a href="https://stackify.com/what-are-crud-operations/">CRUD operations</a> - create, read, update, delete queries</p>
-<p>Management operations - create DBs/tables/indexes etc, backup, import/export, users, access controls</p>
-<p>Exercise: Classify the below queries into the four types - DDL (definition), DML(manipulation), DCL(control) and TCL(transactions) and explain in detail.</p>
+<p><a href="https://stackify.com/what-are-crud-operations/">CRUD operations</a>&mdash;create, read, update, delete queries</p>
+<p>Management operations&mdash;create DBs/tables/indexes, backup, import/export, users, access controls, etc</p>
+<p><em>Exercise</em>: Classify the below queries into the four types&mdash;DDL (definition), DML (manipulation), DCL (control) and TCL (transactions) and explain in detail.</p>
 <pre><code>insert, create, drop, delete, update, commit, rollback, truncate, alter, grant, revoke
 </code></pre>
 <p>You can practise these in the <a href="https://linkedin.github.io/school-of-sre/level101/databases_sql/lab/">lab section</a>.</p>
@@ -2188,19 +2188,19 @@
 <li>
 <p>Constraints</p>
 <p>Rules for data that can be stored. Query fails if you violate any of these defined on a table.</p>
-<p>Primary key: one or more columns that contain UNIQUE values, and cannot contain NULL values. A table can have only ONE primary key. An index on it is created by default.</p>
-<p>Foreign key: links two tables together. Its value(s) match a primary key in a different table \
-Not null: Does not allow null values \
-Unique: Value of column must be unique across all rows \
-Default: Provides a default value for a column if none is specified during insert</p>
-<p>Check: Allows only particular values (like Balance &gt;= 0)</p>
+<p><em>Primary key</em>: One or more columns that contain UNIQUE values, and cannot contain NULL values. A table can have only ONE primary key. An index on it is created by default.</p>
+<p><em>Foreign key</em>: Links two tables together. Its value(s) match a primary key in a different table</p>
+<p><em>Not null</em>: Does not allow null values</p>
+<p><em>Unique</em>: Value of column must be unique across all rows</p>
+<p><em>Default</em>: Provides a default value for a column if none is specified during insert</p>
+<p><em>Check</em>: Allows only particular values (like Balance &gt;= 0)</p>
 </li>
 <li>
 <p><a href="https://datageek.blog/en/2018/06/05/rdbms-basics-indexes-and-clustered-indexes/">Indexes</a></p>
 <p>Most indexes use B+ tree structure.</p>
-<p>Why use them: Speeds up queries (in large tables that fetch only a few rows, min/max queries, by eliminating rows from consideration etc)</p>
-<p>Types of indexes: unique, primary key, fulltext, secondary</p>
-<p>Write-heavy loads, mostly full table scans or accessing large number of rows etc. do not benefit from indexes</p>
+<p>Why use them: Speeds up queries (in large tables that fetch only a few rows, min/max queries, by eliminating rows from consideration, etc)</p>
+<p><em>Types of indexes</em>: unique, primary key, fulltext, secondary</p>
+<p>Write-heavy loads, mostly full table scans or accessing large number of rows, etc. do not benefit from indexes</p>
 </li>
 <li>
 <p><a href="https://www.sqlservertutorial.net/sql-server-basics/sql-server-joins/">Joins</a></p>
@@ -2208,14 +2208,14 @@ Default: Provides a default value for a column if none is specified during inser
 </li>
 <li>
 <p><a href="https://dev.mysql.com/doc/refman/8.0/en/access-control.html">Access control</a></p>
-<p>DBs have privileged accounts for admin tasks, and regular accounts for clients. There are finegrained controls on what actions(DDL, DML etc. discussed earlier )are allowed for these accounts.</p>
+<p>DBs have privileged accounts for admin tasks, and regular accounts for clients. There are fine-grained controls on what actions (DDL, DML, etc. discussed earlier) are allowed for these accounts.</p>
 <p>DB first verifies the user credentials (authentication), and then examines whether this user is permitted to perform the request (authorization) by looking up these information in some internal tables.</p>
-<p>Other controls include activity auditing that allows examining the history of actions done by a user, and resource limits which define the number of queries, connections etc. allowed.</p>
+<p>Other controls include activity auditing that allows examining the history of actions done by a user, and resource limits which define the number of queries, connections, etc. allowed.</p>
 </li>
 </ul>
 <h3 id="popular-databases">Popular databases</h3>
-<p>Commercial, closed source - Oracle, Microsoft SQL Server, IBM DB2</p>
-<p>Open source with optional paid support - MySQL, MariaDB, PostgreSQL</p>
+<p>Commercial, closed source: Oracle, Microsoft SQL Server, IBM DB2</p>
+<p>Open source with optional paid support: MySQL, MariaDB, PostgreSQL</p>
 <p>Individuals and small companies have always preferred open source DBs because of the huge cost associated with commercial software.</p>
 <p>In recent times, even large organizations have moved away from commercial software to open source alternatives because of the flexibility and cost savings associated with it.</p>
 <p>Lack of support is no longer a concern because of the paid support available from the developer and third parties.</p>

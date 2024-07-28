@@ -2088,15 +2088,15 @@
                 <ul>
 <li>
 <p>Explain and explain+analyze</p>
-<p>EXPLAIN &lt;query&gt; analyzes query plans from the optimizer, including how tables are joined, which tables/rows are scanned etc.</p>
-<p>Explain analyze shows the above and additional info like execution cost, number of rows returned, time taken etc.</p>
+<p><code>EXPLAIN &lt;query&gt;</code> analyzes query plans from the optimizer, including how tables are joined, which tables/rows are scanned, etc.</p>
+<p><code>EXPLAIN ANALYZE</code> shows the above and additional info like execution cost, number of rows returned, time taken, etc.</p>
 <p>This knowledge is useful to tweak queries and add indexes.</p>
 <p>Watch this performance tuning <a href="https://www.youtube.com/watch?v=pjRTLPeUOug">tutorial video</a>.</p>
 <p>Checkout the <a href="https://linkedin.github.io/school-of-sre/level101/databases_sql/lab/">lab section</a> for a hands-on about indexes.</p>
 </li>
 <li>
 <p><a href="https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html">Slow query logs</a></p>
-<p>Used to identify slow queries (configurable threshold), enabled in config or dynamically with a query</p>
+<p>Used to identify slow queries (configurable threshold), enabled in config or dynamically with a query.</p>
 <p>Checkout the <a href="https://linkedin.github.io/school-of-sre/level101/databases_sql/lab/">lab section</a> about identifying slow queries.</p>
 </li>
 <li>
@@ -2105,18 +2105,32 @@
 </li>
 <li>
 <p>Backup and restore strategies, pros and cons</p>
-<p>Logical backup using mysqldump - slower but can be done online</p>
-<p>Physical backup (copy data directory or use xtrabackup) -  quick backup/recovery. Copying data directory requires locking or shut down. xtrabackup is an improvement because it supports backups without shutting down (hot backup).</p>
+<ul>
+<li>
+<p>Logical backup using <code>mysqldump</code> - slower but can be done online</p>
+</li>
+<li>
+<p>Physical backup (copy data directory or use XtraBackup) -  quick backup/recovery. Copying data directory requires locking or shut down. XtraBackup is an improvement because it supports backups without shutting down (hot backup).</p>
+</li>
+<li>
 <p>Others - PITR, snapshots etc.</p>
+</li>
+</ul>
 </li>
 <li>
 <p>Crash recovery process using redo logs</p>
-<p>After a crash, when you restart server it reads redo logs and replays modifications to recover</p>
+<p>After a crash, when you restart server, it reads redo logs and replays modifications to recover</p>
 </li>
 <li>
 <p>Monitoring MySQL</p>
+<ul>
+<li>
 <p>Key MySQL metrics: reads, writes, query runtime, errors, slow queries, connections, running threads, InnoDB metrics</p>
+</li>
+<li>
 <p>Key OS metrics: CPU, load, memory, disk I/O, network</p>
+</li>
+</ul>
 </li>
 <li>
 <p>Replication</p>
@@ -2124,7 +2138,7 @@
 </li>
 <li>
 <p>High Availability</p>
-<p>Ability to cope with failure at software, hardware and network level. Essential for anyone who needs 99.9%+ uptime. Can be implemented with replication or clustering solutions from MySQL, Percona, Oracle etc. Requires expertise to setup and maintain. Failover can be manual, scripted or using tools like Orchestrator.</p>
+<p>Ability to cope with failure at software, hardware and network level. Essential for anyone who needs 99.9%+ uptime. Can be implemented with replication or clustering solutions from MySQL, Percona, Oracle, etc. Requires expertise to setup and maintain. Failover can be manual, scripted or using tools like Orchestrator.</p>
 </li>
 <li>
 <p><a href="https://dev.mysql.com/doc/refman/8.0/en/data-directory.html">Data directory</a></p>
@@ -2132,7 +2146,7 @@
 </li>
 <li>
 <p><a href="https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html">MySQL configuration</a></p>
-<p>This can be done by passing <a href="https://dev.mysql.com/doc/refman/5.7/en/server-options.html">parameters during startup</a>, or in a <a href="https://dev.mysql.com/doc/refman/8.0/en/option-files.html">file</a>. There are a few <a href="https://dev.mysql.com/doc/refman/8.0/en/option-files.html#option-file-order">standard paths</a> where MySQL looks for config files, <code>/etc/my.cnf</code> is one of the commonly used paths. These options are organized under headers (mysqld for server and mysql for client), you can explore them more in the lab that follows.</p>
+<p>This can be done by passing <a href="https://dev.mysql.com/doc/refman/5.7/en/server-options.html">parameters during startup</a>, or in a <a href="https://dev.mysql.com/doc/refman/8.0/en/option-files.html">file</a>. There are a few <a href="https://dev.mysql.com/doc/refman/8.0/en/option-files.html#option-file-order">standard paths</a> where MySQL looks for config files, <code>/etc/my.cnf</code> is one of the commonly used paths. These options are organized under headers (<code>mysqld</code> for server and <code>mysql</code> for client), you can explore them more in the lab that follows.</p>
 </li>
 <li>
 <p><a href="https://dev.mysql.com/doc/refman/5.7/en/server-logs.html">Logs</a></p>

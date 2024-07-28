@@ -2352,33 +2352,35 @@
 <li>They have quite a big role in System design &amp; hence are quite sometimes the first line of defence.</li>
 <li>SRE’s help in preventing bad design &amp; implementations which can affect the overall security of the infrastructure.  </li>
 <li>Successfully designing, implementing, and maintaining systems requires a commitment to <strong>the full system lifecycle</strong>. This commitment is possible only when security and reliability are central elements in the architecture of systems.</li>
-<li>Core Pillars of Information Security :</li>
-<li><strong>Confidentiality</strong> – only allow access to data for which the user is permitted</li>
-<li><strong>Integrity</strong> – ensure data is not tampered or altered by unauthorized users</li>
 <li>
-<p><strong>Availability</strong> – ensure systems and data are available to authorized users when they need it</p>
-</li>
-<li>
-<p>Thinking like a Security Engineer</p>
-</li>
-<li>
-<p>When starting a new application or re-factoring an existing application, you should consider each functional feature, and consider:</p>
+<p>Core Pillars of Information Security:</p>
 <ul>
+<li><strong>Confidentiality</strong>&mdash;only allow access to data for which the user is permitted</li>
+<li><strong>Integrity</strong>&mdash;ensure data is not tampered or altered by unauthorized users</li>
+<li><strong>Availability</strong>&mdash;ensure systems and data are available to authorized users when they need it</li>
+</ul>
+</li>
+<li>
+<p>Thinking like a Security Engineer:</p>
+<ul>
+<li>When starting a new application or re-factoring an existing application, you should consider each functional feature, and consider:<ul>
 <li>Is the process surrounding this feature as safe as possible? In other words, is this a flawed process?</li>
 <li>If I were evil, how would I abuse this feature? Or more specifically failing to address how a feature can be abused can cause design flaws.</li>
 <li>Is the feature required to be on by default? If so, are there limits or options that could help reduce the risk from this feature?</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>
 <p>Security Principles By OWASP (Open Web Application Security Project)</p>
 </li>
-<li>Minimize attack surface area :<ul>
+<li>Minimize attack surface area:<ul>
 <li>Every feature that is added to an application adds a certain amount of risk to the overall application. The aim of secure development is to reduce the overall risk by reducing the attack surface area.</li>
 <li>For example, a web application implements online help with a search function. The search function may be vulnerable to SQL injection attacks. If the help feature was limited to authorized users, the attack likelihood is reduced. If the help feature’s search function was gated through centralized data validation routines, the ability to perform SQL injection is dramatically reduced. However, if the help feature was re-written to eliminate the search function (through a better user interface, for example), this almost eliminates the attack surface area, even if the help feature was available to the Internet at large.</li>
 </ul>
 </li>
 <li>Establish secure defaults:<ul>
-<li>There are many ways to deliver an “out of the box” experience for users. However, by default, the experience should be secure, and it should be up to the user to reduce their security – if they are allowed.</li>
+<li>There are many ways to deliver an “out of the box” experience for users. However, by default, the experience should be secure, and it should be up to the user to reduce their security&mdash;if they are allowed.</li>
 <li>For example, by default, password ageing and complexity should be enabled. Users might be allowed to turn these two features off to simplify their use of the application and increase their risk.</li>
 <li>Default Passwords of routers, IoT devices should be changed</li>
 </ul>
@@ -2397,19 +2399,19 @@
 <li>
 <p>Fail securely</p>
 <ul>
-<li>Applications regularly fail to process transactions for many reasons. How they fail can determine if an application is secure or not.</li>
+<li>Applications regularly fail to process transactions for many reasons. How they fail can determine if an application is secure or not.
+  <pre><code>
+  is_admin = true;
+  try {
+    code_which_may_fail();
+    is_admin = is_user_assigned_role("Adminstrator");
+  }
+  catch (Exception err) {
+    log.error(err.toString());
+  }
+  </code><pre></li>
+<li>If either <code>codeWhichMayFail()</code> or <code>isUserInRole</code> fails or throws an exception, the user is an admin by default. This is obviously a security risk.</li>
 </ul>
-<p>```</p>
-<p>is_admin =  true;
-try {
-    code_which_may_faile();
-     is_admin = is_user_assigned_role("Adminstrator");
-}
-catch (Exception err) {
-log.error(err.toString());
-}</p>
-<p>```
-- If either codeWhichMayFail() or isUserInRole fails or throws an exception, the user is an admin by default. This is obviously a security risk.</p>
 </li>
 <li>
 <p>Don’t trust services</p>
@@ -2422,7 +2424,7 @@ log.error(err.toString());
 <li>Separation of duties<ul>
 <li>The key to fraud control is the separation of duties. For example, someone who requests a computer cannot also sign for it, nor should they directly receive the computer. This prevents the user from requesting many computers and claiming they never arrived.</li>
 <li>Certain roles have different levels of trust than normal users. In particular, administrators are different from normal users. In general, administrators should not be users of the application.</li>
-<li>For example, an administrator should be able to turn the system on or off, set password policy but shouldn’t be able to log on to the storefront as a super privileged user, such as being able to “buy” goods on behalf of other users.</li>
+<li>For example, an administrator should be able to turn the system on or off, set password policy but shouldn't be able to log on to the storefront as a super privileged user, such as being able to "buy" goods on behalf of other users.</li>
 </ul>
 </li>
 <li>Avoid security by obscurity<ul>
@@ -2444,7 +2446,7 @@ log.error(err.toString());
 </li>
 <li>Reliability &amp; Security<ul>
 <li>Reliability and security are both crucial components of a truly trustworthy system, but building systems that are both reliable and secure is difficult. While the requirements for reliability and security share many common properties, they also require different design considerations. It is easy to miss the subtle interplay between reliability and security that can cause unexpected outcomes</li>
-<li>Ex: A password management application failure was triggered by a reliability problem i.e poor load-balancing and load-shedding strategies and its recovery were later complicated by multiple measures (HSM mechanism which needs to be plugged into server racks, which works as an authentication &amp; the HSM token supposedly locked inside a case.. &amp; the problem can be further elongated ) designed to increase the security of the system.</li>
+<li>Ex: A password management application failure was triggered by a reliability problem i.e poor load-balancing and load-shedding strategies and its recovery were later complicated by multiple measures (HSM mechanism which needs to be plugged into server racks, which works as an authentication &amp; the HSM token supposedly locked inside a case.. &amp; the problem can be further elongated) designed to increase the security of the system.</li>
 </ul>
 </li>
 </ul>
@@ -2465,7 +2467,7 @@ log.error(err.toString());
 </ul>
 <h3 id="openidoauth">OpenID/OAuth</h3>
 <p><strong><em>OpenID</em></strong> is an authentication protocol that allows us to authenticate users without using a local auth system. In such a scenario, a user has to be registered with an OpenID Provider and the same provider should be integrated with the authentication flow of your application. To verify the details, we have to forward the authentication requests to the provider. On successful authentication, we receive a success message and/or profile details with which we can execute the necessary flow.</p>
-<p><strong><em>OAuth</em></strong> is an authorization mechanism that allows your application user access to a provider(Gmail/Facebook/Instagram/etc). On successful response, we (your application) receive a token with which the application can access certain APIs on behalf of a user. OAuth is convenient in case your business use case requires some certain user-facing APIs like access to Google Drive or sending tweets on your behalf. Most OAuth 2.0 providers can be used for pseudo authentication. Having said that, it can get pretty complicated if you are using multiple OAuth providers to authenticate users on top of the local authentication system.</p>
+<p><strong><em>OAuth</em></strong> is an authorization mechanism that allows your application user access to a provider (Gmail/Facebook/Instagram/etc). On successful response, we (your application) receive a token with which the application can access certain APIs on behalf of a user. OAuth is convenient in case your business use case requires some certain user-facing APIs like access to Google Drive or sending tweets on your behalf. Most OAuth 2.0 providers can be used for pseudo authentication. Having said that, it can get pretty complicated if you are using multiple OAuth providers to authenticate users on top of the local authentication system.</p>
 <hr />
 <h2 id="cryptography">Cryptography</h2>
 <ul>
@@ -2493,14 +2495,14 @@ D(k,E(k,m)) = m
 </code></pre>
 <p>Stream Ciphers:</p>
 <ul>
-<li>The message is broken into characters or bits and enciphered with a key or keystream(should be random and generated independently of the message stream) that is as long as the plaintext bitstream.</li>
+<li>The message is broken into characters or bits and enciphered with a key or keystream (should be random and generated independently of the message stream) that is as long as the plaintext bitstream.</li>
 <li>If the keystream is random, this scheme would be unbreakable unless the keystream was acquired, making it unconditionally secure. The keystream must be provided to both parties in a secure way to prevent its release.</li>
 </ul>
 <p>Block Ciphers:</p>
 <ul>
-<li>Block ciphers — process messages in blocks, each of which is then encrypted or decrypted.</li>
+<li>Block ciphers&mdash;process messages in blocks, each of which is then encrypted or decrypted.</li>
 <li>
-<p>A block cipher is a symmetric cipher in which blocks of plaintext are treated as a whole and used to produce ciphertext blocks. The block cipher takes blocks that are b bits long and encrypts them to blocks that are also b bits long. Block sizes are typically 64 or 128 bits long. </p>
+<p>A block cipher is a symmetric cipher in which blocks of plaintext are treated as a whole and used to produce ciphertext blocks. The block cipher takes blocks that are <em>b</em> bits long and encrypts them to blocks that are also <em>b</em> bits long. Block sizes are typically 64 or 128 bits long. </p>
 <p><img alt="image5" src="../images/image5.png" />
 <img alt="image6" src="../images/image6.png" /></p>
 </li>
@@ -2508,7 +2510,7 @@ D(k,E(k,m)) = m
 <p>Encryption</p>
 <ul>
 <li><strong>Secret Key (Symmetric Key)</strong>: the same key is used for encryption and decryption</li>
-<li><strong>Public Key (Asymmetric Key)</strong> in an asymmetric, the encryption and decryption keys are different but related. The encryption key is known as the public key and the decryption key is known as the private key. The public and private keys are known as a key pair.</li>
+<li><strong>Public Key (Asymmetric Key)</strong>: in an asymmetric, the encryption and decryption keys are different but related. The encryption key is known as the public key and the decryption key is known as the private key. The public and private keys are known as a key pair.</li>
 </ul>
 <p>Symmetric Key Encryption</p>
 <p>DES</p>
@@ -2556,7 +2558,7 @@ D(k,E(k,m)) = m
 <p><strong>NOTE</strong>: In terms of TLS key exchange, this is the common approach.</p>
 <p>Diffie-Hellman</p>
 <ul>
-<li>The protocol has two system parameters, p and g. They are both public and may be used by everybody. Parameter p is a prime number, and parameter g (usually called a generator) is an integer that is smaller than p, but with the following property: For every number n between 1 and p – 1 inclusive, there is a power k of g such that n = gk mod p.</li>
+<li>The protocol has two system parameters, <em>p</em> and <em>g</em>. They are both public and may be used by everybody. Parameter <em>p</em> is a prime number, and parameter <em>g</em> (usually called a generator) is an integer that is smaller than <em>p</em>, but with the following property: For every number, <em>n</em> between 1 and p – 1 inclusive, there is a power <em>k</em> of <em>g</em> such that <code>n = gk mod p</code>.</li>
 <li>Diffie Hellman algorithm is an asymmetric algorithm used to establish a shared secret for a symmetric key algorithm. Nowadays most of the people use hybrid cryptosystem i.e, a combination of symmetric and asymmetric encryption. Asymmetric Encryption is used as a technique in key exchange mechanism to share a secret key and after the key is shared between sender and receiver, the communication will take place using symmetric encryption. The shared secret key will be used to encrypt the communication.</li>
 <li>Refer: <a href="https://medium.com/@akhigbemmanuel/what-is-the-diffie-hellman-key-exchange-algorithm-84d60025a30d">https://medium.com/@akhigbemmanuel/what-is-the-diffie-hellman-key-exchange-algorithm-84d60025a30d</a></li>
 </ul>
@@ -2578,9 +2580,11 @@ D(k,E(k,m)) = m
 </li>
 <li>
 <p>More:</p>
-</li>
+<ul>
 <li><a href="https://medium.com/@rauljordan/the-state-of-hashing-algorithms-the-why-the-how-and-the-future-b21d5c0440de">https://medium.com/@rauljordan/the-state-of-hashing-algorithms-the-why-the-how-and-the-future-b21d5c0440de</a></li>
 <li><a href="https://medium.com/@StevieCEllis/the-beautiful-hash-algorithm-f18d9d2b84fb">https://medium.com/@StevieCEllis/the-beautiful-hash-algorithm-f18d9d2b84fb</a></li>
+</ul>
+</li>
 </ul>
 <p>MD5</p>
 <ul>
@@ -2651,8 +2655,10 @@ D(k,E(k,m)) = m
 <li>a client: A user/ a service</li>
 <li>
 <p>a server: Kerberos protected hosts reside</p>
-<p><img alt="image10" src="../images/image10.png" />
-  - a Key Distribution Center (KDC), which acts as the trusted third-party authentication service.</p>
+<p><img alt="image10" src="../images/image10.png" /></p>
+</li>
+<li>
+<p>a Key Distribution Center (KDC), which acts as the trusted third-party authentication service.</p>
 </li>
 </ul>
 <p>The KDC includes the following two servers:</p>
@@ -2664,23 +2670,24 @@ D(k,E(k,m)) = m
 </li>
 </ul>
 <h3 id="certificate-chain">Certificate Chain</h3>
-<p>The first part of the output of the OpenSSL command shows three certificates numbered 0, 1, and 2(not 2 anymore). Each certificate has a subject, s, and an issuer, i. The first certificate, number 0, is called the end-entity certificate. The subject line tells us it’s valid for any subdomain of google.com because its subject is set to *.google.com. </p>
-<p><code>$ openssl s_client -connect www.google.com:443 -CApath /etc/ssl/certs
+<p>The first part of the output of the OpenSSL command shows three certificates numbered 0, 1, and 2 (not 2 anymore). Each certificate has a subject, <em>s</em>, and an issuer, <em>i</em>. The first certificate, number 0, is called the end-entity certificate. The subject line tells us it’s valid for any subdomain of <code>google.com</code> because its subject is set to <code>*.google.com</code>. </p>
+<pre><code class="language-shell">$ openssl s_client -connect www.google.com:443 -CApath /etc/ssl/certs
 CONNECTED(00000005)
 depth=2 OU = GlobalSign Root CA - R2, O = GlobalSign, CN = GlobalSign
 verify return:1
 depth=1 C = US, O = Google Trust Services, CN = GTS CA 1O1
 verify return:1
 depth=0 C = US, ST = California, L = Mountain View, O = Google LLC, CN = www.google.com
-verify return:1</code>
-<code>---
+verify return:1`
+`---
 Certificate chain
  0 s:/C=US/ST=California/L=Mountain View/O=Google LLC/CN=www.google.com
    i:/C=US/O=Google Trust Services/CN=GTS CA 1O1
  1 s:/C=US/O=Google Trust Services/CN=GTS CA 1O1
    i:/OU=GlobalSign Root CA - R2/O=GlobalSign/CN=GlobalSign
----</code>
-<code>Server certificate</code></p>
+---
+</code></pre>
+<p><strong>Server certificate</strong></p>
 <ul>
 <li>The issuer line indicates it’s issued by Google Internet Authority G2, which also happens to be the subject of the second certificate, number 1</li>
 <li>What the OpenSSL command line doesn’t show here is the trust store that contains the list of CA certificates trusted by the system OpenSSL runs on.</li>
@@ -2696,14 +2703,14 @@ Certificate chain
 <ol>
 <li>The client sends a HELLO message to the server with a list of protocols and algorithms it supports.</li>
 <li>The server says HELLO back and sends its chain of certificates. Based on the capabilities of the client, the server picks a cipher suite.</li>
-<li>If the cipher suite supports ephemeral key exchange, like ECDHE does(ECDHE is an algorithm known as the Elliptic Curve Diffie-Hellman Exchange), the server and the client negotiate a pre-master key with the Diffie-Hellman algorithm. The pre-master key is never sent over the wire.</li>
+<li>If the cipher suite supports ephemeral key exchange, like ECDHE does (ECDHE is an algorithm known as the Elliptic Curve Diffie-Hellman Exchange), the server and the client negotiate a pre-master key with the Diffie-Hellman algorithm. The pre-master key is never sent over the wire.</li>
 <li>The client and server create a session key that will be used to encrypt the data transiting through the connection.</li>
 </ol>
-<p>At the end of the handshake, both parties possess a secret session key used to encrypt data for the rest of the connection. This is what OpenSSL refers to as Master-Key</p>
+<p>At the end of the handshake, both parties possess a secret session key used to encrypt data for the rest of the connection. This is what OpenSSL refers to as Master-Key.</p>
 <p><strong>NOTE</strong></p>
 <ul>
-<li>There are 3 versions of TLS , TLS 1.0, 1.1 &amp; 1.2</li>
-<li>TLS 1.0 was released in 1999, making it a nearly two-decade-old protocol. It has been known to be vulnerable to attacks—such as BEAST and POODLE—for years, in addition to supporting weak cryptography, which doesn’t keep modern-day connections sufficiently secure.</li>
+<li>There are 3 versions of TLS, TLS 1.0, 1.1 &amp; 1.2</li>
+<li>TLS 1.0 was released in 1999, making it a nearly two-decade-old protocol. It has been known to be vulnerable to attacks&mdash;such as BEAST and POODLE&mdash;for years, in addition to supporting weak cryptography, which doesn’t keep modern-day connections sufficiently secure.</li>
 <li>TLS 1.1 is the forgotten “middle child.” It also has bad cryptography like its younger sibling. In most software, it was leapfrogged by TLS 1.2 and it’s rare to see TLS 1.1 used.</li>
 </ul>
 <h3 id="perfect-forward-secrecy">“Perfect” Forward Secrecy</h3>
@@ -2712,8 +2719,10 @@ Certificate chain
 <li>In a non-ephemeral key exchange, the client sends the pre-master key to the server by encrypting it with the server’s public key. The server then decrypts the pre-master key with its private key. If at a later point in time, the private key of the server is compromised, an attacker can go back to this handshake, decrypt the pre-master key, obtain the session key, and decrypt the entire traffic. Non-ephemeral key exchanges are vulnerable to attacks that may happen in the future on recorded traffic. And because people seldom change their password, decrypting data from the past may still be valuable for an attacker.</li>
 <li>An ephemeral key exchange like DHE, or its variant on elliptic curve, ECDHE, solves this problem by not transmitting the pre-master key over the wire. Instead, the pre-master key is computed by both the client and the server in isolation, using nonsensitive information exchanged publicly. Because the pre-master key can’t be decrypted later by an attacker, the session key is safe from future attacks: hence, the term perfect forward secrecy.</li>
 <li>Keys are changed every X blocks along the stream. That prevents an attacker from simply sniffing the stream and applying brute force to crack the whole thing. "Forward secrecy" means that just because I can decrypt block M, does not mean that I can decrypt block Q</li>
-<li>Downside:</li>
+<li>Downside:<ul>
 <li>The downside to PFS is that all those extra computational steps induce latency on the handshake and slow the user down. To avoid repeating this expensive work at every connection, both sides cache the session key for future use via a technique called session resumption. This is what the session-ID and TLS ticket are for: they allow a client and server that share a session ID to skip over the negotiation of a session key, because they already agreed on one previously, and go directly to exchanging data securely.</li>
+</ul>
+</li>
 </ul>
                 
               

@@ -1285,10 +1285,10 @@
       
         <li class="md-nav__item">
   <a href="#network-perimeter-security" class="md-nav__link">
-    Network  Perimeter Security
+    Network Perimeter Security
   </a>
   
-    <nav class="md-nav" aria-label="Network  Perimeter Security">
+    <nav class="md-nav" aria-label="Network Perimeter Security">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1313,8 +1313,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#application-gatewaysalg" class="md-nav__link">
-    Application Gateways(ALG)
+  <a href="#application-gateways-alg" class="md-nav__link">
+    Application Gateways (ALG)
   </a>
   
 </li>
@@ -1362,14 +1362,14 @@
         
           <li class="md-nav__item">
   <a href="#wireshark" class="md-nav__link">
-    WireShark
+    Wireshark
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#dumpcap" class="md-nav__link">
-    DumpCap
+    Dumpcap
   </a>
   
 </li>
@@ -1383,14 +1383,14 @@
         
           <li class="md-nav__item">
   <a href="#netsniff-ng" class="md-nav__link">
-    NetSniff-NG
+    netsniff-ng
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#netflow" class="md-nav__link">
-    Netflow
+    NetFlow
   </a>
   
 </li>
@@ -2370,10 +2370,10 @@
       
         <li class="md-nav__item">
   <a href="#network-perimeter-security" class="md-nav__link">
-    Network  Perimeter Security
+    Network Perimeter Security
   </a>
   
-    <nav class="md-nav" aria-label="Network  Perimeter Security">
+    <nav class="md-nav" aria-label="Network Perimeter Security">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2398,8 +2398,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#application-gatewaysalg" class="md-nav__link">
-    Application Gateways(ALG)
+  <a href="#application-gateways-alg" class="md-nav__link">
+    Application Gateways (ALG)
   </a>
   
 </li>
@@ -2447,14 +2447,14 @@
         
           <li class="md-nav__item">
   <a href="#wireshark" class="md-nav__link">
-    WireShark
+    Wireshark
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#dumpcap" class="md-nav__link">
-    DumpCap
+    Dumpcap
   </a>
   
 </li>
@@ -2468,14 +2468,14 @@
         
           <li class="md-nav__item">
   <a href="#netsniff-ng" class="md-nav__link">
-    NetSniff-NG
+    netsniff-ng
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#netflow" class="md-nav__link">
-    Netflow
+    NetFlow
   </a>
   
 </li>
@@ -2567,7 +2567,7 @@
 <li>
 <p>The OSI model is a seven-layer architecture. The OSI architecture is similar to the TCP/IP architecture, except that the OSI model specifies two additional layers between the application layer and the transport layer in the TCP/IP architecture. These two layers are the presentation layer and the session layer. Figure 5.1 shows the relationship between the TCP/IP layers and the OSI layers. The application layer in TCP/IP corresponds to the application layer and the presentation layer in OSI. The transport layer in TCP/IP corresponds to the session layer and the transport layer in OSI. The remaining three layers in the TCP/IP architecture are one-to-one correspondent to the remaining three layers in the OSI model.</p>
 <p><img alt="image14" src="../images/image14.png" />
-Correspondence between layers of the TCP/IP architecture and the OSI model. Also shown are placements of cryptographic algorithms in network layers, where the dotted arrows indicate actual communications of cryptographic algorithms</p>
+Correspondence between layers of the TCP/IP architecture and the OSI model. Also shown are placements of cryptographic algorithms in network layers, where the <em>dotted arrows</em> indicate actual communications of cryptographic algorithms</p>
 </li>
 </ul>
 <p>The functionalities of OSI layers are briefly described as follows:</p>
@@ -2577,7 +2577,7 @@ Correspondence between layers of the TCP/IP architecture and the OSI model. Also
 <li>The session layer is responsible for creating, managing, and closing a communication connection.</li>
 <li>The transport layer is responsible for providing reliable connections, such as packet sequencing, traffic control, and congestion control.</li>
 <li>The network layer is responsible for routing device-independent data packets from the current hop to the next hop.</li>
-<li>The data-link layer is responsible for encapsulating device-independent data packets into device-dependent data frames. It has two sublayers: logical link control and media access control.</li>
+<li>The data-link layer is responsible for encapsulating device-independent data packets into device-dependent data frames. It has two sublayers: logical link control (LLC) and media access control (MAC).</li>
 <li>
 <p>The physical layer is responsible for transmitting device-dependent frames through some physical media.</p>
 </li>
@@ -2615,13 +2615,13 @@ Correspondence between layers of the TCP/IP architecture and the OSI model. Also
 <h3 id="pgp-smime-email-security">PGP &amp; S/MIME : Email Security</h3>
 <ul>
 <li>There are several security protocols at the application layer. The most used of these protocols are email security protocols namely PGP and S/MIME.</li>
-<li>SMTP (“Simple Mail Transfer Protocol”) is used for sending and delivering from a client to a server via port 25: it’s the outgoing server. On the contrary, POP (“Post Office Protocol”) allows the users to pick up the message and download it into their inbox: it’s the incoming server. The latest version of the Post Office Protocol is named POP3, and it’s been used since 1996; it uses port 110</li>
+<li>SMTP (“Simple Mail Transfer Protocol”) is used for sending and delivering from a client to a server via port 25: it’s the outgoing server. On the contrary, POP (“Post Office Protocol”) allows the users to pick up the message and download it into their inbox: it’s the incoming server. The latest version of the Post Office Protocol is named POP3, and it’s been used since 1996; it uses port 110.</li>
 </ul>
 <p>PGP</p>
 <ul>
 <li>PGP implements all major cryptographic algorithms, the ZIP compression algorithm, and the Base64 encoding algorithm.</li>
 <li>It can be used to authenticate a message, encrypt a message, or both. PGP follows the following general process: authentication, ZIP compression, encryption, and Base64 encoding.</li>
-<li>The Base64 encoding procedure makes the message ready for SMTP transmission</li>
+<li>The Base64 encoding procedure makes the message ready for SMTP transmission.</li>
 </ul>
 <p>GPG (GnuPG)</p>
 <ul>
@@ -2632,27 +2632,29 @@ Correspondence between layers of the TCP/IP architecture and the OSI model. Also
 </ul>
 <p>S/MIME</p>
 <ul>
-<li>SMTP can only handle 7-bit ASCII text (You can use UTF-8 extensions to alleviate these limitations, ) messages. While POP can handle other content types besides 7-bit ASCII, POP may, under a common default setting, download all the messages stored in the mail server to the user's local computer. After that, if POP removes these messages from the mail server. This makes it difficult for the users to read their messages from multiple computers.</li>
+<li>SMTP can only handle 7-bit ASCII text messages (You can use UTF-8 extensions to alleviate these limitations.) While POP can handle other content types besides 7-bit ASCII, POP may, under a common default setting, download all the messages stored in the mail server to the user's local computer. After that, if POP removes these messages from the mail server. This makes it difficult for the users to read their messages from multiple computers.</li>
 <li>The Multipurpose Internet Mail Extension protocol (MIME) was designed to support sending and receiving email messages in various formats, including nontext files generated by word processors, graphics files, sound files, and video clips. Moreover, MIME allows a single message to include mixed types of data in any combination of these formats.</li>
-<li>The Internet Mail Access Protocol (IMAP), operated on TCP port 143(only for non-encrypted), stores (Configurable on both server &amp; client just like PoP) incoming email messages in the mail server until the user deletes them deliberately. This allows the users to access their mailbox from multiple machines and download messages to a local machine without deleting it from the mailbox in the mail server.</li>
+<li>The Internet Mail Access Protocol (IMAP), operated on TCP port 143 (only for non-encrypted), stores (Configurable on both server &amp; client just like PoP) incoming email messages in the mail server until the user deletes them deliberately. This allows the users to access their mailbox from multiple machines and download messages to a local machine without deleting it from the mailbox in the mail server.</li>
 </ul>
 <p>SSL/TLS</p>
 <ul>
 <li>SSL uses a PKI to decide if a server’s public key is trustworthy by requiring servers to use a security certificate signed by a trusted CA.</li>
 <li>When Netscape Navigator 1.0 was released, it trusted a single CA operated by the RSA Data Security corporation.</li>
 <li>The server’s public RSA keys were used to be stored in the security certificate, which can then be used by the browser to establish a secure communication channel. The security certificates we use today still rely on the same standard (named X.509) that Netscape Navigator 1.0 used back then.</li>
-<li>Netscape intended to train users(though this didn’t work out later) to differentiate secure communications from insecure ones, so they put a lock icon next to the address bar. When the lock is open, the communication is insecure. A closed lock means communication has been secured with SSL, which required the server to provide a signed certificate. You’re obviously familiar with this icon as it’s been in every browser ever since. The engineers at Netscape truly created a standard for secure internet communications.</li>
+<li>Netscape intended to train users (though this didn’t work out later) to differentiate secure communications from insecure ones, so they put a lock icon next to the address bar. When the lock is open, the communication is insecure. A closed lock means communication has been secured with SSL, which required the server to provide a signed certificate. You’re obviously familiar with this icon as it’s been in every browser ever since. The engineers at Netscape truly created a standard for secure Internet communications.</li>
 <li>
 <p>A year after releasing SSL 2.0, Netscape fixed several security issues and released SSL 3.0, a protocol that, albeit being officially deprecated since June 2015, remains in use in certain parts of the world more than 20 years after its introduction. To standardize SSL, the Internet Engineering Task Force (IETF) created a slightly modified SSL 3.0 and, in 1999, unveiled it as Transport Layer Security (TLS) 1.0. The name change between SSL and TLS continues to confuse people today. Officially, TLS is the new SSL, but in practice, people use SSL and TLS interchangeably to talk about any version of the protocol.</p>
 </li>
 <li>
 <p>Must See:</p>
-</li>
+<ul>
 <li><a href="https://tls.ulfheim.net/">https://tls.ulfheim.net/</a></li>
 <li><a href="https://davidwong.fr/tls13/">https://davidwong.fr/tls13/</a></li>
 </ul>
-<h2 id="network-perimeter-security">Network  Perimeter Security</h2>
-<p>Let us see how we keep a check on the perimeter i.e the edges, the first layer of protection</p>
+</li>
+</ul>
+<h2 id="network-perimeter-security">Network Perimeter Security</h2>
+<p>Let us see how we keep a check on the perimeter, i.e the edges, the first layer of protection.</p>
 <h3 id="general-firewall-framework">General Firewall Framework</h3>
 <ul>
 <li>Firewalls are needed because encryption algorithms cannot effectively stop malicious packets from getting into an edge network.</li>
@@ -2664,9 +2666,11 @@ Correspondence between layers of the TCP/IP architecture and the OSI model. Also
 <h3 id="packet-filters">Packet Filters</h3>
 <ul>
 <li>It inspects ingress packets coming to an internal network from outside and inspects egress packets going outside from an internal network</li>
-<li>Packing filtering only inspects IP headers and TCP headers, not the payloads generated at the application layer</li>
+<li>Packet-filtering only inspects IP headers and TCP headers, not the payloads generated at the application layer.</li>
 <li>A packet-filtering firewall uses a set of rules to determine whether a packet should be allowed or denied to pass through.</li>
-<li>2 types:</li>
+<li>
+<p>2 types:</p>
+<ul>
 <li>
 <p>Stateless</p>
 <ul>
@@ -2680,19 +2684,23 @@ Correspondence between layers of the TCP/IP architecture and the OSI model. Also
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <h3 id="circuit-gateways">Circuit Gateways</h3>
 <ul>
-<li>Circuit gateways, also referred to as circuit-level gateways, are typically operated at the transportation layer</li>
+<li>Circuit gateways, also referred to as circuit-level gateways, are typically operated at the transportation layer.</li>
 <li>They evaluate the information of the IP addresses and the port numbers contained in TCP (or UDP) headers and use it to determine whether to allow or to disallow an internal host and an external host to establish a connection.</li>
 <li>It is common practice to combine packet filters and circuit gateways to form a dynamic packet filter (DPF).</li>
 </ul>
-<h3 id="application-gatewaysalg">Application Gateways(ALG)</h3>
+<h3 id="application-gateways-alg">Application Gateways (ALG)</h3>
 <ul>
 <li>Aka PROXY Servers</li>
 <li>An Application Level Gateway (ALG) acts as a proxy for internal hosts, processing service requests from external clients.</li>
 <li>An ALG performs deep inspections on each IP packet (ingress or egress).</li>
-<li>In particular, an ALG inspects application program formats contained in the packet (e.g., MIME format or SQL format) and examines whether its payload is permitted.</li>
+<li>In particular, an ALG inspects application program formats contained in the packet (e.g., MIME format or SQL format) and examines whether its payload is permitted.<ul>
 <li>Thus, an ALG may be able to detect a computer virus contained in the payload. Because an ALG inspects packet payloads, it may be able to detect malicious code and quarantine suspicious packets, in addition to blocking packets with suspicious IP addresses and TCP ports. On the other hand, an ALG also incurs substantial computation and space overheads.</li>
+</ul>
+</li>
 </ul>
 <h3 id="trusted-systems-bastion-hosts">Trusted Systems &amp; Bastion Hosts</h3>
 <ul>
@@ -2705,85 +2713,103 @@ Correspondence between layers of the TCP/IP architecture and the OSI model. Also
 </li>
 <li>
 <p>Bastion Hosts</p>
-</li>
+<ul>
 <li>Bastion hosts are computers with strong defence mechanisms. They often serve as host computers for implementing application gateways, circuit gateways, and other types of firewalls. A bastion host is operated on a trusted operating system that must not contain unnecessary functionalities or programs. This measure helps to reduce error probabilities and makes it easier to conduct security checks. Only those network application programs that are necessary, for example, SSH, DNS, SMTP, and authentication programs, are installed on a bastion host.</li>
 <li>Bastion hosts are also primarily used as controlled ingress points so that the security monitoring can focus more narrowly on actions happening at a single point closely.</li>
+</ul>
+</li>
 </ul>
 <hr />
 <h2 id="common-techniques-scannings-packet-capturing">Common Techniques &amp; Scannings, Packet Capturing</h2>
 <h3 id="scanning-ports-with-nmap">Scanning Ports with Nmap</h3>
 <ul>
 <li>Nmap ("Network Mapper") is a free and open-source (license) utility for network discovery and security auditing.  Many systems and network administrators also find it useful for tasks such as network inventory, managing service upgrade schedules, and monitoring host or service uptime.</li>
-<li>The best thing about Nmap is it’s free and open-source and is very flexible and versatile</li>
+<li>The best thing about Nmap is it’s free and open-source and is very flexible and versatile.</li>
 <li>Nmap is often used to determine alive hosts in a network, open ports on those hosts, services running on those open ports, and version identification of that service on that port.</li>
-<li>More at http://scanme.nmap.org/</li>
+<li>More at <a href="http://scanme.nmap.org/">http://scanme.nmap.org/</a>.</li>
 </ul>
 <pre><code>nmap [scan type] [options] [target specification]
 </code></pre>
 <p>Nmap uses 6 different port states:</p>
 <ul>
-<li><strong>Open</strong> — An open port is one that is actively accepting TCP, UDP or SCTP connections. Open ports are what interests us the most because they are the ones that are vulnerable to attacks. Open ports also show the available services on a network.</li>
-<li><strong>Closed</strong> — A port that receives and responds to Nmap probe packets but there is no application listening on that port. Useful for identifying that the host exists and for OS detection.</li>
-<li><strong>Filtered</strong> — Nmap can’t determine whether the port is open because packet filtering prevents its probes from reaching the port. Filtering could come from firewalls or router rules. Often little information is given from filtered ports during scans as the filters can drop the probes without responding or respond with useless error messages e.g. destination unreachable.</li>
-<li><strong>Unfiltered</strong> — Port is accessible but Nmap doesn’t know if it is open or closed. Only used in ACK scan which is used to map firewall rulesets. Other scan types can be used to identify whether the port is open.</li>
-<li><strong>Open/filtered</strong> — Nmap is unable to determine between open and filtered. This happens when an open port gives no response. No response could mean that the probe was dropped by a packet filter or any response is blocked.</li>
-<li><strong>Closed/filtered</strong> — Nmap is unable to determine whether a port is closed or filtered. Only used in the IP ID idle scan.</li>
+<li><strong>Open</strong>&mdash;An open port is one that is actively accepting TCP, UDP or SCTP connections. Open ports are what interests us the most because they are the ones that are vulnerable to attacks. Open ports also show the available services on a network.</li>
+<li><strong>Closed</strong>&mdash;A port that receives and responds to Nmap probe packets but there is no application listening on that port. Useful for identifying that the host exists and for OS detection.</li>
+<li><strong>Filtered</strong>&mdash;Nmap can’t determine whether the port is open because packet filtering prevents its probes from reaching the port. Filtering could come from firewalls or router rules. Often little information is given from filtered ports during scans as the filters can drop the probes without responding or respond with useless error messages, e.g. destination unreachable.</li>
+<li><strong>Unfiltered</strong>&mdash;Port is accessible but Nmap doesn’t know if it is open or closed. Only used in ACK scan which is used to map firewall rulesets. Other scan types can be used to identify whether the port is open.</li>
+<li><strong>Open/filtered</strong>&mdash;Nmap is unable to determine between open and filtered. This happens when an open port gives no response. No response could mean that the probe was dropped by a packet filter or any response is blocked.</li>
+<li><strong>Closed/filtered</strong>&mdash;Nmap is unable to determine whether a port is closed or filtered. Only used in the IP ID idle scan.</li>
 </ul>
 <h3 id="types-of-nmap-scan">Types of Nmap Scan:</h3>
 <ol>
-<li>TCP Connect</li>
-<li>TCP Connect scan completes the 3-way handshake.</li>
+<li>TCP Connect<ul>
+<li>TCP Connect scan completes the three-way handshake.</li>
 <li>If a port is open, the operating system completes the TCP three-way handshake and the port scanner immediately closes the connection to avoid DOS. This is “noisy” because the services can log the sender IP address and might trigger Intrusion Detection Systems.</li>
-<li>UDP Scan</li>
-<li>This scan checks to see if any UDP ports are listening.</li>
+</ul>
+</li>
 <li>
-<p>Since UDP does not respond with a positive acknowledgement like TCP and only responds to an incoming UDP packet when the port is closed,</p>
+<p>UDP Scan</p>
+<ul>
+<li>This scan checks to see if any UDP ports are listening.</li>
+<li>Since UDP does not respond with a positive acknowledgement like TCP and only responds to an incoming UDP packet when the port is closed.</li>
+</ul>
 </li>
 <li>
 <p>SYN Scan</p>
-</li>
+<ul>
 <li>SYN scan is another form of TCP scanning.</li>
 <li>This scan type is also known as “half-open scanning” because it never actually opens a full TCP connection.</li>
 <li>The port scanner generates a SYN packet. If the target port is open, it will respond with an SYN-ACK packet. The scanner host responds with an RST packet, closing the connection before the handshake is completed.</li>
 <li>If the port is closed but unfiltered, the target will instantly respond with an RST packet.</li>
-<li>
-<p>SYN scan has the advantage that the individual services never actually receive a connection.</p>
+<li>SYN scan has the advantage that the individual services never actually receive a connection.</li>
+</ul>
 </li>
 <li>
 <p>FIN Scan</p>
-</li>
-<li>
-<p>This is a stealthy scan, like the SYN scan, but sends a TCP FIN packet instead.</p>
+<ul>
+<li>This is a stealthy scan, like the SYN scan, but sends a TCP FIN packet instead.</li>
+</ul>
 </li>
 <li>
 <p>ACK Scan</p>
+<ul>
+<li>ACK scanning determines whether the port is filtered or not.</li>
+</ul>
 </li>
-<li>Ack scanning determines whether the port is filtered or not.</li>
-<li>Null Scan</li>
-<li>Another very stealthy scan that sets all the TCP header flags to off or null.</li>
+<li>NULL Scan<ul>
+<li>Another very stealthy scan that sets all the TCP header flags to off or NULL.</li>
 <li>This is not normally a valid packet and some hosts will not know what to do with this.</li>
-<li>XMAS Scan</li>
-<li>Similar to the NULL scan except for all the flags in the TCP header is set to on</li>
-<li>RPC Scan</li>
-<li>This special type of scan looks for machine answering to RPC (Remote Procedure Call) services</li>
-<li>IDLE Scan</li>
+</ul>
+</li>
+<li>XMAS Scan<ul>
+<li>Similar to the NULL scan except for all the flags in the TCP header is set to on.</li>
+</ul>
+</li>
+<li>RPC Scan<ul>
+<li>This special type of scan looks for machine answering to RPC (Remote Procedure Call) services.</li>
+</ul>
+</li>
+<li>IDLE Scan<ul>
 <li>It is a super stealthy method whereby the scan packets are bounced off an external host.</li>
 <li>You don’t need to have control over the other host but it does have to set up and meet certain requirements. You must input the IP address of our “zombie” host and what port number to use. It is one of the more controversial options in Nmap since it only has a use for malicious attacks.</li>
+</ul>
+</li>
 </ol>
 <p>Scan Techniques</p>
-<p>A couple of scan techniques which can be used to gain more information about a system and its ports. You can read more at <a href="https://medium.com/infosec-adventures/nmap-cheatsheet-a423fcdda0ca">https://medium.com/infosec-adventures/nmap-cheatsheet-a423fcdda0ca</a></p>
+<p>A couple of scan techniques which can be used to gain more information about a system and its ports. You can read more at <a href="https://medium.com/infosec-adventures/nmap-cheatsheet-a423fcdda0ca">https://medium.com/infosec-adventures/nmap-cheatsheet-a423fcdda0ca</a>.</p>
 <h3 id="openvas">OpenVAS</h3>
 <ul>
 <li>OpenVAS is a full-featured vulnerability scanner. </li>
 <li>OpenVAS is a framework of services and tools that provides a comprehensive and powerful vulnerability scanning and management package</li>
 <li>OpenVAS, which is an open-source program, began as a fork of the once-more-popular scanning program, Nessus.</li>
-<li>OpenVAS is made up of three main parts. These are:</li>
+<li>OpenVAS is made up of three main parts. These are:<ul>
 <li>a regularly updated feed of Network Vulnerability Tests (NVTs);</li>
 <li>a scanner, which runs the NVTs; and</li>
 <li>an SQLite 3 database for storing both your test configurations and the NVTs’ results and configurations.</li>
 <li><a href="https://www.greenbone.net/en/install_use_gce/">https://www.greenbone.net/en/install_use_gce/</a></li>
 </ul>
-<h3 id="wireshark">WireShark</h3>
+</li>
+</ul>
+<h3 id="wireshark">Wireshark</h3>
 <ul>
 <li>Wireshark is a protocol analyzer.</li>
 <li>This means Wireshark is designed to decode not only packet bits and bytes but also the relations between packets and protocols.</li>
@@ -2791,161 +2817,190 @@ Correspondence between layers of the TCP/IP architecture and the OSI model. Also
 </ul>
 <p>A simple demo of Wireshark</p>
 <ol>
-<li>Capture only udp packets:</li>
 <li>
-<p>Capture filter = “udp”</p>
+<p>Capture only UDP packets:</p>
+<ul>
+<li><code>Capture filter = “udp”</code></li>
+</ul>
 </li>
 <li>
-<p>Capture only tcp packets</p>
+<p>Capture only TCP packets:</p>
+<ul>
+<li><code>Capture filter = “tcp”</code></li>
+</ul>
 </li>
 <li>
-<p>Capture filter = “tcp”</p>
-</li>
-<li>
-<p>TCP/IP 3 way Handshake
+<p>TCP/IP three-way Handshake:<br/><br/>
    <img alt="image17" src="../images/image17.png" /></p>
 </li>
 <li>
 <p>Filter by IP address: displays all traffic from IP, be it source or destination</p>
+<ul>
+<li><code>ip.addr == 192.168.1.1</code></li>
+</ul>
 </li>
-<li>ip.addr == 192.168.1.1</li>
-<li>Filter by source address: display traffic only from IP source</li>
 <li>
-<p>ip.src == 192.168.0.1</p>
+<p>Filter by source address: display traffic only from IP source</p>
+<ul>
+<li><code>ip.src == 192.168.0.1</code></li>
+</ul>
 </li>
 <li>
 <p>Filter by destination: display traffic only form IP destination</p>
-</li>
-<li>
-<p>ip.dst == 192.168.0.1</p>
+<ul>
+<li><code>ip.dst == 192.168.0.1</code></li>
+</ul>
 </li>
 <li>
 <p>Filter by IP subnet: display traffic from subnet, be it source or destination</p>
-</li>
-<li>
-<p>ip.addr = 192.168.0.1/24 </p>
+<ul>
+<li><code>ip.addr = 192.168.0.1/24</code> </li>
+</ul>
 </li>
 <li>
 <p>Filter by protocol: filter traffic by protocol name</p>
-</li>
+<ul>
 <li>dns</li>
 <li>http</li>
 <li>ftp</li>
 <li>arp</li>
 <li>ssh</li>
 <li>telnet</li>
-<li>
-<p>icmp</p>
+<li>icmp</li>
+</ul>
 </li>
 <li>
 <p>Exclude IP address: remove traffic from and to IP address</p>
-</li>
-<li>
-<p>!ip.addr ==192.168.0.1</p>
+<ul>
+<li><code>!ip.addr ==192.168.0.1</code></li>
+</ul>
 </li>
 <li>
 <p>Display traffic between two specific subnet</p>
 <ul>
-<li>ip.addr == 192.168.0.1/24 and ip.addr == 192.168.1.1/24</li>
+<li><code>ip.addr == 192.168.0.1/24 and ip.addr == 192.168.1.1/24</code></li>
 </ul>
 </li>
 <li>
 <p>Display traffic between two specific workstations</p>
 <ul>
-<li>ip.addr == 192.168.0.1 and ip.addr == 192.168.0.2</li>
+<li><code>ip.addr == 192.168.0.1 and ip.addr == 192.168.0.2</code></li>
 </ul>
 </li>
 <li>
 <p>Filter by MAC</p>
 <ul>
-<li>eth.addr = 00:50:7f:c5:b6:78</li>
+<li><code>eth.addr = 00:50:7f:c5:b6:78</code></li>
 </ul>
 </li>
 <li>
 <p>Filter TCP port</p>
 <ul>
-<li>tcp.port == 80</li>
+<li><code>tcp.port == 80</code></li>
 </ul>
 </li>
-<li>Filter TCP port source<ul>
-<li>tcp.srcport == 80</li>
+<li>
+<p>Filter TCP port source</p>
+<ul>
+<li><code>tcp.srcport == 80</code></li>
 </ul>
 </li>
-<li>Filter TCP port destination<ul>
-<li>tcp.dstport == 80</li>
+<li>
+<p>Filter TCP port destination</p>
+<ul>
+<li><code>tcp.dstport == 80</code></li>
 </ul>
 </li>
-<li>Find user agents<ul>
-<li>http.user_agent contains Firefox</li>
-<li>!http.user_agent contains || !http.user_agent contains Chrome</li>
+<li>
+<p>Find user agents</p>
+<ul>
+<li><code>http.user_agent contains Firefox</code></li>
+<li><code>!http.user_agent contains || !http.user_agent contains Chrome</code></li>
 </ul>
 </li>
-<li>Filter broadcast traffic<ul>
-<li>!(arp or icmp or dns)</li>
+<li>
+<p>Filter broadcast traffic</p>
+<ul>
+<li><code>!(arp or icmp or dns)</code></li>
 </ul>
 </li>
 <li>
 <p>Filter IP address and port</p>
 <ul>
-<li>tcp.port == 80 &amp;&amp; ip.addr == 192.168.0.1</li>
+<li><code>tcp.port == 80 &amp;&amp; ip.addr == 192.168.0.1</code></li>
 </ul>
 </li>
 <li>
-<p>Filter all http get requests</p>
+<p>Filter all HTTP GET requests</p>
 <ul>
-<li>http.request</li>
+<li><code>http.request</code></li>
 </ul>
 </li>
-<li>Filter all http get requests and responses<ul>
-<li>http.request or http.response</li>
+<li>
+<p>Filter all HTTP GET requests and responses</p>
+<ul>
+<li><code>http.request or http.response</code></li>
 </ul>
 </li>
-<li>Filter three way handshake<ul>
-<li>tcp.flags.syn==1 or (tcp.seq==1 and tcp.ack==1 and tcp.len==0 and tcp.analysis.initial_rtt)</li>
+<li>
+<p>Filter three-way handshake</p>
+<ul>
+<li><code>tcp.flags.syn==1 or (tcp.seq==1 and tcp.ack==1 and tcp.len==0 and tcp.analysis.initial_rtt)</code></li>
 </ul>
 </li>
-<li>Find files by type<ul>
-<li>frame contains “(attachment|tar|exe|zip|pdf)”</li>
+<li>
+<p>Find files by type</p>
+<ul>
+<li><code>frame contains “(attachment|tar|exe|zip|pdf)”</code></li>
 </ul>
 </li>
-<li>Find traffic based on keyword<ul>
-<li>tcp contains facebook</li>
-<li>frame contains facebook</li>
+<li>
+<p>Find traffic based on keyword</p>
+<ul>
+<li><code>tcp contains facebook</code></li>
+<li><code>frame contains facebook</code></li>
 </ul>
 </li>
-<li>Detecting SYN Floods<ul>
-<li>tcp.flags.syn == 1 and tcp.flags.ack == 0</li>
+<li>
+<p>Detecting SYN Floods</p>
+<ul>
+<li><code>tcp.flags.syn == 1 and tcp.flags.ack == 0</code></li>
 </ul>
 </li>
 </ol>
-<p><strong>Wireshark Promiscuous Mode</strong>
-    - By default, Wireshark only captures packets going to and from the computer where it runs. By checking the box to run Wireshark in Promiscuous Mode in the Capture Settings, you can capture most of the traffic on the LAN.</p>
-<h3 id="dumpcap">DumpCap</h3>
+<p><strong>Wireshark Promiscuous Mode</strong></p>
 <ul>
-<li>Dumpcap is a network traffic dump tool. It captures packet data from a live network and writes the packets to a file. Dumpcap’s native capture file format is pcapng, which is also the format used by Wireshark.</li>
-<li>By default, Dumpcap uses the pcap library to capture traffic from the first available network interface and writes the received raw packet data, along with the packets’ time stamps into a pcapng file. The capture filter syntax follows the rules of the pcap library.</li>
-<li>The Wireshark command-line utility called 'dumpcap.exe' can be used to capture LAN traffic over an extended period of time.</li>
-<li>Wireshark itself can also be used, but dumpcap does not significantly utilize the computer's memory while capturing for long periods.</li>
+<li>By default, Wireshark only captures packets going to and from the computer where it runs. By checking the box to run Wireshark in Promiscuous Mode in the Capture Settings, you can capture most of the traffic on the LAN.</li>
+</ul>
+<h3 id="dumpcap">Dumpcap</h3>
+<ul>
+<li>Dumpcap is a network traffic dump tool. It captures packet data from a live network and writes the packets to a file. Dumpcap’s native capture file format is <code>pcapng</code>, which is also the format used by Wireshark.</li>
+<li>By default, Dumpcap uses the <code>pcap</code> library to capture traffic from the first available network interface and writes the received raw packet data, along with the packets’ time stamps into a <code>pcapng</code> file. The capture filter syntax follows the rules of the <code>pcap</code> library.</li>
+<li>The Wireshark command-line utility called <code>dumpcap.exe</code> can be used to capture LAN traffic over an extended period of time.</li>
+<li>Wireshark itself can also be used, but Dumpcap does not significantly utilize the computer's memory while capturing for long periods.</li>
 </ul>
 <h3 id="daemonlogger">DaemonLogger</h3>
 <ul>
-<li>Daemonlogger is a packet logging application designed specifically for use in Network and Systems Management (NSM)  environments.</li>
-<li>The biggest benefit Daemonlogger provides is that, like Dumpcap, it is simple to use for capturing packets. In order to begin capturing, you need only to invoke the command and specify an interface.</li>
-<li>daemonlogger –i eth1</li>
+<li>DaemonLogger is a packet logging application designed specifically for use in Network and Systems Management (NSM) environments.</li>
+<li>The biggest benefit DaemonLogger provides is that, like Dumpcap, it is simple to use for capturing packets. In order to begin capturing, you need only to invoke the command and specify an interface.<ul>
+<li><code>daemonlogger –i eth1</code></li>
 <li>This option, by default, will begin capturing packets and logging them to the current working directory.</li>
 <li>Packets will be collected until the capture file size reaches 2 GB, and then a new file will be created. This will continue indefinitely until the process is halted.</li>
 </ul>
-<h3 id="netsniff-ng">NetSniff-NG</h3>
-<ul>
-<li>Netsniff-NG is a high-performance packet capture utility</li>
-<li>While the utilities we’ve discussed to this point rely on Libpcap for capture, Netsniff-NG utilizes zero-copy mechanisms to capture packets. This is done with the intent to support full packet capture over high throughput links.</li>
-<li>To begin capturing packets with Netsniff-NG, we have to specify an input and output. In most cases, the input will be a network interface, and the output will be a file or folder on disk.</li>
+</li>
 </ul>
-<p><code>netsniff-ng –i eth1 –o data.pcap</code></p>
-<h3 id="netflow">Netflow</h3>
+<h3 id="netsniff-ng">netsniff-ng</h3>
+<ul>
+<li>netsniff-ng is a high-performance packet capture utility</li>
+<li>While the utilities we’ve discussed to this point rely on <code>libpcap</code> for capture, netsniff-ng utilizes zero-copy mechanisms to capture packets. This is done with the intent to support full packet capture over high throughput links.</li>
+<li>To begin capturing packets with netsniff-ng, we have to specify an input and output. In most cases, the input will be a network interface, and the output will be a file or folder on disk.</li>
+</ul>
+<pre><code class="language-shell">netsniff-ng –i eth1 –o data.pcap
+</code></pre>
+<h3 id="netflow">NetFlow</h3>
 <ul>
 <li>
-<p>NetFlow is a feature that was introduced on Cisco routers around 1996 that provides the ability to collect IP network traffic as it enters or exits an interface. By analyzing the data provided by NetFlow, a network administrator can determine things such as the source and destination of traffic, class of service, and the causes of congestion. A typical flow monitoring setup (using NetFlow) consists of three main components:[1]</p>
+<p>NetFlow is a feature that was introduced on Cisco routers around 1996 that provides the ability to collect IP network traffic as it enters or exits an interface. By analyzing the data provided by NetFlow, a network administrator can determine things such as the source and destination of traffic, class of service, and the causes of congestion. A typical flow monitoring setup (using NetFlow) consists of three main components:<sup>[1]</sup></p>
 </li>
 <li>
 <p>Flow exporter: aggregates packets into flows and exports flow records towards one or more flow collectors.</p>
@@ -2958,7 +3013,7 @@ Correspondence between layers of the TCP/IP architecture and the OSI model. Also
 </ul>
 <h3 id="ids">IDS</h3>
 <p>A security solution that detects security-related events in your environment but does not block them.
-IDS sensors can be software and hardware-based used to collect and analyze the network traffic. These sensors are available in two varieties, network IDS and host IDS.</p>
+IDS sensors can be software- and hardware-based used to collect and analyze the network traffic. These sensors are available in two varieties, network IDS and host IDS.</p>
 <ul>
 <li>A host IDS is a server-specific agent running on a server with a minimum of overhead to monitor the operating system.</li>
 <li>A network IDS can be embedded in a networking device, a standalone appliance, or a module monitoring the network traffic.</li>
@@ -2966,7 +3021,7 @@ IDS sensors can be software and hardware-based used to collect and analyze the n
 <p>Signature Based IDS</p>
 <ul>
 <li>The signature-based IDS monitors the network traffic or observes the system and sends an alarm if a known malicious event is happening. </li>
-<li>It does so by comparing the data flow against a database of known attack patterns</li>
+<li>It does so by comparing the data flow against a database of known attack patterns.</li>
 <li>These signatures explicitly define what traffic or activity should be considered as malicious. </li>
 <li>Signature-based detection has been the bread and butter of network-based defensive security for over a decade, partially because it is very similar to how malicious activity is detected at the host level with antivirus utilities</li>
 <li>
@@ -2985,7 +3040,7 @@ IDS sensors can be software and hardware-based used to collect and analyze the n
 </ul>
 <p>Anomaly Based IDS</p>
 <ul>
-<li>The anomaly-based IDS looks for traffic that deviates from the normal, but the definition of what is a normal network traffic pattern is the tricky part</li>
+<li>The anomaly-based IDS looks for traffic that deviates from the normal, but the definition of what is a normal network traffic pattern is the tricky part.</li>
 <li>Two types of anomaly-based IDS exist: statistical and nonstatistical anomaly detection</li>
 <li>Statistical anomaly detection learns the traffic patterns interactively over a period of time.</li>
 <li>In the nonstatistical approach, the IDS has a predefined configuration of the supposedly acceptable and valid traffic patterns.</li>
@@ -3001,7 +3056,7 @@ IDS sensors can be software and hardware-based used to collect and analyze the n
 </ul>
 <p>Honeypots </p>
 <ul>
-<li>The use of decoy machines to direct intruders' attention away from the machines under protection is a major technique to preclude intrusion attacks. Any device, system, directory, or file used as a decoy to lure attackers away from important assets and to collect intrusion or abusive behaviours is referred to as a honeypot.</li>
+<li>The use of decoy machines to direct intruders' attention away from the machines under protection is a major technique to preclude intrusion attacks. Any device, system, directory, or file used as a decoy to lure attackers away from important assets and to collect intrusion or abusive behaviors is referred to as a honeypot.</li>
 <li>A honeypot may be implemented as a physical device or as an emulation system. The idea is to set up decoy machines in a LAN, or decoy directories/files in a file system and make them appear important, but with several exploitable loopholes, to lure attackers to attack these machines or directories/files, so that other machines, directories, and files can evade intruders' attentions. A decoy machine may be a host computer or a server computer. Likewise, we may also set up decoy routers or even decoy LANs.</li>
 </ul>
 <hr />
@@ -3015,63 +3070,69 @@ IDS sensors can be software and hardware-based used to collect and analyze the n
 </ul>
 <p>IP Spoofing Detection Techniques</p>
 <ul>
-<li>Direct TTL Probes</li>
 <li>
-<p>In this technique we send a packet to a host of suspect spoofed IP that triggers reply and compares TTL with suspect packet; if the TTL in the reply is not the same as the packet being checked; it is a spoofed packet.</p>
-</li>
-<li>
-<p>This Technique is successful when the attacker is in a different subnet from the victim.
-  <img alt="image19" src="../images/image19.png" /></p>
+<p>Direct TTL Probes</p>
+<ul>
+<li>In this technique, we send a packet to a host of suspect spoofed IP that triggers reply and compares TTL with suspect packet; if the TTL in the reply is not the same as the packet being checked; it is a spoofed packet.</li>
+<li>This Technique is successful when the attacker is in a different subnet from the victim.
+<img alt="image19" src="../images/image19.png" /></li>
+</ul>
 </li>
 <li>
 <p>IP Identification Number.</p>
 </li>
 <li>Send a probe to the host of suspect spoofed traffic that triggers a reply and compares IP ID with suspect traffic.</li>
 <li>
-<p>If IP IDs are not in the near value of packet being checked, suspect traffic is spoofed</p>
+<p>If IP IDs are not in the near value of packet being checked, suspect traffic is spoofed.</p>
 </li>
 <li>
 <p>TCP Flow Control Method</p>
-</li>
+<ul>
 <li>Attackers sending spoofed TCP packets will not receive the target’s SYN-ACK packets.</li>
-<li>Attackers cannot, therefore, be responsive to change in the congestion window size</li>
+<li>Attackers cannot, therefore, be responsive to change in the congestion window size.</li>
 <li>When the receiver still receives traffic even after a windows size is exhausted, most probably the packets are spoofed.</li>
+</ul>
+</li>
 </ul>
 <h3 id="covert-channel">Covert Channel</h3>
 <ul>
 <li>A covert or clandestine channel can be best described as a pipe or communication channel between two entities that can be exploited by a process or application transferring information in a manner that violates the system's security specifications.</li>
-<li>More specifically for TCP/IP, in some instances, covert channels are established, and data can be secretly passed between two end systems.</li>
-<li>Ex: ICMP resides at the Internet layer of the TCP/IP protocol suite and is implemented in all TCP/IP hosts. Based on the specifications of the ICMP Protocol, an ICMP Echo Request message should have an 8-byte header and a 56-byte payload. The ICMP Echo Request packet should not carry any data in the payload. However, these packets are often used to carry secret information. The ICMP packets are altered slightly to carry secret data in the payload. This makes the size of the packet larger, but no control exists in the protocol stack to defeat this behaviour. The alteration of ICMP packets allows intruders to program specialized client-server pairs. These small pieces of code export confidential information without alerting the network administrator.</li>
+<li>
+<p>More specifically for TCP/IP, in some instances, covert channels are established, and data can be secretly passed between two end systems.</p>
+<ul>
+<li>Ex: ICMP resides at the Internet layer of the TCP/IP protocol suite and is implemented in all TCP/IP hosts. Based on the specifications of the ICMP Protocol, an ICMP Echo Request message should have an 8-byte header and a 56-byte payload. The ICMP Echo Request packet should not carry any data in the payload. However, these packets are often used to carry secret information. The ICMP packets are altered slightly to carry secret data in the payload. This makes the size of the packet larger, but no control exists in the protocol stack to defeat this behavior. The alteration of ICMP packets allows intruders to program specialized client-server pairs. These small pieces of code export confidential information without alerting the network administrator.</li>
 <li>
 <p>ICMP can be leveraged for more than data exfiltration. For eg. some C&amp;C tools such as Loki used ICMP channel to establish encrypted interactive session back in 1996.</p>
 </li>
 <li>
 <p>Deep packet inspection has since come a long way. A lot of IDS/IPS detect ICMP tunnelling.</p>
 <ul>
-<li>Check for echo responses that do not contain the same payload as  request</li>
-<li>Check for the volume of ICMP traffic especially for volumes beyond an acceptable threshold</li>
+<li>Check for Echo responses that do not contain the same payload as request.</li>
+<li>Check for the volume of ICMP traffic especially for volumes beyond an acceptable threshold.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <h3 id="ip-fragmentation-attack">IP Fragmentation Attack</h3>
 <ul>
-<li>The TCP/IP protocol suite, or more specifically IP, allows the fragmentation of packets.(this is a feature &amp; not a bug)</li>
+<li>The TCP/IP protocol suite, or more specifically IP, allows the fragmentation of packets. (this is a feature &amp; not a bug)</li>
 <li>IP fragmentation offset is used to keep track of the different parts of a datagram.</li>
-<li>The information or content in this field is used at the destination to reassemble the datagrams</li>
+<li>The information or content in this field is used at the destination to reassemble the datagrams.</li>
 <li>
 <p>All such fragments have the same Identification field value, and the fragmentation offset indicates the position of the current fragment in the context of the original packet.</p>
 </li>
 <li>
 <p>Many access routers and firewalls do not perform packet reassembly. In normal operation, IP fragments do not overlap, but attackers can create artificially fragmented packets to mislead the routers or firewalls. Usually, these packets are small and almost impractical for end systems because of data and computational overhead.</p>
 </li>
-<li>A good example of an IP fragmentation attack is the Ping of Death attack. The Ping of Death attack sends fragments that, when reassembled at the end station, create a larger packet than the maximum permissible length.</li>
+<li>A good example of an IP fragmentation attack is the Ping of Death (PoD) attack. The Ping of Death attack sends fragments that, when reassembled at the end station, create a larger packet than the maximum permissible length.</li>
 </ul>
 <p>TCP Flags</p>
 <ul>
 <li>Data exchange using TCP does not happen until a three-way handshake has been completed. This handshake uses different flags to influence the way TCP segments are processed.</li>
 <li>There are 6 bits in the TCP header that are often called flags. Namely:</li>
 <li>
-<p>6 different flags are part of the TCP header: Urgent pointer field (URG), Acknowledgment field (ACK), Push function (PSH), Reset the connection (RST), Synchronize sequence numbers (SYN), and the sender is finished with this connection (FIN).
+<p>six different flags are part of the TCP header: Urgent pointer field (URG), Acknowledgment field (ACK), Push function (PSH), Reset the connection (RST), Synchronize sequence numbers (SYN), and the sender is finished with this connection (FIN).
   <img alt="image20" src="../images/image20.png" /></p>
 </li>
 <li>
@@ -3090,8 +3151,8 @@ IDS sensors can be software and hardware-based used to collect and analyze the n
 </ul>
 <p>SYN FLOOD</p>
 <ul>
-<li>The timers (or lack of certain timers) in 3 way handshake are often used and exploited by attackers to disable services or even to enter systems.</li>
-<li>After step 2 of the three-way handshake, no limit is set on the time to wait after receiving a SYN. The attacker initiates many connection requests to the webserver of Company XYZ (almost certainly with a spoofed IP address).</li>
+<li>The timers (or lack of certain timers) in three-way handshake are often used and exploited by attackers to disable services or even to enter systems.</li>
+<li>After step 2 of the three-way handshake, no limit is set on the time-to-wait after receiving a SYN. The attacker initiates many connection requests to the webserver of Company XYZ (almost certainly with a spoofed IP address).</li>
 <li>The SYN+ACK packets (Step 2) sent by the web server back to the originating source IP address are not replied to. This leaves a TCP session half-open on the webserver. Multiple packets cause multiple TCP sessions to stay open.</li>
 <li>Based on the hardware limitations of the server, a limited number of TCP sessions can stay open, and as a result, the webserver refuses further connection establishments attempts from any host as soon as a certain limit is reached. These half-open connections need to be completed or timed out before new connections can be established.</li>
 </ul>
@@ -3134,7 +3195,7 @@ IDS sensors can be software and hardware-based used to collect and analyze the n
 <li>Buffer overflow vulnerabilities exist in different types. But the overall goal for all buffer overflow attacks is to take over the control of a privileged program and, if possible, the host. The attacker has two tasks to achieve this goal. First, the dirty code needs to be available in the program's code address space. Second, the privileged program should jump to that particular part of the code, which ensures that the proper parameters are loaded into memory.</li>
 <li>The first task can be achieved in two ways: by injecting the code in the right address space or by using the existing code and modifying certain parameters slightly. The second task is a little more complex because the program's control flow needs to be modified to make the program jump to the dirty code.</li>
 </ul>
-<p>CounterMeasure:</p>
+<p>Counter Measure:</p>
 <ul>
 <li>The most important approach is to have a concerted focus on writing correct code.</li>
 <li>A second method is to make the data buffers (memory locations) address space of the program code non-executable. This type of address space makes it impossible to execute code, which might be infiltrated in the program's buffers during an attack.</li>
@@ -3143,14 +3204,16 @@ IDS sensors can be software and hardware-based used to collect and analyze the n
 <p>Address Resolution Protocol Spoofing</p>
 <ul>
 <li>The Address Resolution Protocol (ARP) provides a mechanism to resolve, or map, a known IP address to a MAC sublayer address.</li>
-<li>Using ARP spoofing, the cracker can exploit this hardware address authentication mechanism by spoofing the hardware address of Host B. Basically, the attacker can convince any host or network device on the local network that the cracker's workstation is the host to be trusted. This is a common method used in a switched environment.</li>
+<li>Using ARP spoofing, the cracker can exploit this hardware address authentication mechanism by spoofing the hardware address of Host B. Basically, the attacker can convince any host or network device on the local network that the cracker's workstation is the host to be trusted. This is a common method used in a switched environment.<ul>
 <li>ARP spoofing can be prevented with the implementation of static ARP tables in all the hosts and routers of your network. Alternatively, you can implement an ARP server that responds to ARP requests on behalf of the target host.</li>
+</ul>
+</li>
 </ul>
 <p>DNS Spoofing</p>
 <ul>
 <li>DNS spoofing is the method whereby the hacker convinces the target machine that the system it wants to connect to is the machine of the cracker.</li>
 <li>The cracker modifies some records so that name entries of hosts correspond to the attacker's IP address. There have been instances in which the complete DNS server was compromised by an attack.</li>
-<li>To counter DNS spoofing, the reverse lookup detects these attacks. The reverse lookup is a mechanism to verify the IP address against a name. The IP address and name files are usually kept on different servers to make compromise much more difficult</li>
+<li>To counter DNS spoofing, the reverse lookup detects these attacks. The reverse lookup is a mechanism to verify the IP address against a name. The IP address and name files are usually kept on different servers to make compromise much more difficult.</li>
 </ul>
                 
               

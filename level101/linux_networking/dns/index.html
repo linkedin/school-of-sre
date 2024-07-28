@@ -2151,12 +2151,12 @@
                 
                 
                 <h1 id="dns">DNS</h1>
-<p>Domain Names are the simple human-readable names for websites. The Internet understands only IP addresses, but since memorizing incoherent numbers is not practical, domain names are used instead. These domain names are translated into IP addresses by the DNS infrastructure. When somebody tries to open <a href="https://www.linkedin.com">www.linkedin.com</a> in the browser, the browser tries to convert <a href="https://www.linkedin.com">www.linkedin.com</a> to an IP Address. This process is called DNS resolution. A simple pseudocode depicting this process looks this</p>
+<p>Domain Names are the simple human-readable names for websites. The Internet understands only IP addresses, but since memorizing incoherent numbers is not practical, domain names are used instead. These domain names are translated into IP addresses by the DNS infrastructure. When somebody tries to open <a href="https://www.linkedin.com">www.linkedin.com</a> in the browser, the browser tries to convert <a href="https://www.linkedin.com">www.linkedin.com</a> to an IP Address. This process is called DNS resolution. A simple pseudocode depicting this process looks this:</p>
 <pre><code class="language-python">ip, err = getIPAddress(domainName)
 if err:
-  print(“unknown Host Exception while trying to resolve:%s”.format(domainName))
+  print(&quot;unknown Host Exception while trying to resolve:%s&quot;.format(domainName))
 </code></pre>
-<p>Now let’s try to understand what happens inside the getIPAddress function. The browser would have a DNS cache of its own where it checks if there is a mapping for the domainName to an IP Address already available, in which case the browser uses that IP address. If no such mapping exists, the browser calls gethostbyname syscall to ask the operating system to find the IP address for the given domainName</p>
+<p>Now, let’s try to understand what happens inside the <code>getIPAddress</code> function. The browser would have a DNS cache of its own where it checks if there is a mapping for the <code>domainName</code> to an IP Address already available, in which case the browser uses that IP address. If no such mapping exists, the browser calls <code>gethostbyname</code> syscall to ask the operating system to find the IP address for the given <code>domainName</code>.</p>
 <pre><code class="language-python">def getIPAddress(domainName):
     resp, fail = lookupCache(domainName)
     If not fail:
@@ -2168,19 +2168,19 @@ if err:
        else:
           return resp
 </code></pre>
-<p>Now lets understand what operating system kernel does when the <a href="https://man7.org/linux/man-pages/man3/gethostbyname.3.html">gethostbyname</a> function is called. The Linux operating system looks at the file <a href="https://man7.org/linux/man-pages/man5/nsswitch.conf.5.html">/etc/nsswitch.conf</a> file which usually has a line</p>
+<p>Now, let's understand what operating system kernel does when the <a href="https://man7.org/linux/man-pages/man3/gethostbyname.3.html">gethostbyname</a> function is called. The Linux operating system looks at the file <a href="https://man7.org/linux/man-pages/man5/nsswitch.conf.5.html">/etc/nsswitch.conf</a> file which usually has a line.</p>
 <pre><code class="language-bash">hosts:      files dns
 </code></pre>
-<p>This line means the OS has to look up first in file (/etc/hosts) and then use DNS protocol to do the resolution if there is no match in /etc/hosts.</p>
-<p>The file /etc/hosts is of format</p>
+<p>This line means the OS has to look up first in file (<code>/etc/hosts</code>) and then use DNS protocol to do the resolution if there is no match in <code>/etc/hosts</code>.</p>
+<p>The file <code>/etc/hosts</code> is of format:</p>
 <p>IPAddress FQDN [FQDN].*</p>
 <pre><code class="language-bash">127.0.0.1 localhost.localdomain localhost
 ::1 localhost.localdomain localhost
 </code></pre>
-<p>If a match exists for a domain in this file then that IP address is returned by the OS. Lets add a line to this file</p>
+<p>If a match exists for a domain in this file, then that IP address is returned by the OS. Let's add a line to this file:</p>
 <pre><code class="language-bash">127.0.0.1 test.linkedin.com
 </code></pre>
-<p>And then do ping test.linkedin.com</p>
+<p>And then do ping <a href="https://test.linkedin.com/">test.linkedin.com</a>.</p>
 <pre><code class="language-bash">ping test.linkedin.com -n
 </code></pre>
 <pre><code class="language-bash">PING test.linkedin.com (127.0.0.1) 56(84) bytes of data.
@@ -2189,11 +2189,11 @@ if err:
 64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.037 ms
 
 </code></pre>
-<p>As mentioned earlier, if no match exists in /etc/hosts, the OS tries to do a DNS resolution using the DNS protocol. The linux system makes a DNS request to the first IP in /etc/resolv.conf. If there is no response, requests are sent to subsequent servers in resolv.conf. These servers in resolv.conf are called DNS resolvers. The DNS resolvers are populated by <a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">DHCP</a> or statically configured by an administrator.
+<p>As mentioned earlier, if no match exists in <code>/etc/hosts</code>, the OS tries to do a DNS resolution using the DNS protocol. The Linux system makes a DNS request to the first IP in <code>/etc/resolv.conf</code>. If there is no response, requests are sent to subsequent servers in <code>resolv.conf</code>. These servers in <code>resolv.conf</code> are called DNS resolvers. The DNS resolvers are populated by <a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">DHCP</a> or statically configured by an administrator.
 <a href="https://linux.die.net/man/1/dig">Dig</a> is a userspace DNS system which creates and sends request to DNS resolvers and prints the response it receives to the console.</p>
-<pre><code class="language-bash">#run this command in one shell to capture all DNS requests
+<pre><code class="language-bash"># run this command in one shell to capture all DNS requests
 sudo tcpdump -s 0 -A -i any port 53
-#make a dig request from another shell
+# make a dig request from another shell
 dig linkedin.com
 </code></pre>
 <pre><code class="language-bash">13:19:54.432507 IP 172.19.209.122.56497 &gt; 172.23.195.101.53: 527+ [1au] A? linkedin.com. (41)
@@ -2203,21 +2203,21 @@ dig linkedin.com
 
 ..)........
 </code></pre>
-<p>The packet capture shows a request is made to 172.23.195.101:53 (this is the resolver in /etc/resolv.conf) for linkedin.com and a response is received from 172.23.195.101 with the IP address of linkedin.com 108.174.10.10</p>
-<p>Now let's try to understand how DNS resolver tries to find the IP address of linkedin.com. DNS resolver first looks at its cache. Since many devices in the network can query for the domain name linkedin.com, the name resolution result may already exist in the cache. If there is a cache miss, it starts the DNS resolution process. The DNS server breaks “linkedin.com” to “.”, “com.” and “linkedin.com.” and starts DNS resolution from “.”. The “.” is called root domain and those IPs are known to the DNS resolver software. DNS resolver queries the root domain nameservers to find the right top-level domain (TLD) nameservers which could respond regarding details for "com.". The address of the TLD nameserver of “com.” is returned. Now the DNS resolution service contacts the TLD nameserver for “com.” to fetch the authoritative nameserver for “linkedin.com”. Once an authoritative nameserver of “linkedin.com” is known, the resolver contacts Linkedin’s nameserver to provide the IP address of “linkedin.com”. This whole process can be visualized by running the following -</p>
+<p>The packet capture shows a request is made to <code>172.23.195.101:53</code> (this is the resolver in <code>/etc/resolv.conf</code>) for <a href="https://www.linkedin.com/">linkedin.com</a> and a response is received from <code>172.23.195.101</code> with the IP address of <a href="https://www.linkedin.com/">linkedin.com</a> <code>108.174.10.10</code>.</p>
+<p>Now, let's try to understand how DNS resolver tries to find the IP address of <a href="https://www.linkedin.com/">linkedin.com</a>. DNS resolver first looks at its cache. Since many devices in the network can query for the domain name <a href="https://www.linkedin.com/">linkedin.com</a>, the name resolution result may already exist in the cache. If there is a cache miss, it starts the DNS resolution process. The DNS server breaks “linkedin.com” to “.”, “com.” and “linkedin.com.” and starts DNS resolution from “.”. The “.” is called root domain and those IPs are known to the DNS resolver software. DNS resolver queries the root domain nameservers to find the right top-level domain (TLD) nameservers which could respond regarding details for "com.". The address of the TLD nameserver of “com.” is returned. Now the DNS resolution service contacts the TLD nameserver for “com.” to fetch the authoritative nameserver for “linkedin.com”. Once an authoritative nameserver of “linkedin.com” is known, the resolver contacts LinkedIn’s nameserver to provide the IP address of “linkedin.com”. This whole process can be visualized by running the following:</p>
 <pre><code class="language-bash">dig +trace linkedin.com
 </code></pre>
 <pre><code class="language-bash">linkedin.com.       3600    IN  A   108.174.10.10
 </code></pre>
-<p>This DNS response has 5 fields where the first field is the request and the last field is the response. The second field is the Time to Live which says how long the DNS response is valid in seconds. In this case this mapping of linkedin.com is valid for 1 hour. This is how the resolvers and application(browser) maintain their cache. Any request for linkedin.com beyond 1 hour will be treated as a cache miss as the mapping has expired its TTL and the whole process has to be redone.
+<p>This DNS response has 5 fields where the first field is the request and the last field is the response. The second field is the Time-to-Live (TTL) which says how long the DNS response is valid in seconds. In this case, this mapping of <a href="https://www.linkedin.com/">linkedin.com</a> is valid for 1 hour. This is how the resolvers and application (browser) maintain their cache. Any request for <a href="https://www.linkedin.com/">linkedin.com</a> beyond 1 hour will be treated as a cache miss as the mapping has expired its TTL and the whole process has to be redone.
 The 4th field says the type of DNS response/request. Some of the various DNS query types are
 A, AAAA, NS, TXT, PTR, MX and CNAME.</p>
 <ul>
 <li>A record returns IPV4 address of the domain name</li>
 <li>AAAA record returns the IPV6 address of the domain Name</li>
 <li>NS record returns the authoritative nameserver for the domain name</li>
-<li>CNAME records are aliases to the domain names. Some domains point to other domain names and resolving the latter domain name gives an IP which is used as an IP for the former domain name as well. Example www.linkedin.com’s IP address is the same as 2-01-2c3e-005a.cdx.cedexis.net.</li>
-<li>For the brevity we are not discussing other DNS record types, the RFC of each of these records are available <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">here</a>.</li>
+<li>CNAME records are aliases to the domain names. Some domains point to other domain names and resolving the latter domain name gives an IP which is used as an IP for the former domain name as well. Example <a href="https://www.linkedin.com">www.linkedin.com</a>’s IP address is the same as <code>2-01-2c3e-005a.cdx.cedexis.net</code>.</li>
+<li>For the brevity, we are not discussing other DNS record types, the RFC of each of these records are available <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">here</a>.</li>
 </ul>
 <pre><code class="language-bash">dig A linkedin.com +short
 108.174.10.10
@@ -2240,16 +2240,16 @@ dns1.p09.nsone.net.
 dig www.linkedin.com CNAME +short
 2-01-2c3e-005a.cdx.cedexis.net.
 </code></pre>
-<p>Armed with these fundamentals of DNS lets see usecases where DNS is used by SREs.</p>
+<p>Armed with these fundamentals of DNS lets see use cases where DNS is used by SREs.</p>
 <h2 id="applications-in-sre-role">Applications in SRE role</h2>
-<p>This section covers some of the common solutions SRE can derive from DNS</p>
+<p>This section covers some of the common solutions SRE can derive from DNS.</p>
 <ol>
-<li>Every company has to have its internal DNS infrastructure for intranet sites and internal services like databases and other internal applications like wiki. So there has to be a DNS infrastructure maintained for those domain names by the infrastructure team. This DNS infrastructure has to be optimized and scaled so that it doesn’t become a single point of failure. Failure of the internal DNS infrastructure can cause API calls of microservices to fail and other cascading effects.</li>
-<li>DNS can also be used for discovering services. For example the hostname serviceb.internal.example.com could list instances which run service b internally in example.com company. Cloud providers provide options to enable DNS discovery(<a href="https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/service-discovery.html#dns-based-service-discovery">example</a>)</li>
-<li>DNS is used by cloud providers and CDN providers to scale their services. In Azure/AWS, Load Balancers are given a CNAME instead of IPAddress. They update the IPAddress of the Loadbalancers as they scale by changing the IP Address of alias domain names. This is one of the reasons why A records of such alias domains are short lived like 1 minute.</li>
+<li>Every company has to have its internal DNS infrastructure for intranet sites and internal services like databases and other internal applications like Wiki. So there has to be a DNS infrastructure maintained for those domain names by the infrastructure team. This DNS infrastructure has to be optimized and scaled so that it doesn’t become a single point of failure. Failure of the internal DNS infrastructure can cause API calls of microservices to fail and other cascading effects.</li>
+<li>DNS can also be used for discovering services. For example the hostname <code>serviceb.internal.example.com</code> could list instances which run service <code>b</code> internally in <code>example.com</code> company. Cloud providers provide options to enable DNS discovery (<a href="https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/service-discovery.html#dns-based-service-discovery">example</a>).</li>
+<li>DNS is used by cloud providers and CDN providers to scale their services. In Azure/AWS, Load Balancers are given a CNAME instead of IPAddress. They update the IPAddress of the Loadbalancers as they scale by changing the IP Address of alias domain names. This is one of the reasons why A records of such alias domains are short-lived like 1 minute.</li>
 <li>DNS can also be used to make clients get IP addresses closer to their location so that their HTTP calls can be responded faster if the company has a presence geographically distributed.</li>
-<li>SRE also has to understand since there is no verification in DNS infrastructure, these responses can be spoofed. This is safeguarded by other protocols like HTTPS(dealt later). DNSSEC protects from forged or manipulated DNS responses.</li>
-<li>Stale DNS cache can be a problem. Some <a href="https://stackoverflow.com/questions/1256556/how-to-make-java-honor-the-dns-caching-timeout">apps</a> might still be using expired DNS records for their api calls. This is something SRE has to be wary of when doing maintenance.</li>
+<li>SRE also has to understand since there is no verification in DNS infrastructure, these responses can be spoofed. This is safeguarded by other protocols like HTTPS (dealt later). DNSSEC protects from forged or manipulated DNS responses.</li>
+<li>Stale DNS cache can be a problem. Some <a href="https://stackoverflow.com/questions/1256556/how-to-make-java-honor-the-dns-caching-timeout">apps</a> might still be using expired DNS records for their API calls. This is something SRE has to be wary of when doing maintenance.</li>
 <li>DNS Loadbalancing and service discovery also has to understand TTL and the servers can be removed from the pool only after waiting till TTL post the changes are made to DNS records. If this is not done, a certain portion of the traffic will fail as the server is removed before the TTL.</li>
 </ol>
                 

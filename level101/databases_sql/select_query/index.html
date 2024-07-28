@@ -2187,8 +2187,8 @@
                   <h1>Select Query</h1>
                 
                 <h3 id="select-query">SELECT Query</h3>
-<p>The most commonly used command while working with MySQL is SELECT. It is used to fetch the result set from one or more tables. 
-The general form of a typical select query looks like:-</p>
+<p>The most commonly used command while working with MySQL is <code>SELECT</code>. It is used to fetch the resultset from one or more tables. 
+The general form of a typical select query looks like:</p>
 <pre><code>SELECT expr
 FROM table1
 [WHERE condition]
@@ -2196,17 +2196,17 @@ FROM table1
 [ORDER BY column_list ASC|DESC]
 [LIMIT #]
 </code></pre>
-<p>The above general form contains some commonly used clauses of a SELECT query:-</p>
+<p>The above general form contains some commonly used clauses of a <code>SELECT</code> query:</p>
 <ul>
 <li><strong>expr</strong> - comma-separated column list or * (for all columns)</li>
 <li><strong>WHERE</strong> - a condition is provided, if true, directs the query to select only those records.</li>
-<li><strong>GROUP BY</strong> - groups the entire result set based on the column list provided. An aggregate function is recommended to be present in the select expression of the query. <strong>HAVING</strong> supports grouping by putting a condition on the selected or any other aggregate function.</li>
-<li><strong>ORDER BY</strong> - sorts the result set based on the column list in ascending or descending order.</li>
+<li><strong>GROUP BY</strong> - groups the entire resultset based on the column list provided. An aggregate function is recommended to be present in the select expression of the query. <strong>HAVING</strong> supports grouping by putting a condition on the selected or any other aggregate function.</li>
+<li><strong>ORDER BY</strong> - sorts the resultset based on the column list in ascending or descending order.</li>
 <li><strong>LIMIT</strong> - commonly used to limit the number of records.</li>
 </ul>
 <p>Let’s have a look at some examples for a better understanding of the above. The dataset used for the examples below is available <a href="https://dev.mysql.com/doc/employee/en/employees-installation.html">here</a> and is free to use.</p>
 <p><strong>Select all records</strong></p>
-<pre><code>mysql&gt; select * from employees limit 5;
+<pre><code class="language-shell">mysql&gt; SELECT * FROM employees LIMIT 5;
 +--------+------------+------------+-----------+--------+------------+
 | emp_no | birth_date | first_name | last_name | gender | hire_date  |
 +--------+------------+------------+-----------+--------+------------+
@@ -2219,7 +2219,7 @@ FROM table1
 5 rows in set (0.00 sec)
 </code></pre>
 <p><strong>Select specific fields for all records</strong></p>
-<pre><code>mysql&gt; select first_name, last_name, gender from employees limit 5;
+<pre><code class="language-shell">mysql&gt; SELECT first_name, last_name, gender FROM employees LIMIT 5;
 +------------+-----------+--------+
 | first_name | last_name | gender |
 +------------+-----------+--------+
@@ -2232,7 +2232,7 @@ FROM table1
 5 rows in set (0.00 sec)
 </code></pre>
 <p><strong>Select all records Where hire_date &gt;= January 1, 1990</strong></p>
-<pre><code>mysql&gt; select * from employees where hire_date &gt;= '1990-01-01' limit 5;
+<pre><code class="language-shell">mysql&gt; SELECT * FROM employees WHERE hire_date &gt;= '1990-01-01' LIMIT 5;
 +--------+------------+------------+-------------+--------+------------+
 | emp_no | birth_date | first_name | last_name   | gender | hire_date  |
 +--------+------------+------------+-------------+--------+------------+
@@ -2245,7 +2245,7 @@ FROM table1
 5 rows in set (0.01 sec)
 </code></pre>
 <p><strong>Select first_name and last_name from all records Where birth_date &gt;= 1960 AND gender = ‘F’</strong></p>
-<pre><code>mysql&gt; select first_name, last_name from employees where year(birth_date) &gt;= 1960 and gender='F' limit 5;
+<pre><code class="language-shell">mysql&gt; SELECT first_name, last_name FROM employees WHERE year(birth_date) &gt;= 1960 AND gender='F' LIMIT 5;
 +------------+-----------+
 | first_name | last_name |
 +------------+-----------+
@@ -2258,18 +2258,18 @@ FROM table1
 5 rows in set (0.00 sec)
 </code></pre>
 <p><strong>Display the total number of records</strong></p>
-<pre><code>mysql&gt; select count(*) from employees;
+<pre><code class="language-shell">mysql&gt; SELECT COUNT(*) FROM employees;
 +----------+
-| count(*) |
+| COUNT(*) |
 +----------+
 |   300024 |
 +----------+
 1 row in set (0.05 sec)
 </code></pre>
 <p><strong>Display gender-wise count of all records</strong></p>
-<pre><code>mysql&gt; select gender, count(*) from employees group by gender;
+<pre><code class="language-shell">mysql&gt; SELECT gender, COUNT(*) FROM employees GROUP BY gender;
 +--------+----------+
-| gender | count(*) |
+| gender | COUNT(*) |
 +--------+----------+
 | M      |   179973 |
 | F      |   120051 |
@@ -2277,9 +2277,9 @@ FROM table1
 2 rows in set (0.14 sec)
 </code></pre>
 <p><strong>Display the year of hire_date and number of employees hired that year, also only those years where more than 20k employees were hired</strong></p>
-<pre><code>mysql&gt; select year(hire_date), count(*) from employees group by year(hire_date) having count(*) &gt; 20000;
+<pre><code class="language-shell">mysql&gt; SELECT year(hire_date), COUNT(*) FROM employees GROUP BY year(hire_date) HAVING COUNT(*) &gt; 20000;
 +-----------------+----------+
-| year(hire_date) | count(*) |
+| year(hire_date) | COUNT(*) |
 +-----------------+----------+
 |            1985 |    35316 |
 |            1986 |    36150 |
@@ -2292,8 +2292,8 @@ FROM table1
 +-----------------+----------+
 8 rows in set (0.14 sec)
 </code></pre>
-<p><strong>Display all records ordered by their hire_date in descending order. If hire_date is the same then in order of their birth_date ascending order</strong></p>
-<pre><code>mysql&gt; select * from employees order by hire_date desc, birth_date asc limit 5;
+<p><strong>Display all records ordered by their hire_date in descending order. If hire_date is the same, then in order of their birth_date ascending order</strong></p>
+<pre><code class="language-shell">mysql&gt; SELECT * FROM employees ORDER BY hire_date DESC, birth_date ASC LIMIT 5;
 +--------+------------+------------+-----------+--------+------------+
 | emp_no | birth_date | first_name | last_name | gender | hire_date  |
 +--------+------------+------------+-----------+--------+------------+
@@ -2306,20 +2306,20 @@ FROM table1
 5 rows in set (0.12 sec)
 </code></pre>
 <h3 id="select-joins">SELECT - JOINS</h3>
-<p>JOIN statement is used to produce a combined result set from two or more tables based on certain conditions. It can be also used with Update and Delete statements but we will be focussing on the select query. 
-Following is a basic general form for joins</p>
+<p><code>JOIN</code> statement is used to produce a combined resultset from two or more tables based on certain conditions. It can be also used with <code>UPDATE</code> and <code>DELETE</code> statements, but we will be focussing on the select query.</p>
+<p>Following is a basic general form for joins:</p>
 <pre><code>SELECT table1.col1, table2.col1, ... (any combination)
 FROM
 table1 &lt;join_type&gt; table2
 ON (or USING depends on join_type) table1.column_for_joining = table2.column_for_joining
 WHERE …
 </code></pre>
-<p>Any number of columns can be selected, but it is recommended to select only those which are relevant to increase the readability of the resultset. All other clauses like where, group by are not mandatory.
+<p>Any number of columns can be selected, but it is recommended to select only those which are relevant to increase the readability of the resultset. All other clauses like <code>WHERE</code>, <code>GROUP BY</code> are not mandatory.
 Let’s discuss the types of JOINs supported by MySQL Syntax.</p>
 <p><strong>Inner Join</strong></p>
 <p>This joins table A with table B on a condition. Only the records where the condition is True are selected in the resultset.</p>
-<p>Display some details of employees along with their salary</p>
-<pre><code>mysql&gt; select e.emp_no,e.first_name,e.last_name,s.salary from employees e join salaries s on e.emp_no=s.emp_no limit 5;
+<p>Display some details of employees along with their salary:</p>
+<pre><code class="language-shell">mysql&gt; SELECT e.emp_no,e.first_name,e.last_name,s.salary FROM employees e JOIN salaries s ON e.emp_no=s.emp_no LIMIT 5;
 +--------+------------+-----------+--------+
 | emp_no | first_name | last_name | salary |
 +--------+------------+-----------+--------+
@@ -2331,8 +2331,8 @@ Let’s discuss the types of JOINs supported by MySQL Syntax.</p>
 +--------+------------+-----------+--------+
 5 rows in set (0.00 sec)
 </code></pre>
-<p>Similar result can be achieved by</p>
-<pre><code>mysql&gt; select e.emp_no,e.first_name,e.last_name,s.salary from employees e join salaries s using (emp_no) limit 5;
+<p>Similar result can be achieved by:</p>
+<pre><code class="language-shell">mysql&gt; SELECT e.emp_no,e.first_name,e.last_name,s.salary FROM employees e JOIN salaries s USING (emp_no) LIMIT 5;
 +--------+------------+-----------+--------+
 | emp_no | first_name | last_name | salary |
 +--------+------------+-----------+--------+
@@ -2344,8 +2344,8 @@ Let’s discuss the types of JOINs supported by MySQL Syntax.</p>
 +--------+------------+-----------+--------+
 5 rows in set (0.00 sec)
 </code></pre>
-<p>And also by</p>
-<pre><code>mysql&gt; select e.emp_no,e.first_name,e.last_name,s.salary from employees e natural join salaries s limit 5;
+<p>And also by:</p>
+<pre><code class="language-shell">mysql&gt; SELECT e.emp_no,e.first_name,e.last_name,s.salary FROM employees e NATURAL JOIN salaries s LIMIT 5;
 +--------+------------+-----------+--------+
 | emp_no | first_name | last_name | salary |
 +--------+------------+-----------+--------+
@@ -2358,11 +2358,13 @@ Let’s discuss the types of JOINs supported by MySQL Syntax.</p>
 5 rows in set (0.00 sec)
 </code></pre>
 <p><strong>Outer Join</strong></p>
-<p>Majorly of two types:-
-- <strong>LEFT</strong> - joining complete table A with table B on a condition. All the records from table A are selected, but from table B, only those records are selected where the condition is True.
-- <strong>RIGHT</strong> - Exact opposite of the left join.</p>
-<p>Let us assume the below tables for understanding left join better.</p>
-<pre><code>mysql&gt; select * from dummy1;
+<p>Majorly of two types:</p>
+<ul>
+<li><strong>LEFT</strong> - joining complete table A with table B on a condition. All the records from table A are selected, but from table B, only those records are selected where the condition is True.</li>
+<li><strong>RIGHT</strong> - Exact opposite of the <code>LEFT JOIN</code>.</li>
+</ul>
+<p>Let us assume the below tables for understanding <code>LEFT JOIN</code> better.</p>
+<pre><code class="language-shell">mysql&gt; SELECT * FROM dummy1;
 +----------+------------+
 | same_col | diff_col_1 |
 +----------+------------+
@@ -2371,7 +2373,7 @@ Let’s discuss the types of JOINs supported by MySQL Syntax.</p>
 |        3 | C          |
 +----------+------------+
 
-mysql&gt; select * from dummy2;
+mysql&gt; SELECT * FROM dummy2;
 +----------+------------+
 | same_col | diff_col_2 |
 +----------+------------+
@@ -2379,8 +2381,8 @@ mysql&gt; select * from dummy2;
 |        3 | Y          |
 +----------+------------+
 </code></pre>
-<p>A simple select join will look like the one below.</p>
-<pre><code>mysql&gt; select * from dummy1 d1 left join dummy2 d2 on d1.same_col=d2.same_col;
+<p>A simple <code>SELECT JOIN</code> will look like the one below:</p>
+<pre><code class="language-shell">mysql&gt; SELECT * FROM dummy1 d1 LEFT JOIN dummy2 d2 ON d1.same_col=d2.same_col;
 +----------+------------+----------+------------+
 | same_col | diff_col_1 | same_col | diff_col_2 |
 +----------+------------+----------+------------+
@@ -2390,8 +2392,8 @@ mysql&gt; select * from dummy2;
 +----------+------------+----------+------------+
 3 rows in set (0.00 sec)
 </code></pre>
-<p>Which can also be written as</p>
-<pre><code>mysql&gt; select * from dummy1 d1 left join dummy2 d2 using(same_col);
+<p>Which can also be written as:</p>
+<pre><code class="language-shell">mysql&gt; SELECT * FROM dummy1 d1 LEFT JOIN dummy2 d2 USING(same_col);
 +----------+------------+------------+
 | same_col | diff_col_1 | diff_col_2 |
 +----------+------------+------------+
@@ -2401,8 +2403,8 @@ mysql&gt; select * from dummy2;
 +----------+------------+------------+
 3 rows in set (0.00 sec)
 </code></pre>
-<p>And also as</p>
-<pre><code>mysql&gt; select * from dummy1 d1 natural left join dummy2 d2;
+<p>And also as:</p>
+<pre><code class="language-shell">mysql&gt; SELECT * FROM dummy1 d1 NATURAL LEFT JOIN dummy2 d2;
 +----------+------------+------------+
 | same_col | diff_col_1 | diff_col_2 |
 +----------+------------+------------+
@@ -2414,8 +2416,8 @@ mysql&gt; select * from dummy2;
 </code></pre>
 <p><strong>Cross Join</strong></p>
 <p>This does a cross product of table A and table B without any condition. It doesn’t have a lot of applications in the real world.</p>
-<p>A Simple Cross Join looks like this</p>
-<pre><code>mysql&gt; select * from dummy1 cross join dummy2;
+<p>A Simple <code>CROSS JOIN</code> looks like this:</p>
+<pre><code class="language-shell">mysql&gt; SELECT * FROM dummy1 CROSS JOIN dummy2;
 +----------+------------+----------+------------+
 | same_col | diff_col_1 | same_col | diff_col_2 |
 +----------+------------+----------+------------+
@@ -2428,8 +2430,8 @@ mysql&gt; select * from dummy2;
 +----------+------------+----------+------------+
 6 rows in set (0.01 sec)
 </code></pre>
-<p>One use case that can come in handy is when you have to fill in some missing entries. For example, all the entries from dummy1 must be inserted into a similar table dummy3, with each record must have 3 entries with statuses 1, 5 and 7.</p>
-<pre><code>mysql&gt; desc dummy3;
+<p>One use case that can come in handy is when you have to fill in some missing entries. For example, all the entries from <code>dummy1</code> must be inserted into a similar table <code>dummy3</code>, with each record must have 3 entries with statuses 1, 5 and 7.</p>
+<pre><code class="language-shell">mysql&gt; DESC dummy3;
 +----------+----------+------+-----+---------+-------+
 | Field    | Type     | Null | Key | Default | Extra |
 +----------+----------+------+-----+---------+-------+
@@ -2439,11 +2441,11 @@ mysql&gt; select * from dummy2;
 +----------+----------+------+-----+---------+-------+
 3 rows in set (0.02 sec)
 </code></pre>
-<p>Either you create an insert query script with as many entries as in dummy1 or use cross join to produce the required resultset.</p>
-<pre><code>mysql&gt; select * from dummy1 
-cross join 
-(select 1 union select 5 union select 7) T2 
-order by same_col;
+<p>Either you create an <code>INSERT</code> query script with as many entries as in <code>dummy1</code> or use <code>CROSS JOIN</code> to produce the required resultset.</p>
+<pre><code class="language-shell">mysql&gt; SELECT * FROM dummy1 
+CROSS JOIN 
+(SELECT 1 UNION SELECT 5 UNION SELECT 7) T2 
+ORDER BY same_col;
 +----------+------------+---+
 | same_col | diff_col_1 | 1 |
 +----------+------------+---+
@@ -2462,7 +2464,7 @@ order by same_col;
 <p>The <strong>T2</strong> section in the above query is called a <em>sub-query</em>. We will discuss the same in the next section.</p>
 <p><strong>Natural Join</strong></p>
 <p>This implicitly selects the common column from table A and table B and performs an inner join.</p>
-<pre><code>mysql&gt; select e.emp_no,e.first_name,e.last_name,s.salary from employees e natural join salaries s limit 5;
+<pre><code class="language-shell">mysql&gt; SELECT e.emp_no,e.first_name,e.last_name,s.salary FROM employees e NATURAL JOIN salaries s LIMIT 5;
 +--------+------------+-----------+--------+
 | emp_no | first_name | last_name | salary |
 +--------+------------+-----------+--------+
@@ -2474,17 +2476,17 @@ order by same_col;
 +--------+------------+-----------+--------+
 5 rows in set (0.00 sec)
 </code></pre>
-<p>Notice how natural join and using takes care that the common column is displayed only once if you are not explicitly selecting columns for the query.</p>
-<p>Some More Examples</p>
-<p>Display emp_no, salary, title and dept of the employees where salary &gt; 80000</p>
-<pre><code>mysql&gt; select e.emp_no, s.salary, t.title, d.dept_no 
-from  
+<p>Notice how <code>NATURAL JOIN</code> and using takes care that the common column is displayed only once if you are not explicitly selecting columns for the query.</p>
+<p><strong>Some More Examples</strong></p>
+<p>Display <code>emp_no</code>, <code>salary</code>, <code>title</code> and <code>dept</code> of the employees where salary &gt; 80000.</p>
+<pre><code class="language-shell">mysql&gt; SELECT e.emp_no, s.salary, t.title, d.dept_no 
+FROM  
 employees e 
-join salaries s using (emp_no) 
-join titles t using (emp_no) 
-join dept_emp d using (emp_no) 
-where s.salary &gt; 80000 
-limit 5;
+JOIN salaries s USING (emp_no) 
+JOIN titles t USING (emp_no) 
+JOIN dept_emp d USING (emp_no) 
+WHERE s.salary &gt; 80000 
+LIMIT 5;
 +--------+--------+--------------+---------+
 | emp_no | salary | title        | dept_no |
 +--------+--------+--------------+---------+
@@ -2496,15 +2498,15 @@ limit 5;
 +--------+--------+--------------+---------+
 5 rows in set (0.00 sec)
 </code></pre>
-<p>Display title-wise count of employees in each department order by dept_no</p>
-<pre><code>mysql&gt; select d.dept_no, t.title, count(*) 
-from titles t 
-left join dept_emp d using (emp_no) 
-group by d.dept_no, t.title 
-order by d.dept_no 
-limit 10;
+<p>Display title-wise count of employees in each department ordered by <code>dept_no</code>:</p>
+<pre><code class="language-shell">mysql&gt; SELECT d.dept_no, t.title, COUNT(*) 
+FROM titles t 
+LEFT JOIN dept_emp d USING (emp_no) 
+GROUP BY d.dept_no, t.title 
+ORDER BY d.dept_no 
+LIMIT 10;
 +---------+--------------------+----------+
-| dept_no | title              | count(*) |
+| dept_no | title              | COUNT(*) |
 +---------+--------------------+----------+
 | d001    | Manager            |        2 |
 | d001    | Senior Staff       |    13940 |
@@ -2520,14 +2522,14 @@ limit 10;
 10 rows in set (1.32 sec)
 </code></pre>
 <h4 id="select-subquery">SELECT - Subquery</h4>
-<p>A subquery is generally a smaller resultset that can be used to power a select query in many ways. It can be used in a ‘where’ condition, can be used in place of join mostly where a join could be an overkill. 
-These subqueries are also termed as derived tables. They must have a table alias in the select query.</p>
+<p>A subquery is generally a smaller resultset that can be used to power a <code>SELECT</code> query in many ways. It can be used in a <code>WHERE</code> condition, can be used in place of <code>JOIN</code> mostly where a <code>JOIN</code> could be an overkill. 
+These subqueries are also termed as derived tables. They must have a table alias in the <code>SELECT</code> query.</p>
 <p>Let’s look at some examples of subqueries.</p>
-<p>Here we got the department name from the departments table by a subquery which used dept_no from dept_emp table.</p>
-<pre><code>mysql&gt; select e.emp_no, 
-(select dept_name from departments where dept_no=d.dept_no) dept_name from employees e 
-join dept_emp d using (emp_no) 
-limit 5;
+<p>Here, we got the department name from the <code>departments</code> table by a subquery which used <code>dept_no</code> from <code>dept_emp</code> table.</p>
+<pre><code class="language-shell">mysql&gt; SELECT e.emp_no, 
+(SELECT dept_name FROM departments WHERE dept_no=d.dept_no) dept_name FROM employees e 
+JOIN dept_emp d USING (emp_no) 
+LIMIT 5;
 +--------+-----------------+
 | emp_no | dept_name       |
 +--------+-----------------+
@@ -2539,23 +2541,23 @@ limit 5;
 +--------+-----------------+
 5 rows in set (0.01 sec)
 </code></pre>
-<p>Here, we used the ‘avg’ query above (which got the avg salary) as a subquery to list the employees whose latest salary is more than the average. </p>
-<pre><code>mysql&gt; select avg(salary) from salaries;
+<p>Here, we used the <code>AVG</code> query above (which got the avg salary) as a subquery to list the employees whose latest salary is more than the average. </p>
+<pre><code class="language-shell">mysql&gt; SELECT AVG(salary) FROM salaries;
 +-------------+
-| avg(salary) |
+| AVG(salary) |
 +-------------+
 |  63810.7448 |
 +-------------+
 1 row in set (0.80 sec)
 
-mysql&gt; select e.emp_no, max(s.salary) 
-from employees e 
-natural join salaries s 
-group by e.emp_no 
-having max(s.salary) &gt; (select avg(salary) from salaries) 
-limit 10;
+mysql&gt; SELECT e.emp_no, MAX(s.salary) 
+FROM employees e 
+NATURAL JOIN salaries s 
+GROUP BY e.emp_no 
+HAVING MAX(s.salary) &gt; (SELECT AVG(salary) FROM salaries) 
+LIMIT 10;
 +--------+---------------+
-| emp_no | max(s.salary) |
+| emp_no | MAX(s.salary) |
 +--------+---------------+
 |  10001 |         88958 |
 |  10002 |         72527 |

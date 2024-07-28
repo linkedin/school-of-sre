@@ -2088,24 +2088,26 @@
                 <p><strong>Prerequisites</strong></p>
 <p>Install Docker</p>
 <p><strong>Setup</strong></p>
-<p>Create a working directory named sos or something similar, and cd into it.</p>
-<p>Enter the following into a file named my.cnf under a directory named custom.</p>
-<pre><code>sos $ cat custom/my.cnf
+<p>Create a working directory named <code>sos</code> or something similar, and <code>cd</code> into it.</p>
+<p>Enter the following into a file named <code>my.cnf</code> under a directory named <code>custom</code>:</p>
+<pre><code class="language-shell">sos $ cat custom/my.cnf
 [mysqld]
+
 # These settings apply to MySQL server
 # You can set port, socket path, buffer size etc.
 # Below, we are configuring slow query settings
+
 slow_query_log=1
 slow_query_log_file=/var/log/mysqlslow.log
 long_query_time=1
 </code></pre>
 <p>Start a container and enable slow query log with the following:</p>
-<pre><code>sos $ docker run --name db -v custom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=realsecret -d mysql:8
+<pre><code class="language-shell">sos $ docker run --name db -v custom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=realsecret -d mysql:8
 sos $ docker cp custom/my.cnf $(docker ps -qf &quot;name=db&quot;):/etc/mysql/conf.d/custom.cnf
 sos $ docker restart $(docker ps -qf &quot;name=db&quot;)
 </code></pre>
-<p>Import a sample database</p>
-<pre><code>sos $ git clone git@github.com:datacharmer/test_db.git
+<p>Import a sample database:</p>
+<pre><code class="language-shell">sos $ git clone git@github.com:datacharmer/test_db.git
 sos $ docker cp test_db $(docker ps -qf &quot;name=db&quot;):/home/test_db/
 sos $ docker exec -it $(docker ps -qf &quot;name=db&quot;) bash
 root@3ab5b18b0c7d:/# cd /home/test_db/
@@ -2113,15 +2115,15 @@ root@3ab5b18b0c7d:/# mysql -uroot -prealsecret mysql &lt; employees.sql
 root@3ab5b18b0c7d:/etc# touch /var/log/mysqlslow.log
 root@3ab5b18b0c7d:/etc# chown mysql:mysql /var/log/mysqlslow.log
 </code></pre>
-<p><em>Workshop 1: Run some sample queries</em>
-Run the following</p>
-<pre><code>$ mysql -uroot -prealsecret mysql
+<p><em>Workshop 1: Run some sample queries</em></p>
+<p>Run the following:</p>
+<pre><code class="language-shell">$ mysql -uroot -prealsecret mysql
 mysql&gt;
 
 # inspect DBs and tables
 # the last 4 are MySQL internal DBs
 
-mysql&gt; show databases;
+mysql&gt; SHOW DATABASES;
 +--------------------+
 | Database           |
 +--------------------+
@@ -2132,8 +2134,8 @@ mysql&gt; show databases;
 | sys                |
 +--------------------+
 
-&gt; use employees;
-mysql&gt; show tables;
+mysql&gt; USE employees;
+mysql&gt; SHOW TABLES;
 +----------------------+
 | Tables_in_employees  |
 +----------------------+
@@ -2148,18 +2150,19 @@ mysql&gt; show tables;
 +----------------------+
 
 # read a few rows
-mysql&gt; select * from employees limit 5;
+mysql&gt; SELECT * FROM employees LIMIT 5;
 
 # filter data by conditions
-mysql&gt; select count(*) from employees where gender = 'M' limit 5;
+mysql&gt; SELECT COUNT(*) FROM employees WHERE gender = 'M' LIMIT 5;
 
 # find count of particular data
-mysql&gt; select count(*) from employees where first_name = 'Sachin'; 
+mysql&gt; SELECT COUNT(*) FROM employees WHERE first_name = 'Sachin'; 
 </code></pre>
 <p><em>Workshop 2: Use explain and explain analyze to profile a query, identify and add indexes required for improving performance</em></p>
-<pre><code># View all indexes on table 
-#(\G is to output horizontally, replace it with a ; to get table output)
-mysql&gt; show index from employees from employees\G
+<pre><code class="language-shell"># View all indexes on table 
+# (\G is to output horizontally, replace it with a ; to get table output)
+
+mysql&gt; SHOW INDEX FROM employees FROM employees\G
 *************************** 1. row ***************************
         Table: employees
    Non_unique: 0
@@ -2177,10 +2180,11 @@ Index_comment:
       Visible: YES
    Expression: NULL
 
-# This query uses an index, idenitfied by 'key' field
+# This query uses an index, identified by 'key' field
 # By prefixing explain keyword to the command, 
 # we get query plan (including key used)
-mysql&gt; explain select * from employees where emp_no &lt; 10005\G
+
+mysql&gt; EXPLAIN SELECT * FROM employees WHERE emp_no &lt; 10005\G
 *************************** 1. row ***************************
            id: 1
   select_type: SIMPLE
@@ -2196,7 +2200,8 @@ possible_keys: PRIMARY
         Extra: Using where
 
 # Compare that to the next query which does not utilize any index
-mysql&gt; explain select first_name, last_name from employees where first_name = 'Sachin'\G
+
+mysql&gt; EXPLAIN SELECT first_name, last_name FROM employees WHERE first_name = 'Sachin'\G
 *************************** 1. row ***************************
            id: 1
   select_type: SIMPLE
@@ -2212,20 +2217,22 @@ possible_keys: NULL
         Extra: Using where
 
 # Let's see how much time this query takes
-mysql&gt; explain analyze select first_name, last_name from employees where first_name = 'Sachin'\G
+
+mysql&gt; EXPLAIN ANALYZE SELECT first_name, last_name FROM employees WHERE first_name = 'Sachin'\G
 *************************** 1. row ***************************
 EXPLAIN: -&gt; Filter: (employees.first_name = 'Sachin')  (cost=30143.55 rows=29911) (actual time=28.284..3952.428 rows=232 loops=1)
     -&gt; Table scan on employees  (cost=30143.55 rows=299113) (actual time=0.095..1996.092 rows=300024 loops=1)
 
 
-# Cost(estimated by query planner) is 30143.55
+# Cost (estimated by query planner) is 30143.55
 # actual time=28.284ms for first row, 3952.428 for all rows
 # Now lets try adding an index and running the query again
-mysql&gt; create index idx_firstname on employees(first_name);
+
+mysql&gt; CREATE INDEX idx_firstname ON employees(first_name);
 Query OK, 0 rows affected (1.25 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-mysql&gt; explain analyze select first_name, last_name from employees where first_name = 'Sachin';
+mysql&gt; EXPLAIN ANALYZE SELECT first_name, last_name FROM employees WHERE first_name = 'Sachin';
 +--------------------------------------------------------------------------------------------------------------------------------------------+
 | EXPLAIN                                                                                                                                    |
 +--------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2237,24 +2244,28 @@ mysql&gt; explain analyze select first_name, last_name from employees where firs
 # Actual time=0.551ms for first row
 # 2.934ms for all rows. A huge improvement!
 # Also notice that the query involves only an index lookup,
-# and no table scan (reading all rows of table)
-# ..which vastly reduces load on the DB.
+# and no table scan (reading all rows of the table),
+# which vastly reduces load on the DB.
 </code></pre>
 <p><em>Workshop 3: Identify slow queries on a MySQL server</em></p>
-<pre><code># Run the command below in two terminal tabs to open two shells into the container.
-docker exec -it $(docker ps -qf &quot;name=db&quot;) bash
+<pre><code class="language-shell"># Run the command below in two terminal tabs to open two shells into the container.
 
-# Open a mysql prompt in one of them and execute this command
+$ docker exec -it $(docker ps -qf &quot;name=db&quot;) bash
+
+# Open a `mysql` prompt in one of them and execute this command
 # We have configured to log queries that take longer than 1s,
-# so this sleep(3) will be logged
-mysql -uroot -prealsecret mysql
+# so this `sleep(3)` will be logged
+
+$ mysql -uroot -prealsecret mysql
 mysql&gt; select sleep(3);
 
 # Now, in the other terminal, tail the slow log to find details about the query
+
 root@62c92c89234d:/etc# tail -f /var/log/mysqlslow.log
 /usr/sbin/mysqld, Version: 8.0.21 (MySQL Community Server - GPL). started with:
 Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
 Time                 Id Command    Argument
+
 # Time: 2020-11-26T14:53:44.822348Z
 # User@Host: root[root] @ localhost []  Id:     9
 # Query_time: 5.404938  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 1
@@ -2262,6 +2273,7 @@ use employees;
 # Time: 2020-11-26T14:53:58.015736Z
 # User@Host: root[root] @ localhost []  Id:     9
 # Query_time: 10.000225  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 1
+
 SET timestamp=1606402428;
 select sleep(3);
 </code></pre>

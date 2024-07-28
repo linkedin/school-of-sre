@@ -2175,7 +2175,7 @@
                   <h1>InnoDB</h1>
                 
                 <h3 id="why-should-you-use-this">Why should you use this?</h3>
-<p>General purpose, row level locking, ACID support, transactions, crash recovery and multi-version concurrency control etc.</p>
+<p>General purpose, row level locking, ACID support, transactions, crash recovery and multi-version concurrency control, etc.</p>
 <h3 id="architecture">Architecture</h3>
 <p><img alt="alt_text" src="../images/innodb_architecture.png" title="InnoDB components" /></p>
 <h3 id="key-components">Key components:</h3>
@@ -2183,7 +2183,7 @@
 <li>
 <p>Memory:</p>
 <ul>
-<li>Buffer pool: LRU cache of frequently used data(table and index) to be processed directly from memory, which speeds up processing. Important for tuning performance.</li>
+<li>Buffer pool: LRU cache of frequently used data (table and index) to be processed directly from memory, which speeds up processing. Important for tuning performance.</li>
 <li>Change buffer: Caches changes to secondary index pages when those pages are not in the buffer pool and merges it when they are fetched. Merging may take a long time and impact live queries. It also takes up part of the buffer pool. Avoids the extra I/O to read secondary indexes in.</li>
 <li>Adaptive hash index: Supplements InnoDB’s B-Tree indexes with fast hash lookup tables like a cache. Slight performance penalty for misses, also adds maintenance overhead of updating it. Hash collisions cause AHI rebuilding for large DBs.</li>
 <li>

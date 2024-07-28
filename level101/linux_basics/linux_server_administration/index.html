@@ -2709,7 +2709,7 @@
                 
                 
                 <h1 id="linux-server-administration">Linux Server Administration</h1>
-<p>In this course will try to cover some of the common tasks that a linux
+<p>In this course, will try to cover some of the common tasks that a Linux
 server administrator performs. We will first try to understand what a
 particular command does and then try to understand the commands using
 examples. Do keep in mind that it's very important to practice the Linux
@@ -2717,7 +2717,7 @@ commands on your own.</p>
 <h2 id="lab-environment-setup">Lab Environment Setup</h2>
 <ul>
 <li>
-<p>Install docker on your system - <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a> OR you can used online <a href="https://labs.play-with-docker.com/">Docker playground</a></p>
+<p>Install docker on your system - <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a> OR you can use online <a href="https://labs.play-with-docker.com/">Docker playground</a></p>
 </li>
 <li>
 <p>We will be running all the commands on Red Hat Enterprise Linux (RHEL) 8 system.</p>
@@ -2728,7 +2728,7 @@ commands on your own.</p>
 <li>We will run most of the commands used in this module in the above Docker container.</li>
 </ul>
 <h2 id="multi-user-operating-systems">Multi-User Operating Systems</h2>
-<p>An operating system is considered as multi-user if it allows multiple people/users to use a computer and not affect each other's files and preferences. Linux based operating systems are multi-user in nature as it allows multiple users to access the system at the same time. A typical computer will only have one keyboard and monitor but multiple users can log in via SSH if the computer is connected to the network. We will cover more about SSH later.</p>
+<p>An operating system is considered as multi-user if it allows multiple people/users to use a computer and not affect each other's files and preferences. Linux-based operating systems are multi-user in nature as it allows multiple users to access the system at the same time. A typical computer will only have one keyboard and monitor but multiple users can log in via SSH if the computer is connected to the network. We will cover more about SSH later.</p>
 <p>As a server administrator, we are mostly concerned with the Linux servers which are physically present at a very large distance from us. We can connect to these servers with the help of remote login methods like SSH.</p>
 <p>Since Linux supports multiple users, we need to have a method which can protect the users from each other. One user should not be able to access and modify files of other users</p>
 <h2 id="usergroup-management">User/Group Management</h2>
@@ -2747,24 +2747,28 @@ commands on your own.</p>
 </li>
 </ul>
 <h3 id="id-command">id command</h3>
-<p><code>id</code> command can be used to find the uid and gid associated with an user.
+<p><code>id</code> command can be used to find the <code>uid</code> and <code>gid</code> associated with an user.
 It also lists down the groups to which the user belongs to.</p>
-<p>The uid and gid associated with the root user is 0.
-<img alt="" src="../images/linux/admin/image30.png" /></p>
-<p>A good way to find out the current user in Linux is to use the whoami
+<p>The <code>uid</code> and <code>gid</code> associated with the root user is 0.</p>
+<p><img alt="" src="../images/linux/admin/image30.png" /></p>
+<p>A good way to find out the current user in Linux is to use the <code>whoami</code>
 command.</p>
 <p><img alt="" src="../images/linux/admin/image35.png" /></p>
-<p><strong>"root" user or superuser is the most privileged user with</strong>
+<p><strong><code>root</code> user or superuser is the most privileged user with</strong>
 <strong>unrestricted access to all the resources on the system. It has UID 0</strong></p>
 <h3 id="important-files-associated-with-usersgroups">Important files associated with users/groups</h3>
 <table>
 <thead>
 <tr>
-<th>/etc/passwd</th>
-<th>Stores the user name, the uid, the gid, the home directory, the login shell etc</th>
+<th>Files</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>/etc/passwd</td>
+<td>Stores the user name, the <code>uid</code>, the <code>gid</code>, the home directory, the login shell etc</td>
+</tr>
 <tr>
 <td>/etc/shadow</td>
 <td>Stores the password associated with the users</td>
@@ -2778,7 +2782,7 @@ command.</p>
 <p><img alt="" src="../images/linux/admin/image23.png" /></p>
 <p><img alt="" src="../images/linux/admin/image21.png" /></p>
 <p><img alt="" src="../images/linux/admin/image9.png" /></p>
-<p>If you want to understand each filed discussed in the above outputs, you can go
+<p>If you want to understand each field discussed in the above outputs, you can go
 through below links:</p>
 <ul>
 <li>
@@ -2792,25 +2796,17 @@ through below links:</p>
 <p>Some of the commands which are used frequently to manage users/groups
 on Linux are following:</p>
 <ul>
-<li>
-<p><code>useradd</code> - Creates a new user</p>
-</li>
-<li>
-<p><code>passwd</code> - Adds or modifies passwords for a user</p>
-</li>
-<li>
-<p><code>usermod</code> - Modifies attributes of an user</p>
-</li>
-<li>
-<p><code>userdel</code> - Deletes an user</p>
-</li>
+<li><code>useradd</code> - Creates a new user</li>
+<li><code>passwd</code> - Adds or modifies passwords for a user</li>
+<li><code>usermod</code> - Modifies attributes of an user</li>
+<li><code>userdel</code> - Deletes an user</li>
 </ul>
 <h3 id="useradd">useradd</h3>
-<p>The useradd command adds a new user in Linux.</p>
-<p>We will create a new user 'shivam'. We will also verify that the user
-has been created by tailing the /etc/passwd file. The uid and gid are
+<p>The <code>useradd</code> command adds a new user in Linux.</p>
+<p>We will create a new user <code>shivam</code>. We will also verify that the user
+has been created by tailing the <code>/etc/passwd</code> file. The <code>uid</code> and <code>gid</code> are
 1000 for the newly created user. The home directory assigned to the user
-is /home/shivam and the login shell assigned is /bin/bash. Do note that
+is <code>/home/shivam</code> and the login shell assigned is <code>/bin/bash</code>. Do note that
 the user home directory and login shell can be modified later on.</p>
 <p><img alt="" src="../images/linux/admin/image41.png" /></p>
 <p>If we do not specify any value for attributes like home directory or
@@ -2818,13 +2814,13 @@ login shell, default values will be assigned to the user. We can also
 override these default values when creating a new user.</p>
 <p><img alt="" src="../images/linux/admin/image54.png" /></p>
 <h3 id="passwd">passwd</h3>
-<p>The passwd command is used to create or modify passwords for a user.</p>
+<p>The <code>passwd</code> command is used to create or modify passwords for a user.</p>
 <p>In the above examples, we have not assigned any password for users
-'shivam' or 'amit' while creating them.</p>
-<p>"!!" in an account entry in shadow means the account of an user has
+<code>shivam</code> or <code>amit</code> while creating them.</p>
+<p><code>!!</code> in an account entry in shadow means the account of an user has
 been created, but not yet given a password.</p>
 <p><img alt="" src="../images/linux/admin/image13.png" /></p>
-<p>Let's now try to create a password for user "shivam".</p>
+<p>Let's now try to create a password for user <code>shivam</code>.</p>
 <p><img alt="" src="../images/linux/admin/image55.png" /></p>
 <p>Do remember the password as we will be later using examples
 where it will be useful.</p>
@@ -2833,112 +2829,116 @@ from a normal user to root user, it will request you for a password.
 Also, when you login using root user, the password will be asked.</p>
 <p><img alt="" src="../images/linux/admin/image39.png" /></p>
 <h3 id="usermod">usermod</h3>
-<p>The usermod command is used to modify the attributes of an user like the
+<p>The <code>usermod</code> command is used to modify the attributes of an user like the
 home directory or the shell.</p>
-<p>Let's try to modify the login shell of user "amit" to "/bin/bash".</p>
+<p>Let's try to modify the login shell of user <code>amit</code> to <code>/bin/bash</code>.</p>
 <p><img alt="" src="../images/linux/admin/image17.png" /></p>
 <p>In a similar way, you can also modify many other attributes for a user.
-Try 'usermod -h' for a list of attributes you can modify.</p>
+Try <code>usermod -h</code> for a list of attributes you can modify.</p>
 <h3 id="userdel">userdel</h3>
-<p>The userdel command is used to remove a user on Linux. Once we remove a
+<p>The <code>userdel</code> command is used to remove a user on Linux. Once we remove a
 user, all the information related to that user will be removed.</p>
-<p>Let's try to delete the user "amit". After deleting the user, you will
-not find the entry for that user in "/etc/passwd" or "/etc/shadow" file.</p>
+<p>Let's try to delete the user <code>amit</code>. After deleting the user, you will
+not find the entry for that user in <code>/etc/passwd</code> or <code>/etc/shadow</code> file.</p>
 <p><img alt="" src="../images/linux/admin/image34.png" /></p>
 <h2 id="important-commands-for-managing-groups">Important commands for managing groups</h2>
-<p>Commands for managing groups are quite similar to the commands used for managing users. Each command is not explained  in detail here as they are quite similar. You can try running these commands on your system.</p>
+<p>Commands for managing groups are quite similar to the commands used for managing users. Each command is not explained in detail here as they are quite similar. You can try running these commands on your system.</p>
 <table>
 <thead>
 <tr>
-<th>groupadd \&lt;group_name&gt;</th>
-<th>Creates a new group</th>
+<th>Command</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>groupmod \&lt;group_name&gt;</td>
+<td>groupadd &lt;group_name&gt;</td>
+<td>Creates a new group</td>
+</tr>
+<tr>
+<td>groupmod &lt;group_name&gt;</td>
 <td>Modifies attributes of a group</td>
 </tr>
 <tr>
-<td>groupdel \&lt;group_name&gt;</td>
+<td>groupdel &lt;group_name&gt;</td>
 <td>Deletes a group</td>
 </tr>
 <tr>
-<td>gpasswd \&lt;group_name&gt;</td>
+<td>gpasswd  &lt;group_name&gt;</td>
 <td>Modifies password for group</td>
 </tr>
 </tbody>
 </table>
 <p><img alt="" src="../images/linux/admin/image52.png" /></p>
-<p>We will now try to add user "shivam" to the group we have created above.</p>
+<p>We will now try to add user <code>shivam</code> to the group we have created above.</p>
 <p><img alt="" src="../images/linux/admin/image33.png" /></p>
 <h2 id="becoming-a-superuser">Becoming a Superuser</h2>
 <p><strong>Before running the below commands, do make sure that you have set up a
-password for user "shivam" and user "root" using the passwd command
+password for user <code>shivam</code> and user <code>root</code> using the <code>passwd</code> command
 described in the above section.</strong></p>
-<p>The su command can be used to switch users in Linux. Let's now try to
-switch to user "shivam".</p>
+<p>The <code>su</code> command can be used to switch users in Linux. Let's now try to
+switch to user <code>shivam</code>.</p>
 <p><img alt="" src="../images/linux/admin/image37.png" /></p>
-<p>Let's now try to open the "/etc/shadow" file.</p>
+<p>Let's now try to open the <code>/etc/shadow</code> file.</p>
 <p><img alt="" src="../images/linux/admin/image29.png" /></p>
-<p>The operating system didn't allow the user "shivam" to read the content
-of the "/etc/shadow" file. This is an important file in Linux which
-stores the passwords of users. This file can only be accessed by root or
-users who have the superuser privileges.</p>
-<p><strong>The sudo command allows a</strong> <strong>user to run commands with the security
+<p>The operating system didn't allow the user <code>shivam</code> to read the content
+of the <code>/etc/shadow</code> file. This is an important file in Linux which
+stores the passwords of users. This file can only be accessed by <code>root</code> or
+users who have the <code>superuser</code> privileges.</p>
+<p><strong>The <code>sudo</code> command allows a</strong> <strong>user to run commands with the security
 privileges of the root user.</strong> Do remember that the root user has all
-the privileges on a system. We can also use su command to switch to the
+the privileges on a system. We can also use <code>su</code> command to switch to the
 root user and open the above file but doing that will require the
 password of the root user. An alternative way which is preferred on most
-modern operating systems is to use sudo command for becoming a
+modern operating systems is to use <code>sudo</code> command for becoming a
 superuser. Using this way, a user has to enter his/her password and they
-need to be a part of the sudo group.</p>
+need to be a part of the <code>sudo</code> group.</p>
 <p><strong>How to provide superpriveleges to other users ?</strong></p>
-<p>Let's first switch to the root user using su command. Do note that using
+<p>Let's first switch to the root user using <code>su</code> command. Do note that using
 the below command will need you to enter the password for the root user.</p>
 <p><img alt="" src="../images/linux/admin/image44.png" /></p>
-<p>In case, you forgot to set a password for the root user, type "exit" and
+<p>In case, you forgot to set a password for the root user, type <code>exit</code> and
 you will be back as the root user. Now, set up a password using the
-passwd command.</p>
-<p><strong>The file /etc/sudoers holds the names of users permitted to invoke
-sudo</strong>. In redhat operating systems, this file is not present by
-default. We will need to install sudo.</p>
+<code>passwd</code> command.</p>
+<p><strong>The file <code>/etc/sudoers</code> holds the names of users permitted to invoke
+<code>sudo</code></strong>. In Red Hat operating systems, this file is not present by
+default. We will need to install <code>sudo</code>.</p>
 <p><img alt="" src="../images/linux/admin/image3.png" /></p>
-<p>We will discuss the yum command in detail in later sections.</p>
-<p>Try to open the "/etc/sudoers" file on the system. The file has a lot of
+<p>We will discuss the <code>yum</code> command in detail in later sections.</p>
+<p>Try to open the <code>/etc/sudoers</code> file on the system. The file has a lot of
 information. This file stores the rules that users must follow when
-running the sudo command. For example, root is allowed to run any
+running the <code>sudo</code> command. For example, <code>root</code> is allowed to run any
 commands from anywhere.</p>
 <p><img alt="" src="../images/linux/admin/image8.png" /></p>
 <p>One easy way of providing root access to users is to add them to a group
-which has permissions to run all the commands. "wheel" is a group in
-redhat Linux with such privileges.</p>
+which has permissions to run all the commands. <code>wheel</code> is a group in
+Red Hat Linux with such privileges.</p>
 <p><img alt="" src="../images/linux/admin/image25.png" /></p>
-<p>Let's add the user "shivam" to this group so that it also has sudo
+<p>Let's add the user <code>shivam</code> to this group so that it also has <code>sudo</code>
 privileges.</p>
 <p><img alt="" src="../images/linux/admin/image48.png" /></p>
-<p>Let's now switch back to user "shivam" and try to access the
-"/etc/shadow" file.</p>
+<p>Let's now switch back to user <code>shivam</code> and try to access the
+<code>/etc/shadow</code> file.</p>
 <p><img alt="" src="../images/linux/admin/image56.png" /></p>
-<p>We need to use sudo before running the command since it can only be
-accessed with the sudo privileges. We have already given sudo privileges
-to user “shivam” by adding him to the group “wheel”.</p>
+<p>We need to use <code>sudo</code> before running the command since it can only be
+accessed with the <code>sudo</code> privileges. We have already given <code>sudo</code> privileges
+to user <code>shivam</code> by adding him to the group <code>wheel</code>.</p>
 <h2 id="file-permissions">File Permissions</h2>
 <p>On a Linux operating system, each file and directory is assigned access
 permissions for the owner of the file, the members of a group of related
 users and everybody else. This is to make sure that one user is not
 allowed to access the files and resources of another user.</p>
-<p>To see the permissions of a file, we can use the ls command. Let's look
-at the permissions of /etc/passwd file.</p>
+<p>To see the permissions of a file, we can use the <code>ls</code> command. Let's look
+at the permissions of <code>/etc/passwd</code> file.</p>
 <p><img alt="" src="../images/linux/admin/image40.png" /></p>
 <p>Let's go over some of the important fields in the output that are
 related to file permissions.</p>
 <p><img alt="" src="../images/linux/admin/image31.jpg" /></p>
 <p><img alt="" src="../images/linux/admin/image57.png" /></p>
 <h3 id="chmod-command">Chmod command</h3>
-<p>The chmod command is used to modify files and directories permissions in
+<p>The <code>chmod</code> command is used to modify files and directories permissions in
 Linux.</p>
-<p>The chmod command accepts permissions in as a numerical argument. We can
+<p>The <code>chmod</code> command accepts permissions in as a numerical argument. We can
 think of permission as a series of bits with 1 representing True or
 allowed and 0 representing False or not allowed.</p>
 <table>
@@ -3004,56 +3004,56 @@ allowed and 0 representing False or not allowed.</p>
 <p>We will now create a new file and check the permission of the file.</p>
 <p><img alt="" src="../images/linux/admin/image15.png" /></p>
 <p>The group owner doesn't have the permission to write to this file. Let's
-give the group owner or root the permission to write to it using chmod
+give the group owner or root the permission to write to it using <code>chmod</code>
 command.</p>
 <p><img alt="" src="../images/linux/admin/image26.png" /></p>
-<p>Chmod command can be also used to change the permissions of a directory
+<p><code>chmod</code> command can be also used to change the permissions of a directory
 in the similar way.</p>
 <h3 id="chown-command">Chown command</h3>
-<p>The chown command is used to change the owner of files or
+<p>The <code>chown</code> command is used to change the owner of files or
 directories in Linux.</p>
-<p>Command syntax: chown \&lt;new_owner&gt; \&lt;file_name&gt;</p>
+<p>Command syntax: <code>chown \&lt;new_owner\&gt; \&lt;file_name\&gt;</code></p>
 <p><img alt="" src="../images/linux/admin/image6.png" /></p>
-<p><strong>In case, we do not have sudo privileges, we need to use sudo
-command</strong>. Let's switch to user 'shivam' and try changing the owner. We
-have also changed the owner of the file to root before running the below
+<p><strong>In case, we do not have <code>sudo</code> privileges, we need to use <code>sudo</code>
+command</strong>. Let's switch to user <code>shivam</code> and try changing the owner. We
+have also changed the owner of the file to <code>root</code> before running the below
 command.</p>
 <p><img alt="" src="../images/linux/admin/image12.png" /></p>
 <p>Chown command can also be used to change the owner of a directory in the
 similar way.</p>
 <h3 id="chgrp-command">Chgrp command</h3>
-<p>The chgrp command can be used to change the group ownership of files or
-directories in Linux. The syntax is very similar to that of chown
+<p>The <code>chgrp</code> command can be used to change the group ownership of files or
+directories in Linux. The syntax is very similar to that of <code>chown</code>
 command.</p>
 <p><img alt="" src="../images/linux/admin/image27.png" /></p>
-<p>Chgrp command can also be used to change the owner of a directory in the
+<p><code>chgrp</code> command can also be used to change the owner of a directory in the
 similar way.</p>
 <h2 id="ssh-command">SSH Command</h2>
-<p>The ssh command is used for logging into the remote systems, transfer files between systems and for executing commands on a remote machine. SSH stands for secure shell and is used to provide an encrypted secured connection between two hosts over an insecure network like the internet.</p>
+<p>The <code>ssh</code> command is used for logging into the remote systems, transfer files between systems and for executing commands on a remote machine. <code>SSH</code> stands for secure shell and is used to provide an encrypted secured connection between two hosts over an insecure network like the internet.</p>
 <p>Reference:
 <a href="https://www.ssh.com/ssh/command/">https://www.ssh.com/ssh/command/</a></p>
 <p>We will now discuss passwordless authentication which is secure and most
-commonly used for ssh authentication.</p>
+commonly used for <code>ssh</code> authentication.</p>
 <h3 id="passwordless-authentication-using-ssh">Passwordless Authentication Using SSH</h3>
-<p>Using this method, we can ssh into hosts without entering the password.
+<p>Using this method, we can <code>ssh</code> into hosts without entering the password.
 This method is also useful when we want some scripts to perform
 ssh-related tasks.</p>
 <p>Passwordless authentication requires the use of a public and private key pair. As the name implies, the public key can be shared with anyone but the private key should be kept private.
-Lets not get  into the details of how this authentication works. You can read more about it
+Let's not get into the details of how this authentication works. You can read more about it
 <a href="https://www.digitalocean.com/community/tutorials/understanding-the-ssh-encryption-and-connection-process">here</a></p>
 <p>Steps for setting up a passwordless authentication with a remote host:</p>
 <ol>
 <li>
 <p>Generating public-private key pair  </p>
-<p><strong>If we already have a key pair stored in \~/.ssh directory, we will not need to generate keys again.</strong></p>
-<p>Install openssh package which contains all the commands related to ssh.</p>
+<p><strong>If we already have a key pair stored in <code>~/.ssh</code> directory, we will not need to generate keys again.</strong></p>
+<p>Install <code>openssh</code> package which contains all the commands related to <code>ssh</code>.</p>
 <p><img alt="" src="../images/linux/admin/image49.png" /></p>
-<p>Generate a key pair using the ssh-keygen command. One can choose the
+<p>Generate a key pair using the <code>ssh-keygen</code> command. One can choose the
 default values for all prompts.</p>
 <p><img alt="" src="../images/linux/admin/image47.png" /></p>
-<p>After running the ssh-keygen command successfully, we should see two
-keys present in the \~/.ssh directory. Id_rsa is the private key and
-id_rsa.pub is the public key. Do note that the private key can only be
+<p>After running the <code>ssh-keygen</code> command successfully, we should see two
+keys present in the <code>~/.ssh</code> directory. <code>id_rsa</code> is the private key and
+<code>id_rsa.pub</code> is the public key. Do note that the private key can only be
 read and modified by you.</p>
 <p><img alt="" src="../images/linux/admin/image7.png" /></p>
 </li>
@@ -3061,26 +3061,30 @@ read and modified by you.</p>
 <p>Transferring the public key to the remote host</p>
 <p>There are multiple ways to transfer the public key to the remote server.
 We will look at one of the most common ways of doing it using the
-ssh-copy-id command.</p>
+<code>ssh-copy-id</code> command.</p>
 <p><img alt="" src="../images/linux/admin/image11.png" /></p>
-<p>Install the openssh-clients package to use ssh-copy-id command.</p>
+<p>Install the <code>openssh-clients</code> package to use <code>ssh-copy-id</code> command.</p>
 <p><img alt="" src="../images/linux/admin/image46.png" /></p>
-<p>Use the ssh-copy-id command to copy your public key to the remote host.</p>
+<p>Use the <code>ssh-copy-id</code> command to copy your public key to the remote host.</p>
 <p><img alt="" src="../images/linux/admin/image50.png" /></p>
-<p>Now, ssh into the remote host using the password authentication.</p>
+<p>Now, <code>ssh</code> into the remote host using the password authentication.</p>
 <p><img alt="" src="../images/linux/admin/image51.png" /></p>
-<p>Our public key should be there in \~/.ssh/authorized_keys now.</p>
+<p>Our public key should be there in <code>~/.ssh/authorized_keys</code> now.</p>
 <p><img alt="" src="../images/linux/admin/image4.png" /></p>
-<p>\~/.ssh/authorized_key contains a list of public keys. The users
-associated with these public keys have the ssh access into the remote
+<p><code>~/.ssh/authorized_key</code> contains a list of public keys. The users
+associated with these public keys have the <code>ssh</code> access into the remote
 host.</p>
 </li>
 </ol>
 <h3 id="how-to-run-commands-on-a-remote-host">How to run commands on a remote host ?</h3>
-<p>General syntax: ssh \&lt;user&gt;@\&lt;hostname/hostip&gt; \&lt;command&gt;</p>
+<p>General syntax: </p>
+<pre><code class="language-shell">ssh \&lt;user\&gt;@\&lt;hostname/hostip\&gt; \&lt;command\&gt;
+</code></pre>
 <p><img alt="" src="../images/linux/admin/image14.png" /></p>
 <h3 id="how-to-transfer-files-from-one-host-to-another-host">How to transfer files from one host to another host ?</h3>
-<p>General syntax: scp \&lt;source&gt; \&lt;destination&gt;</p>
+<p>General syntax:</p>
+<pre><code class="language-shell">scp \&lt;source\&gt; \&lt;destination\&gt;
+</code></pre>
 <p><img alt="" src="../images/linux/admin/image32.png" /></p>
 <h2 id="package-management">Package Management</h2>
 <p>Package management is the process of installing and managing software on
@@ -3096,11 +3100,11 @@ systems.</p>
 </thead>
 <tbody>
 <tr>
-<td>Debian style (.deb)</td>
+<td>Debian style (<code>.deb</code>)</td>
 <td>Debian, Ubuntu</td>
 </tr>
 <tr>
-<td>Red Hat style (.rpm)</td>
+<td>Red Hat style (<code>.rpm</code>)</td>
 <td>Fedora, CentOS, Red Hat Enterprise Linux</td>
 </tr>
 </tbody>
@@ -3115,110 +3119,110 @@ systems.</p>
 </thead>
 <tbody>
 <tr>
-<td>yum install \&lt;package_name&gt;</td>
+<td>yum install &lt;package_name&gt;</td>
 <td>Installs a package on your system</td>
 </tr>
 <tr>
-<td>yum update \&lt;package_name&gt;</td>
-<td>Updates a package to it's latest available version</td>
+<td>yum update &lt;package_name&gt;</td>
+<td>Updates a package to its latest available version</td>
 </tr>
 <tr>
-<td>yum remove \&lt;package_name&gt;</td>
+<td>yum remove &lt;package_name&gt;</td>
 <td>Removes a package from your system</td>
 </tr>
 <tr>
-<td>yum search \&lt;keyword&gt;</td>
+<td>yum search &lt;keyword&gt;</td>
 <td>Searches for a particular keyword</td>
 </tr>
 </tbody>
 </table>
 <p><a href="https://docs.fedoraproject.org/en-US/quick-docs/dnf/">DNF</a> is
 the successor to YUM which is now used in Fedora for installing and
-managing packages. DNF may replace YUM in the future on all RPM based
+managing packages. DNF may replace YUM in the future on all RPM-based
 Linux distributions.</p>
 <p><img alt="" src="../images/linux/admin/image20.png" /></p>
-<p>We did find an exact match for the keyword httpd when we searched using
-yum search command. Let's now install the httpd package.</p>
+<p>We did find an exact match for the keyword <code>httpd</code> when we searched using
+<code>yum search</code> command. Let's now install the <code>httpd</code> package.</p>
 <p><img alt="" src="../images/linux/admin/image28.png" /></p>
-<p>After httpd is installed, we will use the yum remove command to remove
-httpd package.</p>
+<p>After <code>httpd</code> is installed, we will use the <code>yum remove</code> command to remove
+<code>httpd</code> package.</p>
 <p><img alt="" src="../images/linux/admin/image43.png" /></p>
 <h2 id="process-management">Process Management</h2>
 <p>In this section, we will study about some useful commands that can be
 used to monitor the processes on Linux systems.</p>
 <h3 id="ps-process-status">ps (process status)</h3>
-<p>The ps command is used to know the information of a process or list of
+<p>The <code>ps</code> command is used to know the information of a process or list of
 processes.</p>
 <p><img alt="" src="../images/linux/admin/image24.png" /></p>
-<p>If you get an error "ps command not found" while running ps command, do
-install <strong>procps</strong> package.</p>
-<p>ps without any arguments is not very useful. Let's try to list all the
+<p>If you get an error "ps command not found" while running <code>ps</code> command, do
+install <code>procps</code> package.</p>
+<p><code>ps</code> without any arguments is not very useful. Let's try to list all the
 processes on the system by using the below command.</p>
 <p>Reference:
 <a href="https://unix.stackexchange.com/questions/106847/what-does-aux-mean-in-ps-aux">https://unix.stackexchange.com/questions/106847/what-does-aux-mean-in-ps-aux</a></p>
 <p><img alt="" src="../images/linux/admin/image42.png" /></p>
-<p>We can use an additional argument with ps command to list the
-information about the process with a specific process ID.</p>
+<p>We can use an additional argument with <code>ps</code> command to list the
+information about the process with a specific process ID (PID).</p>
 <p><img alt="" src="../images/linux/admin/image2.png" /></p>
-<p>We can use grep in combination with ps command to list only specific
+<p>We can use <code>grep</code> in combination with <code>ps</code> command to list only specific
 processes.</p>
 <p><img alt="" src="../images/linux/admin/image1.png" /></p>
 <h3 id="top">top</h3>
-<p>The top command is used to show information about Linux processes
+<p>The <code>top</code> command is used to show information about Linux processes
 running on the system in real time. It also shows a summary of the
 system information.</p>
 <p><img alt="" src="../images/linux/admin/image53.png" /></p>
-<p>For each process, top lists down the process ID, owner, priority, state,
-cpu utilization, memory utilization and much more information. It also
-lists down the memory utilization and cpu utilization of the system as a
-whole along with system uptime and cpu load average.</p>
+<p>For each process, <code>top</code> lists down the process ID, owner, priority, state,
+CPU utilization, memory utilization and much more information. It also
+lists down the memory utilization and CPU utilization of the system as a
+whole along with system uptime and CPU load average.</p>
 <h2 id="memory-management">Memory Management</h2>
 <p>In this section, we will study about some useful commands that can be
 used to view information about the system memory.</p>
 <h3 id="free">free</h3>
-<p>The free command is used to display the memory usage of the system. The
+<p>The <code>free</code> command is used to display the memory usage of the system. The
 command displays the total free and used space available in the RAM
 along with space occupied by the caches/buffers.</p>
 <p><img alt="" src="../images/linux/admin/image22.png" /></p>
-<p>free command by default shows the memory usage in kilobytes. We can use
+<p><code>free</code> command by default shows the memory usage in kilobytes. We can use
 an additional argument to get the data in human-readable format.</p>
 <p><img alt="" src="../images/linux/admin/image5.png" /></p>
 <h3 id="vmstat">vmstat</h3>
-<p>The vmstat command can be used to display the memory usage along with
-additional information about io and cpu usage.</p>
+<p>The <code>vmstat</code> command can be used to display the memory usage along with
+additional information about IO and CPU usage.</p>
 <p><img alt="" src="../images/linux/admin/image38.png" /></p>
 <h2 id="checking-disk-space">Checking Disk Space</h2>
 <p>In this section, we will study about some useful commands that can be
 used to view disk space on Linux.</p>
 <h3 id="df-disk-free">df (disk free)</h3>
-<p>The df command is used to display the free and available space for each
+<p>The <code>df</code> command is used to display the free and available space for each
 mounted file system.</p>
 <p><img alt="" src="../images/linux/admin/image36.png" /></p>
 <h3 id="du-disk-usage">du (disk usage)</h3>
-<p>The du command is used to display disk usage of files and directories on
+<p>The <code>du</code> command is used to display disk usage of files and directories on
 the system.</p>
 <p><img alt="" src="../images/linux/admin/image10.png" /></p>
 <p>The below command can be used to display the top 5 largest directories
-in the root directory.</p>
+in the <code>root</code> directory.</p>
 <p><img alt="" src="../images/linux/admin/image18.png" /></p>
 <h2 id="daemons">Daemons</h2>
-<p>A computer program that runs as a background process is called a daemon.
-Traditionally, the name of daemon processes ended with d - sshd, httpd
+<p>A computer program that runs as a background process is called a <em>daemon</em>.
+Traditionally, the name of daemon processes ends with <code>d</code> - <code>sshd</code>, <code>httpd</code>,
 etc. We cannot interact with a daemon process as they run in the
 background.</p>
 <p>Services and daemons are used interchangeably most of the time.</p>
 <h2 id="systemd">Systemd</h2>
-<p>Systemd is a system and service manager for Linux operating systems.
-Systemd units are the building blocks of systemd. These units are
+<p><code>systemd</code> is a system and service manager for Linux operating systems.
+<code>systemd</code> units are the building blocks of <code>systemd</code>. These units are
 represented by unit configuration files.</p>
 <p>The below examples shows the unit configuration files available at
-/usr/lib/systemd/system which are distributed by installed RPM packages.
+<code>/usr/lib/systemd/system</code> which are distributed by installed RPM packages.
 We are more interested in the configuration file that ends with service
 as these are service units.</p>
 <p><img alt="" src="../images/linux/admin/image16.png" /></p>
 <h3 id="managing-system-services">Managing System Services</h3>
-<p>Service units end with .service file extension. Systemctl command can be
-used to start/stop/restart the services managed by systemd.</p>
+<p>Service units end with <code>.service</code> file extension. <code>systemctl</code> command can be
+used to start/stop/restart the services managed by <code>systemd</code>.</p>
 <table>
 <thead>
 <tr>

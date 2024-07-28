@@ -2188,42 +2188,44 @@
                 
                 <h3 id="mysql-replication">MySQL Replication</h3>
 <p>Replication enables data from one MySQL host (termed as Primary) to be copied to another MySQL host (termed as Replica). MySQL Replication is asynchronous in nature by default, but it can be changed to semi-synchronous with some configurations.</p>
-<p>Some common applications of MySQL replication are:-</p>
+<p>Some common applications of MySQL replication are:</p>
 <ul>
 <li><strong>Read-scaling</strong> - as multiple hosts can replicate the data from a single primary host, we can set up as many replicas as we need and scale reads through them, i.e. application writes will go to a single primary host and the reads can balance between all the replicas that are there. Such a setup can improve the write performance as well, as the primary is dedicated to only updates and not reads.</li>
 <li><strong>Backups using replicas</strong> - the backup process can sometimes be a little heavy. But if we have replicas configured, then we can use one of them to get the backup without affecting the primary data at all.</li>
 <li><strong>Disaster Recovery</strong> - a replica in some other geographical region paves a proper path to configure disaster recovery.</li>
 </ul>
-<p>MySQL supports different types of synchronizations as well:-</p>
+<p>MySQL supports different types of synchronizations as well:</p>
 <ul>
 <li><strong>Asynchronous</strong> - this is the default synchronization method. It is one-way, i.e. one host serves as primary and one or more hosts as replica. We will discuss this method throughout the replication topic.</li>
 </ul>
 <p><img alt="replication topologies" src="../images/replication_topologies.png" title="Different Replication Scenarios" /></p>
 <ul>
 <li><strong>Semi-Synchronous</strong> - in this type of synchronization, a commit performed on the primary host is blocked until at least one replica acknowledges it. Post the acknowledgement from any one replica, the control is returned to the session that performed the transaction. This ensures strong consistency but the replication is slower than asynchronous.</li>
-<li><strong>Delayed</strong> - we can deliberately lag the replica in a typical MySQL replication by the number of seconds desired by the use case. This type of replication safeguards from severe human errors of dropping or corrupting the data on the primary, for example, in the above diagram for Delayed Replication, if a DROP DATABASE is executed by mistake on the primary, we still have 30 minutes to recover the data from R2 as that command has not been replicated on R2 yet.</li>
+<li><strong>Delayed</strong> - we can deliberately lag the replica in a typical MySQL replication by the number of seconds desired by the use case. This type of replication safeguards from severe human errors of dropping or corrupting the data on the primary, for example, in the above diagram for Delayed Replication, if a <code>DROP DATABASE</code> is executed by mistake on the primary, we still have 30 minutes to recover the data from R2 as that command has not been replicated on R2 yet.</li>
 </ul>
 <p><strong>Pre-Requisites</strong></p>
-<p>Before we dive into setting up replication, we should know about the binary logs. Binary logs play a very important role in MySQL replication. Binary logs, or commonly known as <em>binlogs</em> contain events about the changes done to the database, like table structure changes, data changes via DML operations, etc. They are not used to log SELECT statements. For replication, the primary sends the information to the replicas using its binlogs about the changes done to the database, and the replicas make the same data changes. </p>
-<p>With respect to MySQL replication, the binary log format can be of two types that decides the main type of replication:-
-- Statement-Based Replication or SBR
-- Row-Based Replication or RBR</p>
-<p><strong>Statement Based Binlog Format</strong></p>
-<p>Originally, the replication in MySQL was based on SQL statements getting replicated and executed on the replica from the primary. This is called statement based logging. The binlog contains the exact SQL statement run by the session. </p>
+<p>Before we dive into setting up replication, we should know about the binary logs. Binary logs play a very important role in MySQL replication. Binary logs, or commonly known as <em>binlogs</em> contain events about the changes done to the database, like table structure changes, data changes via DML operations, etc. They are not used to log <code>SELECT</code> statements. For replication, the primary sends the information to the replicas using its <code>binlogs</code> about the changes done to the database, and the replicas make the same data changes. </p>
+<p>With respect to MySQL replication, the binary log format can be of two types that decides the main type of replication:</p>
+<ul>
+<li>Statement-Based Replication or SBR</li>
+<li>Row-Based Replication or RBR</li>
+</ul>
+<p><strong>Statement-Based Binlog Format</strong></p>
+<p>Originally, the replication in MySQL was based on SQL statements getting replicated and executed on the replica from the primary. This is called statement-based logging. The <code>binlog</code> contains the exact SQL statement run by the session. </p>
 <p><img alt="SBR update example" src="../images/sbr_example_update_1.png" title="SBR update example" /></p>
-<p>So If we run the above statements to insert 3 records and the update 3 in a single update statement, they will be logged exactly the same as when we executed them.</p>
+<p>So, if we run the above statements to insert 3 records and the update 3 in a single update statement, they will be logged exactly the same as when we executed them.</p>
 <p><img alt="SBR binlog" src="../images/sbr_binlog_view_1.png" title="SBR binlog" /></p>
-<p><strong>Row Based Binlog Format</strong></p>
-<p>The Row based is the default one in the latest MySQL releases. This is a lot different from the Statement format as here, row events are logged instead of statements. By that we mean, in the above example one update statement affected 3 records, but binlog had only one update statement; if it is a row based format, binlog will have an event for each record updated.</p>
+<p><strong>Row-Based Binlog Format</strong></p>
+<p>The row-based is the default one in the latest MySQL releases. This is a lot different from the Statement format as here, row events are logged instead of statements. By that we mean, in the above example one update statement affected 3 records, but <code>binlog</code> had only one <code>UPDATE</code> statement; if it is a row-based format, <code>binlog</code> will have an event for each record updated.</p>
 <p><img alt="RBR update example" src="../images/rbr_example_update_1.png" title="RBR update example" /></p>
 <p><img alt="RBR binlog" src="../images/rbr_binlog_view_1.png" title="RBR binlog" /></p>
-<p><strong>Statement Based v/s Row Based binlogs</strong></p>
+<p><strong>Statement-Based v/s Row-Based binlogs</strong></p>
 <p>Let’s have a look at the operational differences between statement-based and row-based binlogs. </p>
 <table>
 <thead>
 <tr>
-<th>Statement Based</th>
-<th>Row Based</th>
+<th>Statement-Based</th>
+<th>Row-Based</th>
 </tr>
 </thead>
 <tbody>
@@ -2240,35 +2242,35 @@
 <td>Restoring using binlogs is slower</td>
 </tr>
 <tr>
-<td>When used for replication, if any statement has a predefined function that has its own value, like sysdate(), uuid() etc, the output could be different on the replica which makes it inconsistent.</td>
+<td>When used for replication, if any statement has a predefined function that has its own value, like <code>sysdate()</code>, <code>uuid()</code> etc, the output could be different on the replica which makes it inconsistent.</td>
 <td>Whatever is executed becomes a row event with values, so there will be no problem if such functions are used in SQL statements.</td>
 </tr>
 <tr>
 <td>Only statements are logged so no other row events are generated.</td>
-<td>A lot of events are generated when a table is copied into another using INSERT INTO SELECT.</td>
+<td>A lot of events are generated when a table is copied into another using <code>INSERT INTO SELECT</code>.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Note</strong> - There is another type of binlog format called <strong>Mixed</strong>. With mixed logging, statement based is used by default but it switches to row based in certain cases. If MySQL cannot guarantee that statement based logging is safe for the statements executed, it issues a warning and switches to row based for those statements.</p>
+<p><strong>Note</strong>: There is another type of <code>binlog</code> format called <strong>Mixed</strong>. With mixed logging, statement-based is used by default but it switches to row-based in certain cases. If MySQL cannot guarantee that statement-based logging is safe for the statements executed, it issues a warning and switches to row-based for those statements.</p>
 <p>We will be using binary log format as Row for the entire replication topic.</p>
 <p><strong>Replication in Motion</strong></p>
 <p><img alt="replication in motion" src="../images/replication_function.png" title="Replication in motion" /></p>
 <p>The above figure indicates how a typical MySQL replication works.</p>
 <ol>
-<li>Replica_IO_Thread is responsible to fetch the binlog events from the primary binary logs to the replica</li>
+<li><code>Replica_IO_Thread</code> is responsible to fetch the binlog events from the primary binary logs to the replica.</li>
 <li>On the Replica host, relay logs are created which are exact copies of the binary logs. If the binary logs on primary are in row format, the relay logs will be the same.</li>
-<li>Replica_SQL_Thread applies the relay logs on the replica MySQL server.</li>
-<li>If log-bin is enabled on the replica, then the replica will have its own binary logs as well. If log-slave-updates is enabled, then it will have the updates from the primary logged in the binlogs as well.</li>
+<li><code>Replica_SQL_Thread</code> applies the relay logs on the replica MySQL server.</li>
+<li>If <code>log-bin</code> is enabled on the replica, then the replica will have its own binary logs as well. If <code>log-slave-updates</code> is enabled, then it will have the updates from the primary logged in the binlogs as well.</li>
 </ol>
 <h4 id="setting-up-replication">Setting up Replication</h4>
-<p>In this section, we will set up a simple asynchronous replication. The binlogs will be in row based format. The replication will be set up on two fresh hosts with no prior data present. There are two different ways in which we can set up replication. </p>
+<p>In this section, we will set up a simple asynchronous replication. The binlogs will be in row-based format. The replication will be set up on two fresh hosts with no prior data present. There are two different ways in which we can set up replication. </p>
 <ul>
 <li><strong>Binlog based</strong> - Each replica keeps a record of the binlog coordinates on the primary - current binlog and position in the binlog till where it has read and processed. So, at a time different replicas might be reading different parts of the same binlog.</li>
-<li><strong>GTID based</strong> - Every transaction gets an identifier called global transaction identifier or GTID. There is no need to keep the record of binlog coordinates, as long as the replica has all the GTIDs executed on the primary, it is consistent with the primary. A typical GTID is the server_uuid:# positive integer.</li>
+<li><strong>GTID based</strong> - Every transaction gets an identifier called global transaction identifier or GTID. There is no need to keep the record of binlog coordinates, as long as the replica has all the GTIDs executed on the primary, it is consistent with the primary. A typical GTID is the <code>server_uuid:#</code> positive integer.</li>
 </ul>
-<p>We will set up a GTID based replication in the following section but will also discuss binlog based replication setup as well.</p>
+<p>We will set up a GTID-based replication in the following section but will also discuss binlog-based replication setup as well.</p>
 <p><strong>Primary Host Configurations</strong></p>
-<p>The following config parameters should be present in the primary my.cnf file for setting up GTID based replication.</p>
+<p>The following config parameters should be present in the primary <code>my.cnf</code> file for setting up GTID-based replication.</p>
 <pre><code>server-id - a unique ID for the mysql server
 log-bin - the binlog location
 binlog-format - ROW | STATEMENT (we will use ROW)
@@ -2276,7 +2278,7 @@ gtid-mode - ON
 enforce-gtid-consistency - ON (allows execution of only those statements which can be logged using GTIDs)
 </code></pre>
 <p><strong>Replica Host Configurations</strong></p>
-<p>The following config parameters should be present in the replica my.cnf file for setting up replication.</p>
+<p>The following config parameters should be present in the replica <code>my.cnf</code> file for setting up replication.</p>
 <pre><code>server-id - different than the primary host
 log-bin - (optional, if you want replica to log its own changes as well)
 binlog-format - depends on the above
@@ -2285,15 +2287,15 @@ enforce-gtid-consistency - ON
 log-slave-updates - ON (if binlog is enabled, then we can enable this. This enables the replica to log the changes coming from the primary along with its own changes. Helps in setting up chain replication)
 </code></pre>
 <p><strong>Replication User</strong></p>
-<p>Every replica connects to the primary using a mysql user for replicating. So there must be a mysql user account for the same on the primary host. Any user can be used for this purpose provided it has REPLICATION SLAVE privilege. If the sole purpose is replication then we can have a user with only the required privilege.</p>
-<p>On the primary host</p>
-<pre><code>mysql&gt; create user repl_user@&lt;replica_IP&gt; identified by 'xxxxx';
+<p>Every replica connects to the primary using a <code>mysql</code> user for replicating. So there must be a <code>mysql</code> user account for the same on the primary host. Any user can be used for this purpose provided it has <code>REPLICATION SLAVE</code> privilege. If the sole purpose is replication, then we can have a user with only the required privilege.</p>
+<p>On the primary host:</p>
+<pre><code class="language-shell">mysql&gt; CREATE USER repl_user@&lt;replica_IP&gt; IDENTIFIED BY 'xxxxx';
 
-mysql&gt; grant replication slave on *.* to repl_user@'&lt;replica_IP&gt;';
+mysql&gt; GRANT REPLICATION SLAVE ON *.* TO repl_user@'&lt;replica_IP&gt;';
 </code></pre>
 <p><strong>Obtaining Starting position from Primary</strong></p>
-<p>Run the following command on the primary host</p>
-<pre><code>mysql&gt; show master status\G
+<p>Run the following command on the primary host:</p>
+<pre><code class="language-shell">mysql&gt; SHOW MASTER STATUS\G
 *************************** 1. row ***************************
              File: mysql-bin.000001
          Position: 73
@@ -2302,32 +2304,36 @@ mysql&gt; grant replication slave on *.* to repl_user@'&lt;replica_IP&gt;';
 Executed_Gtid_Set: e17d0920-d00e-11eb-a3e6-000d3aa00f87:1-3
 1 row in set (0.00 sec)
 </code></pre>
-<p>If we are working with binary log based replication, the top two output lines are the most important ones. That tells the current binlog on the primary host and till what position it has written. For fresh hosts we know that no data is written so we can directly set up replication using the very first binlog file and position 4. If we are setting up a replication from a backup, then that changes the way we obtain the starting position. For GTIDs, the executed_gtid_set is the value where primary is right now. Again, for a fresh setup, we don’t have to specify anything about the starting point and it will start from the transaction id 1, but when we set up from a backup, the backup will contain the GTID positions till where backup has been taken.</p>
+<p>If we are working with binary log-based replication, the top two output lines are the most important ones. That tells the current binlog on the primary host and till what position it has written. For fresh hosts we know that no data is written, so we can directly set up replication using the very first <code>binlog</code> file and position 4. If we are setting up a replication from a backup, then that changes the way we obtain the starting position. For GTIDs, the <code>executed_gtid_set</code> is the value where primary is right now. Again, for a fresh setup, we don’t have to specify anything about the starting point and it will start from the transaction id 1, but when we set up from a backup, the backup will contain the GTID positions till where backup has been taken.</p>
 <p><strong>Setting up Replica</strong></p>
-<p>The replication setup must know about the primary host, the user and password to connect, the binlog coordinates (for binlog based replication) or the GTID auto-position parameter.
-The following command is used for setting up</p>
-<pre><code>change master to
+<p>The replication setup must know about the primary host, the user and password to connect, the binlog coordinates (for binlog-based replication) or the GTID auto-position parameter.
+The following command is used for setting up:</p>
+<pre><code class="language-SQL">CHANGE MASTER TO
 master_host = '&lt;primary host IP&gt;',
 master_port = &lt;primary host port - default=3306&gt;,
 master_user = 'repl_user',
 master_password = 'xxxxx',
 master_auto_position = 1;
 </code></pre>
-<p><strong>Note</strong> - the <em>Change Master To</em> command has been replaced with <em>Change Replication Source To</em> from Mysql 8.0.23 onwards, also all the <em>master</em> and <em>slave</em> keywords are replaced with <em>source</em> and <em>replica</em>.</p>
-<p>If it is binlog based replication, then instead of master_auto_position, we need to specify the binlog coordinates.</p>
+<p><strong>Note</strong>: The <code>CHANGE MASTER TO</code> command has been replaced with <code>CHANGE REPLICATION SOURCE TO</code> from Mysql 8.0.23 onwards, also all the <em>master</em> and <em>slave</em> keywords are replaced with <em>source</em> and <em>replica</em>.</p>
+<p>If it is binlog-based replication, then instead of <code>master_auto_position</code>, we need to specify the binlog coordinates.</p>
 <pre><code>master_log_file = 'mysql-bin.000001',
 master_log_pos = 4
 </code></pre>
 <p><strong>Starting Replication and Check Status</strong></p>
 <p>Now that everything is configured, we just need to start the replication on the replica via the following command</p>
-<p><code>start slave;</code></p>
+<pre><code class="language-SQL">START SLAVE;
+</code></pre>
 <p>OR from MySQL 8.0.23 onwards,</p>
-<p><code>start replica;</code></p>
-<p>Whether or not the replication is running successfully, we can determine by running the following command</p>
-<p><code>show slave status\G</code></p>
+<pre><code class="language-SQL">START REPLICA;
+</code></pre>
+<p>Whether or not the replication is running successfully, we can determine by running the following command:</p>
+<pre><code class="language-SQL">SHOW SLAVE STATUS\G
+</code></pre>
 <p>OR from MySQL 8.0.23 onwards,</p>
-<p><code>show replica status\G</code></p>
-<pre><code>mysql&gt; show replica status\G
+<pre><code class="language-SQL">SHOW REPLICA STATUS\G
+</code></pre>
+<pre><code class="language-shell">mysql&gt; SHOW REPLICA STATUS\G
 *************************** 1. row ***************************
              Replica_IO_State: Waiting for master to send event
                   Source_Host: &lt;primary IP&gt;
@@ -2391,30 +2397,66 @@ Source_SSL_Verify_Server_Cert: No
             Network_Namespace:
 1 row in set (0.00 sec)
 </code></pre>
-<p>Some of the parameters are explained below:-</p>
-<ul>
-<li><strong>Relay_Source_Log_File</strong> - the primary’s file where replica is currently reading from</li>
-<li><strong>Execute_Source_Log_Pos</strong> - for the above file on which position is the replica reading currently from. These two parameters are of utmost importance when binlog based replication is used.</li>
-<li><strong>Replica_IO_Running</strong> - IO thread of replica is running or not</li>
-<li><strong>Replica_SQL_Running</strong> - SQL thread of replica is running or not</li>
-<li><strong>Seconds_Behind_Source</strong> - the difference of seconds when a statement was executed on Primary and then on Replica. This indicates how much replication lag is there.</li>
-<li><strong>Source_UUID</strong> - the uuid of the primary host</li>
-<li><strong>Retrieved_Gtid_Set</strong> - the GTIDs fetched from the primary host by the replica to be executed.</li>
-<li><strong>Executed_Gtid_Set</strong> - the GTIDs executed on the replica. This set remains the same for the entire cluster if the replicas are in sync.</li>
-<li><strong>Auto_Position</strong> - it directs the replica to fetch the next GTID automatically</li>
-</ul>
+<p>Some of the parameters are explained below:</p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relay_Source_Log_File</td>
+<td>the primary’s file where replica is currently reading from</td>
+</tr>
+<tr>
+<td>Execute_Source_Log_Pos</td>
+<td>for the above file on which position is the replica reading currently from. These two parameters are of utmost importance when binlog based replication is used</td>
+</tr>
+<tr>
+<td>Replica_IO_Running</td>
+<td>IO thread of replica is running or not</td>
+</tr>
+<tr>
+<td>Replica_SQL_Running</td>
+<td>SQL thread of replica is running or not</td>
+</tr>
+<tr>
+<td>Seconds_Behind_Source</td>
+<td>the difference of seconds when a statement was executed on Primary and then on Replica. This indicates how much replication lag is there</td>
+</tr>
+<tr>
+<td>Source_UUID</td>
+<td>the uuid of the primary host</td>
+</tr>
+<tr>
+<td>Retrieved_Gtid_Set</td>
+<td>the GTIDs fetched from the primary host by the replica to be executed</td>
+</tr>
+<tr>
+<td>Executed_Gtid_Set</td>
+<td>the GTIDs executed on the replica. This set remains the same for the entire cluster if the replicas are in sync</td>
+</tr>
+<tr>
+<td>Auto_Position</td>
+<td>it directs the replica to fetch the next GTID automatically</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Create a Replica for the already setup cluster</strong></p>
 <p>The steps discussed in the previous section talks about the setting up replication on two fresh hosts. When we have to set up a replica for a host which is already serving applications, then the backup of the primary is used, either fresh backup taken for the replica (should only be done if the traffic it is serving is less) or use a recently taken backup.</p>
-<p>If the size of the databases on the MySQL primary server is small, less than 100G recommended, then mysqldump can be used to take backup along with the following options.</p>
-<p><code>mysqldump -uroot -p -hhost_ip -P3306 --all-databases --single-transaction --master-data=1 &gt; primary_host.bkp</code></p>
+<p>If the size of the databases on the MySQL primary server is small, less than 100G recommended, then <code>mysqldump</code> can be used to take backup along with the following options.</p>
+<pre><code class="language-shell">mysqldump -uroot -p -hhost_ip -P3306 --all-databases --single-transaction --master-data=1 &gt; primary_host.bkp
+</code></pre>
 <ul>
 <li><code>--single-transaction</code> - this option starts a transaction before taking the backup which ensures it is consistent. As transactions are isolated from each other, so no other writes affect the backup.</li>
-<li><code>--master-data</code> - this option is required if binlog based replication is desired to be set up. It includes the binary log file and log file position in the backup file.</li>
+<li><code>--master-data</code> - this option is required if binlog-based replication is desired to be set up. It includes the binary log file and log file position in the backup file.</li>
 </ul>
-<p>When GTID mode is enabled and <strong>mysqldump</strong> is executed, it includes the GTID executed to be used to start the replica after the backup position. The contents of the mysqldump output file will have the following</p>
+<p>When GTID mode is enabled and <code>mysqldump</code> is executed, it includes the GTID executed to be used to start the replica after the backup position. The contents of the <code>mysqldump</code> output file will have the following</p>
 <p><img alt="GTID info in mysqldump" src="../images/mysqldump_gtid_text.png" title="GTID info in mysqldump" /></p>
-<p>It is recommended to comment these before restoring otherwise they could throw errors. Also, using master-data=2 will automatically comment the master_log_file line.</p>
-<p>Similarly, when taking backup of the host using <strong>xtrabackup</strong>, the file <em>xtrabckup_info</em> file contains the information about binlog file and file position, as well as the GTID executed set.</p>
+<p>It is recommended to comment these before restoring otherwise they could throw errors. Also, using <code>master-data=2</code> will automatically comment the <code>master_log_file</code> line.</p>
+<p>Similarly, when taking backup of the host using <code>xtrabackup</code>, the file <code>xtrabckup_info</code> file contains the information about binlog file and file position, as well as the GTID executed set.</p>
 <pre><code>server_version = 8.0.25
 start_time = 2021-06-22 03:45:17
 end_time = 2021-06-22 03:45:20
@@ -2428,8 +2470,8 @@ format = file
 compressed = N
 encrypted = N
 </code></pre>
-<p>Now, after setting MySQL server on the desired host, restore the backup taken from any one of the above methods. If the intended way is binlog based replication, then use the binlog file and position info in the following command</p>
-<pre><code>change Replication Source to 
+<p>Now, after setting MySQL server on the desired host, restore the backup taken from any one of the above methods. If the intended way is binlog-based replication, then use the binlog file and position info in the following command:</p>
+<pre><code>CHANGE REPLICATION SOURCE TO 
 source_host = ‘primary_ip’,
 source_port = 3306,
 source_user = ‘repl_user’,
@@ -2437,19 +2479,19 @@ source_password = ‘xxxxx’,
 source_log_file = ‘mysql-bin.000007’,
 source_log_pos = ‘196’;
 </code></pre>
-<p>If the replication needs to be set via GITDs, then run the below command to tell the replica about the GTIDs already executed. On the Replica host, run th following commands</p>
-<pre><code>reset master;
+<p>If the replication needs to be set via GITDs, then run the below command to tell the replica about the GTIDs already executed. On the Replica host, run the following commands:</p>
+<pre><code>RESET MASTER;
 
 set global gtid_purged = ‘e17d0920-d00e-11eb-a3e6-000d3aa00f87:1-5’
 
-change replication source to
+CHANGE REPLICATION SOURCE TO
 source_host = ‘primary_ip’,
 source_port = 3306,
 source_user = ‘repl_user’,
 source_password = ‘xxxxx’,
 source_auto_position = 1
 </code></pre>
-<p>The reset master command resets the position of the binary log to initial. It can be skipped if the host is a freshly installed MySQL, but we restored a backup so it is necessary. The gtid_purged global variable lets the replica know the GTIDs that have already been executed, so that the replication can start after that. Then in the change source command, we set the auto-position to 1 which automatically gets the next GTID to proceed.</p>
+<p>The reset master command resets the position of the binary log to initial. It can be skipped if the host is a freshly installed MySQL, but we restored a backup so it is necessary. The <code>gtid_purged</code> global variable lets the replica know the GTIDs that have already been executed, so that the replication can start after that. Then in the change source command, we set the <code>auto-position</code> to 1 which automatically gets the next GTID to proceed.</p>
 <h4 id="further-reading">Further Reading</h4>
 <ul>
 <li><a href="https://dev.mysql.com/doc/refman/8.0/en/replication-solutions.html">More applications of Replication</a></li>

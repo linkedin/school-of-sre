@@ -2348,7 +2348,7 @@
 <h2 id="prerequisites">Prerequisites</h2>
 <ol>
 <li>Have Git installed <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></li>
-<li>Have taken any git high level tutorial or following LinkedIn learning courses<ul>
+<li>Have taken any git high-level tutorial or following LinkedIn learning courses<ul>
 <li><a href="https://www.linkedin.com/learning/git-essential-training-the-basics/">https://www.linkedin.com/learning/git-essential-training-the-basics/</a></li>
 <li><a href="https://www.linkedin.com/learning/git-branches-merges-and-remotes/">https://www.linkedin.com/learning/git-branches-merges-and-remotes/</a></li>
 <li><a href="https://git-scm.com/doc">The Official Git Docs</a></li>
@@ -2356,7 +2356,7 @@
 </li>
 </ol>
 <h2 id="what-to-expect-from-this-course">What to expect from this course</h2>
-<p>As an engineer in the field of computer science, having knowledge of version control tools becomes almost a requirement. While there are a lot of version control tools that exist today like SVN, Mercurial, etc, Git perhaps is the most used one and this course we will be working with Git. While this course does not start with Git 101 and expects basic knowledge of git as a prerequisite, it will reintroduce the git concepts known by you with details covering what is happening under the hood as you execute various git commands. So that next time you run a git command, you will be able to press enter more confidently!</p>
+<p>As an engineer in the field of computer science, having knowledge of version control tools becomes almost a requirement. While there are a lot of version control tools that exist today like SVN, Mercurial, etc, Git perhaps is the most used one and this course we will be working with Git. While this course does not start with Git 101 and expects basic knowledge of git as a prerequisite, it will reintroduce the git concepts known by you with details covering what is happening under the hood as you execute various <code>git</code> commands. So that next time you run a <code>git</code> command, you will be able to press <code>enter</code> more confidently!</p>
 <h2 id="what-is-not-covered-under-this-course">What is not covered under this course</h2>
 <p>Advanced usage and specifics of internal implementation details of Git.</p>
 <h2 id="course-contents">Course Contents</h2>
@@ -2383,9 +2383,9 @@ Initialized empty Git repository in /private/tmp/school-of-sre/.git/
 <pre><code class="language-bash">$ ls .git/
 HEAD        config      description hooks       info        objects     refs
 </code></pre>
-<p>There are a bunch of folders and files in the <code>.git</code> folder. As I said, all these enables git to do its magic. We will look into some of these folders and files. But for now, what we have is an empty git repository.</p>
+<p>There are a bunch of folders and files in the <code>.git</code> folder. As I said, all these enable git to do its magic. We will look into some of these folders and files. But for now, what we have is an empty git repository.</p>
 <h3 id="tracking-a-file">Tracking a File</h3>
-<p>Now as you might already know, let us create a new file in our repo (we will refer to the folder as <em>repo</em> now.) And see git status</p>
+<p>Now as you might already know, let us create a new file in our repo (we will refer to the folder as <em>repo</em> now.) And see <code>git status</code>:</p>
 <pre><code class="language-bash">$ echo &quot;I am file 1&quot; &gt; file1.txt
 $ git status
 On branch master
@@ -2399,7 +2399,7 @@ Untracked files:
 
 nothing added to commit but untracked files present (use &quot;git add&quot; to track)
 </code></pre>
-<p>The current git status says <code>No commits yet</code> and there is one untracked file. Since we just created the file, git is not tracking that file. We explicitly need to ask git to track files and folders. (also checkout <a href="https://git-scm.com/docs/gitignore">gitignore</a>) And how we do that is via <code>git add</code> command as suggested in the above output. Then we go ahead and create a  commit.</p>
+<p>The current git status says <code>No commits yet</code> and there is one untracked file. Since we just created the file, git is not tracking that file. We explicitly need to ask git to track files and folders. (Also checkout <a href="https://git-scm.com/docs/gitignore">gitignore</a>) And how we do that is via <code>git add</code> command as suggested in the above output. Then, we go ahead and create a commit.</p>
 <pre><code class="language-bash">$ git add file1.txt
 $ git status
 On branch master
@@ -2416,7 +2416,7 @@ $ git commit -m &quot;adding file 1&quot;
 1 file changed, 1 insertion(+)
 create mode 100644 file1.txt
 </code></pre>
-<p>Notice how after adding the file, git status says <code>Changes to be committed:</code>. What it means is whatever is listed there, will be included in the next commit. Then we go ahead and create a commit, with an attached messaged via <code>-m</code>.</p>
+<p>Notice how after adding the file, <code>git status</code> says <code>Changes to be committed:</code>. What it means is whatever is listed there, will be included in the next commit. Then, we go ahead and create a commit, with an attached message via <code>-m</code>.</p>
 <h3 id="more-about-a-commit">More About a Commit</h3>
 <p>Commit is a snapshot of the repo. Whenever a commit is made, a snapshot of the current state of repo (the folder) is taken and saved. Each commit has a unique ID. (<code>df2fb7a</code> for the commit we made in the previous step). As we keep adding/changing more and more contents and keep making commits, all those snapshots are stored by git. Again, all this magic happens inside the <code>.git</code> folder. This is where all this snapshot or versions are stored <em>in an efficient manner.</em></p>
 <h3 id="adding-more-changes">Adding More Changes</h3>
@@ -2437,11 +2437,11 @@ create mode 100644 file2.txt
 * df2fb7a adding file 1
 </code></pre>
 <p><code>git log</code>, as the name suggests, prints the log of all the git commits. Here you see two additional arguments, <code>--oneline</code> prints the shorter version of the log, ie: the commit message only and not the person who made the commit and when. <code>--graph</code> prints it in graph format.</p>
-<p><strong>Now at this moment the commits might look like just one in each line but all commits are stored as a tree like data structure internally by git. That means there can be two or more children commits of a given commit. And not just a single line of commits. We will look more into this part when we get to the Branches section. For now this is our commit history:</strong></p>
+<p><strong>Now at this moment, the commits might look like just one in each line but all commits are stored as a tree like data structure internally by git. That means there can be two or more children commits of a given commit. And not just a single line of commits. We will look more into this part when we get to the Branches section. For now, this is our commit history:</strong></p>
 <pre><code class="language-bash">   df2fb7a ===&gt; 7f3b00e
 </code></pre>
 <h3 id="are-commits-really-linked">Are commits really linked?</h3>
-<p>As I just said, the two commits we just made are linked via tree like data structure and we saw how they are linked. But let's actually verify it. Everything in git is an object. Newly created files are stored as an object. Changes to file are stored as an objects and even commits are objects. To view contents of an object we can use the following command with the object's ID. We will take a look at the contents of the second commit</p>
+<p>As I just said, the two commits we just made are linked via tree like data structure and we saw how they are linked. But let's actually verify it. Everything in git is an object. Newly created files are stored as an object. Changes to file are stored as an objects and even commits are objects. To view contents of an object, we can use the following command with the object's ID. We will take a look at the contents of the second commit:</p>
 <pre><code class="language-bash">$ git cat-file -p 7f3b00e
 tree ebf3af44d253e5328340026e45a9fa9ae3ea1982
 parent df2fb7a61f5d40c1191e0fdeb0fc5d6e7969685a
@@ -2450,13 +2450,13 @@ committer Sanket Patel &lt;spatel1@linkedin.com&gt; 1603273316 -0700
 
 adding file 2
 </code></pre>
-<p>Take a note of <code>parent</code> attribute in the above output. It points to the commit id of the first commit we made. So this proves that they are linked! Additionally you can see the second commit's message in this object. As I said all this magic is enabled by <code>.git</code> folder and the object to which we are looking at also is in that folder.</p>
+<p>Take a note of <code>parent</code> attribute in the above output. It points to the commit id of the first commit we made. So this proves that they are linked! Additionally, you can see the second commit's message in this object. As I said all this magic is enabled by <code>.git</code> folder and the object to which we are looking at also is in that folder.</p>
 <pre><code class="language-bash">$ ls .git/objects/7f/3b00eaa957815884198e2fdfec29361108d6a9
 .git/objects/7f/3b00eaa957815884198e2fdfec29361108d6a9
 </code></pre>
 <p>It is stored in <code>.git/objects/</code> folder. All the files and changes to them as well are stored in this folder.</p>
 <h3 id="the-version-control-part-of-git">The Version Control part of Git</h3>
-<p>We already can see two commits (versions) in our git log. One thing a version control tool gives you is ability to browse back and forth in history. For example: some of your users are running an old version of code and they are reporting an issue. In order to debug the issue, you need access to the old code. The one in your current repo is the latest code. In this example, you are working on the second commit (7f3b00e) and someone reported an issue with the code snapshot at commit (df2fb7a). This is how you would get access to the code at any older commit</p>
+<p>We already can see two commits (versions) in our git log. One thing a version control tool gives you is ability to browse back and forth in history. For example: some of your users are running an old version of code and they are reporting an issue. In order to debug the issue, you need access to the old code. The one in your current repo is the latest code. In this example, you are working on the second commit (<code>7f3b00e</code>) and someone reported an issue with the code snapshot at commit (<code>df2fb7a</code>). This is how you would get access to the code at any older commit.</p>
 <pre><code class="language-bash"># Current contents, two files present
 $ ls
 file1.txt file2.txt
@@ -2480,10 +2480,10 @@ HEAD is now at df2fb7a adding file 1
 $ ls
 file1.txt
 </code></pre>
-<p>So this is how we would get access to old versions/snapshots. All we need is a <em>reference</em> to that snapshot. Upon executing <code>git checkout ...</code>, what git does for you is use the <code>.git</code> folder, see what was the state of things (files and folders) at that version/reference and replace the contents of current directory with those contents. The then-existing content will no longer be present in the local dir (repo) but we can and will still get access to them because they are tracked via git commit and <code>.git</code> folder has them stored/tracked.</p>
+<p>So this is how we would get access to old versions/snapshots. All we need is a <em>reference</em> to that snapshot. Upon executing <code>git checkout ...</code>, what git does for you is use the <code>.git</code> folder, see what was the state of things (files and folders) at that version/reference and replace the contents of current directory with those contents. The then-existing content will no longer be present in the local dir (repo) but we can and will still get access to them because they are tracked via <code>git commit</code> and <code>.git</code> folder has them stored/tracked.</p>
 <h3 id="reference">Reference</h3>
 <p>I mention in the previous section that we need a <em>reference</em> to the version. By default, git repo is made of tree of commits. And each commit has a unique IDs. But the unique ID is not the only thing we can reference commits via. There are multiple ways to reference commits. For example: <code>HEAD</code> is a reference to current commit. <em>Whatever commit your repo is checked out at, <code>HEAD</code> will point to that.</em> <code>HEAD~1</code> is reference to previous commit. So while checking out previous version in section above, we could have done <code>git checkout HEAD~1</code>.</p>
-<p>Similarly, master is also a reference (to a branch). Since git uses tree like structure to store commits, there of course will be branches. And the default branch is called <code>master</code>. Master (or any branch reference) will point to the latest commit in the branch. Even though we have checked out to the previous commit in out repo, <code>master</code> still points to the latest commit. And we can get back to the latest version by checkout at <code>master</code> reference</p>
+<p>Similarly, <code>master</code> is also a reference (to a branch). Since git uses tree like structure to store commits, there of course will be branches. And the default branch is called <code>master</code>. Master (or any branch reference) will point to the latest commit in the branch. Even though we have checked out to the previous commit in out repo, <code>master</code> still points to the latest commit. And we can get back to the latest version by <code>checkout</code> at <code>master</code> reference</p>
 <pre><code class="language-bash">$ git checkout master
 Previous HEAD position was df2fb7a adding file 1
 Switched to branch 'master'
@@ -2503,7 +2503,7 @@ file1.txt file2.txt
 <pre><code class="language-bash">$ cat .git/refs/heads/master
 7f3b00eaa957815884198e2fdfec29361108d6a9
 </code></pre>
-<p>Viola! Where master is pointing to is stored in a file. <strong>Whenever git needs to know where master reference is pointing to, or if git needs to update where master points, it just needs to update the file above.</strong> So when you create a new commit, a new commit is created on top of the current commit and the master file is updated with the new commit's ID.</p>
+<p>Viola! Where <code>master</code> is pointing to is stored in a file. <strong>Whenever git needs to know where master reference is pointing to, or if git needs to update where master points, it just needs to update the file above.</strong> So when you create a new commit, a new commit is created on top of the current commit and the master file is updated with the new commit's ID.</p>
 <p>Similary, for <code>HEAD</code> reference:</p>
 <pre><code class="language-bash">$ cat .git/HEAD
 ref: refs/heads/master
@@ -2515,7 +2515,7 @@ ref: refs/heads/master
 * 7f3b00e (HEAD -&gt; master) adding file 2
 * df2fb7a adding file 1
 </code></pre>
-<p>Now let's change master to point to the previous/first commit.</p>
+<p>Now, let's change <code>master</code> to point to the previous/first commit.</p>
 <pre><code class="language-bash">$ echo df2fb7a61f5d40c1191e0fdeb0fc5d6e7969685a &gt; .git/refs/heads/master
 $ git log --oneline --graph
 * df2fb7a (HEAD -&gt; master) adding file 1

@@ -2324,49 +2324,49 @@
 </thead>
 <tbody>
 <tr>
-<td>99%(Two Nines)</td>
+<td>99% (Two Nines)</td>
 <td style="text-align: center;">3.65 days</td>
 <td style="text-align: center;">7.31 hours</td>
 <td style="text-align: center;">1.68 hours</td>
 <td style="text-align: center;">14.40 minutes</td>
 </tr>
 <tr>
-<td>99.5%(Two and a half Nines)</td>
+<td>99.5% (Two and a half Nines)</td>
 <td style="text-align: center;">1.83 days</td>
 <td style="text-align: center;">3.65 hours</td>
 <td style="text-align: center;">50.40 minutes</td>
 <td style="text-align: center;">7.20 minutes</td>
 </tr>
 <tr>
-<td>99.9%(Three Nines)</td>
+<td>99.9% (Three Nines)</td>
 <td style="text-align: center;">8.77 hours</td>
 <td style="text-align: center;">43.83 minutes</td>
 <td style="text-align: center;">10.08 minutes</td>
 <td style="text-align: center;">1.44 minutes</td>
 </tr>
 <tr>
-<td>99.95%(Three and a half Nines)</td>
+<td>99.95% (Three and a half Nines)</td>
 <td style="text-align: center;">4.38 hours</td>
 <td style="text-align: center;">21.92 minutes</td>
 <td style="text-align: center;">5.04 minutes</td>
 <td style="text-align: center;">43.20 seconds</td>
 </tr>
 <tr>
-<td>99.99%(Four Nines)</td>
+<td>99.99% (Four Nines)</td>
 <td style="text-align: center;">52.60 minutes</td>
 <td style="text-align: center;">4.38 minutes</td>
 <td style="text-align: center;">1.01 minutes</td>
 <td style="text-align: center;">8.64 seconds</td>
 </tr>
 <tr>
-<td>99.995%(Four and a half Nines)</td>
+<td>99.995% (Four and a half Nines)</td>
 <td style="text-align: center;">26.30 minutes</td>
 <td style="text-align: center;">2.19 minutes</td>
 <td style="text-align: center;">30.24 seconds</td>
 <td style="text-align: center;">4.32 seconds</td>
 </tr>
 <tr>
-<td>99.999%(Five Nines)</td>
+<td>99.999% (Five Nines)</td>
 <td style="text-align: center;">5.26 minutes</td>
 <td style="text-align: center;">26.30 seconds</td>
 <td style="text-align: center;">6.05 seconds</td>
@@ -2376,38 +2376,38 @@
 </table>
 <h3 id="refer">Refer</h3>
 <ul>
-<li>https://en.wikipedia.org/wiki/High_availability#Percentage_calculation</li>
+<li><a href="https://en.wikipedia.org/wiki/High_availability#Percentage_calculation">https://en.wikipedia.org/wiki/High_availability#Percentage_calculation</a></li>
 </ul>
 <h2 id="ha-availability-serial-components">HA - Availability Serial Components</h2>
-<p>A System with components is operating in the series If the failure of a part leads to the combination becoming inoperable.</p>
+<p>A System with components is operating in the series if the failure of a part leads to the combination becoming inoperable.</p>
 <p>For example, if LB in our architecture fails, all access to app tiers will fail. LB and app tiers are connected serially.</p>
-<p>The combined availability of the system is the product of individual components availability</p>
+<p>The combined availability of the system is the product of individual components availability:</p>
 <p><em>A = Ax x Ay x …..</em></p>
 <h3 id="refer_1">Refer</h3>
 <ul>
-<li>http://www.eventhelix.com/RealtimeMantra/FaultHandling/system_reliability_availability.htm</li>
+<li><a href="http://www.eventhelix.com/RealtimeMantra/FaultHandling/system_reliability_availability.htm">http://www.eventhelix.com/RealtimeMantra/FaultHandling/system_reliability_availability.htm</a></li>
 </ul>
 <h2 id="ha-availability-parallel-components">HA - Availability Parallel Components</h2>
-<p>A System with components is operating in parallel If the failure of a part leads to the other part taking over the operations of the failed part.</p>
-<p>If we have more than one LB and if the rest of the LBs can take over the traffic during one LB failure then LBs are operating in parallel</p>
+<p>A System with components is operating in parallel if the failure of a part leads to the other part taking over the operations of the failed part.</p>
+<p>If we have more than one LB and if the rest of the LBs can take over the traffic during one LB failure, then LBs are operating in parallel.</p>
 <p>The combined availability of the system is</p>
 <p><em>A = 1 - ( (1-Ax) x (1-Ax) x ….. )</em></p>
 <h3 id="refer_2">Refer</h3>
 <ul>
-<li>http://www.eventhelix.com/RealtimeMantra/FaultHandling/system_reliability_availability.htm</li>
+<li><a href="http://www.eventhelix.com/RealtimeMantra/FaultHandling/system_reliability_availability.htm">http://www.eventhelix.com/RealtimeMantra/FaultHandling/system_reliability_availability.htm</a></li>
 </ul>
 <h2 id="ha-core-principles">HA - Core Principles</h2>
 <p><strong>Elimination of single points of failure (SPOF)</strong> This means adding redundancy to the system so that the failure of a component does not mean failure of the entire system.</p>
 <p><strong>Reliable crossover</strong> In redundant systems, the crossover point itself tends to become a single point of failure. Reliable systems must provide for reliable crossover.</p>
-<p><strong>Detection of failures as they occur</strong> If the two principles above are observed, then a user may never see a failure </p>
+<p><strong>Detection of failures as they occur</strong> If the two principles above are observed, then a user may never see a failure. </p>
 <h3 id="refer_3">Refer</h3>
 <ul>
-<li>https://en.wikipedia.org/wiki/High_availability#Principles</li>
+<li><a href="https://en.wikipedia.org/wiki/High_availability#Principles">https://en.wikipedia.org/wiki/High_availability#Principles</a></li>
 </ul>
 <h2 id="ha-spof">HA - SPOF</h2>
 <p><strong>WHAT:</strong> Never implement and always eliminate single points of failure.</p>
 <p><strong>WHEN TO USE:</strong> During architecture reviews and new designs.</p>
-<p><strong>HOW TO USE:</strong> Identify single instances on architectural diagrams. Strive for active/active configurations. At the very least we should have a standby to take control when active instances fail.</p>
+<p><strong>HOW TO USE:</strong> Identify single instances on architectural diagrams. Strive for active/active configurations. At the very least, we should have a standby to take control when active instances fail.</p>
 <p><strong>WHY:</strong> Maximize availability through multiple instances.</p>
 <p><strong>KEY TAKEAWAYS:</strong> Strive for active/active rather than active/passive solutions. Use load balancers to balance traffic across instances of a service. Use control services with active/passive instances for patterns that require singletons.</p>
 <h2 id="ha-reliable-crossover">HA - Reliable Crossover</h2>
@@ -2415,16 +2415,16 @@
 <p><strong>WHEN TO USE:</strong> During architecture reviews, failure modeling, and designs.</p>
 <p><strong>HOW TO USE:</strong> Identify how available a system is during the crossover and ensure it is within acceptable limits. </p>
 <p><strong>WHY:</strong> Maximize availability and ensure data handling semantics are preserved.  </p>
-<p><strong>KEY TAKEAWAYS:</strong> Strive for active/active rather than active/passive solutions, they have a lesser risk of cross over being unreliable. Use LB and the right load balancing methods to ensure reliable failover. Model and build your data systems to ensure data is correctly handled when crossover happens. Generally, DB systems follow active/passive semantics for writes. Masters accept writes and when the master goes down, the follower is promoted to master(active from being passive) to accept writes. We have to be careful here that the cutover never introduces more than one master. This problem is called a split brain.</p>
+<p><strong>KEY TAKEAWAYS:</strong> Strive for active/active rather than active/passive solutions, they have a lesser risk of cross over being unreliable. Use LB and the right load-balancing methods to ensure reliable failover. Model and build your data systems to ensure data is correctly handled when crossover happens. Generally, DB systems follow active/passive semantics for writes. Masters accept writes and when the master goes down, the follower is promoted to master (active from being passive) to accept writes. We have to be careful here that the cutover never introduces more than one master. This problem is called a split brain.</p>
 <h2 id="applications-in-sre-role">Applications in SRE role</h2>
 <ol>
 <li>SRE works on deciding an acceptable SLA and make sure the system is available to achieve the SLA</li>
 <li>SRE is involved in architecture design right from building the data center to make sure the site is not affected by a network switch, hardware, power, or software failures</li>
 <li>SRE also run mock drills of failures to see how the system behaves in uncharted territory and comes up with a plan to improve availability if there are misses. 
-https://engineering.linkedin.com/blog/2017/11/resilience-engineering-at-linkedin-with-project-waterbear</li>
+<a href="https://engineering.linkedin.com/blog/2017/11/resilience-engineering-at-linkedin-with-project-waterbear">https://engineering.linkedin.com/blog/2017/11/resilience-engineering-at-linkedin-with-project-waterbear</a></li>
 </ol>
-<p>Post our understanding about HA, our architecture diagram looks something like this below
-<img alt="HA Block Diagram" src="../images/availability.jpg" /></p>
+<p>Post our understanding about HA, our architecture diagram looks something like this below:</p>
+<p><img alt="HA Block Diagram" src="../images/availability.jpg" /></p>
                 
               
               

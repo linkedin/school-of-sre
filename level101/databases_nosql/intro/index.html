@@ -2280,9 +2280,9 @@
 <li><a href="https://linkedin.github.io/school-of-sre/level101/databases_sql/intro/">Relational Databases</a></li>
 </ul>
 <h2 id="what-to-expect-from-this-course">What to expect from this course</h2>
-<p>At the end of training, you will have an understanding of what a NoSQL database is, what kind of advantages or disadvantages it has over traditional RDBMS, learn about different types of NoSQL databases and understand some of the underlying concepts &amp; trade offs w.r.t to NoSQL.</p>
+<p>At the end of training, you will have an understanding of what a NoSQL database is, what kind of advantages or disadvantages it has over traditional RDBMS, learn about different types of NoSQL databases and understand some of the underlying concepts &amp; trade-offs w.r.t to NoSQL.</p>
 <h2 id="what-is-not-covered-under-this-course">What is not covered under this course</h2>
-<p>We will not be deep diving into any specific NoSQL Database. </p>
+<p>We will not be deep diving into any specific NoSQL database. </p>
 <h2 id="course-contents">Course Contents</h2>
 <ul>
 <li><a href="https://linkedin.github.io/school-of-sre/level101/databases_nosql/intro/#introduction">Introduction to NoSQL</a></li>
@@ -2297,11 +2297,17 @@
 <p>A common misconception is that NoSQL databases or non-relational databases don’t store relationship data well. NoSQL databases can store relationship data—they just store it differently than relational databases do. In fact, when compared with SQL databases, many find modeling relationship data in NoSQL databases to be <em>easier</em>, because related data doesn’t have to be split between tables.</p>
 <p>Such databases have existed since the late 1960s, but the name "NoSQL" was only coined in the early 21st century. NASA used a NoSQL database to track inventory for the Apollo mission. NoSQL databases emerged in the late 2000s as the cost of storage dramatically decreased. Gone were the days of needing to create a complex, difficult-to-manage data model simply for the purposes of reducing data duplication. Developers (rather than storage) were becoming the primary cost of software development, so NoSQL databases optimized for developer productivity. With the rise of Agile development methodology, NoSQL databases were developed with a focus on scaling, fast performance and at the same time allowed for frequent application changes and made programming easier.</p>
 <h3 id="types-of-nosql-databases">Types of NoSQL databases:</h3>
-<p>Over time due to the way these NoSQL databases were developed to suit requirements at different companies, we ended up with quite a few types of them. However, they can be broadly classified into 4 types. Some of the databases can overlap between different types. They are</p>
+<p>Over time due to the way these NoSQL databases were developed to suit requirements at different companies, we ended up with quite a few types of them. However, they can be broadly classified into 4 types. Some of the databases can overlap between different types. They are:</p>
 <ol>
-<li><strong>Document databases:</strong> They store data in documents similar to <a href="https://www.json.org/json-en.html">JSON</a> (JavaScript Object Notation) objects. Each document contains pairs of fields and values. The values can typically be a variety of types including things like strings, numbers, booleans, arrays, or objects, and their structures typically align with objects developers are working with in code. The advantages include intuitive data model &amp; flexible schemas. Because of their variety of field value types and powerful query languages, document databases are great for a wide variety of use cases and can be used as a general purpose database. They can horizontally scale-out to accomodate large data volumes. Ex: MongoDB, Couchbase</li>
-<li><strong>Key-Value databases:</strong> These are a simpler type of databases where each item contains keys and values. A value can typically only be retrieved by referencing its key, so learning how to query for a specific key-value pair is typically simple. Key-value databases are great for use cases where you need to store large amounts of data but you don’t need to perform complex queries to retrieve it. Common use cases include storing user preferences or caching. Ex: <a href="https://redis.io/">Redis</a>, <a href="https://aws.amazon.com/dynamodb/">DynamoDB</a>, <a href="https://www.project-voldemort.com/voldemort/">Voldemort</a>/<a href="https://engineering.linkedin.com/blog/2017/04/building-venice--a-production-software-case-study">Venice</a> (Linkedin), </li>
-<li><strong>Wide-Column stores:</strong> They store data in tables, rows, and dynamic columns. Wide-column stores provide a lot of flexibility over relational databases because each row is not required to have the same columns. Many consider wide-column stores to be two-dimensional key-value databases. Wide-column stores are great for when you need to store large amounts of data and you can predict what your query patterns will be. Wide-column stores are commonly used for storing Internet of Things data and user profile data. <a href="https://cassandra.apache.org/">Cassandra</a> and <a href="https://hbase.apache.org/">HBase</a> are two of the most popular wide-column stores.</li>
+<li>
+<p><strong>Document databases:</strong> They store data in documents similar to <a href="https://www.json.org/json-en.html">JSON</a> (JavaScript Object Notation) objects. Each document contains pairs of fields and values. The values can typically be a variety of types including things like strings, numbers, booleans, arrays, or objects, and their structures typically align with objects developers are working with in code. The advantages include intuitive data model &amp; flexible schemas. Because of their variety of field value types and powerful query languages, document databases are great for a wide variety of use cases and can be used as a general purpose database. They can horizontally scale-out to accomodate large data volumes. Ex: MongoDB, Couchbase</p>
+</li>
+<li>
+<p><strong>Key-Value databases:</strong> These are a simpler type of databases where each item contains keys and values. A value can typically only be retrieved by referencing its key, so learning how to query for a specific key-value pair is typically simple. Key-value databases are great for use cases where you need to store large amounts of data but you don’t need to perform complex queries to retrieve it. Common use cases include storing user preferences or caching. Ex: <a href="https://redis.io/">Redis</a>, <a href="https://aws.amazon.com/dynamodb/">DynamoDB</a>, <a href="https://www.project-voldemort.com/voldemort/">Voldemort</a>/<a href="https://engineering.linkedin.com/blog/2017/04/building-venice--a-production-software-case-study">Venice</a> (Linkedin).</p>
+</li>
+<li>
+<p><strong>Wide-Column stores:</strong> They store data in tables, rows, and dynamic columns. Wide-column stores provide a lot of flexibility over relational databases because each row is not required to have the same columns. Many consider wide-column stores to be two-dimensional key-value databases. Wide-column stores are great for when you need to store large amounts of data and you can predict what your query patterns will be. Wide-column stores are commonly used for storing Internet of Things data and user profile data. <a href="https://cassandra.apache.org/">Cassandra</a> and <a href="https://hbase.apache.org/">HBase</a> are two of the most popular wide-column stores.</p>
+</li>
 <li><strong>Graph Databases:</strong> These databases store data in nodes and edges. Nodes typically store information about people, places, and things while edges store information about the relationships between the nodes. The underlying storage mechanism of graph databases can vary. Some depend on a relational engine and “store” the graph data in a table (although a table is a logical element, therefore this approach imposes another level of abstraction between the graph database, the graph database management system and the physical devices where the data is actually stored). Others use a key-value store or document-oriented database for storage, making them inherently NoSQL structures. Graph databases excel in use cases where you need to traverse relationships to look for patterns such as social networks, fraud detection, and recommendation engines. Ex: <a href="https://neo4j.com/">Neo4j</a> </li>
 </ol>
 <h3 id="comparison"><strong>Comparison</strong></h3>
@@ -2426,7 +2432,7 @@
    </td>
    <td>Supported
    </td>
-   <td>Most do not support multi-record ACID transactions. However, some—like MongoDB—do.
+   <td>Most do not support multi-record ACID transactions. However, some like MongoDB do.
    </td>
   </tr>
   <tr>
@@ -2455,7 +2461,7 @@
 </li>
 <li>
 <p><strong>Horizontal Scaling</strong></p>
-<p>Most NoSQL systems allow you to scale horizontally, which means you can add in cheaper &amp; commodity hardware, whenever you want to scale a system. On the other hand SQL systems generally scale Vertically (a more powerful server). NoSQL systems can also host huge data sets when compared to traditional SQL systems.</p>
+<p>Most NoSQL systems allow you to scale horizontally, which means you can add in cheaper &amp; commodity hardware, whenever you want to scale a system. On the other hand, SQL systems generally scale Vertically (a more powerful server). NoSQL systems can also host huge datasets when compared to traditional SQL systems.</p>
 </li>
 <li>
 <p><strong>Fast Queries</strong></p>
@@ -2463,7 +2469,7 @@
 </li>
 <li>
 <p><strong>Developer productivity</strong></p>
-<p>NoSQL systems tend to map data based on the programming data structures. As a result developers need to perform fewer data transformations leading to increased productivity &amp; fewer bugs.</p>
+<p>NoSQL systems tend to map data based on the programming data structures. As a result, developers need to perform fewer data transformations leading to increased productivity &amp; fewer bugs.</p>
 </li>
 </ul>
                 

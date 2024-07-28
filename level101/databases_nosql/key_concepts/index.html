@@ -2233,9 +2233,9 @@
                 
                 
                 <h1 id="key-concepts">Key Concepts</h1>
-<p>Lets looks at some of the key concepts when we talk about NoSQL or distributed systems</p>
+<p>Lets looks at some of the key concepts when we talk about NoSQL or distributed systems.</p>
 <h3 id="cap-theorem">CAP Theorem</h3>
-<p>In a keynote titled “<a href="https://sites.cs.ucsb.edu/~rich/class/cs293b-cloud/papers/Brewer_podc_keynote_2000.pdf">Towards Robust Distributed Systems</a>” at ACM’s PODC symposium in 2000 Eric Brewer came up with the so-called CAP-theorem which is widely adopted today by large web companies as well as in the NoSQL community. The CAP acronym stands for <strong>C</strong>onsistency, <strong>A</strong>vailability &amp; <strong>P</strong>artition Tolerance.</p>
+<p>In a keynote titled “<a href="https://sites.cs.ucsb.edu/~rich/class/cs293b-cloud/papers/Brewer_podc_keynote_2000.pdf">Towards Robust Distributed Systems</a>” at ACM’s PODC symposium in 2000, Eric Brewer came up with the so-called CAP-theorem which is widely adopted today by large web companies as well as in the NoSQL community. The CAP acronym stands for <strong>C</strong>onsistency, <strong>A</strong>vailability &amp; <strong>P</strong>artition Tolerance.</p>
 <ul>
 <li>
 <p><strong>Consistency</strong></p>
@@ -2250,13 +2250,13 @@
 <p>It is the ability of the system to continue operations in the event of a network partition. A network partition occurs when a failure causes two or more islands of networks where the systems can’t talk to each other across the islands temporarily or permanently. </p>
 </li>
 </ul>
-<p>Brewer alleges that one can at most choose two of these three characteristics in a shared-data system. The CAP-theorem states that a choice can only be made for two options out of consistency, availability and partition tolerance. A growing number of use cases in large scale applications tend to value reliability implying that availability &amp; redundancy are more valuable than consistency. As a result these systems struggle to meet ACID properties. They attain this by loosening on the consistency requirement i.e Eventual Consistency.                   </p>
-<p><strong>Eventual Consistency </strong>means that all readers will see writes, as time goes on: “In a steady state, the system will eventually return the last written value”. Clients therefore may face an inconsistent state of data as updates are in progress. For instance, in a replicated database updates may go to one node which replicates the latest version to all other nodes that contain a replica of the modified dataset so that the replica nodes eventually will have the latest version. </p>
+<p>Brewer alleges that one can at most choose two of these three characteristics in a shared-data system. The CAP-theorem states that a choice can only be made for two options out of consistency, availability and partition tolerance. A growing number of use cases in large scale applications tend to value reliability implying that availability &amp; redundancy are more valuable than consistency. As a result these systems struggle to meet ACID properties. They attain this by loosening on the consistency requirement,  i.e Eventual Consistency.                     </p>
+<p><strong>Eventual Consistency</strong> means that all readers will see writes, as time goes on: “In a steady state, the system will eventually return the last written value”. Clients therefore may face an inconsistent state of data as updates are in progress. For instance, in a replicated database updates may go to one node which replicates the latest version to all other nodes that contain a replica of the modified dataset so that the replica nodes eventually will have the latest version. </p>
 <p>NoSQL systems support different levels of eventual consistency models. For example:</p>
 <ul>
 <li>
 <p><strong>Read Your Own Writes Consistency</strong></p>
-<p>Clients will see their updates immediately after they are written. The reads can hit nodes other than the one where it was written. However they might not see updates by other clients immediately.</p>
+<p>Clients will see their updates immediately after they are written. The reads can hit nodes other than the one where it was written. However, they might not see updates by other clients immediately.</p>
 </li>
 <li>
 <p><strong>Session Consistency</strong></p>
@@ -2326,7 +2326,7 @@ Web caching
 <ul>
 <li>
 <p><strong>Timestamps</strong></p>
-<p>This is the most obvious solution. You sort updates based on chronological order and choose the latest update. However this relies on clock synchronization across different parts of the infrastructure. This gets even more complicated when parts of systems are spread across different geographic locations. </p>
+<p>This is the most obvious solution. You sort updates based on chronological order and choose the latest update. However, this relies on clock synchronization across different parts of the infrastructure. This gets even more complicated when parts of systems are spread across different geographic locations. </p>
 </li>
 <li>
 <p><strong>Optimistic Locking</strong></p>
@@ -2342,7 +2342,7 @@ Web caching
 <p><img alt="alt_text" src="../images/vector_clocks.png" title="Vector Clocks" /></p>
 <p align="center"><span style="text-decoration:underline;  font-weight:bold;">Vector clocks illustration</span></p>
 
-<p>Vector clocks have the following advantages over other conflict resolution mechanism</p>
+<p>Vector clocks have the following advantages over other conflict resolution mechanism:</p>
 <ol>
 <li>No dependency on synchronized clocks</li>
 <li>No total ordering of revision nos required for casual reasoning </li>
@@ -2353,7 +2353,7 @@ Web caching
 <ol>
 <li>
 <p><strong>Memory cached</strong></p>
-<p>These are partitioned in-memory databases that are primarily used for transient data. These databases are generally used as a front for traditional RDBMS. Most frequently used data is replicated from a rdbms into a memory database to facilitate fast queries and to take the load off from backend DB’s. A very common example is memcached or couchbase. </p>
+<p>These are partitioned in-memory databases that are primarily used for transient data. These databases are generally used as a front for traditional RDBMS. Most frequently used data is replicated from a RDBMS into a memory database to facilitate fast queries and to take the load off from backend DB’s. A very common example is Memcached or Couchbase. </p>
 </li>
 <li>
 <p><strong>Clustering</strong></p>
@@ -2361,7 +2361,7 @@ Web caching
 </li>
 <li>
 <p><strong>Separating reads from writes</strong></p>
-<p>In this method, you will have multiple replicas hosting the same data. The incoming writes are typically sent to a single node (Leader) or multiple nodes (multi-Leader), while the rest of the replicas (Follower) handle reads requests. The leader replicates writes asynchronously to all followers. However the write lag can’t be completely avoided. Sometimes a leader can crash before it replicates all the data to a follower. When this happens, a follower with the most consistent data can be turned into a leader. As you can realize now, it is hard to enforce full consistency in this model. You also need to consider the ratio of read vs write traffic. This model won’t make sense when writes are higher than reads. The replication methods can also vary widely. Some systems do a complete transfer of state periodically, while others use a delta state transfer approach. You could also transfer the state by transferring the operations in order. The followers can then apply the same operations as the leader to catch up.</p>
+<p>In this method, you will have multiple replicas hosting the same data. The incoming writes are typically sent to a single node (Leader) or multiple nodes (multi-Leader), while the rest of the replicas (Follower) handle reads requests. The leader replicates writes asynchronously to all followers. However, the write lag can’t be completely avoided. Sometimes a leader can crash before it replicates all the data to a follower. When this happens, a follower with the most consistent data can be turned into a leader. As you can realize now, it is hard to enforce full consistency in this model. You also need to consider the ratio of read vs write traffic. This model won’t make sense when writes are higher than reads. The replication methods can also vary widely. Some systems do a complete transfer of state periodically, while others use a delta state transfer approach. You could also transfer the state by transferring the operations in order. The followers can then apply the same operations as the leader to catch up.</p>
 </li>
 <li>
 <p><strong>Sharding</strong></p>
@@ -2387,28 +2387,36 @@ k -&gt; primary key
 
 n -&gt; no of nodes
 </code></pre>
-<p>The downside of this simple hash is that, whenever the cluster topology changes, the data distribution also changes. When you are dealing with memory caches, it will be easy to distribute partitions around. Whenever a node joins/leaves a topology, partitions can reorder themselves, a cache miss can be re-populated from backend DB. However when you look at persistent data, it is not possible as the new node doesn’t have the data needed to serve it. This brings us to consistent hashing.</p>
+<p>The downside of this simple hash is that, whenever the cluster topology changes, the data distribution also changes. When you are dealing with memory caches, it will be easy to distribute partitions around. Whenever a node joins/leaves a topology, partitions can reorder themselves, a cache miss can be re-populated from backend DB. However, when you look at persistent data, it is not possible as the new node doesn’t have the data needed to serve it. This brings us to consistent hashing.</p>
 <h4 id="consistent-hashing">Consistent Hashing</h4>
 <p>Consistent hashing is a distributed hashing scheme that operates independently of the number of servers or objects in a distributed <em>hash table</em> by assigning them a position on an abstract circle, or <em>hash ring</em>. This allows servers and objects to scale without affecting the overall system.</p>
-<p>Say that our hash function h() generates a 32-bit integer. Then, to determine to which server we will send a key k, we find the server s whose hash h(s) is the smallest integer that is larger than h(k). To make the process simpler, we assume the table is circular, which means that if we cannot find a server with a hash larger than h(k), we wrap around and start looking from the beginning of the array.</p>
+<p>Say that our hash function <em>h</em>() generates a 32-bit integer. Then, to determine to which server we will send a key <em>k</em>, we find the server <em>s</em> whose hash <em>h</em>(<em>s</em>) is the smallest integer that is larger than <em>h</em>(<em>k</em>). To make the process simpler, we assume the table is circular, which means that if we cannot find a server with a hash larger than <em>h</em>(<em>k</em>), we wrap around and start looking from the beginning of the array.</p>
 <p id="gdcalert3" ><span style="color: red; font-weight: bold" images/consistent_hashing.png> </span></p>
 
 <p><img alt="alt_text" src="../images/consistent_hashing.png" title="Consistent Hashing" /></p>
 <p align="center"><span style="text-decoration:underline;  font-weight:bold;">Consistent hashing illustration</span></p>
 
-<p>In consistent hashing when a server is removed or added then only the keys from that server are relocated. For example, if server S3 is removed then, all keys from server S3 will be moved to server S4 but keys stored on server S4 and S2 are not relocated. But there is one problem, when server S3 is removed then keys from S3 are not equally distributed among remaining servers S4 and S2. They are only assigned to server S4 which increases the load on server S4.</p>
-<p>To evenly distribute the load among servers when a server is added or removed, it creates a fixed number of replicas ( known as virtual nodes) of each server and distributes it along the circle. So instead of server labels S1, S2 and S3, we will have S10 S11…S19, S20 S21…S29 and S30 S31…S39. The factor for a number of replicas is also known as <em>weight</em>, depending on the situation.</p>
-<p>All keys which are mapped to replicas Sij are stored on server Si. To find a key we do the same thing, find the position of the key on the circle and then move forward until you find a server replica. If the server replica is Sij then the key is stored in server Si.</p>
-<p>Suppose server S3 is removed, then all S3 replicas with labels S30 S31 … S39 must be removed. Now the objects keys adjacent to S3X labels will be automatically re-assigned to S1X, S2X and S4X. All keys originally assigned to S1, S2 &amp; S4 will not be moved.   </p>
-<p>Similar things happen if we add a server. Suppose we want to add a server S5 as a replacement of S3 then we need to add labels S50 S51 … S59. In the ideal case, one-fourth of keys from S1, S2 and S4 will be reassigned to S5.</p>
+<p>In consistent hashing, when a server is removed or added, then only the keys from that server are relocated. For example, if server S<sub>3</sub> is removed then, all keys from server S<sub>3</sub> will be moved to server S<sub>4</sub> but keys stored on server S<sub>4</sub> and S<sub>2</sub> are not relocated. But there is one problem, when server S<sub>3</sub> is removed then keys from S<sub>3</sub> are not equally distributed among remaining servers S<sub>4</sub> and S<sub>2</sub>. They are only assigned to server S<sub>4</sub> which increases the load on server S<sub>4</sub>.</p>
+<p>To evenly distribute the load among servers when a server is added or removed, it creates a fixed number of replicas (known as virtual nodes) of each server and distributes it along the circle. So instead of server labels S<sub>1</sub>, S<sub>2</sub> and S<sub>3</sub>, we will have S<sub>10</sub>,S<sub>11</sub>,…,S<sub>19</sub>, S<sub>20</sub>,S<sub>21</sub>,…,S<sub>29</sub> and S<sub>30</sub>,S<sub>31</sub>,…,S<sub>39</sub>. The factor for a number of replicas is also known as <em>weight</em>, depending on the situation.</p>
+<p>All keys which are mapped to replicas S<sub>ij</sub> are stored on server S<sub>i</sub>. To find a key, we do the same thing, find the position of the key on the circle and then move forward until you find a server replica. If the server replica is S<sub>ij</sub>, then the key is stored in server S<sub>i</sub>.</p>
+<p>Suppose server S<sub>3</sub> is removed, then all S<sub>3</sub> replicas with labels S<sub>30</sub>,S<sub>31</sub>,…,S<sub>39</sub> must be removed. Now, the objects keys adjacent to S<sub>3X</sub> labels will be automatically re-assigned to S<sub>1X</sub>, S<sub>2X</sub> and S<sub>4X</sub>. All keys originally assigned to S<sub>1</sub>, S<sub>2</sub> &amp; S<sub>4</sub> will not be moved.   </p>
+<p>Similar things happen if we add a server. Suppose we want to add a server S<sub>5</sub> as a replacement of S<sub>3</sub>, then we need to add labels S<sub>50</sub>,S<sub>51</sub>,…,S<sub>59</sub>. In the ideal case, one-fourth of keys from S<sub>1</sub>, S<sub>2</sub> and S<sub>4</sub> will be reassigned to S<sub>5</sub>.</p>
 <p>When applied to persistent storages, further issues arise: if a node has left the scene, data stored on this node becomes unavailable, unless it has been replicated to other nodes before; in the opposite case of a new node joining the others, adjacent nodes are no longer responsible for some pieces of data which they still store but not get asked for anymore as the corresponding objects are no longer hashed to them by requesting clients. In order to address this issue, a replication factor (r) can be introduced.         </p>
 <p>Introducing replicas in a partitioning scheme—besides reliability benefits—also makes it possible to spread workload for read requests that can go to any physical node responsible for a requested piece of data. Scalability doesn’t work if the clients have to decide between multiple versions of the dataset, because they need to read from a quorum of servers which in turn reduces the efficiency of load balancing. </p>
 <h3 id="quorum">Quorum</h3>
 <p>Quorum is the minimum number of nodes in a cluster that must be online and be able to communicate with each other. If any additional node failure occurs beyond this threshold, the cluster will stop running.</p>
-<p>To attain a quorum, you need a majority of the nodes. Commonly it is (N/2 + 1), where N is the total no of nodes in the system. For ex, </p>
-<p>In a 3 node cluster, you need 2 nodes for a majority,</p>
-<p>In a 5 node cluster, you need 3 nodes for a majority,</p>
-<p>In a 6 node cluster, you need 4 nodes for a majority. </p>
+<p>To attain a quorum, you need a majority of the nodes. Commonly, it is (N/2 + 1), where <em>N</em> is the total no of nodes in the system. For example, </p>
+<ul>
+<li>
+<p>In a 3-node cluster, you need 2 nodes for a majority.</p>
+</li>
+<li>
+<p>In a 5-node cluster, you need 3 nodes for a majority.</p>
+</li>
+<li>
+<p>In a 6-node cluster, you need 4 nodes for a majority. </p>
+</li>
+</ul>
 <p id="gdcalert4" ><span style="color: red; font-weight: bold" images/Quorum.png > </span></p>
 
 <p><img alt="alt_text" src="../images/Quorum.png" title="image_tooltip" /></p>
@@ -2416,7 +2424,7 @@ n -&gt; no of nodes
 
 <p>Network problems can cause communication failures among cluster nodes. One set of nodes might be able to communicate together across a functioning part of a network but not be able to communicate with a different set of nodes in another part of the network. This is known as split brain in cluster or cluster partitioning.</p>
 <p>Now the partition which has quorum is allowed to continue running the application. The other partitions are removed from the cluster.</p>
-<p>Eg: In a 5 node cluster, consider what happens if nodes 1, 2, and 3 can communicate with each other but not with nodes 4 and 5. Nodes 1, 2, and 3 constitute a majority, and they continue running as a cluster. Nodes 4 and 5, being a minority, stop running as a cluster. If node 3 loses communication with other nodes, all nodes stop running as a cluster. However, all functioning nodes will continue to listen for communication, so that when the network begins working again, the cluster can form and begin to run.</p>
+<p>Eg: In a 5-node cluster, consider what happens if nodes 1, 2, and 3 can communicate with each other but not with nodes 4 and 5. Nodes 1, 2, and 3 constitute a majority, and they continue running as a cluster. Nodes 4 and 5, being a minority, stop running as a cluster. If node 3 loses communication with other nodes, all nodes stop running as a cluster. However, all functioning nodes will continue to listen for communication, so that when the network begins working again, the cluster can form and begin to run.</p>
 <p>Below diagram demonstrates Quorum selection on a cluster partitioned into two sets.</p>
 <p id="gdcalert5" ><span style="color: red; font-weight: bold" images/cluster_quorum.png> </span></p>
 
