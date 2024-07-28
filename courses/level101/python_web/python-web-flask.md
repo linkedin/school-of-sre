@@ -1,12 +1,12 @@
 # Python, Web and Flask
 
-Back in the old days, websites were simple. They were simple static html contents. A webserver would be listening on a defined port and according to the HTTP request received, it would read files from disk and return them in response. But since then, complexity has evolved and websites are now dynamic. Depending on the request, multiple operations need to be performed like reading from database or calling other API and finally returning some response (HTML data, JSON content etc.)
+Back in the old days, websites were simple. They were simple static html contents. A webserver would be listening on a defined port and according to the HTTP request received, it would read files from disk and return them in response. But since then, complexity has evolved and websites are now dynamic. Depending on the request, multiple operations need to be performed like reading from database or calling other API and finally returning some response (HTML data, JSON content, etc.)
 
-Since serving web requests is no longer a simple task like reading files from disk and return contents, we need to process each http request, perform some operations programmatically and construct a response.
+Since serving web requests is no longer a simple task like reading files from disk and return contents, we need to process each HTTP request, perform some operations programmatically and construct a response.
 
 ## Sockets
 
-Though we have frameworks like flask, HTTP is still a protocol that works over TCP protocol. So let us setup a TCP server and send an HTTP request and inspect the request's payload. Note that this is not a tutorial on socket programming but what we are doing here is inspecting HTTP protocol at its ground level and look at what its contents look like. (Ref: [Socket Programming in Python (Guide) on RealPython](https://realpython.com/python-sockets/))
+Though we have frameworks like Flask, HTTP is still a protocol that works over TCP protocol. So, let us setup a TCP server and send an HTTP request and inspect the request's payload. Note that this is not a tutorial on socket programming but what we are doing here is inspecting HTTP protocol at its ground level and look at what its contents look like. (Ref: [Socket Programming in Python (Guide) on RealPython](https://realpython.com/python-sockets/))
 
 ```python
 import socket
@@ -27,7 +27,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
            print(data)
 ```
 
-Then we open `localhost:65432` in our web browser and following would be the output:
+Then, we open `localhost:65432` in our web browser and following would be the output:
 
 ```bash
 Connected by ('127.0.0.1', 54719)
@@ -47,10 +47,10 @@ So though it's a blob of bytes, knowing [http protocol specification](https://to
 
 Flask, and other such frameworks does pretty much what we just discussed in the last section (with added more sophistication). They listen on a port on a TCP socket, receive an HTTP request, parse the data according to protocol format and make it available to you in a convenient manner.
 
-ie: you can access headers in flask by `request.headers` which is made available to you by splitting above payload by `/r/n`, as defined in http protocol.
+That is you can access headers in Flask by `request.headers` which is made available to you by splitting above payload by `/r/n`, as defined in HTTP protocol.
 
-Another example: we register routes in flask by `@app.route("/hello")`. What flask will do is maintain a registry internally which will map `/hello` with the function you decorated with. Now whenever a request comes with the `/hello` route (second component in the first line, split by space), flask calls the registered function and returns whatever the function returned.
+Another example: we register routes in Flask by `@app.route("/hello")`. What Flask will do is maintain a registry internally which will map `/hello` with the function you decorated with. Now, whenever a request comes with the `/hello` route (second component in the first line, split by space), Flask calls the registered function and returns whatever the function returned.
 
 Same with all other web frameworks in other languages too. They all work on similar principles. What they basically do is understand the HTTP protocol, parses the HTTP request data and gives us programmers a nice interface to work with HTTP requests.
 
-Not so much of magic, innit?
+Not so much of magic in it?

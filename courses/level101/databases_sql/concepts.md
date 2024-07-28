@@ -28,44 +28,42 @@
 
     A query language to interact with and manage data.
 
-    [CRUD operations](https://stackify.com/what-are-crud-operations/) - create, read, update, delete queries
+    [CRUD operations](https://stackify.com/what-are-crud-operations/)&mdash;create, read, update, delete queries
 
-    Management operations - create DBs/tables/indexes etc, backup, import/export, users, access controls
+    Management operations&mdash;create DBs/tables/indexes, backup, import/export, users, access controls, etc
 
-    Exercise: Classify the below queries into the four types - DDL (definition), DML(manipulation), DCL(control) and TCL(transactions) and explain in detail.
+    *Exercise*: Classify the below queries into the four types&mdash;DDL (definition), DML (manipulation), DCL (control) and TCL (transactions) and explain in detail.
 
         insert, create, drop, delete, update, commit, rollback, truncate, alter, grant, revoke
 
     You can practise these in the [lab section](https://linkedin.github.io/school-of-sre/level101/databases_sql/lab/).
 
-
-
 *   Constraints
 
     Rules for data that can be stored. Query fails if you violate any of these defined on a table.
 
+	*Primary key*: One or more columns that contain UNIQUE values, and cannot contain NULL values. A table can have only ONE primary key. An index on it is created by default.
 
-	Primary key: one or more columns that contain UNIQUE values, and cannot contain NULL values. A table can have only ONE primary key. An index on it is created by default.
+    *Foreign key*: Links two tables together. Its value(s) match a primary key in a different table
 
-    Foreign key: links two tables together. Its value(s) match a primary key in a different table \
-	Not null: Does not allow null values \
-	Unique: Value of column must be unique across all rows \
-	Default: Provides a default value for a column if none is specified during insert
+	*Not null*: Does not allow null values
 
-    Check: Allows only particular values (like Balance >= 0)
+	*Unique*: Value of column must be unique across all rows
 
+	*Default*: Provides a default value for a column if none is specified during insert
+
+    *Check*: Allows only particular values (like Balance >= 0)
 
 
 *   [Indexes](https://datageek.blog/en/2018/06/05/rdbms-basics-indexes-and-clustered-indexes/)
 
 	Most indexes use B+ tree structure.
 
-	Why use them: Speeds up queries (in large tables that fetch only a few rows, min/max queries, by eliminating rows from consideration etc)
+	Why use them: Speeds up queries (in large tables that fetch only a few rows, min/max queries, by eliminating rows from consideration, etc)
 
-	Types of indexes: unique, primary key, fulltext, secondary
+	*Types of indexes*: unique, primary key, fulltext, secondary
 
-	Write-heavy loads, mostly full table scans or accessing large number of rows etc. do not benefit from indexes
-
+	Write-heavy loads, mostly full table scans or accessing large number of rows, etc. do not benefit from indexes
 
 
 *   [Joins](https://www.sqlservertutorial.net/sql-server-basics/sql-server-joins/)
@@ -73,21 +71,20 @@
 	Allows you to fetch related data from multiple tables, linking them together with some common field. Powerful but also resource-intensive and makes scaling databases difficult. This is the cause of many slow performing queries when run at scale, and the solution is almost always to find ways to reduce the joins.
 
 
-
 *   [Access control](https://dev.mysql.com/doc/refman/8.0/en/access-control.html)
 
-	DBs have privileged accounts for admin tasks, and regular accounts for clients. There are finegrained controls on what actions(DDL, DML etc. discussed earlier )are allowed for these accounts.
+	DBs have privileged accounts for admin tasks, and regular accounts for clients. There are fine-grained controls on what actions (DDL, DML, etc. discussed earlier) are allowed for these accounts.
 
 	DB first verifies the user credentials (authentication), and then examines whether this user is permitted to perform the request (authorization) by looking up these information in some internal tables.
 
-	Other controls include activity auditing that allows examining the history of actions done by a user, and resource limits which define the number of queries, connections etc. allowed.
+	Other controls include activity auditing that allows examining the history of actions done by a user, and resource limits which define the number of queries, connections, etc. allowed.
 
 
 ### Popular databases
 
-Commercial, closed source - Oracle, Microsoft SQL Server, IBM DB2
+Commercial, closed source: Oracle, Microsoft SQL Server, IBM DB2
 
-Open source with optional paid support - MySQL, MariaDB, PostgreSQL
+Open source with optional paid support: MySQL, MariaDB, PostgreSQL
 
 Individuals and small companies have always preferred open source DBs because of the huge cost associated with commercial software.
 

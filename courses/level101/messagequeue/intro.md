@@ -3,7 +3,7 @@
 
 ## What to expect from this course
 
-At the end of training, you will have an understanding of what a Message Services is, learn about different types of Message Service implementation and understand some of the underlying concepts & trade offs.
+At the end of training, you will have an understanding of what a Message Services is, learn about different types of Message Service implementation and understand some of the underlying concepts & trade-offs.
 
 ## What is not covered under this course
 

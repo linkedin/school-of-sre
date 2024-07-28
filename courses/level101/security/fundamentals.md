@@ -13,23 +13,23 @@
   - They have quite a big role in System design & hence are quite sometimes the first line of defence.
   - SRE’s help in preventing bad design & implementations which can affect the overall security of the infrastructure.  
 - Successfully designing, implementing, and maintaining systems requires a commitment to **the full system lifecycle**. This commitment is possible only when security and reliability are central elements in the architecture of systems.
-- Core Pillars of Information Security :
-  - **Confidentiality** – only allow access to data for which the user is permitted
-  - **Integrity** – ensure data is not tampered or altered by unauthorized users
-  - **Availability** – ensure systems and data are available to authorized users when they need it
+- Core Pillars of Information Security:
+    - **Confidentiality**&mdash;only allow access to data for which the user is permitted
+    - **Integrity**&mdash;ensure data is not tampered or altered by unauthorized users
+    - **Availability**&mdash;ensure systems and data are available to authorized users when they need it
 
-- Thinking like a Security Engineer
-  - When starting a new application or re-factoring an existing application, you should consider each functional feature, and consider:
-    - Is the process surrounding this feature as safe as possible? In other words, is this a flawed process?
-    - If I were evil, how would I abuse this feature? Or more specifically failing to address how a feature can be abused can cause design flaws.
-    - Is the feature required to be on by default? If so, are there limits or options that could help reduce the risk from this feature?
+- Thinking like a Security Engineer:
+    - When starting a new application or re-factoring an existing application, you should consider each functional feature, and consider:
+        - Is the process surrounding this feature as safe as possible? In other words, is this a flawed process?
+        - If I were evil, how would I abuse this feature? Or more specifically failing to address how a feature can be abused can cause design flaws.
+        - Is the feature required to be on by default? If so, are there limits or options that could help reduce the risk from this feature?
 
 - Security Principles By OWASP (Open Web Application Security Project)
-  - Minimize attack surface area :
+  - Minimize attack surface area:
     - Every feature that is added to an application adds a certain amount of risk to the overall application. The aim of secure development is to reduce the overall risk by reducing the attack surface area.
     - For example, a web application implements online help with a search function. The search function may be vulnerable to SQL injection attacks. If the help feature was limited to authorized users, the attack likelihood is reduced. If the help feature’s search function was gated through centralized data validation routines, the ability to perform SQL injection is dramatically reduced. However, if the help feature was re-written to eliminate the search function (through a better user interface, for example), this almost eliminates the attack surface area, even if the help feature was available to the Internet at large.
   - Establish secure defaults:
-    - There are many ways to deliver an “out of the box” experience for users. However, by default, the experience should be secure, and it should be up to the user to reduce their security – if they are allowed.
+    - There are many ways to deliver an “out of the box” experience for users. However, by default, the experience should be secure, and it should be up to the user to reduce their security&mdash;if they are allowed.
     - For example, by default, password ageing and complexity should be enabled. Users might be allowed to turn these two features off to simplify their use of the application and increase their risk.
     - Default Passwords of routers, IoT devices should be changed
   - Principle of Least privilege
@@ -41,20 +41,17 @@
     - For example, a flawed administrative interface is unlikely to be vulnerable to an anonymous attack if it correctly gates access to production management networks, checks for administrative user authorization, and logs all access.
   - Fail securely
     - Applications regularly fail to process transactions for many reasons. How they fail can determine if an application is secure or not.
-
-    ```
-
-    is_admin =  true;
-    try {
-        code_which_may_faile();
-         is_admin = is_user_assigned_role("Adminstrator");
-    }
-    catch (Exception err) {
-    log.error(err.toString());
-    }
-
-    ```
-    - If either codeWhichMayFail() or isUserInRole fails or throws an exception, the user is an admin by default. This is obviously a security risk.
+      <pre><code>
+      is_admin = true;
+      try {
+        code_which_may_fail();
+        is_admin = is_user_assigned_role("Adminstrator");
+      }
+      catch (Exception err) {
+        log.error(err.toString());
+      }
+      </code><pre>
+    - If either `codeWhichMayFail()` or `isUserInRole` fails or throws an exception, the user is an admin by default. This is obviously a security risk.
 
   - Don’t trust services
     - Many organizations utilize the processing capabilities of third-party partners, who more than likely have different security policies and posture than you. It is unlikely that you can influence or control any external third party, whether they are home users or major suppliers or partners.
@@ -63,7 +60,7 @@
   - Separation of duties
     - The key to fraud control is the separation of duties. For example, someone who requests a computer cannot also sign for it, nor should they directly receive the computer. This prevents the user from requesting many computers and claiming they never arrived.
     - Certain roles have different levels of trust than normal users. In particular, administrators are different from normal users. In general, administrators should not be users of the application.
-    - For example, an administrator should be able to turn the system on or off, set password policy but shouldn’t be able to log on to the storefront as a super privileged user, such as being able to “buy” goods on behalf of other users.
+    - For example, an administrator should be able to turn the system on or off, set password policy but shouldn't be able to log on to the storefront as a super privileged user, such as being able to "buy" goods on behalf of other users.
   - Avoid security by obscurity
     - Security through obscurity is a weak security control, and nearly always fails when it is the only control. This is not to say that keeping secrets is a bad idea, it simply means that the security of systems should not be reliant upon keeping details hidden.
     - For example, the security of an application should not rely upon knowledge of the source code being kept secret. The security should rely upon many other factors, including reasonable password policies, defence in depth, business transaction limits, solid network architecture, and fraud, and audit controls.
@@ -77,7 +74,7 @@
     - For example, a user has found that they can see another user’s balance by adjusting their cookie. The fix seems to be relatively straightforward, but as the cookie handling code is shared among all applications, a change to just one application will trickle through to all other applications. The fix must, therefore, be tested on all affected applications.
   - Reliability & Security
     - Reliability and security are both crucial components of a truly trustworthy system, but building systems that are both reliable and secure is difficult. While the requirements for reliability and security share many common properties, they also require different design considerations. It is easy to miss the subtle interplay between reliability and security that can cause unexpected outcomes
-    - Ex: A password management application failure was triggered by a reliability problem i.e poor load-balancing and load-shedding strategies and its recovery were later complicated by multiple measures (HSM mechanism which needs to be plugged into server racks, which works as an authentication & the HSM token supposedly locked inside a case.. & the problem can be further elongated ) designed to increase the security of the system.
+    - Ex: A password management application failure was triggered by a reliability problem i.e poor load-balancing and load-shedding strategies and its recovery were later complicated by multiple measures (HSM mechanism which needs to be plugged into server racks, which works as an authentication & the HSM token supposedly locked inside a case.. & the problem can be further elongated) designed to increase the security of the system.
 
 ---
 
@@ -99,7 +96,7 @@
 
 ***OpenID*** is an authentication protocol that allows us to authenticate users without using a local auth system. In such a scenario, a user has to be registered with an OpenID Provider and the same provider should be integrated with the authentication flow of your application. To verify the details, we have to forward the authentication requests to the provider. On successful authentication, we receive a success message and/or profile details with which we can execute the necessary flow.
 
-***OAuth*** is an authorization mechanism that allows your application user access to a provider(Gmail/Facebook/Instagram/etc). On successful response, we (your application) receive a token with which the application can access certain APIs on behalf of a user. OAuth is convenient in case your business use case requires some certain user-facing APIs like access to Google Drive or sending tweets on your behalf. Most OAuth 2.0 providers can be used for pseudo authentication. Having said that, it can get pretty complicated if you are using multiple OAuth providers to authenticate users on top of the local authentication system.
+***OAuth*** is an authorization mechanism that allows your application user access to a provider (Gmail/Facebook/Instagram/etc). On successful response, we (your application) receive a token with which the application can access certain APIs on behalf of a user. OAuth is convenient in case your business use case requires some certain user-facing APIs like access to Google Drive or sending tweets on your behalf. Most OAuth 2.0 providers can be used for pseudo authentication. Having said that, it can get pretty complicated if you are using multiple OAuth providers to authenticate users on top of the local authentication system.
 
 ---
 
@@ -129,13 +126,13 @@ D(k,E(k,m)) = m
 
 Stream Ciphers:
 
-- The message is broken into characters or bits and enciphered with a key or keystream(should be random and generated independently of the message stream) that is as long as the plaintext bitstream.
+- The message is broken into characters or bits and enciphered with a key or keystream (should be random and generated independently of the message stream) that is as long as the plaintext bitstream.
 - If the keystream is random, this scheme would be unbreakable unless the keystream was acquired, making it unconditionally secure. The keystream must be provided to both parties in a secure way to prevent its release.
 
 Block Ciphers:
 
-- Block ciphers — process messages in blocks, each of which is then encrypted or decrypted.
-- A block cipher is a symmetric cipher in which blocks of plaintext are treated as a whole and used to produce ciphertext blocks. The block cipher takes blocks that are b bits long and encrypts them to blocks that are also b bits long. Block sizes are typically 64 or 128 bits long. 
+- Block ciphers&mdash;process messages in blocks, each of which is then encrypted or decrypted.
+- A block cipher is a symmetric cipher in which blocks of plaintext are treated as a whole and used to produce ciphertext blocks. The block cipher takes blocks that are *b* bits long and encrypts them to blocks that are also *b* bits long. Block sizes are typically 64 or 128 bits long. 
 
     ![image5](images/image5.png)
     ![image6](images/image6.png)
@@ -143,7 +140,7 @@ Block Ciphers:
 Encryption
 
 - **Secret Key (Symmetric Key)**: the same key is used for encryption and decryption
-- **Public Key (Asymmetric Key)** in an asymmetric, the encryption and decryption keys are different but related. The encryption key is known as the public key and the decryption key is known as the private key. The public and private keys are known as a key pair.
+- **Public Key (Asymmetric Key)**: in an asymmetric, the encryption and decryption keys are different but related. The encryption key is known as the public key and the decryption key is known as the private key. The public and private keys are known as a key pair.
 
 Symmetric Key Encryption
 
@@ -181,7 +178,7 @@ Asymmetric Key Algorithm
 
 Diffie-Hellman
 
-- The protocol has two system parameters, p and g. They are both public and may be used by everybody. Parameter p is a prime number, and parameter g (usually called a generator) is an integer that is smaller than p, but with the following property: For every number n between 1 and p – 1 inclusive, there is a power k of g such that n = gk mod p.
+- The protocol has two system parameters, *p* and *g*. They are both public and may be used by everybody. Parameter *p* is a prime number, and parameter *g* (usually called a generator) is an integer that is smaller than *p*, but with the following property: For every number, *n* between 1 and p – 1 inclusive, there is a power *k* of *g* such that `n = gk mod p`.
 - Diffie Hellman algorithm is an asymmetric algorithm used to establish a shared secret for a symmetric key algorithm. Nowadays most of the people use hybrid cryptosystem i.e, a combination of symmetric and asymmetric encryption. Asymmetric Encryption is used as a technique in key exchange mechanism to share a secret key and after the key is shared between sender and receiver, the communication will take place using symmetric encryption. The shared secret key will be used to encrypt the communication.
 - Refer: <https://medium.com/@akhigbemmanuel/what-is-the-diffie-hellman-key-exchange-algorithm-84d60025a30d>
 
@@ -199,8 +196,8 @@ Hashing Algorithms
 - A hash function, which is a one-way function to input data to produce a fixed-length digest (fingerprint) of output data. The digest is cryptographically strong; that is, it is impossible to recover input data from its digest. If the input data changes just a little, the digest (fingerprint) changes substantially in what is called an avalanche effect.
 
 - More:
-  - <https://medium.com/@rauljordan/the-state-of-hashing-algorithms-the-why-the-how-and-the-future-b21d5c0440de>
-  - <https://medium.com/@StevieCEllis/the-beautiful-hash-algorithm-f18d9d2b84fb>
+    - <https://medium.com/@rauljordan/the-state-of-hashing-algorithms-the-why-the-how-and-the-future-b21d5c0440de>
+    - <https://medium.com/@StevieCEllis/the-beautiful-hash-algorithm-f18d9d2b84fb>
 
 MD5
 
@@ -269,6 +266,7 @@ The major features and guarantees of the SSH protocol are:
   - a server: Kerberos protected hosts reside
 
     ![image10](images/image10.png)
+    
   - a Key Distribution Center (KDC), which acts as the trusted third-party authentication service.
 
 The KDC includes the following two servers:
@@ -281,10 +279,10 @@ The KDC includes the following two servers:
 
 ### Certificate Chain
 
-The first part of the output of the OpenSSL command shows three certificates numbered 0, 1, and 2(not 2 anymore). Each certificate has a subject, s, and an issuer, i. The first certificate, number 0, is called the end-entity certificate. The subject line tells us it’s valid for any subdomain of google.com because its subject is set to *.google.com. 
+The first part of the output of the OpenSSL command shows three certificates numbered 0, 1, and 2 (not 2 anymore). Each certificate has a subject, *s*, and an issuer, *i*. The first certificate, number 0, is called the end-entity certificate. The subject line tells us it’s valid for any subdomain of `google.com` because its subject is set to `*.google.com`. 
 
-
-`$ openssl s_client -connect www.google.com:443 -CApath /etc/ssl/certs
+```shell
+$ openssl s_client -connect www.google.com:443 -CApath /etc/ssl/certs
 CONNECTED(00000005)
 depth=2 OU = GlobalSign Root CA - R2, O = GlobalSign, CN = GlobalSign
 verify return:1
@@ -298,8 +296,10 @@ Certificate chain
    i:/C=US/O=Google Trust Services/CN=GTS CA 1O1
  1 s:/C=US/O=Google Trust Services/CN=GTS CA 1O1
    i:/OU=GlobalSign Root CA - R2/O=GlobalSign/CN=GlobalSign
----`
-`Server certificate`
+---
+```
+
+**Server certificate**
 
 - The issuer line indicates it’s issued by Google Internet Authority G2, which also happens to be the subject of the second certificate, number 1
 - What the OpenSSL command line doesn’t show here is the trust store that contains the list of CA certificates trusted by the system OpenSSL runs on.
@@ -313,15 +313,15 @@ Certificate chain
 
 1. The client sends a HELLO message to the server with a list of protocols and algorithms it supports.
 2. The server says HELLO back and sends its chain of certificates. Based on the capabilities of the client, the server picks a cipher suite.
-3. If the cipher suite supports ephemeral key exchange, like ECDHE does(ECDHE is an algorithm known as the Elliptic Curve Diffie-Hellman Exchange), the server and the client negotiate a pre-master key with the Diffie-Hellman algorithm. The pre-master key is never sent over the wire.
+3. If the cipher suite supports ephemeral key exchange, like ECDHE does (ECDHE is an algorithm known as the Elliptic Curve Diffie-Hellman Exchange), the server and the client negotiate a pre-master key with the Diffie-Hellman algorithm. The pre-master key is never sent over the wire.
 4. The client and server create a session key that will be used to encrypt the data transiting through the connection.
 
-At the end of the handshake, both parties possess a secret session key used to encrypt data for the rest of the connection. This is what OpenSSL refers to as Master-Key
+At the end of the handshake, both parties possess a secret session key used to encrypt data for the rest of the connection. This is what OpenSSL refers to as Master-Key.
 
 **NOTE**
 
-- There are 3 versions of TLS , TLS 1.0, 1.1 & 1.2
-- TLS 1.0 was released in 1999, making it a nearly two-decade-old protocol. It has been known to be vulnerable to attacks—such as BEAST and POODLE—for years, in addition to supporting weak cryptography, which doesn’t keep modern-day connections sufficiently secure.
+- There are 3 versions of TLS, TLS 1.0, 1.1 & 1.2
+- TLS 1.0 was released in 1999, making it a nearly two-decade-old protocol. It has been known to be vulnerable to attacks&mdash;such as BEAST and POODLE&mdash;for years, in addition to supporting weak cryptography, which doesn’t keep modern-day connections sufficiently secure.
 - TLS 1.1 is the forgotten “middle child.” It also has bad cryptography like its younger sibling. In most software, it was leapfrogged by TLS 1.2 and it’s rare to see TLS 1.1 used.
 
 ### “Perfect” Forward Secrecy
@@ -331,4 +331,4 @@ At the end of the handshake, both parties possess a secret session key used to e
 - An ephemeral key exchange like DHE, or its variant on elliptic curve, ECDHE, solves this problem by not transmitting the pre-master key over the wire. Instead, the pre-master key is computed by both the client and the server in isolation, using nonsensitive information exchanged publicly. Because the pre-master key can’t be decrypted later by an attacker, the session key is safe from future attacks: hence, the term perfect forward secrecy.
 - Keys are changed every X blocks along the stream. That prevents an attacker from simply sniffing the stream and applying brute force to crack the whole thing. "Forward secrecy" means that just because I can decrypt block M, does not mean that I can decrypt block Q
 - Downside:
-  - The downside to PFS is that all those extra computational steps induce latency on the handshake and slow the user down. To avoid repeating this expensive work at every connection, both sides cache the session key for future use via a technique called session resumption. This is what the session-ID and TLS ticket are for: they allow a client and server that share a session ID to skip over the negotiation of a session key, because they already agreed on one previously, and go directly to exchanging data securely.
+    - The downside to PFS is that all those extra computational steps induce latency on the handshake and slow the user down. To avoid repeating this expensive work at every connection, both sides cache the session key for future use via a technique called session resumption. This is what the session-ID and TLS ticket are for: they allow a client and server that share a session ID to skip over the negotiation of a session key, because they already agreed on one previously, and go directly to exchanging data securely.

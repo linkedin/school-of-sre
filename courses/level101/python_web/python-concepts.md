@@ -1,12 +1,12 @@
 # Some Python Concepts
 
-Though you are expected to know python and its syntax at basic level, let us discuss some fundamental concepts that will help you understand the python language better.
+Though you are expected to know python and its syntax at basic level, let us discuss some fundamental concepts that will help you understand the Python language better.
 
 **Everything in Python is an object.**
 
-That includes the functions, lists, dicts, classes, modules, a running function (instance of function definition), everything. In the CPython, it would mean there is an underlying struct variable for each object.
+That includes the functions, lists, dicts, classes, modules, a running function (instance of function definition), everything. In the CPython, it would mean there is an underlying `struct` variable for each object.
 
-In python's current execution context, all the variables are stored in a dict. It'd be a string to object mapping. If you have a function and a float variable defined in the current context, here is how it is handled internally.
+In Python's current execution context, all the variables are stored in a dict. It'd be a string to object mapping. If you have a function and a float variable defined in the current context, here is how it is handled internally.
 
 ```python
 >>> float_number=42.0
@@ -35,7 +35,7 @@ Since functions too are objects, we can see what all attributes a function conta
 '__subclasshook__']
 ```
 
-While there are a lot of them, let's look at some interesting ones
+While there are a lot of them, let's look at some interesting ones.
 
 #### __globals__
 
@@ -53,7 +53,7 @@ This attribute, as the name suggests, has references of global variables. If you
 
 ### __code__
 
-This is an interesting one! As everything in python is an object, this includes the bytecode too. The compiled python bytecode is a python code object. Which is accessible via `__code__` attribute here. A function has an associated code object which carries some interesting information.
+This is an interesting one! As everything in Python is an object, this includes the bytecode too. The compiled Python bytecode is a Python code object. Which is accessible via `__code__` attribute here. A function has an associated code object which carries some interesting information.
 
 ```python
 # the file in which function is defined
@@ -74,11 +74,11 @@ This is an interesting one! As everything in python is an object, this includes 
 b't\x00d\x01|\x00\x9b\x00d\x02\x9d\x03\x83\x01\x01\x00d\x00S\x00'
 ```
 
-There are more code attributes which you can enlist by `>>> dir(hello.__code__)`
+There are more code attributes which you can enlist by `>>> dir(hello.__code__)`.
 
 ## Decorators
 
-Related to functions, python has another feature called decorators. Let's see how that works, keeping  `everything is an object` in mind.
+Related to functions, Python has another feature called decorators. Let's see how that works, keeping  `everything is an object` in mind.
 
 Here is a sample decorator:
 
@@ -115,7 +115,7 @@ What goes inside the `deco` function might seem complex. Let's try to uncover it
 1. Function `hello_world` is created
 2. It is passed to `deco` function
 3. `deco` create a new function
-      1. This new function is calls `hello_world` function
+      1. This new function calls `hello_world` function
       2. And does a couple other things
 4. `deco` returns the newly created function
 5. `hello_world` is replaced with above function
@@ -156,7 +156,7 @@ Note how the `hello_world` name points to a new function object but that new fun
 
 ## Some Gotchas
 
-- While it is very quick to build prototypes in python and there are tons of libraries available, as the codebase complexity increases, type errors become more common and will get hard to deal with. (There are solutions to that problem like type annotations in python. Checkout [mypy](http://mypy-lang.org/).)
-- Because python is dynamically typed language, that means all types are determined at runtime. And that makes python run very slow compared to other statically typed languages.
+- While it is very quick to build prototypes in Python and there are tons of libraries available, as the codebase complexity increases, type errors become more common and will get hard to deal with. (There are solutions to that problem like type annotations in Python. Checkout [mypy](http://mypy-lang.org/).)
+- Because Python is dynamically typed language, that means all types are determined at runtime. And that makes Python run very slow compared to other statically typed languages.
 - Python has something called [GIL](https://www.dabeaz.com/python/UnderstandingGIL.pdf) (global interpreter lock) which is a limiting factor for utilizing multiple CPU cores for parallel computation.
-- Some weird things that python does: https://github.com/satwikkansal/wtfpython
+- Some weird things that Python does: [https://github.com/satwikkansal/wtfpython](https://github.com/satwikkansal/wtfpython).

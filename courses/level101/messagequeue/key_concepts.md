@@ -1,6 +1,6 @@
 # Key Concepts
 
-Lets looks at some of the key concepts when we talk about messaging system
+Let's looks at some of the key concepts when we talk about messaging system
 
 
 ### Delivery guarantees			

@@ -9,7 +9,7 @@
 
 ## What to expect from this course
 
-The course covers fundamentals of information security along with touching on subjects of system security, network & web security. This course aims to get you familiar with the basics of information security in day to day operations & then as an SRE develop the mindset of ensuring that security takes a  front-seat while developing solutions. The course also serves as an introduction to common risks and best practices along with practical ways to find out vulnerable systems and loopholes which might become compromised if not secured.
+The course covers fundamentals of information security along with touching on subjects of system security, network & web security. This course aims to get you familiar with the basics of information security in day-to-day operations and then as an SRE develop the mindset of ensuring that security takes a front-seat while developing solutions. The course also serves as an introduction to common risks and best practices along with practical ways to find out vulnerable systems and loopholes which might become compromised if not secured.
 
 
 ## What is not covered under this course

@@ -32,7 +32,7 @@ The first and most important step in reducing security and reliability issues is
 
 ### Refactoring
 
-- Refactoring is the most effective way to keep a codebase clean and simple. Even a healthy codebase occasionally needs to be
+- Refactoring is the most effective way to keep a codebase clean and simple. Even a healthy codebase occasionally needs to be.
 - Regardless of the reasons behind refactoring, you should always follow one golden rule: never mix refactoring and functional changes in a single commit to the code repository. Refactoring changes are typically significant and can be difficult to understand.
 - If a commit also includes functional changes, there’s a higher risk that an author or reviewer might overlook bugs.
 
@@ -42,11 +42,11 @@ The first and most important step in reducing security and reliability issues is
 
 ### Fuzz Testing
 
-- Fuzz testing is a technique that complements the previously mentioned testing techniques. Fuzzing involves using a fuzzing engine to generate a large number of candidate inputs that are then passed through a fuzz driver to the fuzz target. The fuzzer then analyzes how the system handles the input. Complex inputs handled by all kinds of software are popular targets for fuzzing - for example, file parsers, compression algorithms, network protocol implementation and audio codec.
+- Fuzz testing is a technique that complements the previously mentioned testing techniques. Fuzzing involves using a fuzzing engine to generate a large number of candidate inputs that are then passed through a fuzz driver to the fuzz target. The fuzzer then analyzes how the system handles the input. Complex inputs handled by all kinds of software are popular targets for fuzzing&mdash;for example, file parsers, compression algorithms, network protocol implementation and audio codec.
 
 ### Integration Testing
 
-- Integration testing moves beyond individual units and abstractions, replacing fake or stubbed-out implementations of abstractions like databases or network services with real implementations. As a result, integration tests exercise more complete code paths. Because you must initialize and configure these other dependencies, integration testing may be slower and flakier than unit testing—to execute the test, this approach incorporates real-world variables like network latency as services communicate end-to-end. As you move from testing individual low-level units of code to testing how they interact when composed together, the net result is a higher degree of confidence that the system is behaving as expected.
+- Integration testing moves beyond individual units and abstractions, replacing fake or stubbed-out implementations of abstractions like databases or network services with real implementations. As a result, integration tests exercise more complete code paths. Because you must initialize and configure these other dependencies, integration testing may be slower and flakier than unit testing&mdash;to execute the test, this approach incorporates real-world variables like network latency as services communicate end-to-end. As you move from testing individual low-level units of code to testing how they interact when composed together, the net result is a higher degree of confidence that the system is behaving as expected.
 
 ### Last But not the least
 

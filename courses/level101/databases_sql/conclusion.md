@@ -1,5 +1,5 @@
 # Conclusion
-We have covered basic concepts of SQL databases. We have also covered some of the tasks that an SRE may be responsible for - there is so much more to learn and do. We hope this course gives you a good start and inspires you to explore further.
+We have covered basic concepts of SQL databases. We have also covered some of the tasks that an SRE may be responsible for&mdash;there is so much more to learn and do. We hope this course gives you a good start and inspires you to explore further.
 
 
 ### Further reading

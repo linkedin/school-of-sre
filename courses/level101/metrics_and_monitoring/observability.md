@@ -3,7 +3,7 @@
 # Observability
 
 Engineers often use observability when referring to building reliable
-systems. *Observability* is a term derived from control theory, It is a
+systems. *Observability* is a term derived from control theory, it is a
 measure of how well internal states of a system can be inferred from
 knowledge of its external outputs. Service infrastructures used on a
 daily basis are becoming more and more complex; proactive monitoring
@@ -82,7 +82,7 @@ Figure 10 shows a log processing platform using ELK (Elasticsearch,
 Logstash, Kibana), which provides centralized log processing. Beats is a
 collection of lightweight data shippers that can ship logs, audit data,
 network data, and so on over the network. In this use case specifically,
-we are using filebeat as a log shipper. Filebeat watches service log
+we are using Filebeat as a log shipper. Filebeat watches service log
 files and ships the log data to Logstash. Logstash parses these logs and
 transforms the data, preparing it to store on Elasticsearch. Transformed
 log data is stored on Elasticsearch and indexed for fast retrieval.
