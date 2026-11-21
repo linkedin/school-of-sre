@@ -36,7 +36,7 @@ The functionalities of OSI layers are briefly described as follows:
   - Store and manage public-key certificates.
   - Prevent digital signature signers from denying their signatures.
   - Support CA networks to allow different CAs to authenticate public-key certificates issued by other CAs.
-  - X.509: <https://certificatedecoder.dev/?gclid=EAIaIQobChMI0M731O6G6gIVVSQrCh04bQaAEAAYASAAEgKRkPD_BwE>
+  - X.509 is the standard format for public-key certificates ([RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280)). To see what a certificate contains, run `openssl x509 -in cert.pem -noout -text`, or paste it into an online decoder such as [certificatedecoder.dev](https://certificatedecoder.dev/) or [certdecoder.com](https://certdecoder.com/).
 
 ### IPsec: A Security Protocol at the Network Layer
 
